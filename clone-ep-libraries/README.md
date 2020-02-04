@@ -4,10 +4,11 @@ Easily clone the official EasyPost libraries. Great for new machines and new emp
 
 ## Usage
 
-Run the script and specify where you'd like the libraries saved (relative to your home folder)
+Run the script and specify where you'd like the libraries saved (relative to your home folder):
+
+**Example location:** `git/easypost/libraries == ~/git/easypost/libraries`
 
 ```bash
-./clone-ep-libraries
-
-# EG location: git/easypost/libraries == ~/git/easypost/libraries
+# Provide the script with a location when prompted
+./clone-ep-libraries.sh
 ```
