@@ -1,9 +1,7 @@
-# Clone the EasyPost Libraries
+# EasyPost Tools
 
-Easily clone the official EasyPost libraries. Great for new machines and new employees.
+Repo for all my personal EasyPost API tools.
 
-## Usage
+### Clone EP Libraries
 
-```bash
-./clone-ep-libraries
-```
+Easily clone all the officially supported EasyPost API libraries.
