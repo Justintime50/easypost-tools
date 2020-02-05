@@ -1,4 +1,4 @@
-# Clone the EasyPost Libraries
+# Get the EasyPost Client Libraries
 
 Easily clone or pull the official EasyPost libraries.
 

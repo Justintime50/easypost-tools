@@ -7,6 +7,8 @@ const api = new Easypost(process.env.EASYPOST_TEST_API_KEY);
 
 // Assign JSON data to variable
 const data = (
+
+// ENTER JSON DATA BELOW
 //===============================================================//
 
     {
@@ -216,9 +218,9 @@ const data = (
         "fees": [],
         "id": "shp_927f7519269d4b8db460ea0d1cbeff01"
       }
-);
 
 //===============================================================//
+);
 
 // Get rid of all the things
 delete data.to_address.id

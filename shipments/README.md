@@ -2,26 +2,6 @@
 
 All our libraries support creating shipments, housed here are simple scripts to create a shipment in each language.
 
-## Install
-
-Install EasyPost for all libraries
-
-```bash
-# Install Python deps
-pip3 install python-dotenv
-pip3 install easypost
-
-# Install Node deps
-npm install dotenv
-npm i @easypost/api
-
-# Install Ruby deps
-gem install easypost
-
-# Install Java deps
-mvn package
-```
-
 ## Usage
 
 ### Node
