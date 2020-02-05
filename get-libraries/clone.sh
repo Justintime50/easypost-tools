@@ -1,11 +1,12 @@
 #!/bin/bash
 
-echo -e "Type where you'd like your repos cloned (relative to your home folder)\nEG: git/easypost/libraries"
-read -r LOCATION
+# shellcheck disable=SC1090
+source "${BASH_SOURCE%/*}/.env"
+
+# clone the EasyPost repos to the location specified
 cd || exit
 mkdir -p "$LOCATION"
 cd "$LOCATION" || exit
-
 echo "Cloning EasyPost libraries..."
 
 git clone https://github.com/EasyPost/easypost-php.git

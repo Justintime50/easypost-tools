@@ -2,6 +2,10 @@
 
 Repo for all my personal EasyPost API tools.
 
-### Clone EP Libraries
+### Shipments
 
-Easily clone all the officially supported EasyPost API libraries.
+Easily create shipments with all our supported client libraries and languages. View [README](/shipments/README.md).
+
+### Get Libraries
+
+Easily clone or pull all the officially supported EasyPost API libraries. View [README](/get-libraries/README.md).
