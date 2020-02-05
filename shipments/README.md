@@ -17,6 +17,9 @@ npm i @easypost/api
 
 # Install Ruby deps
 gem install easypost
+
+# Install Java deps
+mvn package
 ```
 
 ## Usage
@@ -45,4 +48,16 @@ Ensure that the Ruby file is executable before running.
 
 ```bash
 ./create-shipment.rb
+```
+
+### Curl
+
+```bash
+./create-shipment.sh
+```
+
+### Java
+
+```bash
+./create-shipment.java
 ```

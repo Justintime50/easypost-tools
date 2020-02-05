@@ -2,6 +2,8 @@
 require 'easypost'
 EasyPost.api_key = ""
 
+starting = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+
 =begin
 to_address = EasyPost::Address.create(...)
 from_address = EasyPost::Address.create(...)
@@ -50,3 +52,6 @@ shipment = EasyPost::Shipment.create(
 )
 
 puts shipment
+ending = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+elapsed = ending - starting
+puts "Execution time: #{elapsed}" 

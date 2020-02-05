@@ -1,7 +1,7 @@
 const Easypost = require('@easypost/api');
 const dotenv = require('dotenv');
 
-dotenv.config();
+dotenv.config({ path: '../.env' });
 const api = new Easypost(process.env.EASYPOST_TEST_API_KEY);
 
 var hrstart = process.hrtime(); // TODO: Fix benchmark timing
