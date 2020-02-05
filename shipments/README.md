@@ -12,7 +12,11 @@ pip3 install python-dotenv
 pip3 install easypost
 
 # Install Node deps
-npm i easypost
+npm install dotenv
+npm i @easypost/api
+
+# Install Ruby deps
+gem install easypost
 ```
 
 ## Usage
@@ -33,4 +37,12 @@ php create-shipment.php
 
 ```bash
 python3 create-shipment.py
+```
+
+### Ruby
+
+Ensure that the Ruby file is executable before running.
+
+```bash
+./create-shipment.rb
 ```

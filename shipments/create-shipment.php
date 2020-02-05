@@ -1,6 +1,6 @@
 <?php
 
-require_once("../libraries/easypost-php/lib/easypost.php");
+require_once("../../libraries/easypost-php/lib/easypost.php");
 \EasyPost\EasyPost::setApiKey(""); # TODO: Change to environment variable
 
 /*
