@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # shellcheck disable=SC1090
-source "${BASH_SOURCE%/*}/.env"
+source "${BASH_SOURCE%/*}/.config"
 
 # clone the EasyPost repos to the location specified
 cd || exit

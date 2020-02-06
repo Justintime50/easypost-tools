@@ -1,10 +1,16 @@
-# EasyPost Tools
+# EasyPost API Tools
 
-Repo for all my personal EasyPost API tools.
+My personal EasyPost API tools.
 
 ## Install
 
-Install EasyPost for all libraries
+Install EasyPost Tools:
+
+```bash
+./install.sh
+```
+
+### Manual Install
 
 ```bash
 # Install libraries
@@ -22,7 +28,8 @@ npm i @easypost/api
 gem install easypost
 
 # Install Java deps
-mvn package
+
+# Install C# deps
 ```
 
 ### Get Libraries

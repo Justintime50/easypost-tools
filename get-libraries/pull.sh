@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # shellcheck disable=SC1090
-source "${BASH_SOURCE%/*}/.env"
+source "${BASH_SOURCE%/*}/.config"
 
 # Pull any changes from each repo in the archive if enabled
 echo -e "Pulling existing repos..."

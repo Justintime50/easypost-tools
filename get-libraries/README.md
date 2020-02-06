@@ -6,7 +6,7 @@ Using the `clone.sh` script is great for a new machine or employee. Using the `p
 
 ## Usage
 
-Edit the `LOCATION` variable in the `.env` file and run the script.
+Edit the `LOCATION` variable in the `.config` file and run the script.
 
 ### Cloning Libraries
 
