@@ -49,8 +49,8 @@ const shipment = new api.Shipment({
   options: {
     //address_validation_level: 1,
     alcohol: true,
-    label_format: "PNG",
-    print_custom_1: "Here is a custom string on a label!",
+    //label_format: "PNG",
+    //print_custom_1: "Here is a custom string on a label!",
     //hazmat: "LITHIUM",
   }
 });

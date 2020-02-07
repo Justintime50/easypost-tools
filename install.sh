@@ -17,5 +17,7 @@ npm install @easypost/api
 gem install easypost
 
 # Install Java deps
+# https://twiki.easypo.net/do/view/APISupport/JavaSetupOnMac
+# https://stackoverflow.com/questions/1675765/adding-to-the-classpath-on-osx/11304846#11304846
 
 # Install C# deps
