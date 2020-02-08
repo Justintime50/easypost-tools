@@ -15,7 +15,7 @@ public class createShipment {
 
     public static void main(String[] args) {
 
-        EasyPost.apiKey = "EZTKf6f0be77c66748fa9fe8baec53481711odfxMt0iPBeLdVfNN0baXw";
+        EasyPost.apiKey = ""; // TODO: .env file here
 
         Map<String, Object> toAddressMap = new HashMap<String, Object>();
         toAddressMap.put("name", "Maggie Simpson");
