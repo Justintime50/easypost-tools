@@ -1,6 +1,6 @@
 #!/usr/local/opt/ruby/bin/ruby
 require 'easypost'
-EasyPost.api_key = ""
+EasyPost.api_key = "" # TODO: .env file here
 
 starting = Process.clock_gettime(Process::CLOCK_MONOTONIC)
 

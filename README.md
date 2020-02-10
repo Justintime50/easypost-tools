@@ -10,6 +10,12 @@ Install EasyPost Tools:
 ./install.sh
 ```
 
+Setup environment file with API keys:
+
+```bash
+cp .env.example .env
+```
+
 ### Manual Install
 
 ```bash
