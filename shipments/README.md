@@ -6,8 +6,9 @@ All our libraries support creating shipments, housed here are simple scripts to 
 
 ### C#
 
+C# requires a lot of setup, see installation before running.
+
 ```bash
-# Run this from the project directory
 dotnet run
 ```
 

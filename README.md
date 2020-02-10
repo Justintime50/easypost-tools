@@ -44,8 +44,8 @@ brew install maven
 </plugin> 
 
 # Install C# deps
-brew cask install dotnet
-dotnet new console # from project folder
+brew cask install dotnet-sdk
+dotnet new console # initialize project from project folder
 dotnet add package EasyPost-Official
 dotnet add package Newtonsoft.Json --version 12.0.3
 ```
@@ -65,6 +65,14 @@ Interact with the `Parcels` endpoint. View [README](/parcels/README.md).
 ### Playground
 
 Mess with experimental scripts. View [README](/playground/README.md).
+
+### Pretty
+
+Take unformatted JSON and prettify it. Enter your JSON and run the following:
+
+```bash
+node prettify.js
+```
 
 ### Recreate
 
