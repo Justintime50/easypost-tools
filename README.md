@@ -2,6 +2,8 @@
 
 My personal EasyPost API tools.
 
+All tools are intended to be used with .env files where possible.
+
 ## Install
 
 Install EasyPost Tools:
@@ -18,9 +20,29 @@ cp .env.example .env
 
 ### Manual Install
 
+Install all supported languages:
+
+```bash
+brew install node # installs npm as a part of this
+brew install ruby
+brew install php
+# brew install python # PHP already installs Python3 as a dependency
+brew install go
+brew cask install adoptopenjdk # must come before maven, will require an admin password to install
+brew install maven
+brew cask install dotnet-sdk
+```
+
+Install project dependencies:
+
 ```bash
 # Install libraries
 ./get-libraries/clone.sh
+
+# Install PHP deps
+composer require vlucas/phpdotenv
+composer require easypost/easypost-php
+# Change the autoload dir in the composer.json file in the vendor folder for the phpdotenv project
 
 # Install Python deps
 pip3 install python-dotenv
@@ -31,6 +53,7 @@ npm install dotenv
 npm i @easypost/api
 
 # Install Ruby deps
+gem install dotenv
 gem install easypost
 
 # Install Java deps

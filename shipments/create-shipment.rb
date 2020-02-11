@@ -1,6 +1,10 @@
 #!/usr/local/opt/ruby/bin/ruby
 require 'easypost'
-EasyPost.api_key = "" # TODO: .env file here
+require 'json'
+# require 'dotenv'
+
+# Dotenv.load('../.env')
+EasyPost.api_key = "" # ENV['EASYPOST_PROD_API_KEY']"" # TODO: .env file here
 
 starting = Process.clock_gettime(Process::CLOCK_MONOTONIC)
 
@@ -49,9 +53,20 @@ shipment = EasyPost::Shipment.create(
     weight: 65.9
   },
   # customs_info: customs_info
+=begin
+  options: {
+    payment: {
+      type: "THIRD_PARTY",
+      account: "ca_3bd616120603457fbed9deb1e425bbdc",
+      country: "US",
+      postal_code: "84057"
+    }
+  }
+=end
 )
 
 puts shipment
+# puts JSON.pretty_generate(JSON.parse(shipment))
 ending = Process.clock_gettime(Process::CLOCK_MONOTONIC)
 elapsed = ending - starting
 puts "Execution time: #{elapsed}" 

@@ -1,0 +1,6 @@
+{
+    "require": {
+        "vlucas/phpdotenv": "^4.1",
+        "easypost/easypost-php": "^3.4"
+    }
+}

@@ -48,10 +48,16 @@ const shipment = new api.Shipment({
   },
   options: {
     //address_validation_level: 1,
-    alcohol: true,
+    //alcohol: true,
     //label_format: "PNG",
     //print_custom_1: "Here is a custom string on a label!",
     //hazmat: "LITHIUM",
+    /*payment: {
+      type: "THIRD_PARTY",
+      account: "ca_3bd616120603457fbed9deb1e425bbdc",
+      country: "US",
+      postal_code: "84057"
+    }*/
   }
 });
 

@@ -1,7 +1,13 @@
 <?php
+require_once("../vendor/autoload.php");
+use \EasyPost\EasyPost;
+use \EasyPost\Shipment;
+use \Dotenv\Dotenv;
 
-require_once("../../libraries/easypost-php/lib/easypost.php");
-\EasyPost\EasyPost::setApiKey(""); # TODO: Change to environment variable
+// API Key
+$dotenv = Dotenv::createImmutable(__DIR__, "../.env");
+$dotenv->load();
+EasyPost::setApiKey(getenv("EASYPOST_PROD_API_KEY"));
 
 /*
 $to_address = \EasyPost\Address::create(...);
@@ -19,7 +25,7 @@ $shipment = \EasyPost\Shipment::create(array(
 
 // OR in one call
 
-$shipment = \EasyPost\Shipment::create(array(
+$shipment = Shipment::create(array(
   "to_address" => array(
     'name' => 'Dr. Steve Brule',
     'street1' => '179 N Harbor Dr',

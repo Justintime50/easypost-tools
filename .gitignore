@@ -4,3 +4,4 @@ libraries
 node_modules
 .env
 *.log
+vendor
