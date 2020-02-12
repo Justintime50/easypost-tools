@@ -79,6 +79,8 @@ dotnet add package EasyPost-Official
 dotnet add package Newtonsoft.Json --version 12.0.3
 ```
 
+## Tools
+
 ### Addresses
 
 Interact with the `Addresses` endpoint. View [README](/addresses/README.md).
@@ -114,3 +116,9 @@ A collection of shell scripts helpful for EasyPost API troubleshooting. View [RE
 ### Shipments
 
 Easily create shipments with all our supported client libraries and languages. View [README](/shipments/README.md).
+
+## Other Tools
+
+### Dummy Address Data
+
+There is a library which has thousands of dummy verified addresses. View the project [here](https://github.com/EthanRBrown/rrad).
