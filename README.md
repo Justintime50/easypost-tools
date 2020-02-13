@@ -55,6 +55,7 @@ npm i @easypost/api
 # Install Ruby deps
 gem install dotenv
 gem install easypost
+gem install awesome_print
 
 # Install Java deps
 # https://twiki.easypo.net/do/view/APISupport/JavaSetupOnMac
@@ -73,6 +74,7 @@ brew install maven
 </plugin> 
 
 # Install C# deps
+# https://twiki.easypo.net/do/view/APISupport/CSharpNETCoreOnMac
 brew cask install dotnet-sdk
 dotnet new console # initialize project from project folder
 dotnet add package EasyPost-Official

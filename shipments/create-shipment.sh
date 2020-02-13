@@ -25,3 +25,4 @@ curl -X POST https://api.easypost.com/v2/shipments \
   -d 'shipment[parcel][width]=10.9' \
   -d 'shipment[parcel][height]=5' \
   -d 'shipment[parcel][weight]=65.9' \
+  | json_pp 

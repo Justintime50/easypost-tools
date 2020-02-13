@@ -52,7 +52,10 @@ $shipment = Shipment::create(array(
     "width" => 10.9,
     "height" => 5,
     "weight" => 65.9
-  )
+  ),
+  //"options" => array(
+    //"alcohol" => true,
+  //)
 ));
 
 echo $shipment;

@@ -11,14 +11,14 @@ import com.easypost.model.CustomsItem;
 import com.easypost.model.CustomsInfo;
 import com.easypost.model.Shipment;
 
-//import io.github.cdimascio.dotenv.Dotenv;
+import io.github.cdimascio.dotenv.Dotenv;
 
 public class createShipment {
 
     public static void main(String[] args) {
 
-        //Dotenv dotenv = Dotenv.load();
-        EasyPost.apiKey = ""; //dotenv.get("EASYPOST_PROD_API_KEY"); // TODO: .env file here
+        Dotenv dotenv = Dotenv.load();
+        EasyPost.apiKey = dotenv.get("EASYPOST_PROD_API_KEY"); // TODO: .env file here
 
         Map<String, Object> toAddressMap = new HashMap<String, Object>();
         toAddressMap.put("name", "Maggie Simpson");

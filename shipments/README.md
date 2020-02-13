@@ -18,7 +18,7 @@ Java is a terrible language, don't use it. If you must use it, tell it where the
 
 ```bash
 # Optional: https://stackoverflow.com/questions/1675765/adding-to-the-classpath-on-osx/11304846#11304846
-java -cp ../jars/easypost-api-client-4.0.1.jar:../jars/gson-2.8.5.jar:../jars/java-dotenv-5.1.3.jar create-shipment.java
+java -cp ../jars/java-dotenv-5.1.3.jar:../jars/easypost-api-client-4.0.1.jar:../jars/gson-2.8.5.jar create-shipment.java
 ```
 
 ### Node
