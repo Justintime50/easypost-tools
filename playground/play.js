@@ -18,7 +18,7 @@ const customsInfo = new api.CustomsInfo({ ... });
 
 const shipment = new api.Shipment({
 to_address: {
-    verify: ['delivery'],
+    //verify: ['delivery'],
     name: 'Dr. Steve Brule',
     street1: '179 N Harbor Dr',
     city: 'Redondo Beach',
@@ -28,6 +28,7 @@ to_address: {
     phone: '3331114444',
     email: 'dr_steve_brule@gmail.com',
 },
+/*
 from_address: {
     verify: ['delivery'],
     name: 'EasyPost',
@@ -40,6 +41,19 @@ from_address: {
     phone: '3331114444',
     email: 'support@easypost.com',
 },
+*/
+from_address: {
+    //verify: ['delivery'],
+    //name: 'Test',
+    street1: '95 Yong An Road',
+    //street2: '5th Floor',
+    city: 'Beijing',
+    //state: 'CH',
+    zip: '100050',
+    country: 'CH',
+    //phone: '3331114444',
+    //email: 'support@easypost.com',
+},
 parcel: {
     length: 20.2,
     width: 10.9,
@@ -48,7 +62,7 @@ parcel: {
 },
 options: {
     //address_validation_level: 1,
-    alcohol: true,
+    //alcohol: true,
     //label_format: "PNG",
     //print_custom_1: "Here is a custom string on a label!",
     //hazmat: "LITHIUM",
@@ -58,8 +72,9 @@ options: {
     country: "US",
     postal_code: "84057"
     }*/
+    //special_rates_eligibility: "USPS.MEDIAMAIL",
 },
-carrier_accounts: [process.env.FEDEX],
+carrier_accounts: [process.env.DPD],
 });
 
 

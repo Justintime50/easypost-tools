@@ -2,14 +2,14 @@ const Easypost = require('@easypost/api');
 const dotenv = require('dotenv');
 
 dotenv.config({ path: '../.env' });
-const api = new Easypost(process.env.EASYPOST_TEST_API_KEY);
+const api = new Easypost(process.env.EASYPOST_PROD_API_KEY);
 
 var hrstart = process.hrtime(); // TODO: Fix benchmark timing
 
 /* Either objects or ids can be passed in. If the object does
  * not have an id, it will be created. */
 
-
+/*
 const toAddress = new api.Address({ 'id': 'adr_d739b50e314e48e09c3aab05b4179893' });
 const fromAddress = new api.Address({ 'id': 'adr_d739b50e314e48e09c3aab05b4179893' });
 const parcel = new api.Parcel({ 'id': 'prcl_76800e31b2c74a408c1132d19f19014a' });
@@ -19,13 +19,14 @@ const shipment = new api.Shipment({
   to_address: toAddress,
   from_address: fromAddress,
   parcel: parcel,
-  options: {
-    alcohol: true,
-  }
+  //options: {
+  //  alcohol: true,
+  //},
   //customs_info: customsInfo
+  carrier_accounts: [process.env.DPD],
 });
+*/
 
-/*
 const shipment = new api.Shipment({
   to_address: {
     name: 'Dr. Steve Brule',
@@ -53,9 +54,13 @@ const shipment = new api.Shipment({
     width: 10.9,
     height: 5,
     weight: 65.9
-  }
+  },
+  //options: {
+  //},
+  //reference: "PO:40657  Inv:20-0160-1\rPO:40657  Inv:20-0160-1",
+  carrier_accounts: [process.env.FEDEX],
 });
-*/
+
 
 shipment.save().then(console.log);
 var hrend = process.hrtime(hrstart); // TODO: Fix benchmark timing
