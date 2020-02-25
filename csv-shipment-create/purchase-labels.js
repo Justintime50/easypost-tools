@@ -5,19 +5,16 @@ const fs = require('fs');
 // EasyPost API Key
 const api = new Easypost("");
 
-// Pull data from file
-parsedData = fs.readFileSync('test.txt', (err, data) => {
-    if (err) {
-      console.error(err);
-      return
-    }
-})
+// Dump data from the output of `parse-csv.js` here
+let data = [ 
+    // Place data here
+];
 
 // Init iterator
 let row = 0;
 
 // Setup Batch object
-batch = new api.Batch();
+const batch = new api.Batch();
 batch.save().then(function (response) {
     console.log(response.id);
     console.log("//===============================================================//");
@@ -27,21 +24,21 @@ batch.save().then(function (response) {
 function asyncShipmentCalls() {
 
     // When we run out of data, stop the script
-    if (!parsedData[row]) {
+    if (!data[row]) {
         api.Batch.retrieve(batch.id).then(b => {
             b.generateLabel('ZPL').then(console.log).catch(console.log);
-          }).catch(console.log);
-          // TODO: Add a webhook to notify when the batch label is complete
+        }).catch(console.log);
+        console.log("//===============================================================//");
         console.log("Script complete!");
         return
     }
 
     // Iterate each row here grabbing ID's
     console.log("//===============================================================//");
-    const toAddress = parsedData[row].toAddress;
-    const fromAddress = parsedData[row].fromAddress;
-    const parcel = parsedData[row].parcel;
-    // const customsInfo = parsedData[row].customsInfo;
+    const toAddress = data[row].toAddress;
+    const fromAddress = data[row].fromAddress;
+    const parcel = data[row].parcel;
+    // const customsInfo = data[row].customsInfo;
 
     // Build a shipment for each row
     const shipment = new api.Shipment({
@@ -59,17 +56,21 @@ function asyncShipmentCalls() {
 
     // Save the shipment
     shipment.save().then(function (response) {
-        console.log("Shipment #" + row)
+        row++;
+        console.log("Shipment #" + row);
         console.log(response.id + "\n", response.postage_label.label_url);
-        row++
         batch.addShipment(response.id).then(console.log("Shipment batched")).catch(console.log); // Add shipment to batch
 
         // Output new shipment ID's to a CSV
         fs.appendFileSync("output.csv", response.id + ",\n");
 
-        asyncShipmentCalls(); // call the function again
-    }).catch(console.log);
-
+        // Start the loop again
+        asyncShipmentCalls();
+    }).catch(function (response) {
+        row++;
+        console.log(response);
+        asyncShipmentCalls();
+     })
 }
 
 // Initial call of funtion
