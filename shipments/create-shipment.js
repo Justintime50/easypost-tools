@@ -57,8 +57,8 @@ const shipment = new api.Shipment({
   },
   //options: {
   //},
-  //reference: "PO:40657  Inv:20-0160-1\rPO:40657  Inv:20-0160-1",
-  carrier_accounts: [process.env.DHL_EXPRESS],
+  //reference: "test",
+  carrier_accounts: [process.env.UPS],
 });
 
 
