@@ -1,9 +1,9 @@
 #!/bin/bash
 
-source ../.env
+source ../../.env
 
 curl -X POST https://api.easypost.com/v2/shipments \
-  -u "$EASYPOST_TEST_API_KEY": \
+  -u "$EASYPOST_PROD_API_KEY": \
   -d 'shipment[to_address][name]=Dr. Steve Brule' \
   -d 'shipment[to_address][street1]=179 N Harbor Dr' \
   -d 'shipment[to_address][city]=Redondo Beach' \

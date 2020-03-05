@@ -6,7 +6,7 @@ import os
 # Setup
 start_time = time.time()
 load_dotenv()
-easypost.api_key = os.getenv("EASYPOST_TEST_API_KEY")
+easypost.api_key = os.getenv("EASYPOST_PROD_API_KEY")
 
 """
 to_address = easypost.Address.create(...)

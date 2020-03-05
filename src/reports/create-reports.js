@@ -5,8 +5,8 @@ dotenv.config({ path: '/Users/jhammond/git/easypost/easypost-tools/.env' });
 const api = new Easypost(process.env.EASYPOST_PROD_API_KEY);
 
 // Setup timeframe for each report (Must be less than 31 days between start/end)
-startDate = "2020-02-01";
-endDate = "2020-02-31";
+startDate = "2019-08-01";
+endDate = "2019-08-24";
 
 // Create Payment Log Report
 const paymentLogReport = new api.Report({
@@ -14,7 +14,7 @@ const paymentLogReport = new api.Report({
     start_date: startDate,
     end_date: endDate
 });
-paymentLogReport.save().then(console.log);
+paymentLogReport.save().then(console.log).catch(console.log);
 
 // Create Refund Report
 const refundReport = new api.Report({
@@ -22,7 +22,7 @@ const refundReport = new api.Report({
     start_date: startDate,
     end_date: endDate
 });
-refundReport.save().then(console.log);
+refundReport.save().then(console.log).catch(console.log);
 
 // Create Shipment Report
 const shipmentReport = new api.Report({
@@ -30,7 +30,7 @@ const shipmentReport = new api.Report({
     start_date: startDate,
     end_date: endDate
 });
-shipmentReport.save().then(console.log);
+shipmentReport.save().then(console.log).catch(console.log);
 
 // Create Tracker Report
 const trackerReport = new api.Report({
@@ -38,4 +38,4 @@ const trackerReport = new api.Report({
     start_date: startDate,
     end_date: endDate
 });
-trackerReport.save().then(console.log);
+trackerReport.save().then(console.log).catch(console.log);
