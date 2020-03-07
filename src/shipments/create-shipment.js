@@ -29,14 +29,15 @@ const shipment = new api.Shipment({
 
 const shipment = new api.Shipment({
   to_address: {
-    name: 'Dr. Steve Brule',
-    street1: '179 N Harbor Dr',
-    city: 'Redondo Beach',
-    state: 'CA',
-    zip: '90277',
+    name: 'TAKASHI KOVACS',
+    street1: '2889 W ASHTON BLVD',
+    street2: 'SUITE 325',
+    city: 'Lehi',
+    state: 'UT',
+    zip: '84042',
     country: 'US',
     phone: '3331114444',
-    email: 'dr_steve_brule@gmail.com'
+    email: 'email@email.com'
   },
   from_address: {
     name: 'EasyPost',

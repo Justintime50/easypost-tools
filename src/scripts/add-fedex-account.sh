@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Add a FedEx carrier account to your EasyPost account
+# Add a FedEx carrier account to your EasyPost account (US & CA accounts only!)
 
 source ../../.env
 
