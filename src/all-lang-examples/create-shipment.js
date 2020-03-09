@@ -2,7 +2,7 @@ const Easypost = require('@easypost/api');
 const dotenv = require('dotenv');
 
 dotenv.config({ path: '/Users/jhammond/git/easypost/easypost-tools/.env' });
-const api = new Easypost(process.env.EASYPOST_PROD_API_KEY);
+const api = new Easypost(process.env.EASYPOST_TEST_API_KEY);
 
 var hrstart = process.hrtime(); // TODO: Fix benchmark timing
 
@@ -59,7 +59,7 @@ const shipment = new api.Shipment({
   //options: {
   //},
   //reference: "test",
-  carrier_accounts: [process.env.UPS],
+  carrier_accounts: [process.env.LSO],
 });
 
 
