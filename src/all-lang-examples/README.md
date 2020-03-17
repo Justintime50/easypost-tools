@@ -12,6 +12,12 @@ C# requires a lot of setup, see installation before running.
 dotnet run
 ```
 
+### Go
+
+```bash
+EASYPOST_API_KEY=<KEY HERE> go run create-shipment.go
+```
+
 ### Java
 
 Java is a terrible language, don't use it. If you must use it, tell it where the JAR files are and run the script:

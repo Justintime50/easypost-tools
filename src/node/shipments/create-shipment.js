@@ -2,7 +2,7 @@ const Easypost = require('@easypost/api');
 const dotenv = require('dotenv');
 
 dotenv.config({ path: '/Users/jhammond/git/easypost/easypost-tools/.env' });
-const api = new Easypost(process.env.EASYPOST_TEST_API_KEY);
+const api = new Easypost(process.env.EASYPOST_PROD_API_KEY);
 
 var hrstart = process.hrtime(); // TODO: Fix benchmark timing
 
@@ -36,8 +36,8 @@ const shipment = new api.Shipment({
     state: 'UT',
     zip: '84042',
     country: 'US',
-    phone: '3331114444',
-    email: 'email@email.com'
+    // phone: '3331114444',
+    // email: 'email@email.com'
   },
   from_address: {
     name: 'EasyPost',
@@ -47,20 +47,36 @@ const shipment = new api.Shipment({
     state: 'CA',
     zip: '94104',
     country: 'US',
-    phone: '3331114444',
-    email: 'support@easypost.com'
+    // phone: '3331114444',
+    // email: 'support@easypost.com'
   },
   parcel: {
-    length: 20.2,
-    width: 10.9,
-    height: 5,
-    weight: 65.9
+    length: 7.31,
+    width: 7.31,
+    height: 1.75,
+    weight: 4.09
   },
-  options: {
-    alcohol: true
-  },
+  // options: {
+  //   // alcohol: true
+  // //   print_custom: [
+  // //     {
+  // //         name: "barcode_title",
+  // //         value: "title"
+  // //     },
+  // //     {
+  // //         name: "barcode",
+  // //         value: "123456"
+  // //     },
+  // //     {
+  // //         name: "barcode_symbology",
+  // //         value: "CODE128B"
+  // //     }
+  // // ],
+  // label_format: 'PNG', // only seems to work with ZPL format
+  // label_size: '4x6'
+  // },
   //reference: "test",
-  carrier_accounts: [process.env.FEDEX],
+  carrier_accounts: [process.env.DHL_ECOMMERCE],
 });
 
 
