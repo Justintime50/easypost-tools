@@ -16,16 +16,24 @@ func main() {
 	}
 	client := easypost.New(apiKey)
 
-	// buy postage label with one of the rate objects
-	// client.BuyShipment(shipment, rate, insurance)
-	shipment, err := client.BuyShipment("shp_a52895d6f5a141ec87bac56e73825330", &easypost.Rate{ID: "rate_588b263a7a9449c986efdcf01b7821c7"}, "")
+	// Create and verify an address
+	address, err := client.CreateAddress(
+		&easypost.Address{
+			Name:    "Bugs Bunny",
+			Street1: "4000 Warner Blvd",
+			City:    "Burbank",
+			State:   "CA",
+			Zip:     "91522",
+		},
+		&easypost.CreateAddressOptions{Verify: []string{"delivery"}},
+	)
 	if err != nil {
-		fmt.Fprintln(os.Stderr, "error buying shipment:", err)
+		fmt.Fprintln(os.Stderr, "error creating to address:", err)
 		os.Exit(1)
 		return
 	}
 
-	prettyJSON, err := json.MarshalIndent(shipment, "", "    ")
+	prettyJSON, err := json.MarshalIndent(address, "", "    ")
     if err != nil {
 		fmt.Fprintln(os.Stderr, "error creating JSON:", err)
     }

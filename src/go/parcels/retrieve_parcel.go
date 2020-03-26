@@ -16,19 +16,15 @@ func main() {
 	}
 	client := easypost.New(apiKey)
 
-	// Retrieve an address by ID
-	address, err := client.ListAddresses(
-		&easypost.ListOptions{
-			// options here
-		},
-	)
+	// Retrieve a parcel
+	parcel, err := client.GetParcel("prcl_7826f54922b04012894d774d462b8d21")
 	if err != nil {
-		fmt.Fprintln(os.Stderr, "error retrieving address:", err)
+		fmt.Fprintln(os.Stderr, "error retrieving parcel:", err)
 		os.Exit(1)
 		return
 	}
 
-	prettyJSON, err := json.MarshalIndent(address, "", "    ")
+	prettyJSON, err := json.MarshalIndent(parcel, "", "    ")
     if err != nil {
 		fmt.Fprintln(os.Stderr, "error creating JSON:", err)
     }

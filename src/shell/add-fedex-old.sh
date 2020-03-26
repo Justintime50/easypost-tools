@@ -1,0 +1,11 @@
+curl -X POST https://api.easypost.com/v2/carrier_accounts \
+  -u API_KEY_HERE: \
+  -d "carrier_account[test_credentials][key]=TEST_VALUE" \
+  -d "carrier_account[test_credentials][meter_number]=123456789" \
+  -d "carrier_account[test_credentials][account_number]=TEST_VALUE" \
+  -d "carrier_account[test_credentials][password]=TEST_VALUE" \
+  -d "carrier_account[type]=FedexAccount" \
+  -d "carrier_account[credentials][account_number]=TEST_VALUE" \
+  -d "carrier_account[credentials][key]=TEST_VALUE" \
+  -d "carrier_account[credentials][meter_number]=987654321" \
+  -d "carrier_account[credentials][password]=TEST_VALUE"

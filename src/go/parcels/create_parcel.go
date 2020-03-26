@@ -16,19 +16,22 @@ func main() {
 	}
 	client := easypost.New(apiKey)
 
-	// Retrieve a shipments by ID
-	shipments, err := client.ListShipments(
-		&easypost.ListShipmentsOptions{
-			// options here
+	// Create a parcel
+	parcel, err := client.CreateParcel(
+		&easypost.Parcel{
+			Length: 10.2,
+			Width:  7.8,
+			Height: 4.3,
+			Weight: 21.2,
 		},
 	)
 	if err != nil {
-		fmt.Fprintln(os.Stderr, "error retrieving shipments:", err)
+		fmt.Fprintln(os.Stderr, "error creating parcel:", err)
 		os.Exit(1)
 		return
 	}
 
-	prettyJSON, err := json.MarshalIndent(shipments, "", "    ")
+	prettyJSON, err := json.MarshalIndent(parcel, "", "    ")
     if err != nil {
 		fmt.Fprintln(os.Stderr, "error creating JSON:", err)
     }

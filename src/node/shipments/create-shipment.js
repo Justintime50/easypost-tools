@@ -2,9 +2,7 @@ const Easypost = require('@easypost/api');
 const dotenv = require('dotenv');
 
 dotenv.config({ path: '/Users/jhammond/git/easypost/easypost-tools/.env' });
-const api = new Easypost(process.env.EASYPOST_PROD_API_KEY);
-
-var hrstart = process.hrtime(); // TODO: Fix benchmark timing
+const api = new Easypost(process.env.EASYPOST_TEST_API_KEY);
 
 /* Either objects or ids can be passed in. If the object does
  * not have an id, it will be created. */
@@ -76,10 +74,10 @@ const shipment = new api.Shipment({
   // label_size: '4x6'
   // },
   //reference: "test",
-  carrier_accounts: [process.env.DHL_ECOMMERCE],
+  carrier_accounts: [process.env.ARAMEX],
+  // to_address: {"id":"adr_9d4a9b0f9e0340f3bc1f43aabb4f7ef3"},
+  // from_address: {"id":"adr_b53dcfc1fab2440b96d21138c95eb08c"},
 });
 
 
-shipment.save().then(console.log);
-var hrend = process.hrtime(hrstart); // TODO: Fix benchmark timing
-console.log("Execution time (hr): ", hrend[0], hrend[1]/1000000); // TODO: Fix benchmark timing
+shipment.save().then(console.log).catch(console.log);

@@ -6,5 +6,5 @@ node_modules
 *.log
 vendor
 *.csv
-*.txt
 files
+target

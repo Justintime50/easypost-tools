@@ -2,7 +2,7 @@ const Easypost = require('@easypost/api');
 const dotenv = require('dotenv');
 
 dotenv.config({ path: '/Users/jhammond/git/easypost/easypost-tools/.env' });
-const api = new Easypost(process.env.EASYPOST_PROD_API_KEY);
+const api = new Easypost(process.env.EASYPOST_TEST_API_KEY);
 
 var hrstart = process.hrtime(); // TODO: Fix benchmark timing
 
@@ -18,6 +18,18 @@ const customsInfo = new api.CustomsInfo({ ... });
 
 const toAddress = new api.Address({
     //verify: ['delivery'],
+    name: 'Dr. Steve Brule',
+    street1: '179 N Harbor Dr',
+    city: 'Redondo Beach',
+    state: 'CA',
+    zip: '90277',
+    country: 'US',
+    phone: '3331114444',
+    email: 'dr_steve_brule@gmail.com',
+});
+
+const fromAddress = new api.Address({
+    //verify: ['delivery'],
     company: "Test",
     //name: 'Test',
     street1: '95 Yong An Road',
@@ -28,18 +40,6 @@ const toAddress = new api.Address({
     country: 'CH',
     phone: '3331114444',
     //email: 'support@easypost.com',
-});
-
-const fromAddress = new api.Address({
-    //verify: ['delivery'],
-    name: 'Dr. Steve Brule',
-    street1: '179 N Harbor Dr',
-    city: 'Redondo Beach',
-    state: 'CA',
-    zip: '90277',
-    country: 'US',
-    phone: '3331114444',
-    email: 'dr_steve_brule@gmail.com',
 });
 
 const parcel = new api.Parcel({
@@ -79,7 +79,7 @@ const shipment = new api.Shipment({
     options: {
         //address_validation_level: 1,
         //alcohol: true,
-        label_format: "ZPL",
+        label_format: "PNG",
         //print_custom_1: "Here is a custom string on a label!",
         //hazmat: "LITHIUM",
         /*payment: {
@@ -89,9 +89,11 @@ const shipment = new api.Shipment({
         postal_code: "84057"
         }*/
         //special_rates_eligibility: "USPS.MEDIAMAIL",
+        incoterm: "DDU",
     },
     customs_info: customsInfo,
-    carrier_accounts: [process.env.APC],
+    carrier_accounts: [process.env.ARAMEX],
+    // reference: "test",
 });
 
 shipment.save().then(console.log);

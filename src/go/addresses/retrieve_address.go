@@ -16,7 +16,7 @@ func main() {
 	}
 	client := easypost.New(apiKey)
 
-	// Retrieve an address by ID
+	// Retrieve an address
 	address, err := client.GetAddresses("adr_aaafdb10793340b78d00f57b98bbac81")
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "error retrieving address:", err)

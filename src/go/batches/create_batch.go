@@ -16,22 +16,19 @@ func main() {
 	}
 	client := easypost.New(apiKey)
 
-	// create parcel
-	parcel, err := client.CreateParcel(
-		&easypost.Parcel{
-			Length: 10.2,
-			Width:  7.8,
-			Height: 4.3,
-			Weight: 21.2,
-		},
+	// Create a batch
+	batch, err := client.CreateBatch(
+		&easypost.Shipment{ID: "shp_100"},
+//		&easypost.Shipment{ID: "shp_101"},
+//		&easypost.Shipment{ID: "shp_102"},
 	)
 	if err != nil {
-		fmt.Fprintln(os.Stderr, "error creating parcel:", err)
+		fmt.Fprintln(os.Stderr, "error creating batch:", err)
 		os.Exit(1)
 		return
 	}
 
-	prettyJSON, err := json.MarshalIndent(parcel, "", "    ")
+	prettyJSON, err := json.MarshalIndent(batch, "", "    ")
     if err != nil {
 		fmt.Fprintln(os.Stderr, "error creating JSON:", err)
     }

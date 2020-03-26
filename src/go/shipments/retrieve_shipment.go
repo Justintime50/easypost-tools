@@ -16,24 +16,15 @@ func main() {
 	}
 	client := easypost.New(apiKey)
 
-	// create and verify addresses
-	toAddress, err := client.CreateAddress(
-		&easypost.Address{
-			Name:    "Bugs Bunny",
-			Street1: "4000 Warner Blvd",
-			City:    "Burbank",
-			State:   "CA",
-			Zip:     "91522",
-		},
-		&easypost.CreateAddressOptions{Verify: []string{"delivery"}},
-	)
+	// Retrieve a shipment
+	shipment, err := client.GetShipment("shp_a52895d6f5a141ec87bac56e73825330")
 	if err != nil {
-		fmt.Fprintln(os.Stderr, "error creating to address:", err)
+		fmt.Fprintln(os.Stderr, "error retrieving shipment:", err)
 		os.Exit(1)
 		return
 	}
 
-	prettyJSON, err := json.MarshalIndent(toAddress, "", "    ")
+	prettyJSON, err := json.MarshalIndent(shipment, "", "    ")
     if err != nil {
 		fmt.Fprintln(os.Stderr, "error creating JSON:", err)
     }

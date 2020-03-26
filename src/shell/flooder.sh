@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Test the rate limiting of the EasyPost API
+# Run a script over and over
 
 echo "Flooding the EasyPost API..."
 rm -f flooder.log
