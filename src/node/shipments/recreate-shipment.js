@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 
 // Setup API key
 dotenv.config({ path: '/Users/jhammond/git/easypost/easypost-tools/.env' });
-const api = new Easypost(process.env.EASYPOST_PROD_API_KEY);
+const api = new Easypost(process.env.EASYPOST_TEST_API_KEY);
 
 // Assign JSON data to variable
 const data = (
@@ -12,62 +12,55 @@ const data = (
 //===============================================================//
 
 {
-  "created_at": "2020-03-26T17:02:06Z",
-  "is_return": false,
+  "created_at": "2020-04-28T13:54:19Z",
+  "is_return": true,
   "messages": [],
   "mode": "test",
   "options": {
-    "print_custom_1": "100544",
-    "label_date": "2020-03-30T00:00:00+00:00",
-    "handling_instructions": "LEAVE WITH RECEPTION.",
-    "print_custom_3": "CJKWEL-A",
-    "print_custom_2": "18-213432",
+    "print_custom_1": "Order: #1001",
+    "print_custom_2": "RMA: 0001.1001.2842020",
     "currency": "USD",
     "print_custom": [
       {
         "name": null,
-        "value": "100544",
+        "value": "Order: #1001",
         "barcode": null
       },
       {
         "name": null,
-        "value": "18-213432",
-        "barcode": null
-      },
-      {
-        "name": null,
-        "value": "CJKWEL-A",
+        "value": "RMA: 0001.1001.2842020",
         "barcode": null
       }
     ],
     "payment": {
       "type": "SENDER"
     },
-    "date_advance": 4
+    "date_advance": 0,
+    "cost_center": "0009"
   },
-  "reference": "{\"orderNumber\":\"100544\",\"cartonId\":\"00000000000000000032\"}",
+  "reference": "0001.1001.2842020",
   "status": "unknown",
   "tracking_code": null,
-  "updated_at": "2020-03-26T17:02:06Z",
-  "batch_id": "batch_56c2af121b6846469433727d1b10352b",
-  "batch_status": "postage_purchase_failed",
-  "batch_message": "A carrier and service must be provided to purchase through a Batch.",
+  "updated_at": "2020-04-28T13:54:19Z",
+  "batch_id": null,
+  "batch_status": null,
+  "batch_message": null,
   "customs_info": null,
   "from_address": {
-    "id": "adr_16c38cb96a6a416a917b983b2226bf86",
+    "id": "adr_725892cc22aa47278e191a79eb19e535",
     "object": "Address",
-    "created_at": "2020-03-26T17:02:06Z",
-    "updated_at": "2020-03-26T17:02:06Z",
-    "name": "BISSELL HOMECARE INC.",
+    "created_at": "2020-04-28T13:54:19Z",
+    "updated_at": "2020-04-28T13:54:19Z",
+    "name": "Easy Spirit",
     "company": null,
-    "street1": "100 York Blvd",
-    "street2": "Suite 404",
-    "city": "Richmond Hill",
-    "state": "ON",
-    "zip": "L4B 1J8",
-    "country": "CA",
-    "phone": "8051231234",
-    "email": "svonship@sender.com",
+    "street1": "1248 South River Road",
+    "street2": "",
+    "city": "Cranbury",
+    "state": "NJ",
+    "zip": "08512",
+    "country": "US",
+    "phone": "18883279772",
+    "email": null,
     "mode": "test",
     "carrier_facility": null,
     "residential": null,
@@ -78,15 +71,15 @@ const data = (
   "insurance": null,
   "order_id": null,
   "parcel": {
-    "id": "prcl_feca5b7fa6904d3cb8993b7be2e1b3a4",
+    "id": "prcl_ce8f348d45bd4640afaf1a0589d6fa11",
     "object": "Parcel",
-    "created_at": "2020-03-26T17:02:06Z",
-    "updated_at": "2020-03-26T17:02:06Z",
-    "length": 12,
-    "width": 12,
-    "height": 12,
+    "created_at": "2020-04-28T13:54:19Z",
+    "updated_at": "2020-04-28T13:54:19Z",
+    "length": 18,
+    "width": 24,
+    "height": 16,
     "predefined_package": null,
-    "weight": 316,
+    "weight": 112,
     "mode": "test"
   },
   "postage_label": null,
@@ -95,53 +88,43 @@ const data = (
   "selected_rate": null,
   "tracker": null,
   "to_address": {
-    "id": "adr_78f21663db6c4195b900e35b8c3a6283",
+    "id": "adr_aed201fd5ace4239a974922a4efbe383",
     "object": "Address",
-    "created_at": "2020-03-26T17:02:06Z",
-    "updated_at": "2020-03-26T17:02:06Z",
-    "name": "KAREN MACDONALD",
-    "company": "MAVES INTERNATIONAL",
-    "street1": "17 GILROY STREET",
-    "street2": "",
-    "city": "CUMBERLAND",
-    "state": "NS",
-    "zip": "B0M1X0",
-    "country": "CA",
-    "phone": "9058828300",
-    "email": "MMCRECEIVER@MAVES.COM",
+    "created_at": "2020-04-28T13:54:19Z",
+    "updated_at": "2020-04-28T13:54:19Z",
+    "name": "Lee Bissonnette",
+    "company": "",
+    "street1": "725 Fifth Avenue",
+    "street2": "21st Floor",
+    "city": "New York",
+    "state": "NY",
+    "zip": "10022",
+    "country": "US",
+    "phone": "16315332477",
+    "email": null,
     "mode": "test",
     "carrier_facility": null,
     "residential": null,
     "federal_tax_id": null,
     "state_tax_id": null,
-    "verifications": {
-      "delivery": {
-        "success": true,
-        "errors": [],
-        "details": {
-          "latitude": 45.64534,
-          "longitude": -64.04832,
-          "time_zone": "America/Halifax"
-        }
-      }
-    }
+    "verifications": {}
   },
-  "usps_zone": null,
+  "usps_zone": 1,
   "return_address": {
-    "id": "adr_16c38cb96a6a416a917b983b2226bf86",
+    "id": "adr_725892cc22aa47278e191a79eb19e535",
     "object": "Address",
-    "created_at": "2020-03-26T17:02:06Z",
-    "updated_at": "2020-03-26T17:02:06Z",
-    "name": "BISSELL HOMECARE INC.",
+    "created_at": "2020-04-28T13:54:19Z",
+    "updated_at": "2020-04-28T13:54:19Z",
+    "name": "Easy Spirit",
     "company": null,
-    "street1": "100 York Blvd",
-    "street2": "Suite 404",
-    "city": "Richmond Hill",
-    "state": "ON",
-    "zip": "L4B 1J8",
-    "country": "CA",
-    "phone": "8051231234",
-    "email": "svonship@sender.com",
+    "street1": "1248 South River Road",
+    "street2": "",
+    "city": "Cranbury",
+    "state": "NJ",
+    "zip": "08512",
+    "country": "US",
+    "phone": "18883279772",
+    "email": null,
     "mode": "test",
     "carrier_facility": null,
     "residential": null,
@@ -150,42 +133,54 @@ const data = (
     "verifications": {}
   },
   "buyer_address": {
-    "id": "adr_78f21663db6c4195b900e35b8c3a6283",
+    "id": "adr_aed201fd5ace4239a974922a4efbe383",
     "object": "Address",
-    "created_at": "2020-03-26T17:02:06Z",
-    "updated_at": "2020-03-26T17:02:06Z",
-    "name": "KAREN MACDONALD",
-    "company": "MAVES INTERNATIONAL",
-    "street1": "17 GILROY STREET",
-    "street2": "",
-    "city": "CUMBERLAND",
-    "state": "NS",
-    "zip": "B0M1X0",
-    "country": "CA",
-    "phone": "9058828300",
-    "email": "MMCRECEIVER@MAVES.COM",
+    "created_at": "2020-04-28T13:54:19Z",
+    "updated_at": "2020-04-28T13:54:19Z",
+    "name": "Lee Bissonnette",
+    "company": "",
+    "street1": "725 Fifth Avenue",
+    "street2": "21st Floor",
+    "city": "New York",
+    "state": "NY",
+    "zip": "10022",
+    "country": "US",
+    "phone": "16315332477",
+    "email": null,
     "mode": "test",
     "carrier_facility": null,
     "residential": null,
     "federal_tax_id": null,
     "state_tax_id": null,
-    "verifications": {
-      "delivery": {
-        "success": true,
-        "errors": [],
-        "details": {
-          "latitude": 45.64534,
-          "longitude": -64.04832,
-          "time_zone": "America/Halifax"
-        }
-      }
-    }
+    "verifications": {}
   },
   "object": "Shipment",
-  "rates": [],
+  "rates": [
+    {
+      "object": "Rate",
+      "created_at": "2020-04-28T13:54:19Z",
+      "updated_at": "2020-04-28T13:54:19Z",
+      "mode": "test",
+      "service": "SingleReturn",
+      "carrier": "UPSMailInnovations",
+      "rate": "0.01",
+      "currency": "USD",
+      "retail_rate": null,
+      "retail_currency": null,
+      "list_rate": null,
+      "list_currency": null,
+      "delivery_days": null,
+      "delivery_date": null,
+      "delivery_date_guaranteed": null,
+      "est_delivery_days": null,
+      "shipment_id": "shp_500c8125fe0347b5ac23a19c19413e8a",
+      "carrier_account_id": "ca_1cb43d90d6fa43959a97fcdc945d3f2a",
+      "id": "rate_bee2adbfcd994f72b632ae246e23de2e"
+    }
+  ],
   "forms": [],
   "fees": [],
-  "id": "shp_96a9d7d01ab64edf83403acfbe06a213"
+  "id": "shp_500c8125fe0347b5ac23a19c19413e8a"
 }
 
 //===============================================================//
@@ -258,11 +253,12 @@ const shipment = new api.Shipment({
     parcel: data.parcel,
     options: data.options,
     customs_info: data.customs_info,
-    // carrier_accounts: [process.env.FEDEX],
     // service: "Ground",
     // carrier: "UPS",
-    label_format: "PDF",
-    carrier_accounts: [process.env.UPS],
+    // label_format: "PDF",
+    carrier_accounts: [process.env.UPSMI],
+    reference: 'lala',
+    is_return: true
 });
 
 // Print the results to console

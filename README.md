@@ -93,3 +93,7 @@ Easily interact with the EasyPost API via the CLI. View the project [here](https
 ### EasyPost UI
 
 Easily interact with the EasyPost API to order one-off packages and labels via a simple UI. View the project [here](https://github.com/Justintime50/easypost-ui).
+
+## Print USPS stamps:
+
+label_size = "7x3" (available when predefined_package = "Letter" and when the "First" rate is purchased, otherwise default "4x6" sized label will be returned. See Predefined Packages.)

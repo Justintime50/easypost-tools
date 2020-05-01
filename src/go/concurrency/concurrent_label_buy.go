@@ -4,6 +4,9 @@ import (
 	"fmt"
 	"os"
 	"time"
+	"log"
+	"strconv"
+	"encoding/csv"
 	"sync/atomic"
 	"github.com/EasyPost/easypost-go"
 )
@@ -11,15 +14,16 @@ import (
 /*
 * Concurrently buy EasyPost Shipments via a CSV file
 *
-* Usage: EASYPOST_API_KEY=123... go run concurrent_label_buy.go
+* Usage: EASYPOST_API_KEY=123... CSV=report.csv CARRIER_ACCOUNT_ID=ca_123... SERVICE=FEDEX_2_DAY CARRIER=FedEx go run concurrent_label_buy.go
 * Inspiration: https://stackoverflow.com/questions/33104192/how-to-run-10000-goroutines-in-parallel-where-each-routine-calls-an-api
-* CSV Format: TBD
-* Rate Limiting: Do not use more than 50 goroutines, do not try CSV's larger than 2000 records, and pass Go, do not collect $200... ;)
+* CSV Format: Do not include a header row. Match up the rows with the current-line indexes below (eg: Name: lines[current][0])
+* Rate Limiting: Do not use more than 50 goroutines, do not try CSV's larger than 2000 records, pass Go, do not collect $200... ;)
+* TODO: Allow CSV header support (skip the first row)
 */
 
 func main() {
 	// Setup concurrency
-	totalRequests := 1000
+	totalRequests := 1600 // total number of rows in the CSV file
 	concurrency := 100 // Not to exceed "100" on EasyPost `shipment` API calls
 	sem := make(chan bool, concurrency)
 
@@ -36,6 +40,16 @@ func main() {
 	}
 	client := easypost.New(apiKey)
 
+	// Open CSV file
+	csvFile, _ := os.Open(os.Getenv("CSV"))
+	reader := csv.NewReader(csvFile)
+	defer csvFile.Close()
+
+	lines, error := reader.ReadAll()
+	if error != nil {
+		log.Fatal(error)
+	}
+
 	// Loop over API calls
 	for i := 0; i < totalRequests; i++ {
 		sem <- true
@@ -43,35 +57,42 @@ func main() {
 		go func(current int) {
 			startTime := time.Now()
 		
+			// Setup Parcel items
+			length, _ := strconv.ParseFloat(lines[current][14], 64)
+			width, _ := strconv.ParseFloat(lines[current][15], 64)
+			height, _ := strconv.ParseFloat(lines[current][16], 64)
+			weight, _ := strconv.ParseFloat(lines[current][17], 64)
+
 			// Create the shipment
 			shipment, err := client.CreateShipment(
 				&easypost.Shipment{
 					ToAddress: 	&easypost.Address{
-						Name:    "Bugs Bunny",
-						Street1: "4000 Warner Blvd",
-						City:    "Burbank",
-						State:   "CA",
-						Zip:     "91522",
-						Phone:   "8018982020",
+						Name:    lines[current][0],
+						Company: lines[current][1],
+						Street1: lines[current][2],
+						City:    lines[current][3],
+						State:   lines[current][4],
+						Zip:     lines[current][5],
+						Phone:   lines[current][6],
 					},
 					FromAddress: &easypost.Address{
-						Company: "EasyPost",
-						Street1: "One Montgomery St",
-						Street2: "Ste 400",
-						City:    "San Francisco",
-						State:   "CA",
-						Zip:     "94104",
-						Phone:   "415-555-1212",
+						Name:    lines[current][7],
+						Company: lines[current][8],
+						Street1: lines[current][9],
+						City:    lines[current][10],
+						State:   lines[current][11],
+						Zip:     lines[current][12],
+						Phone:   lines[current][13],
 					},
 					Parcel: &easypost.Parcel{
-						Length: 10.2,
-						Width:  7.8,
-						Height: 4.3,
-						Weight: 25,
+						Length: length,
+						Width:  width,
+						Height: height,
+						Weight: weight,
 					},
-					CarrierAccountIDs: []string{"ca_3bd616120603457fbed9deb1e425bbdc",},
-					Service: "FEDEX_2_DAY",
-					Carrier: "FedEx",
+					CarrierAccountIDs: []string{os.Getenv("CARRIER_ACCOUNT_ID")},
+					Service: os.Getenv("SERVICE"),
+					Carrier: os.Getenv("CARRIER"),
 				},
 			)
 			if err != nil {
@@ -79,14 +100,6 @@ func main() {
 				os.Exit(1)
 				return
 			}
-
-			// Buy shipment
-			// shipment, err = client.BuyShipment(shipment.ID, &easypost.Rate{ID: shipment.Rates[0].ID}, "")
-			// if err != nil {
-			// 	fmt.Fprintln(os.Stderr, "error buying shipment:", err)
-			// 	os.Exit(1)
-			// 	return
-			// }
 			
 			fmt.Println(shipment.ID)
 

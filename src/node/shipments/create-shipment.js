@@ -27,26 +27,26 @@ const shipment = new api.Shipment({
 
 const shipment = new api.Shipment({
   to_address: {
-    name: 'TAKASHI KOVACS',
-    street1: '2889 W ASHTON BLVD',
-    street2: 'SUITE 325',
-    city: 'Lehi',
-    state: 'UT',
-    zip: '84042',
-    country: 'US',
-    // phone: '3331114444',
-    // email: 'email@email.com'
-  },
-  from_address: {
-    name: 'EasyPost',
-    street1: '417 Montgomery Street',
-    street2: '5th Floor',
-    city: 'San Francisco',
+    verify: ['delivery'],
+    street1: '417 MONTGOMERY ST',
+    street2: 'FLOOR 5',
+    city: 'SAN FRANCISCO',
     state: 'CA',
     zip: '94104',
     country: 'US',
-    // phone: '3331114444',
-    // email: 'support@easypost.com'
+    company: 'EasyPost',
+    phone: '415-123-4567',
+  },
+  from_address: {
+    company: 'Connexbox',
+    street1: '417 MONTGOMERY ST',
+    street2: 'FLOOR 5',
+    city: 'SAN FRANCISCO',
+    state: 'CA',
+    zip: '94104',
+    country: 'US',
+    company: 'EasyPost',
+    phone: '415-123-4567',
   },
   parcel: {
     length: 7.31,
@@ -56,6 +56,7 @@ const shipment = new api.Shipment({
   },
   // options: {
   //   // alcohol: true
+    // delivery_confirmation: 'ADULT_SIGNATURE',
   // //   print_custom: [
   // //     {
   // //         name: "barcode_title",
@@ -73,11 +74,10 @@ const shipment = new api.Shipment({
   // label_format: 'PNG', // only seems to work with ZPL format
   // label_size: '4x6'
   // },
-  //reference: "test",
-  carrier_accounts: [process.env.ARAMEX],
+  reference: "test",
+  carrier_accounts: [process.env.PARCEL_FORCE],
   // to_address: {"id":"adr_9d4a9b0f9e0340f3bc1f43aabb4f7ef3"},
   // from_address: {"id":"adr_b53dcfc1fab2440b96d21138c95eb08c"},
 });
-
 
 shipment.save().then(console.log).catch(console.log);

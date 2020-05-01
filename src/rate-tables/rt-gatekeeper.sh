@@ -25,7 +25,7 @@ function asendia {
         [[ ! ${FULL_FILENAME} == "IPA.csv" ]] ||
         [[ ! ${FULL_FILENAME} == "ISAL.csv" ]] ||
         [[ ! ${FULL_FILENAME} == "ePacket.csv" ]] ; then
-        echo -e "The Asendia rate table filename must be named after a service level and saved as a CSV\nReference: https://phab.easypo.net/source/asendia/browse/master/asendia/static_data.py$8."
+        echo -e "The Asendia rate table filename must be named after a service level and saved as a CSV\nReference: https://phab.easypo.net/source/asendia/browse/master/asendia/static_data.py\$8."
         exit 1
     else
         echo "Filename passed!"

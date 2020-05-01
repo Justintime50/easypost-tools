@@ -1,7 +1,13 @@
 <?php
 
 require_once("lib/easypost.php");
-\EasyPost\EasyPost::setApiKey('EZAKf6f0be77c66748fa9fe8baec53481711agJQPmxRm7EiqawM6ARoug');
+use \EasyPost\EasyPost;
+use \Dotenv\Dotenv;
+
+// API Key
+$dotenv = Dotenv::createImmutable(__DIR__, "../.env");
+$dotenv->load();
+EasyPost::setApiKey(getenv("EASYPOST_PROD_API_KEY"));
 
 // Set a random date to use
 $year = sprintf('%04d', rand(0001,2020));

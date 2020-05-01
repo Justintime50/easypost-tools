@@ -13,10 +13,10 @@ import (
 /*
 * Concurrently refund EasyPost Shipments via a CSV file
 *
-* Usage: EASYPOST_API_KEY=123... go run concurrent_refund.go
+* Usage: EASYPOST_API_KEY=123... CSV=report.csv go run concurrent_refund.go
 * Inspiration: https://stackoverflow.com/questions/33104192/how-to-run-10000-goroutines-in-parallel-where-each-routine-calls-an-api
 * CSV Format: Provide a single shipment ID per line in column 0 (1st column) with no other data
-* Rate Limiting: Do not use more than 50 goroutines, do not try CSV's larger than 2000 records, and pass Go, do not collect $200... ;)
+* Rate Limiting: Do not use more than 50 goroutines, do not try CSV's larger than 2000 records, pass Go, do not collect $200... ;)
 */ 
 
 func main() {
@@ -39,8 +39,9 @@ func main() {
 	client := easypost.New(apiKey)
 
 	// Open CSV file
-	csvFile, _ := os.Open("report.csv")
+	csvFile, _ := os.Open(os.Getenv("CSV"))
 	reader := csv.NewReader(csvFile)
+	defer csvFile.Close()
 
 	lines, error := reader.ReadAll()
 	if error != nil {

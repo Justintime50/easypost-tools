@@ -2,9 +2,7 @@ const Easypost = require('@easypost/api');
 const dotenv = require('dotenv');
 
 dotenv.config({ path: '/Users/jhammond/git/easypost/easypost-tools/.env' });
-const api = new Easypost(process.env.EASYPOST_TEST_API_KEY);
-
-var hrstart = process.hrtime(); // TODO: Fix benchmark timing
+const api = new Easypost(process.env.EASYPOST_PROD_API_KEY);
 
 /* Either objects or ids can be passed in. If the object does
 * not have an id, it will be created. */
@@ -17,7 +15,7 @@ const customsInfo = new api.CustomsInfo({ ... });
 */
 
 const toAddress = new api.Address({
-    //verify: ['delivery'],
+    verify: ['delivery'],
     name: 'Dr. Steve Brule',
     street1: '179 N Harbor Dr',
     city: 'Redondo Beach',
@@ -29,17 +27,16 @@ const toAddress = new api.Address({
 });
 
 const fromAddress = new api.Address({
-    //verify: ['delivery'],
-    company: "Test",
-    //name: 'Test',
-    street1: '95 Yong An Road',
-    //street2: '5th Floor',
-    city: 'Beijing',
-    //state: 'CH',
-    zip: '100050',
-    country: 'CH',
+    company: 'EasyPost',
+    name: 'TAKASHI KOVACS',
+    street1: 'Columbusweg 33A',
+    // street2: 'SUITE 325',
+    city: 'Venlo',
+    state: 'Limburg',
+    zip: '5928',
+    country: 'Netherlands',
     phone: '3331114444',
-    //email: 'support@easypost.com',
+    email: 'email@email.com'
 });
 
 const parcel = new api.Parcel({
@@ -89,14 +86,13 @@ const shipment = new api.Shipment({
         postal_code: "84057"
         }*/
         //special_rates_eligibility: "USPS.MEDIAMAIL",
-        incoterm: "DDU",
+        incoterm: "DDP",
+        // freight_charge: 19.99,
     },
     customs_info: customsInfo,
-    carrier_accounts: [process.env.ARAMEX],
+    carrier_accounts: [process.env.DHL_EXPRESS],
     // reference: "test",
 });
 
 shipment.save().then(console.log);
 console.log("//===============================================================//");
-var hrend = process.hrtime(hrstart); // TODO: Fix benchmark timing
-console.log("Execution time (hr): ", hrend[0], hrend[1]/1000000); // TODO: Fix benchmark timing

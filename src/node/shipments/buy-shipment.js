@@ -5,7 +5,7 @@ dotenv.config({ path: '/Users/jhammond/git/easypost/easypost-tools/.env' });
 const api = new Easypost(process.env.EASYPOST_TEST_API_KEY);
 
 console.log("//===============================================================//");
-api.Shipment.retrieve("shp_3d029040805b43098030efc129fdbc7d").then(s => {
-    s.buy(s.lowestRate(), 249.99).then(console.log).catch(console.log);
-    // s.buy("rate_ca0e8e33904e4ae48848dc1dc82eadb2").then(console.log).catch(console.log);
+api.Shipment.retrieve("shp_f46dc051087d458ea1b32fc1aa4b1ccf").then(s => {
+    s.buy(s.lowestRate()).then(console.log).catch(console.log);
+    // s.buy("rate_7cf97bc2fb7d45c88b78e32ef510c353").then(console.log).catch(console.log);
 }).catch(console.log);
