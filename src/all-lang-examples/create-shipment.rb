@@ -3,7 +3,7 @@ require 'easypost'
 require 'dotenv'
 require 'awesome_print'
 
-Dotenv.load('../.env')
+Dotenv.load('/Users/jhammond/git/easypost/easypost-tools/.env')
 EasyPost.api_key = ENV['EASYPOST_PROD_API_KEY']
 
 starting = Process.clock_gettime(Process::CLOCK_MONOTONIC)
@@ -23,6 +23,8 @@ EasyPost::Shipment.create(
 =end
 
 # OR in one call
+
+carrier_accounts = ["ca_3bd616120603457fbed9deb1e425bbdc"]
 
 shipment = EasyPost::Shipment.create(
   to_address: {
@@ -52,6 +54,7 @@ shipment = EasyPost::Shipment.create(
     height: 5,
     weight: 65.9
   },
+  carrier_accounts: carrier_accounts
   # customs_info: customs_info
 =begin
   options: {

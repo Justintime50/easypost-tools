@@ -1,0 +1,178 @@
+* AmazonMws
+* APC
+* Aramex
+* ArrowXL
+* Asendia
+* Australia Post
+* AxlehireV3
+* BorderGuru
+* Cainiao
+* Canada Post
+* Canpar
+* CDL Last Mile Solutions
+* Chronopost
+* Colis Privé
+* Colissimo
+* CouriersPlease
+* Dai Post
+* Deliv
+* Deutsche Post
+* Deutsche Post UK
+* DHL eCommerce Asia
+* DHL ExpressJumboDocument
+	JumboParcel
+	Document
+	DHLFlyer
+	Domestic
+	ExpressDocument
+	DHLExpressEnvelope
+	JumboBox
+	JumboJuniorDocument
+	JuniorJumboBox
+	JumboJuniorParcel
+	OtherDHLPackaging
+	Parcel
+	YourPackaging
+* DHL Freight
+* DHL Germany
+* DHL eCommerceLetter
+	Flat
+	BPM
+	Parcel
+* DHL eCommerce International
+* Dicom
+* Direct LinkParcel
+	Document
+* Doorman
+* DPD
+* DPD UKParcel
+	Pallet
+	ExpressPak
+	FreightParcel
+	Freight
+* EMS
+* EstafetaENVELOPE
+	PARCEL
+* Estes
+* FastwayParcel
+	Satchel
+* FedExFedExEnvelope
+	FedExBox
+	FedExPak
+	FedExTube
+	FedEx10kgBox
+	FedEx25kgBox
+	FedExSmallBox
+	FedExMediumBox
+	FedExLargeBox
+	FedExExtraLargeBox
+* FedEx Mailview
+* FedEx SameDay City
+* FedEx UK
+* FedEx SmartPost
+* FirstMile
+* Globegistics
+* GSO
+* Hermes
+* Hong Kong Post
+* Interlink ExpressParcel
+	Pallet
+	ExpressPak
+	FreightParcel
+	Freight
+* Janco Freight
+* JP Post
+* Kuroneko Yamato
+* La Poste
+* LaserShipV2Envelope
+	Custom
+* Latvijas Pasts
+* LieferySmallParcel
+	MediumParcel
+	LargeParcel
+	ExtraLargeParcel
+* Loomis Express
+* LSO
+* Network4
+* Newgistics
+* Norco
+* OmniParcelBag
+	Box
+	Carton
+	Container
+	Crate
+	Envelope
+	Pail
+	Pallet
+	Satchel
+	Tub
+* OnTracLetter
+* OnTrac DirectPost
+* Orange DS
+* Osm Worldwide
+* Parcelforce
+* Passport
+* Pilot
+* PostNL
+* Posten
+* PostNord
+* PurolatorCustomerPackaging
+	ExpressPack
+	ExpressBox
+	ExpressEnvelope
+* Royal MailLetter
+	LargeLetter
+	SmallParcel
+	MediumParcel
+	Parcel (for use with RoyalMail24 or RoyalMail48)
+* RR Donnelley
+* Seko
+* Singapore Post
+* Spee-Dee
+* SprintShipENVELOPE
+	LARGE_BOX_OR_TOTE
+	MULTI_PACK
+	SMALL_OR_MEDIUM_BOX_OR_TOTE
+	PACKAGE
+* StarTrackCarton
+	Pallet
+	Satchel
+	Bag
+	Envelope
+	Item
+	Jiffybag
+	Skid
+* Toll
+* TForceParcel
+	Letter
+* UDS
+* Ukrposhta
+* UPSUPSLetter
+	UPSExpressBox
+	UPS25kgBox
+	UPS10kgBox
+	Tube
+	Pak
+	SmallExpressBox
+	MediumExpressBox
+	LargeExpressBox
+* UPS i-parcel
+* UPS Mail Innovations
+* USPSCard
+	Letter
+	Flat
+	FlatRateEnvelope
+	FlatRateLegalEnvelope
+	FlatRatePaddedEnvelope
+	Parcel
+	IrregularParcel
+	SoftPack
+	SmallFlatRateBox
+	MediumFlatRateBox
+	LargeFlatRateBox
+	LargeFlatRateBoxAPOFPO
+	RegionalRateBoxA
+	RegionalRateBoxB
+* Veho
+* Yanwen
+* Yodel

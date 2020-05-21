@@ -1,0 +1,13 @@
+data = JSON.stringify(
+
+    // INSERT UNFOMRATTED JSON BELOW
+    ////////////////////////////////
+
+    { "info": { "_postman_id": "49c1f490-f8ad-47f5-9828-19afb474c00f", "name": "EasyPost_returns", "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json" }, "item": [{ "name": "Create_Shipment", "_postman_id": "ac6d5148-23c5-44e9-b559-c4d694113325", "request": { "method": "POST", "header": [{ "key": "Authorization", "value": "Basic dU1mMFgxRXdqYUxwU0owVnl5ck1WZzo=", "type": "text" }, { "key": "Content-Type", "value": "application\/x-www-form-urlencoded", "type": "text" }], "body": { "mode": "formdata", "formdata": [] }, "url": { "raw": "https:\/\/api.easypost.com\/v2\/shipments?shipment[to_address][id]=adr_af078d7643104787be870d7bb13cc59b&shipment[from_address][id]=adr_3e294893b21d483c9adbfebced5b2eca&shipment[is_return]=true&shipment[parcel][id]=prcl_e62da942e3b44265bcc062bc66a36570&shipment[reference]=\"ReturnTest\"", "protocol": "https", "host": ["api", "easypost", "com"], "path": ["v2", "shipments"], "query": [{ "key": "shipment[to_address][id]", "value": "adr_af078d7643104787be870d7bb13cc59b" }, { "key": "shipment[from_address][id]", "value": "adr_3e294893b21d483c9adbfebced5b2eca" }, { "key": "shipment[is_return]", "value": "true" }, { "key": "shipment[parcel][id]", "value": "prcl_e62da942e3b44265bcc062bc66a36570" }, { "key": "shipment[reference]", "value": "\"ReturnTest\"" }] } }, "response": [] }, { "name": "Buy_Rate", "_postman_id": "d5360a9b-71da-4d5c-8547-4fb694b3265e", "request": { "method": "POST", "header": [{ "key": "Authorization", "value": "Basic dU1mMFgxRXdqYUxwU0owVnl5ck1WZzo=", "type": "text" }, { "key": "Content-Type", "name": "Content-Type", "value": "application\/x-www-form-urlencoded", "type": "text" }, { "warning": "Key contains invalid characters.", "key": "", "value": "", "type": "text" }], "body": { "mode": "formdata", "formdata": [] }, "url": { "raw": "https:\/\/api.easypost.com\/v2\/shipments\/shp_055cf074daac4717bc0d46fba32fcbb1\/buy?rate[id]=rate_d0e66dbe06114229bc061f0b2dff35c3&rate[carrier_account_id]=ca_945e2b2fc0ef494993f1c501c88b32fe", "protocol": "https", "host": ["api", "easypost", "com"], "path": ["v2", "shipments", "shp_055cf074daac4717bc0d46fba32fcbb1", "buy"], "query": [{ "key": "rate[id]", "value": "rate_d0e66dbe06114229bc061f0b2dff35c3" }, { "key": "rate[carrier_account_id]", "value": "ca_945e2b2fc0ef494993f1c501c88b32fe" }, { "key": "", "value": "", "disabled": true }] } }, "response": [] }], "protocolProfileBehavior": {} }
+
+    ////////////////////////////////
+    // INSERT UNFORMATTED JSON ABOVE
+
+    , null, 4);
+
+console.log(data);

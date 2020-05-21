@@ -2,7 +2,7 @@ const Easypost = require('@easypost/api');
 const dotenv = require('dotenv');
 
 dotenv.config({ path: '/Users/jhammond/git/easypost/easypost-tools/.env' });
-const api = new Easypost(process.env.EASYPOST_TEST_API_KEY);
+const api = new Easypost(process.env.EASYPOST_PROD_API_KEY);
 
 /* Either objects or ids can be passed in. If the object does
  * not have an id, it will be created. */
@@ -28,35 +28,35 @@ const shipment = new api.Shipment({
 const shipment = new api.Shipment({
   to_address: {
     verify: ['delivery'],
-    street1: '417 MONTGOMERY ST',
-    street2: 'FLOOR 5',
-    city: 'SAN FRANCISCO',
-    state: 'CA',
-    zip: '94104',
+    street1: '2812 70TH AVENUE EAST',
+    // street2: 'FLOOR 5',
+    city: 'FIFE',
+    state: 'WA',
+    zip: '98424',
     country: 'US',
     company: 'EasyPost',
     phone: '415-123-4567',
   },
   from_address: {
-    company: 'Connexbox',
-    street1: '417 MONTGOMERY ST',
-    street2: 'FLOOR 5',
-    city: 'SAN FRANCISCO',
-    state: 'CA',
-    zip: '94104',
+    // company: 'Connexbox',
+    street1: '2605 North Berkeley Lake rd',
+    street2: 'suite 350',
+    city: 'Duluth',
+    state: 'Georgia',
+    zip: '30096',
     country: 'US',
     company: 'EasyPost',
     phone: '415-123-4567',
   },
   parcel: {
-    length: 7.31,
-    width: 7.31,
-    height: 1.75,
-    weight: 4.09
+    length: 25,
+    width: 9,
+    height: 1,
+    weight: 27
   },
   // options: {
   //   // alcohol: true
-    // delivery_confirmation: 'ADULT_SIGNATURE',
+  // delivery_confirmation: 'ADULT_SIGNATURE',
   // //   print_custom: [
   // //     {
   // //         name: "barcode_title",
@@ -73,9 +73,11 @@ const shipment = new api.Shipment({
   // // ],
   // label_format: 'PNG', // only seems to work with ZPL format
   // label_size: '4x6'
+  // cost_center: '0009',
   // },
   reference: "test",
-  carrier_accounts: [process.env.PARCEL_FORCE],
+  carrier_accounts: [process.env.UPS],
+  is_return: true,
   // to_address: {"id":"adr_9d4a9b0f9e0340f3bc1f43aabb4f7ef3"},
   // from_address: {"id":"adr_b53dcfc1fab2440b96d21138c95eb08c"},
 });

@@ -8,11 +8,11 @@ const api = new Easypost(process.env.EASYPOST_PROD_API_KEY);
 
 // Setup addresses from dad
 const dadTo = dad.random('US_UT');
-const dadFrom = dad.random('EU_UK');
+const dadFrom = dad.random('US_UT');
 
 // Setup static variables
 const name = 'Jake Peralta';
-const company = 'EasyPost';
+const company = '-';
 const phone = '8015551234';
 const email = 'email@example.com';
 const number = Number((Math.random() * (10.00 - 1.00) + 1.00).toFixed(2));
@@ -52,15 +52,16 @@ const shipment = new api.Shipment({
         // predefined_package: "MediumFlatRateBox"
     },
     carrier_accounts: [process.env.FEDEX],
-    // options: {
-    //     // delivery_confirmation: "NO_SIGNATURE",
+    options: {
+        //     // delivery_confirmation: "NO_SIGNATURE",
         // label_date: "2020-05-01",
-    //     label_size: "7x3",
-    // print_custom_1: "123",
-    // print_custom_1_code: "IK",
-    // label_format: "PNG",
-    // delivery_confirmation: "SIGNATURE",
-    // }
+        //     label_size: "7x3",
+        // print_custom_1: "123",
+        // print_custom_1_code: "IK",
+        // label_format: "PNG",
+        // delivery_confirmation: "SIGNATURE",
+        postage_label_inline: true
+    }
 });
 
 shipment.save().then(console.log).catch(console.log);

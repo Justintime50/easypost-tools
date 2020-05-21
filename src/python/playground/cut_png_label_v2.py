@@ -1,9 +1,10 @@
+"""Cut a multi-page PNG label file into separate single page files"""
 from PIL import Image
 from pathlib import Path
 import re
-sizes = [(800, 1200), (1200, 1800), # 4x6 - 200 dpi, 300 dpi
-        (1200, 800), (1800, 1200), # 6x4 - 200 dpi, 300 dpi
-        ]
+sizes = [(800, 1200), (1200, 1800),  # 4x6 - 200 dpi, 300 dpi
+         (1200, 800), (1800, 1200),  # 6x4 - 200 dpi, 300 dpi
+         ]
 for fn in Path('~/Downloads').expanduser().glob('*.png'):
     if re.search('[a-f0-9]{32}\.png', fn.name) is not None:
         im = Image.open(str(fn))
@@ -24,11 +25,12 @@ for fn in Path('~/Downloads').expanduser().glob('*.png'):
                 break
         if valid:
             print(f'{fn.name}, ({w}, {h})')
-            if w > h: # assume that the image is multi-part, horizontal
+            if w > h:  # assume that the image is multi-part, horizontal
                 width_per_page = w // num_pages
                 for i in range(num_pages):
                     #l, u, r, l
-                    im_part = im.crop((i*width_per_page, 0, width_per_page*(i+1), h))
+                    im_part = im.crop(
+                        (i*width_per_page, 0, width_per_page*(i+1), h))
                     name = fn.parent / (f'{fn.stem}_{i+1}.png')
                     print(f'Saving pg {i+1} of {num_pages} to "{name}"...')
                     im_part.save(str(name))

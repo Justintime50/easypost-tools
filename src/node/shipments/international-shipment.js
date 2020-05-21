@@ -55,21 +55,21 @@ const customsInfo = new api.CustomsInfo({
     restriction_type: 'none',
     restriction_comments: '',
     non_delivery_option: 'abandon',
-  
+
     /* customs_items can be passed in as instances or ids.
     *  if the item does not have an id, it will be created. */
     customs_items: [
-      new api.CustomsItem({
-      'description': 'Sweet shirts',
-      'quantity': 2,
-      'weight': 11,
-      'value': 23,
-      'hs_tariff_number': '654321',
-      'origin_country': 'US'
-    })],
+        new api.CustomsItem({
+            'description': 'Sweet shirts',
+            'quantity': 2,
+            'weight': 11,
+            'value': 23,
+            'hs_tariff_number': '654321',
+            'origin_country': 'US'
+        })],
 });
 
-const shipment = new api.Shipment({ 
+const shipment = new api.Shipment({
     to_address: toAddress,
     from_address: fromAddress,
     parcel: parcel,
@@ -88,9 +88,10 @@ const shipment = new api.Shipment({
         //special_rates_eligibility: "USPS.MEDIAMAIL",
         incoterm: "DDP",
         // freight_charge: 19.99,
+        importer_address_id: 'adr_ff266521b9274244aff6ef6f07606f14',
     },
     customs_info: customsInfo,
-    carrier_accounts: [process.env.DHL_EXPRESS],
+    carrier_accounts: [process.env.FEDEX],
     // reference: "test",
 });
 
