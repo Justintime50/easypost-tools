@@ -1,5 +1,0 @@
-# Portland
-adr_b53dcfc1fab2440b96d21138c95eb08c
-
-# Hong Kong
-adr_9d4a9b0f9e0340f3bc1f43aabb4f7ef3

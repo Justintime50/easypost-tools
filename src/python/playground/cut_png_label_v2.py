@@ -5,8 +5,8 @@ import re
 sizes = [(800, 1200), (1200, 1800),  # 4x6 - 200 dpi, 300 dpi
          (1200, 800), (1800, 1200),  # 6x4 - 200 dpi, 300 dpi
          ]
-for fn in Path('~/Downloads').expanduser().glob('*.png'):
-    if re.search('[a-f0-9]{32}\.png', fn.name) is not None:
+for fn in Path('~/Downloads/label').expanduser().glob('*.png'):
+    if re.search(r'[a-f0-9]{32}\.png', fn.name) is not None:
         im = Image.open(str(fn))
         w, h = im.size
         # determine if our image size can be "cropped" to one of the standard sizes

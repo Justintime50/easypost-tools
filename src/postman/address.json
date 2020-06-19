@@ -1,0 +1,18 @@
+{
+    "address": {
+        "street1": "417 Montgomery St",
+        "street2": "FLOOR 5",
+        "city": "SAN FRANCISCO",
+        "state": "CA",
+        "zip": "94104",
+        "country": "US",
+        "company": "EasyPost",
+        "phone": "415-123-4567"
+    },
+    "verify_strict": [
+        "delivery"
+    ],
+    "format": "json",
+    "controller": "addresses",
+    "action": "create"
+}

@@ -3,7 +3,7 @@ const dotenv = require('dotenv')
 const dad = require('dad-tool');
 
 dotenv.config({ path: '/Users/jhammond/git/easypost/easypost-tools/.env' })
-const api = new Easypost(process.env.EASYPOST_PROD_API_KEY)
+const api = new Easypost(process.env.EASYPOST_TEST_API_KEY)
 
 // Setup addresses from dad
 const dadTo = dad.random('EU_UK');
@@ -43,6 +43,20 @@ const customsInfo = new api.CustomsInfo({
         })],
 });
 
+const options = {
+    incoterm: "DDP",
+    // importer_address_id: 'adr_ff266521b9274244aff6ef6f07606f14',
+    print_custom_1: 'Contact agent below \n to process customer clearance.',
+    commercial_invoice_format: 'PNG',
+    // payment: {
+    //     type: 'THIRD_PARTY',
+    //     account: '',
+    //     country: '',
+    //     postal_code: '',
+    // },
+    // duty_payment_account: '',
+};
+
 const order = new api.Order({
     to_address: {
         verify: ['delivery'],
@@ -79,10 +93,7 @@ const order = new api.Order({
             },
             reference: "order-test",
             customs_info: customsInfo,
-            options: {
-                incoterm: "DDP",
-                importer_address_id: 'adr_ff266521b9274244aff6ef6f07606f14',
-            },
+            options,
         }),
         new api.Shipment({
             parcel: {
@@ -93,19 +104,13 @@ const order = new api.Order({
             },
             reference: "order-test",
             customs_info: customsInfo,
-            options: {
-                incoterm: "DDP",
-                importer_address_id: 'adr_ff266521b9274244aff6ef6f07606f14',
-            },
+            options,
         })
     ],
-    carrier_accounts: [{ id: process.env.FEDEX }],
+    carrier_accounts: [{ id: process.env.DHL_EXPRESS }],
     // service: "2ndDayAir",
     customs_info: customsInfo,
-    options: {
-        incoterm: "DDP",
-        importer_address_id: 'adr_ff266521b9274244aff6ef6f07606f14',
-    },
+    options,
 });
 
-order.save().then(console.log);
+order.save().then(console.log).catch(console.log);

@@ -1,14 +1,14 @@
 package main
 
 import (
-	"fmt"
-	"os"
-	"time"
-	"log"
-	"strconv"
 	"encoding/csv"
-	"sync/atomic"
+	"fmt"
 	"github.com/EasyPost/easypost-go"
+	"log"
+	"os"
+	"strconv"
+	"sync/atomic"
+	"time"
 )
 
 /*
@@ -19,12 +19,12 @@ import (
 * CSV Format: Do not include a header row. Match up the rows with the current-line indexes below (eg: Name: lines[current][0])
 * Rate Limiting: Do not use more than 50 goroutines, do not try CSV's larger than 2000 records, pass Go, do not collect $200... ;)
 * TODO: Allow CSV header support (skip the first row)
-*/
+ */
 
 func main() {
 	// Setup concurrency
 	totalRequests := 1600 // total number of rows in the CSV file
-	concurrency := 100 // Not to exceed "100" on EasyPost `shipment` API calls
+	concurrency := 100    // Not to exceed "100" on EasyPost `shipment` API calls
 	sem := make(chan bool, concurrency)
 
 	// Track the time this script takes to run
@@ -56,7 +56,7 @@ func main() {
 
 		go func(current int) {
 			startTime := time.Now()
-		
+
 			// Setup Parcel items
 			length, _ := strconv.ParseFloat(lines[current][14], 64)
 			width, _ := strconv.ParseFloat(lines[current][15], 64)
@@ -66,7 +66,7 @@ func main() {
 			// Create the shipment
 			shipment, err := client.CreateShipment(
 				&easypost.Shipment{
-					ToAddress: 	&easypost.Address{
+					ToAddress: &easypost.Address{
 						Name:    lines[current][0],
 						Company: lines[current][1],
 						Street1: lines[current][2],
@@ -91,17 +91,15 @@ func main() {
 						Weight: weight,
 					},
 					CarrierAccountIDs: []string{os.Getenv("CARRIER_ACCOUNT_ID")},
-					Service: os.Getenv("SERVICE"),
-					Carrier: os.Getenv("CARRIER"),
+					Service:           os.Getenv("SERVICE"),
+					Carrier:           os.Getenv("CARRIER"),
 				},
 			)
 			if err != nil {
 				fmt.Fprintln(os.Stderr, "error creating shipment:", err)
-				os.Exit(1)
-				return
+			} else {
+				fmt.Println(shipment.ID)
 			}
-			
-			fmt.Println(shipment.ID)
 
 			elapsedTime := time.Since(startTime)
 			atomic.AddInt32(&total, 1)

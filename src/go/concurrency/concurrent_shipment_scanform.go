@@ -1,35 +1,31 @@
 package main
 
 import (
-	"encoding/csv"
 	"fmt"
 	"github.com/EasyPost/easypost-go"
-	"log"
 	"os"
 	"sync/atomic"
 	"time"
 )
 
 /*
-* Concurrently refund EasyPost Shipments via a CSV file
+* Concurrently scanform shipments from a batch. Great for bypassing scanform errors when there are only a couple of troubled shipments in a large batch
 *
-* Usage: EASYPOST_API_KEY=123... CSV=report.csv go run concurrent_refund.go
+* Usage: EASYPOST_API_KEY=123... BATCH=batch_123... go run concurrent_shipment_scanform.go
 * Inspiration: https://stackoverflow.com/questions/33104192/how-to-run-10000-goroutines-in-parallel-where-each-routine-calls-an-api
-* CSV Format: Provide a single shipment ID per line in column 0 (1st column) with no other data
-* Rate Limiting: Do not use more than 50 goroutines, do not try CSV's larger than 2000 records, pass Go, do not collect $200... ;)
  */
 
 func main() {
+
 	// Setup concurrency
-	totalRequests := 5308 // total number of rows in the CSV file
-	concurrency := 50     // Not to exceed "50" on EasyPost `refund` API calls
+	concurrency := 50 // Not to exceed "50" on EasyPost `scanform` API calls
 	sem := make(chan bool, concurrency)
 
 	// Track the time this script takes to run
 	start := time.Now()
 	total := int32(0)
 
-	// Setup the EasyPost API Client
+	// Setup EasyPost API key
 	apiKey := os.Getenv("EASYPOST_API_KEY")
 	if apiKey == "" {
 		fmt.Fprintln(os.Stderr, "missing API key")
@@ -38,29 +34,27 @@ func main() {
 	}
 	client := easypost.New(apiKey)
 
-	// Open CSV file
-	csvFile, _ := os.Open(os.Getenv("CSV"))
-	reader := csv.NewReader(csvFile)
-	defer csvFile.Close()
-
-	lines, error := reader.ReadAll()
-	if error != nil {
-		log.Fatal(error)
+	// Retrieve a batch
+	batch, err := client.GetBatch(os.Getenv("BATCH"))
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "error retrieving batch:", err)
+		os.Exit(1)
+		return
 	}
 
 	// Loop over API calls
-	for i := 0; i < totalRequests; i++ {
+	for i := 0; i < batch.NumShipments; i++ {
 		sem <- true
 
 		go func(current int) {
 			startTime := time.Now()
 
-			// request a refund for this line item
-			shipment, err := client.RefundShipment(lines[current][0])
+			// Attempt to scanform each shipment in the batch
+			_, err := client.CreateScanForm(batch.Shipments[current].ID)
 			if err != nil {
-				fmt.Fprintln(os.Stderr, "error refunding shipment:", err)
+				fmt.Fprintln(os.Stderr, batch.Shipments[current].ID, err)
 			} else {
-				fmt.Println("Refund requested:", shipment.ID)
+				fmt.Println(batch.Shipments[current].ID, "scanformed!")
 			}
 
 			elapsedTime := time.Since(startTime)

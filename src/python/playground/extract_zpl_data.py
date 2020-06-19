@@ -5,11 +5,14 @@ This is useful as converted ZPL labels contain binary data which Labelary cannot
 from PIL import Image, ImageOps  # https://pypi.org/project/Pillow/
 from pathlib import Path
 import re
+import os
+
+# USAGE: PATH=/path/to/folder FILE=label.zpl python3 extract_zpl_data.py
 
 # Define some variables, update as needed
 head = b'^GFB,120000,120000,100,'
 foot = b'^FS^XZ'
-for fn in Path('/Users/jhammond/Downloads').glob('a326dd4918ab4912a6e59b2f64c52248.zpl'):
+for fn in Path(os.getenv('PATH')).glob(os.getenv('FILE')):
     print(fn)
     try:
         with fn.open('rb') as F:
@@ -26,7 +29,7 @@ for fn in Path('/Users/jhammond/Downloads').glob('a326dd4918ab4912a6e59b2f64c522
                 # n.b. the invert operation requires a greyscale (type 'L') image, so we convert before inverting.
                 im = ImageOps.invert(Image.frombytes(
                     '1', (800, 1200), img_data).convert('L'))
-                im.save(Path('/Users/jhammond/Downloads') /
+                im.save(Path(os.getenv('PATH')) /
                         (fn.stem + '.png'))
                 print()
     except Exception as e:

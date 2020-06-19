@@ -4,20 +4,10 @@ const dotenv = require('dotenv');
 dotenv.config({ path: '/Users/jhammond/git/easypost/easypost-tools/.env' });
 const api = new Easypost(process.env.EASYPOST_PROD_API_KEY);
 
-/* Either objects or ids can be passed in. If the object does
-* not have an id, it will be created. */
-
-/*
-const toAddress = new api.Address({ ... });
-const fromAddress = new api.Address({ ... });
-const parcel = new api.Parcel({ ... });
-const customsInfo = new api.CustomsInfo({ ... });
-*/
-
 const toAddress = new api.Address({
     verify: ['delivery'],
     name: 'Dr. Steve Brule',
-    street1: '179 N Harbor Dr',
+    street1: '179 N Harbor Dra j;ds;klfjasd;fj;laksdjf;laksdjf;laskjdf;lakjsdf;lkasdjf;lkads',
     city: 'Redondo Beach',
     state: 'CA',
     zip: '90277',
@@ -55,18 +45,58 @@ const customsInfo = new api.CustomsInfo({
     restriction_type: 'none',
     restriction_comments: '',
     non_delivery_option: 'abandon',
+    declaration: 'Here is a bunch of information...',
+
 
     /* customs_items can be passed in as instances or ids.
     *  if the item does not have an id, it will be created. */
     customs_items: [
         new api.CustomsItem({
-            'description': 'Sweet shirts',
+            'description': 'Sweet shirts 1',
             'quantity': 2,
             'weight': 11,
             'value': 23,
             'hs_tariff_number': '654321',
-            'origin_country': 'US'
-        })],
+            'origin_country': 'US',
+            'code': '123'
+        }),
+        new api.CustomsItem({
+            'description': 'Sweet shirts 2',
+            'quantity': 2,
+            'weight': 11,
+            'value': 23,
+            'hs_tariff_number': '654321',
+            'origin_country': 'US',
+            'code': '123'
+        }),
+        new api.CustomsItem({
+            'description': 'Sweet shirts 3',
+            'quantity': 2,
+            'weight': 11,
+            'value': 23,
+            'hs_tariff_number': '654321',
+            'origin_country': 'US',
+            'code': '123'
+        }),
+        new api.CustomsItem({
+            'description': 'Sweet shirts 4',
+            'quantity': 2,
+            'weight': 11,
+            'value': 23,
+            'hs_tariff_number': '654321',
+            'origin_country': 'US',
+            'code': '123'
+        }),
+        new api.CustomsItem({
+            'description': 'Sweet shirts 5',
+            'quantity': 2,
+            'weight': 11,
+            'value': 23,
+            'hs_tariff_number': '654321',
+            'origin_country': 'US',
+            'code': '123'
+        }),
+    ]
 });
 
 const shipment = new api.Shipment({
@@ -76,9 +106,9 @@ const shipment = new api.Shipment({
     options: {
         //address_validation_level: 1,
         //alcohol: true,
-        label_format: "PNG",
+        // label_format: "PNG",
         //print_custom_1: "Here is a custom string on a label!",
-        //hazmat: "LITHIUM",
+        // hazmat: 'SECONDARY',
         /*payment: {
         type: "THIRD_PARTY",
         account: "ca_3bd616120603457fbed9deb1e425bbdc",
@@ -87,12 +117,14 @@ const shipment = new api.Shipment({
         }*/
         //special_rates_eligibility: "USPS.MEDIAMAIL",
         incoterm: "DDP",
+        invoice_number: '123',
         // freight_charge: 19.99,
-        importer_address_id: 'adr_ff266521b9274244aff6ef6f07606f14',
+        // importer_address_id: 'adr_ff266521b9274244aff6ef6f07606f14',
+        import_federal_tax_id: ''
     },
     customs_info: customsInfo,
-    carrier_accounts: [process.env.FEDEX],
-    // reference: "test",
+    carrier_accounts: [process.env.GLOBEGISTICS], // If CANADA_POST, use TEST!
+    reference: "test",
 });
 
 shipment.save().then(console.log);

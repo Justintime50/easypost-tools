@@ -1,10 +1,10 @@
 package main
 
 import (
-	"fmt"
-	"os"
 	"encoding/json"
+	"fmt"
 	"github.com/EasyPost/easypost-go"
+	"os"
 )
 
 func main() {
@@ -16,7 +16,7 @@ func main() {
 	}
 	client := easypost.New(apiKey)
 
-	// Retrieve an batch
+	// Retrieve a batch
 	batch, err := client.ListBatches(
 		&easypost.ListOptions{
 			// options here
@@ -29,8 +29,8 @@ func main() {
 	}
 
 	prettyJSON, err := json.MarshalIndent(batch, "", "    ")
-    if err != nil {
+	if err != nil {
 		fmt.Fprintln(os.Stderr, "error creating JSON:", err)
-    }
+	}
 	fmt.Printf("%s\n", string(prettyJSON))
 }
