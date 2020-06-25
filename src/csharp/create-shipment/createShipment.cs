@@ -4,13 +4,13 @@ using System.Diagnostics;
 using EasyPost;
 using Newtonsoft.Json;
 
-namespace EasyPost_shipment_test
+namespace create_shipment
 {
     class createShipment
     {
         static void Main(string[] args)
         {
-            EasyPost.ClientManager.SetCurrent(""); // TODO: .env variable here
+            EasyPost.ClientManager.SetCurrent(Environment.GetEnvironmentVariable("EASYPOST_API_KEY"));
 
             /*
             Address toAddress = Address.Create(toAddress);

@@ -17,51 +17,55 @@ const phone = '8015551234';
 const email = 'email@example.com';
 const number = Number((Math.random() * (10.00 - 1.00) + 1.00).toFixed(2));
 
-// Create Shipment
-const shipment = new api.Shipment({
-    to_address: {
-        verify: ['delivery'],
-        company,
-        name,
-        street1: dadTo.street1,
-        street2: dadTo.street2,
-        city: dadTo.city,
-        state: dadTo.state,
-        zip: dadTo.zip,
-        country: dadTo.country,
-        phone,
-        email
-    },
-    from_address: {
-        company,
-        name,
-        street1: dadFrom.street1,
-        street2: dadFrom.street2,
-        city: dadFrom.city,
-        state: dadFrom.state,
-        zip: dadFrom.zip,
-        country: dadFrom.country,
-        phone,
-        email
-    },
-    parcel: {
-        length: number,
-        width: number,
-        height: number,
-        weight: 1,
-        // predefined_package: "Letter"
-    },
-    carrier_accounts: [process.env.USPS],
-    options: {
-    //     // delivery_confirmation: "NO_SIGNATURE",
-    //     // label_date: "2020-04-03",
-    //     label_size: "7x3",
-    invoice_number: "123",
-    }
-});
+// Create and Buy Shipment
+async function createAndBuy() {
+    const shipment = new api.Shipment({
+        to_address: {
+            verify: ['delivery'],
+            company,
+            name,
+            street1: dadTo.street1,
+            street2: dadTo.street2,
+            city: dadTo.city,
+            state: dadTo.state,
+            zip: dadTo.zip,
+            country: dadTo.country,
+            phone,
+            email
+        },
+        from_address: {
+            company,
+            name,
+            street1: dadFrom.street1,
+            street2: dadFrom.street2,
+            city: dadFrom.city,
+            state: dadFrom.state,
+            zip: dadFrom.zip,
+            country: dadFrom.country,
+            phone,
+            email
+        },
+        parcel: {
+            length: number,
+            width: number,
+            height: number,
+            weight: 1,
+            // predefined_package: "Letter"
+        },
+        carrier_accounts: [process.env.USPS], // If CANADA_POST, use TEST!
+        options: {
+            //     // delivery_confirmation: "NO_SIGNATURE",
+            //     // label_date: "2020-04-03",
+            //     label_size: "7x3",
+            invoice_number: "123",
+        }
+    });
 
-shipment.save().catch(console.log)
+    await shipment.save().catch(console.log)
 
-api.Shipment.retrieve(shipment.id).then(s => {
-    s.buy(s.lowestRate()).then(console.log).catch(console.log);
-}).catch(console.log);
+    api.Shipment.retrieve(shipment.id).then(s => {
+        s.buy(s.lowestRate()).then(console.log).catch(console.log);
+    }).catch(console.log);
+}
+
+createAndBuy()

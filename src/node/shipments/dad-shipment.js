@@ -89,7 +89,7 @@ const shipment = new api.Shipment({
         state: dadTo.state,
         zip: dadTo.zip,
         country: dadTo.country,
-        // phone,
+        phone,
         email
     },
     from_address: {
@@ -101,7 +101,7 @@ const shipment = new api.Shipment({
         state: dadFrom.state,
         zip: dadFrom.zip,
         country: dadFrom.country,
-        // phone,
+        phone,
         email
     },
     parcel: {
@@ -112,7 +112,7 @@ const shipment = new api.Shipment({
         // predefined_package: "MediumFlatRateBox"
     },
     // customs_info: customsInfo,
-    carrier_accounts: [process.env.DHL_ECOMMERCE], // If CANADA_POST, use TEST!
+    carrier_accounts: [process.env.FEDEX], // If CANADA_POST, use TEST!
     options: {
         //     // delivery_confirmation: "NO_SIGNATURE",
         // label_date: "2020-05-01",
@@ -125,8 +125,8 @@ const shipment = new api.Shipment({
         handling_instructions: 'test instructions',
         // settlement_method: 'CREDIT_CARD'
     },
-    // service: "FEDEX_GROUND",
-    // carrier: "FedEx",
+    service: "GROUND_HOME_DELIVERY",
+    carrier: "FedEx",
 });
 
 shipment.save().then(console.log).catch(console.log);

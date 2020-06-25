@@ -1,0 +1,174 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "EasyPost-Official/2.5.1.3": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "11.0.2",
+          "RestSharp": "106.4.2"
+        },
+        "compile": {
+          "lib/netcoreapp2.0/EasyPost.NetCore20.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/EasyPost.NetCore20.dll": {}
+        }
+      },
+      "Newtonsoft.Json/12.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "RestSharp/106.4.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/RestSharp.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "EasyPost-Official/2.5.1.3": {
+      "sha512": "xKctXVt0dLTvDSDXN9QYWM750/+IvfgdCeK17ioKiD8TLh6CMq895iz+Yi9Y05Xi+7dT6fj51NsfyXArjgRVng==",
+      "type": "package",
+      "path": "easypost-official/2.5.1.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "easypost-official.2.5.1.3.nupkg.sha512",
+        "easypost-official.nuspec",
+        "lib/net35/EasyPost.Net35.XML",
+        "lib/net35/EasyPost.Net35.dll",
+        "lib/net40/EasyPost.Net40.XML",
+        "lib/net40/EasyPost.Net40.dll",
+        "lib/net45/EasyPost.XML",
+        "lib/net45/EasyPost.dll",
+        "lib/netcoreapp2.0/EasyPost.NetCore20.XML",
+        "lib/netcoreapp2.0/EasyPost.NetCore20.dll"
+      ]
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "sha512": "6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "type": "package",
+      "path": "newtonsoft.json/12.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.12.0.3.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
+    "RestSharp/106.4.2": {
+      "sha512": "/aJrLfq0sUtoibM9ItU6aDL9ePS8fvVQ91ZlsZQLyq67sy2i0lAxvH6xYbRxyUaaR4CnW0jU8TbgwKTWnxRTHA==",
+      "type": "package",
+      "path": "restsharp/106.4.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net452/RestSharp.dll",
+        "lib/net452/RestSharp.xml",
+        "lib/netstandard2.0/RestSharp.dll",
+        "lib/netstandard2.0/RestSharp.xml",
+        "restsharp.106.4.2.nupkg.sha512",
+        "restsharp.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "EasyPost-Official >= 2.5.1.3",
+      "Newtonsoft.Json >= 12.0.3"
+    ]
+  },
+  "packageFolders": {
+    "/Users/jhammond/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/Users/jhammond/git/easypost/easypost-tools/src/csharp/create-address/create-address.csproj",
+      "projectName": "create-address",
+      "projectPath": "/Users/jhammond/git/easypost/easypost-tools/src/csharp/create-address/create-address.csproj",
+      "packagesPath": "/Users/jhammond/.nuget/packages/",
+      "outputPath": "/Users/jhammond/git/easypost/easypost-tools/src/csharp/create-address/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/jhammond/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "dependencies": {
+          "EasyPost-Official": {
+            "target": "Package",
+            "version": "[2.5.1.3, )"
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[12.0.3, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.300/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

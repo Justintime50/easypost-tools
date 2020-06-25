@@ -8,7 +8,7 @@
 echo "Setting up a dotnet project"
 
 mkdir "$1"
-cd "$1"
+cd "$1" || exit
 dotnet new console
 dotnet add package EasyPost-Official
 dotnet add package Newtonsoft.Json --version 12.0.3

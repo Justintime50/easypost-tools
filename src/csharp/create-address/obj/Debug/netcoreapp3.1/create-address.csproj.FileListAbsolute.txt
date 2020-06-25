@@ -1,0 +1,16 @@
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/create-address/bin/Debug/netcoreapp3.1/create-address.deps.json
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/create-address/bin/Debug/netcoreapp3.1/create-address.runtimeconfig.json
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/create-address/bin/Debug/netcoreapp3.1/create-address.runtimeconfig.dev.json
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/create-address/bin/Debug/netcoreapp3.1/create-address.dll
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/create-address/bin/Debug/netcoreapp3.1/create-address.pdb
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/create-address/bin/Debug/netcoreapp3.1/EasyPost.NetCore20.dll
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/create-address/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/create-address/bin/Debug/netcoreapp3.1/RestSharp.dll
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/create-address/obj/Debug/netcoreapp3.1/create-address.csprojAssemblyReference.cache
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/create-address/obj/Debug/netcoreapp3.1/create-address.AssemblyInfoInputs.cache
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/create-address/obj/Debug/netcoreapp3.1/create-address.AssemblyInfo.cs
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/create-address/obj/Debug/netcoreapp3.1/create-address.csproj.CoreCompileInputs.cache
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/create-address/obj/Debug/netcoreapp3.1/create-address.csproj.CopyComplete
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/create-address/obj/Debug/netcoreapp3.1/create-address.dll
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/create-address/obj/Debug/netcoreapp3.1/create-address.pdb
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/create-address/obj/Debug/netcoreapp3.1/create-address.genruntimeconfig.cache

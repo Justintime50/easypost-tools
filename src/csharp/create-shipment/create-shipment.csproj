@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>EasyPost_shipment_test</RootNamespace>
+    <RootNamespace>create_shipment</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

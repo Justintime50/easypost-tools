@@ -8,23 +8,7 @@ EasyPost.api_key = ENV['EASYPOST_PROD_API_KEY']
 
 starting = Process.clock_gettime(Process::CLOCK_MONOTONIC)
 
-=begin
-to_address = EasyPost::Address.create(...)
-from_address = EasyPost::Address.create(...)
-parcel = EasyPost::Parcel.create(...)
-customs_info = EasyPost::CustomsInfo.create(...)
-
-EasyPost::Shipment.create(
-  to_address: to_address,
-  from_address: from_address,
-  parcel: parcel,
-  customs_info: customs_info
-)
-=end
-
-# OR in one call
-
-carrier_accounts = ["ca_3bd616120603457fbed9deb1e425bbdc"]
+carrier_accounts = ENV["FEDEX"]
 
 shipment = EasyPost::Shipment.create(
   to_address: {

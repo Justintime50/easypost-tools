@@ -103,6 +103,7 @@ const shipment = new api.Shipment({
     to_address: toAddress,
     from_address: fromAddress,
     parcel: parcel,
+    // REFERENCE FOR INTERNATIONAL SHIPMENTS AND FORMS: https://easypost.zendesk.com/agent/tickets/257220
     options: {
         //address_validation_level: 1,
         //alcohol: true,
@@ -119,8 +120,8 @@ const shipment = new api.Shipment({
         incoterm: "DDP",
         invoice_number: '123',
         // freight_charge: 19.99,
-        // importer_address_id: 'adr_ff266521b9274244aff6ef6f07606f14',
-        import_federal_tax_id: ''
+        // importer_address_id: 'adr_ff266521b9274244aff6ef6f07606f14', // Address to display on the commercial invoice
+        // import_federal_tax_id: '',
     },
     customs_info: customsInfo,
     carrier_accounts: [process.env.GLOBEGISTICS], // If CANADA_POST, use TEST!

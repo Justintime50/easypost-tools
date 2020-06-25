@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "p+wHiqqH9oKBuqx7oxiNG7bk14rCfseFYT5AKLk7LDt3veHY9zgnUZS0afruCclfvhDAKzmt2SMU5P88A+i10w==",
+  "success": true,
+  "projectFilePath": "/Users/jhammond/git/easypost/easypost-tools/src/csharp/create-address/create-address.csproj",
+  "expectedPackageFiles": [
+    "/Users/jhammond/.nuget/packages/easypost-official/2.5.1.3/easypost-official.2.5.1.3.nupkg.sha512",
+    "/Users/jhammond/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",
+    "/Users/jhammond/.nuget/packages/restsharp/106.4.2/restsharp.106.4.2.nupkg.sha512"
+  ],
+  "logs": []
+}

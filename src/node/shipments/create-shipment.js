@@ -2,36 +2,35 @@ const Easypost = require('@easypost/api');
 const dotenv = require('dotenv');
 
 dotenv.config({ path: '/Users/jhammond/git/easypost/easypost-tools/.env' });
-const api = new Easypost(process.env.EASYPOST_PROD_API_KEY);
+const api = new Easypost(process.env.EASYPOST_TEST_API_KEY);
 
 const shipment = new api.Shipment({
   to_address: {
     verify: ['delivery'],
-    street1: 'Falkland Estate',
-    // street2: 'FLOOR 5',
-    city: 'Falkland',
-    // state: 'WA',
-    zip: 'KY15 7AE',
-    country: 'UK',
+    street1: '417 MONTGOMERY ST',
+    street2: 'FLOOR 5',
+    city: 'SAN FRANCISCO',
+    state: 'CA',
+    zip: '94104',
+    country: 'US',
     company: 'EasyPost',
     phone: '415-123-4567',
   },
   from_address: {
-    // company: 'Connexbox',
-    street1: 'Falkland Estate',
-    // street2: 'FLOOR 5',
-    city: 'Falkland',
-    // state: 'WA',
-    zip: 'KY15 7AE',
-    country: 'UK',
+    street1: '417 MONTGOMERY ST',
+    street2: 'FLOOR 5',
+    city: 'SAN FRANCISCO',
+    state: 'CA',
+    zip: '94104',
+    country: 'US',
     company: 'EasyPost',
     phone: '415-123-4567',
   },
   parcel: {
-    length: 25,
-    width: 9,
-    height: 1,
-    weight: 27
+    length: 8,
+    width: 3,
+    height: 0.125,
+    weight: 0.125
   },
   // options: {
   //   // alcohol: true
@@ -55,7 +54,7 @@ const shipment = new api.Shipment({
   // cost_center: '0009',
   // },
   reference: "test",
-  carrier_accounts: [process.env.DHL_EXPRESS],
+  carrier_accounts: [process.env.USPS], // If CANADA_POST, use TEST!
   is_return: true,
   // to_address: {"id":"adr_9d4a9b0f9e0340f3bc1f43aabb4f7ef3"},
   // from_address: {"id":"adr_b53dcfc1fab2440b96d21138c95eb08c"},

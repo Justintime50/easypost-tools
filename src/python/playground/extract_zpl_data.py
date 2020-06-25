@@ -7,12 +7,12 @@ from pathlib import Path
 import re
 import os
 
-# USAGE: PATH=/path/to/folder FILE=label.zpl python3 extract_zpl_data.py
+# USAGE: DIR=/path/to/folder FILE=label.zpl python3 extract_zpl_data.py
 
 # Define some variables, update as needed
 head = b'^GFB,120000,120000,100,'
 foot = b'^FS^XZ'
-for fn in Path(os.getenv('PATH')).glob(os.getenv('FILE')):
+for fn in Path(os.getenv('DIR')).glob(os.getenv('FILE')):
     print(fn)
     try:
         with fn.open('rb') as F:
@@ -29,7 +29,7 @@ for fn in Path(os.getenv('PATH')).glob(os.getenv('FILE')):
                 # n.b. the invert operation requires a greyscale (type 'L') image, so we convert before inverting.
                 im = ImageOps.invert(Image.frombytes(
                     '1', (800, 1200), img_data).convert('L'))
-                im.save(Path(os.getenv('PATH')) /
+                im.save(Path(os.getenv('DIR')) /
                         (fn.stem + '.png'))
                 print()
     except Exception as e:

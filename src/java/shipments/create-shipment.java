@@ -11,15 +11,11 @@ import com.easypost.model.CustomsItem;
 import com.easypost.model.CustomsInfo;
 import com.easypost.model.Shipment;
 
-// import io.github.cdimascio.dotenv.Dotenv;
-
 public class createShipment {
 
     public static void main(String[] args) {
 
-        // Dotenv dotenv = Dotenv.load();
-        // EasyPost.apiKey = dotenv.get("EASYPOST_PROD_API_KEY"); // TODO: .env file here
-        EasyPost.apiKey = "";
+        EasyPost.apiKey = System.getenv("EASYPOST_PROD_API_KEY");
 
         Map<String, Object> toAddressMap = new HashMap<String, Object>();
         toAddressMap.put("name", "Maggie Simpson");
@@ -62,6 +58,11 @@ public class createShipment {
             shipmentMap.put("from_address", fromAddressMap);
             shipmentMap.put("parcel", parcelMap);
             // shipmentMap.put("customs_info", customsInfoMap);
+            
+            // Setup carrier accounts
+            List<String> carrierAccountsList = new ArrayList<>();
+            carrierAccountsList.add(System.getenv("FEDEX_CA"));
+            shipmentMap.put("carrier_accounts", carrierAccountsList);
             
             Shipment shipment = Shipment.create(shipmentMap);
 
