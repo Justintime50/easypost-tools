@@ -4,9 +4,7 @@ require 'dotenv'
 require 'awesome_print'
 
 Dotenv.load('/Users/jhammond/git/easypost/easypost-tools/.env')
-EasyPost.api_key = ENV['EASYPOST_PROD_API_KEY']
-
-starting = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+EasyPost.api_key = ENV['EASYPOST_TEST_API_KEY']
 
 carrier_accounts = ENV["FEDEX"]
 
@@ -53,6 +51,3 @@ shipment = EasyPost::Shipment.create(
 )
 
 ap shipment # awesome_print the shipment
-ending = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-elapsed = ending - starting
-puts "Execution time: #{elapsed}" 
