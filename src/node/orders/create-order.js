@@ -107,7 +107,7 @@ const order = new api.Order({
             options,
         })
     ],
-    carrier_accounts: [{ id: process.env.DHL_EXPRESS }],
+    carrier_accounts: [{ id: process.env.FEDEX }],
     // service: "2ndDayAir",
     customs_info: customsInfo,
     options,

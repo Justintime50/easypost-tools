@@ -1,0 +1,16 @@
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/buy-batch/bin/Debug/netcoreapp3.1/buy-batch.deps.json
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/buy-batch/bin/Debug/netcoreapp3.1/buy-batch.runtimeconfig.json
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/buy-batch/bin/Debug/netcoreapp3.1/buy-batch.runtimeconfig.dev.json
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/buy-batch/bin/Debug/netcoreapp3.1/buy-batch.dll
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/buy-batch/bin/Debug/netcoreapp3.1/buy-batch.pdb
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/buy-batch/bin/Debug/netcoreapp3.1/EasyPost.NetCore20.dll
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/buy-batch/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/buy-batch/bin/Debug/netcoreapp3.1/RestSharp.dll
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/buy-batch/obj/Debug/netcoreapp3.1/buy-batch.csprojAssemblyReference.cache
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/buy-batch/obj/Debug/netcoreapp3.1/buy-batch.AssemblyInfoInputs.cache
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/buy-batch/obj/Debug/netcoreapp3.1/buy-batch.AssemblyInfo.cs
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/buy-batch/obj/Debug/netcoreapp3.1/buy-batch.csproj.CoreCompileInputs.cache
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/buy-batch/obj/Debug/netcoreapp3.1/buy-batch.csproj.CopyComplete
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/buy-batch/obj/Debug/netcoreapp3.1/buy-batch.dll
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/buy-batch/obj/Debug/netcoreapp3.1/buy-batch.pdb
+/Users/jhammond/git/easypost/easypost-tools/src/csharp/buy-batch/obj/Debug/netcoreapp3.1/buy-batch.genruntimeconfig.cache

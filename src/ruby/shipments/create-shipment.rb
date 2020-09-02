@@ -1,7 +1,6 @@
-#!/usr/local/opt/ruby/bin/ruby
 require 'easypost'
 require 'dotenv'
-require 'awesome_print'
+require 'amazing_print'
 
 Dotenv.load('/Users/jhammond/git/easypost/easypost-tools/.env')
 EasyPost.api_key = ENV['EASYPOST_TEST_API_KEY']
@@ -50,4 +49,4 @@ shipment = EasyPost::Shipment.create(
 =end
 )
 
-ap shipment # awesome_print the shipment
+ap shipment

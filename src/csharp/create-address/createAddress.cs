@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using EasyPost;
 using Newtonsoft.Json;
 
@@ -26,7 +25,6 @@ namespace create_address
             );
 
             Console.WriteLine(JsonConvert.SerializeObject(address, Formatting.Indented));
-
         }
     }
 }

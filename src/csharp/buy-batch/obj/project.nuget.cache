@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "meG7/ZUf+9X/hSwb91UJt2U66DnvTIAI0N3ZdG3KyWN/ocwYMCf8JrBZr/kS0OPTcLIIn3owJqBrjFOitWwhYA==",
+  "success": true,
+  "projectFilePath": "/Users/jhammond/git/easypost/easypost-tools/src/csharp/buy-batch/buy-batch.csproj",
+  "expectedPackageFiles": [
+    "/Users/jhammond/.nuget/packages/easypost-official/2.5.1.3/easypost-official.2.5.1.3.nupkg.sha512",
+    "/Users/jhammond/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",
+    "/Users/jhammond/.nuget/packages/restsharp/106.4.2/restsharp.106.4.2.nupkg.sha512"
+  ],
+  "logs": []
+}

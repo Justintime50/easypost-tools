@@ -1,5 +1,6 @@
 require 'easypost'
 require 'dotenv'
+require 'amazing_print'
 
 Dotenv.load('/Users/jhammond/git/easypost/easypost-tools/.env')
 EasyPost.api_key = ENV['EASYPOST_PROD_API_KEY']
@@ -15,4 +16,4 @@ address = EasyPost::Address.create(
     email: 'dr_steve_brule@gmail.com'
 )
 
-puts address
+ap address

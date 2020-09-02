@@ -4,14 +4,16 @@
 
 C# requires a lot of setup, see installation before running.
 
+[EasyPost internal docs](https://twiki.easypo.net/do/view/APISupport/CSharpNETCoreOnMac).
+
 ```bash
-dotnet run
+EASYPOST_API_KEY=<key_here> dotnet run
 ```
 
 ### Go
 
 ```bash
-EASYPOST_API_KEY=<KEY HERE> go run create-shipment.go
+EASYPOST_API_KEY=<key_here> go run create-shipment.go
 ```
 
 ### Java
@@ -19,6 +21,10 @@ EASYPOST_API_KEY=<KEY HERE> go run create-shipment.go
 Java is a terrible language, don't use it. If you must use it, tell it where the JAR files are and run the script:
 
 ```bash
+# EasyPost internal docs:
+# https://twiki.easypo.net/do/view/APISupport/JavaSetupOnMac
+# https://stackoverflow.com/questions/1675765/adding-to-the-classpath-on-osx/11304846#11304846
+
 # Optional: https://stackoverflow.com/questions/1675765/adding-to-the-classpath-on-osx/11304846#11304846
 # java -cp ../jars/java-dotenv-5.1.3.jar:../jars/easypost-api-client-4.0.1.jar:../jars/gson-2.8.5.jar create-shipment.java
 EASYPOST_API_KEY=123... java -cp ../jars/easypost-api-client-4.0.1.jar:../jars/gson-2.8.5.jar create-shipment.java
@@ -39,7 +45,8 @@ php create-shipment.php
 ### Python
 
 ```bash
-python3 create-shipment.py
+# Best practice to use a virtual env
+venv/bin/python src/python/create-shipment.py
 ```
 
 ### Ruby
@@ -47,7 +54,7 @@ python3 create-shipment.py
 Ensure that the Ruby file is executable before running.
 
 ```bash
-./create-shipment.rb
+ruby create-shipment.rb
 ```
 
 ### Curl

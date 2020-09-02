@@ -4,20 +4,9 @@ Here are Golang examples for EasyPost.
 
 ## Install
 
-### Install EasyPost Go CL
-
 ```bash
-go get -u github.com/EasyPost/easypost-go
-```
-
-### Setup Your Go Project
-
-```bash
-# Run this to init your Go project
-go mod init local.com/easypost-go-examples
-
-# Add this to your go.mod file:
-require github.com/EasyPost/easypost-go v1.0.1
+# From the `go` directory
+go mod vendor
 ```
 
 ## Usage

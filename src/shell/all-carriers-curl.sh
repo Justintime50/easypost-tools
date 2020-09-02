@@ -410,7 +410,22 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 -d 'carrier_account[credentials][api_key]=API_KEY' \
 -d 'carrier_account[credentials][api_id]=API_ID' \
 -d 'carrier_account[credentials][facility]=FACILITY' \
+-d 'carrier_account[credentials][is_reseller]=1' \
 -d 'carrier_account[credentials][cargo_claim_value]=CARGO_CLAIM_VALUE'
+-d 'carrier_account[credentials][injection_location_type]=VALUE'
+-d 'carrier_account[credentials][injection_contact]=VALUE'
+-d 'carrier_account[credentials][injection_organization]=VALUE'
+-d 'carrier_account[credentials][injection_street1]=VALUE'
+-d 'carrier_account[credentials][injection_street2]=VALUE'
+-d 'carrier_account[credentials][injection_zip]=VALUE'
+-d 'carrier_account[credentials][injection_city]=VALUE'
+-d 'carrier_account[credentials][injection_state]=VALUE'
+-d 'carrier_account[credentials][injection_country]=VALUE'
+-d 'carrier_account[credentials][injection_phone]=VALUE'
+-d 'carrier_account[credentials][injection_phone_ext]=VALUE'
+-d 'carrier_account[credentials][injection_email]=VALUE'
+-d 'carrier_account[credentials][injection_instruction]=VALUE'
+-d 'carrier_account[credentials][injection_note]=VALUE'
 
 LIEFERYACCOUNT
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
