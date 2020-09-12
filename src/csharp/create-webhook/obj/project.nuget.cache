@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "JhxsjJiH8Ir9zyVvoIe/gCw8QPhuokiqh+79P0lyETeedvA5wQmUj3VygnNAHmfAFSGXc5eEHtcH3ZVoJCa3LQ==",
+  "success": true,
+  "projectFilePath": "/Users/jhammond/git/easypost/easypost-tools/src/csharp/create-webhook/create-webhook.csproj",
+  "expectedPackageFiles": [
+    "/Users/jhammond/.nuget/packages/easypost-official/2.5.1.3/easypost-official.2.5.1.3.nupkg.sha512",
+    "/Users/jhammond/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",
+    "/Users/jhammond/.nuget/packages/restsharp/106.4.2/restsharp.106.4.2.nupkg.sha512"
+  ],
+  "logs": []
+}

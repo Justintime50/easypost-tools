@@ -1,16 +1,16 @@
 {
     "shipment": {
         "to_address": {
-            "id": "adr_da03248938154025a3a4ce10f26c45ad"
+            "id": "adr_123..."
         },
         "from_address": {
-            "id": "adr_d04f2c79b98d415c9a5b8033ab3d3a70"
+            "id": "adr_123..."
         },
         "parcel": {
-            "id": "prcl_afc5938939ec4300a7f393e1ee2b6652"
+            "id": "prcl_123..."
         },
         "carrier_accounts": {
-            "id": "YOUR_CARRIER_ACCOUNT_ID_HERE"
+            "id": "ca_123..."
         },
         "options": {
             "address_validation_level": "0"
