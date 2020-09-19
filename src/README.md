@@ -24,10 +24,9 @@ Java is a terrible language, don't use it. If you must use it, tell it where the
 # EasyPost internal docs:
 # https://twiki.easypo.net/do/view/APISupport/JavaSetupOnMac
 # https://stackoverflow.com/questions/1675765/adding-to-the-classpath-on-osx/11304846#11304846
-
 # Optional: https://stackoverflow.com/questions/1675765/adding-to-the-classpath-on-osx/11304846#11304846
-# java -cp ../jars/java-dotenv-5.1.3.jar:../jars/easypost-api-client-4.0.1.jar:../jars/gson-2.8.5.jar create-shipment.java
-EASYPOST_API_KEY=123... java -cp ../jars/easypost-api-client-4.0.1.jar:../jars/gson-2.8.5.jar create-shipment.java
+
+java -cp ../jars/easypost-api-client-4.0.1.jar:../jars/gson-2.8.5.jar:../jars/dotenv-java-1.0.2.jar create-shipment.java
 ```
 
 ### Node

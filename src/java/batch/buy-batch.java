@@ -10,13 +10,16 @@ import com.easypost.model.Parcel;
 import com.easypost.model.Shipment;
 import com.easypost.model.Batch;
 
+import io.github.cdimascio.dotenv.Dotenv;
+
 // Each of the shipments must have a parcel, a from_address, a to_address, a carrier, a service, and a carrier_accounts array
 
 public class createShipment {
 
     public static void main(String[] args) {
 
-        EasyPost.apiKey = System.getenv("EASYPOST_PROD_API_KEY");
+        Dotenv dotenv = Dotenv.configure().directory("/Users/jhammond/git/easypost/easypost-tools/.env").load();
+        EasyPost.apiKey = dotenv.get("EASYPOST_PROD_API_KEY");
 
         Map<String, Object> toAddressMap = new HashMap<String, Object>();
         toAddressMap.put("name", "Jack Sparrow");
@@ -46,7 +49,6 @@ public class createShipment {
         parcelMap.put("width", 8);
         parcelMap.put("length", 19.8);
 
-        // Try creating a batch with shipment data
         try {
             // Shipment list
             List<Map<String, Object>> shipmentsList = new ArrayList<Map<String, Object>>();
@@ -60,7 +62,7 @@ public class createShipment {
 
             // Setup carrier accounts
             List<String> carrierAccountsList = new ArrayList<>();
-            carrierAccountsList.add(System.getenv("FEDEX_CA"));
+            carrierAccountsList.add(dotenv.get("FEDEX"));
             shipmentMap.put("carrier_accounts", carrierAccountsList); // Required for batch buy
 
             shipmentsList.add(shipmentMap);
@@ -72,9 +74,7 @@ public class createShipment {
             Thread.sleep(2000); // Pause for creation call // TODO: This is only used for testing, find a better production approach (wait for response)
             batch.buy();
 
-            // Print output
             System.out.println(batch.prettyPrint());
-
         } catch (EasyPostException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
