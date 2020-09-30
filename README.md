@@ -10,9 +10,11 @@ Install EasyPost Tools and all their dependencies for each language. **Note:** T
 
 ```bash
 make install
+
+# Setup an environment file with API keys and carrier accounts.
+cp .env.example .env
 ```
 
-Setup an environment file `.env` with API keys and carrier accounts.
 
 ## Usage
 

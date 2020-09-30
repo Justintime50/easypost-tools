@@ -71,7 +71,8 @@ public class createShipment {
             Map<String, Object> batchMap = new HashMap<String, Object>();
             batchMap.put("shipments", shipmentsList);
             Batch batch = Batch.create(batchMap);
-            Thread.sleep(2000); // Pause for creation call // TODO: This is only used for testing, find a better production approach (wait for response)
+            Thread.sleep(2000); // Pause for creation call // TODO: This is only used for testing, find a better
+                                // production approach (wait for response)
             batch.buy();
 
             System.out.println(batch.prettyPrint());

@@ -1,13 +1,17 @@
 <?php
-require_once("../vendor/autoload.php");
-use \EasyPost\EasyPost;
-use \EasyPost\CarrierAccount;
-use \Dotenv\Dotenv;
+require_once '/Users/jhammond/git/easypost/easypost-tools/vendor/autoload.php';
+use EasyPost\EasyPost;
+use EasyPost\Error;
+use EasyPost\CarrierAccount;
+use Dotenv\Dotenv;
 
-// API Key
-$dotenv = Dotenv::createImmutable(__DIR__, "../.env");
+$dotenv = Dotenv::createImmutable('/Users/jhammond/git/easypost/easypost-tools');
 $dotenv->load();
 EasyPost::setApiKey(getenv("EASYPOST_PROD_API_KEY"));
 
-$ca = CarrierAccount::retrieve("ca_...");
-$ca->delete();
+try {
+    $ca = CarrierAccount::retrieve("ca_...");
+    $ca->delete();
+} catch (Error $exception) {
+    echo $exception;
+}

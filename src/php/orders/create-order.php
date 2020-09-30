@@ -1,14 +1,16 @@
 <?php
-require_once("../../vendor/autoload.php");
-use \EasyPost\EasyPost;
-use \Dotenv\Dotenv;
+require_once '/Users/jhammond/git/easypost/easypost-tools/vendor/autoload.php';
+use EasyPost\EasyPost;
+use EasyPost\Error;
+use EasyPost\Address;
+use EasyPost\Order;
+use Dotenv\Dotenv;
 
-// API Key
-$dotenv = Dotenv::createImmutable(__DIR__, "../../.env");
+$dotenv = Dotenv::createImmutable('/Users/jhammond/git/easypost/easypost-tools');
 $dotenv->load();
 EasyPost::setApiKey(getenv("EASYPOST_PROD_API_KEY"));
 
-$to_address = \EasyPost\Address::create(
+$to_address = Address::create(
     array(
         "street1" => "417 MONTGOMERY ST",
         "street2" => "FL 5",
@@ -21,7 +23,7 @@ $to_address = \EasyPost\Address::create(
     )
 );
 
-$from_address = \EasyPost\Address::create(
+$from_address = Address::create(
     array(
         "street1" => "417 MONTGOMERY ST",
         "street2" => "FL 5",
@@ -35,7 +37,7 @@ $from_address = \EasyPost\Address::create(
 );
 
 try {
-    $order = \EasyPost\Order::create(array(
+    $order = Order::create(array(
         "to_address" => $to_address,
         "from_address" => $from_address,
         "shipments" => array(
@@ -56,9 +58,7 @@ try {
         "service" => "FEDEX_GROUND",
         "carrier" => "FedEx",
     ));
-} catch (\EasyPost\Error $exception) {
+    echo $order;
+} catch (Error $exception) {
     echo $exception;
-    exit;
 }
-
-echo $order;

@@ -16,7 +16,6 @@ install: | venv
 	composer install
 	bundle install
 	cd src/go && go mod vendor && cd ../../ || exit
-	cp .env.example .env
 
 ## clean - Remove the virtual environment and clear out .pyc files along with node_modules and vendor folders
 clean:

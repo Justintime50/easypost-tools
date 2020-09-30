@@ -2,12 +2,12 @@ const Easypost = require('@easypost/api');
 const dotenv = require('dotenv');
 
 dotenv.config({ path: '/Users/jhammond/git/easypost/easypost-tools/.env' });
-const api = new Easypost(process.env.EASYPOST_PROD_API_KEY);
+const api = new Easypost(process.env.EASYPOST_TEST_API_KEY);
 
-const toAddress = new api.Address({
+const fromAddress = new api.Address({
     verify: ['delivery'],
     name: 'Dr. Steve Brule',
-    street1: '179 N Harbor Dra j;ds;klfjasd;fj;laksdjf;laksdjf;laskjdf;lakjsdf;lkasdjf;lkads',
+    street1: '179 N Harbor Dra',
     city: 'Redondo Beach',
     state: 'CA',
     zip: '90277',
@@ -16,7 +16,7 @@ const toAddress = new api.Address({
     email: 'dr_steve_brule@gmail.com',
 });
 
-const fromAddress = new api.Address({
+const toAddress = new api.Address({
     company: 'EasyPost',
     name: 'TAKASHI KOVACS',
     street1: 'Columbusweg 33A',
@@ -56,43 +56,7 @@ const customsInfo = new api.CustomsInfo({
             'quantity': 2,
             'weight': 11,
             'value': 23,
-            'hs_tariff_number': '654321',
-            'origin_country': 'US',
-            'code': '123'
-        }),
-        new api.CustomsItem({
-            'description': 'Sweet shirts 2',
-            'quantity': 2,
-            'weight': 11,
-            'value': 23,
-            'hs_tariff_number': '654321',
-            'origin_country': 'US',
-            'code': '123'
-        }),
-        new api.CustomsItem({
-            'description': 'Sweet shirts 3',
-            'quantity': 2,
-            'weight': 11,
-            'value': 23,
-            'hs_tariff_number': '654321',
-            'origin_country': 'US',
-            'code': '123'
-        }),
-        new api.CustomsItem({
-            'description': 'Sweet shirts 4',
-            'quantity': 2,
-            'weight': 11,
-            'value': 23,
-            'hs_tariff_number': '654321',
-            'origin_country': 'US',
-            'code': '123'
-        }),
-        new api.CustomsItem({
-            'description': 'Sweet shirts 5',
-            'quantity': 2,
-            'weight': 11,
-            'value': 23,
-            'hs_tariff_number': '654321',
+            // 'hs_tariff_number': '654321',
             'origin_country': 'US',
             'code': '123'
         }),
@@ -117,15 +81,15 @@ const shipment = new api.Shipment({
         postal_code: "84057"
         }*/
         //special_rates_eligibility: "USPS.MEDIAMAIL",
-        incoterm: "DDP",
-        invoice_number: '123',
+        // incoterm: "DDP",
+        // invoice_number: '123',
         // freight_charge: 19.99,
         // importer_address_id: 'adr_ff266521b9274244aff6ef6f07606f14', // Address to display on the commercial invoice
         // import_federal_tax_id: '',
     },
     customs_info: customsInfo,
-    carrier_accounts: [process.env.GLOBEGISTICS], // If CANADA_POST, use TEST!
-    reference: "test",
+    carrier_accounts: [process.env.DHL_EXPRESS], // If CANADA_POST, use TEST!
+    // reference: "test",
 });
 
 shipment.save().then(console.log);
