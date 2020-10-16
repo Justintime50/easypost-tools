@@ -10,12 +10,13 @@ venv:
 	ln -snf ~/.venv/easypost-tools/ venv
 	venv/bin/pip install -r requirements.txt
 
-## install - Install the project locally for all supported languages
+## install - Install the project locally for all supported languages with their dependencies
 install: | venv
 	npm install
 	composer install
 	bundle install
 	cd src/go && go mod vendor && cd ../../ || exit
+	brew install shellcheck
 
 ## clean - Remove the virtual environment and clear out .pyc files along with node_modules and vendor folders
 clean:
@@ -28,4 +29,10 @@ clean:
 	rm -rf node_modules
 	rm -rf src/go/vendor
 
-.PHONY: help install clean
+## lint - Lint the entire project across all languages
+lint:
+	find src/shell -type f \( -name '*.sh' \) | xargs shellcheck
+	rubocop
+	venv/bin/flake8 src/python
+
+.PHONY: help install clean lint

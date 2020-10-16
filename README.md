@@ -25,3 +25,13 @@ cp .env.example .env
 ## Usage
 
 Each language has its own quirks and usage. See the [Language README](src/README.md) for more information.
+
+## Development
+
+```bash
+# Lint the project
+make lint
+
+# Clean the project and all dependencies across languages
+make clean
+```
