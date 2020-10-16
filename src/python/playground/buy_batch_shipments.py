@@ -7,7 +7,7 @@ import easypost
 # Concurrently iterate over each shipment in a batch and buy the lowest rate
 
 load_dotenv()
-easypost.api_key = os.getenv("EASYPOST_PROD_API_KEY")
+easypost.api_key = os.getenv('EASYPOST_PROD_API_KEY')
 
 
 def buy_lowest_rate(shipment):
@@ -19,7 +19,7 @@ def buy_lowest_rate(shipment):
         print(error)
 
 
-batch = easypost.Batch.retrieve("batch_b501e054e97442e381129d9bf533d80f")
+batch = easypost.Batch.retrieve('batch_b501e054e97442e381129d9bf533d80f')
 
 for shipment in batch.shipments:
     time.sleep(0.1)

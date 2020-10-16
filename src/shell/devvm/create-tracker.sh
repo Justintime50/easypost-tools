@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. ../../../.env
+. /Users/jhammond/git/easypost/easypost-tools/.env
 
 curl -X POST localhost:5051/v1/tracking \
   -u "$DEVVM_TEST_API_KEY": \

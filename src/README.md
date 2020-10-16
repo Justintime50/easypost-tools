@@ -56,7 +56,7 @@ Ensure that the Ruby file is executable before running.
 ruby create-shipment.rb
 ```
 
-### Curl
+### Shell (cURL)
 
 ```bash
 ./create-shipment.sh

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../../.env
+. /Users/jhammond/git/easypost/easypost-tools/.env
 
 curl -X POST https://api.easypost.com/v2/shipments \
   -u "$EASYPOST_PROD_API_KEY": \

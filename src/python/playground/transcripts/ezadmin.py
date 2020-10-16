@@ -12,7 +12,6 @@ Paste URL: https://phab.easypo.net/P436
 import argparse
 import json
 import os
-import pprint
 
 # Third Party (PyPI) Imports
 import requests
@@ -94,7 +93,7 @@ class EZAdminCrawler(object):
         'shipment': 'easy_post~shipment',
     }
 
-    USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.108 Safari/537.36'
+    USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.108 Safari/537.36'  # noqa
 
     def __init__(self):
         self.visited = {}
@@ -104,12 +103,12 @@ class EZAdminCrawler(object):
         """
         if headers is None:
             headers = {
-                'User-Agent' : self.USER_AGENT,
+                'User-Agent': self.USER_AGENT,
             }
 
         if cookies is None:
             cookies = {
-                'ezauth' : self.EZAUTH,
+                'ezauth': self.EZAUTH,
             }
 
         response = getattr(requests, method)(url, params=params, headers=headers, cookies=cookies)
@@ -158,7 +157,7 @@ class EZAdminCrawler(object):
             data = json.loads(data_react_props)
             row = data['table']['rows'][0]
             account_details_url = row['menu'][0]['a']['href']
-            #user_details_url = row['attributes'][2]['div']['a']['href']
+            # user_details_url = row['attributes'][2]['div']['a']['href']
             account_id = account_details_url.split('/')[-1]
         else:
             pass
@@ -318,17 +317,17 @@ class EZTransformer(object):
 
 class EZSchemas(object):
     ORDER_RAW_KEYS = [
-        #'id',
-        #'object',
-        #'reference',
+        # 'id',
+        # 'object',
+        # 'reference',
         'mode',
         'to_address',
         'from_address',
         'return_address',
         'buyer_address',
         'shipments',
-        #'rates'
-        #'messages',
+        # 'rates'
+        # 'messages',
         'is_return',
     ]
 
@@ -350,101 +349,101 @@ class EZSchemas(object):
     ]
 
     PARCEL_RAW_KEYS = [
-        #'id',
-        #'object',
+        # 'id',
+        # 'object',
         'mode',
         'length',
         'width',
         'height',
         'predefined_package',
         'weight',
-        #'created_at',
-        #'updated_at',
+        # 'created_at',
+        # 'updated_at',
     ]
 
     PICKUP_RAW_KEYS = [
-        #'id',
+        # 'id',
         'reference',
         'mode',
         'address',
-        #'is_acccount_address',
+        # 'is_acccount_address',
         'instructions',
-        #'messages',
-        #'confirmation',
-        #'shipment',
-        #'address',
+        # 'messages',
+        # 'confirmation',
+        # 'shipment',
+        # 'address',
         'min_datetime',
         'max_datetime',
-        #'pickup_rates',
-        #'created_at',
-        #'updated_at',
+        # 'pickup_rates',
+        # 'created_at',
+        # 'updated_at',
     ]
 
     SHIPMENT_RAW_KEYS = [
-        #'id',
-        #'object',
-        #'reference',
+        # 'id',
+        # 'object',
+        # 'reference',
         'mode',
         'to_address',
         'from_address',
         'return_address',
-        #'buyer_address',
+        # 'buyer_address',
         'parcel',
         'customs_info',
-        #'scan_form',
-        #'forms',
-        #'insurance',
-        #'rates',
-        #'selected_rate',
-        #'postage_label',
-        #'messages',
+        # 'scan_form',
+        # 'forms',
+        # 'insurance',
+        # 'rates',
+        # 'selected_rate',
+        # 'postage_label',
+        # 'messages',
         'options',
         'is_return',
-        #'tracking_code',
-        #'usps_zone',
-        #'status',
-        #'tracker',
-        #'fees',
-        #'refund_status',
-        #'batch_id',
-        #'batch_status',
-        #'batch_message',
+        # 'tracking_code',
+        # 'usps_zone',
+        # 'status',
+        # 'tracker',
+        # 'fees',
+        # 'refund_status',
+        # 'batch_id',
+        # 'batch_status',
+        # 'batch_message',
     ]
 
     ORDER_SHIPMENT_RAW_KEYS = [
-        #'id',
-        #'object',
-        #'reference',
+        # 'id',
+        # 'object',
+        # 'reference',
         'mode',
         # 'to_address',
         # 'from_address',
         # 'return_address',
-        #'buyer_address',
+        # 'buyer_address',
         'parcel',
         'customs_info',
-        #'scan_form',
-        #'forms',
-        #'insurance',
-        #'rates',
-        #'selected_rate',
-        #'postage_label',
-        #'messages',
+        # 'scan_form',
+        # 'forms',
+        # 'insurance',
+        # 'rates',
+        # 'selected_rate',
+        # 'postage_label',
+        # 'messages',
         'options',
-        #'is_return',
-        #'tracking_code',
-        #'usps_zone',
-        #'status',
-        #'tracker',
-        #'fees',
-        #'refund_status',
-        #'batch_id',
-        #'batch_status',
-        #'batch_message',
+        # 'is_return',
+        # 'tracking_code',
+        # 'usps_zone',
+        # 'status',
+        # 'tracker',
+        # 'fees',
+        # 'refund_status',
+        # 'batch_id',
+        # 'batch_status',
+        # 'batch_message',
     ]
 
     CUSTOMS_INFO_KEYS = [
-        #'id',
-        #'object',
+        # 'id',
+        # 'object',
         'eel_pfc',
         'value',
         'contents_type',
@@ -455,13 +454,13 @@ class EZSchemas(object):
         'restriction_type',
         'restriction_comments',
         'customs_items',
-        #'created_at',
-        #'updated_at',
+        # 'created_at',
+        # 'updated_at',
     ]
 
     CUSTOMS_ITEMS_KEYS = [
-        #'id',
-        #'object',
+        # 'id',
+        # 'object',
         'description',
         'quantity',
         'value',
@@ -470,8 +469,8 @@ class EZSchemas(object):
         'code',
         'origin_country',
         'currency',
-        #'created_at',
-        #'updated_at',
+        # 'created_at',
+        # 'updated_at',
     ]
 
 

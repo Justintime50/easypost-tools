@@ -1,14 +1,14 @@
-## Payment Log reporter
-## Requests payment_log reports and optionally downloads ZIP files
-## or the combined CSV of all data.
-##
-##  Usage: 
-##  python3 paymentlog_reporter.py
-##
-##  0.0  Initial version     05 Mar 2020  joshua.biagio@easypost.com
-## 
-## Note: this script makes raw endpoint queries instead of using the easypost 
-## API Python modules to limit the amount of dependencies that are required
+# Payment Log reporter
+# Requests payment_log reports and optionally downloads ZIP files
+# or the combined CSV of all data.
+#
+#  Usage:
+#  python3 paymentlog_reporter.py
+#
+#  0.0  Initial version     05 Mar 2020  joshua.biagio@easypost.com
+#
+# Note: this script makes raw endpoint queries instead of using the easypost
+# API Python modules to limit the amount of dependencies that are required
 
 #############################################################################
 # Copyright (C) 2020 by Simpler Postage, Inc. (dba EasyPost) <support@easypost.com>
@@ -35,7 +35,6 @@ from http.client import HTTPSConnection
 from io import BytesIO as BIO
 from io import StringIO as SIO
 import json
-import os
 from pathlib import Path
 from time import sleep
 from urllib.parse import urlparse
@@ -86,7 +85,7 @@ def getURL(url, json_dict_data=None):
         conn.request('GET', f'{URLBASE}{url}', json_dict_data, headers=headers)
         res_str = conn.getresponse().read()
         data = json.loads(res_str)
-    except:
+    except Exception:
         data = {}
     return data
 
@@ -112,7 +111,7 @@ def _post_putURL_json(CMD, url, json_dict_data):
         conn.request(CMD, f'{URLBASE}{url}', json_dict_data, headers=headers)
         res_str = conn.getresponse().read()
         data = json.loads(res_str)
-    except Exception as e:
+    except Exception:
         data = {}
     return data
 
@@ -120,11 +119,11 @@ def _post_putURL_json(CMD, url, json_dict_data):
 # create our 'POST' command obj, so that we don't have to pass in the CMD
 # this works because the post_putURL method only switches the "method";
 # all other code is the same
-#postURL = partial(_post_putURL, 'POST')
+# postURL = partial(_post_putURL, 'POST')
 postURL = partial(_post_putURL_json, 'POST')
 
 # our "PUT" command obj
-#putURL = partial(_post_putURL, 'PUT')
+# putURL = partial(_post_putURL, 'PUT')
 putURL = partial(_post_putURL_json, 'PUT')
 
 
@@ -136,9 +135,9 @@ def saveReport(url, start_date, end_date):
     out_path = Path(DOWNLOAD_DIR, '_'.join(
         (start_date.replace('-', ''), end_date.replace('-', ''), fn_stem))+'.zip')
 
-    with urlopen(url) as F, out_path.expanduser().open('wb') as O:
+    with urlopen(url) as F, out_path.expanduser().open('wb') as out_file:
         print(f"Saving '{url_path}' to '{out_path!s}'...")
-        _ = O.write(F.read())
+        _ = out_file.write(F.read())
 
 
 def getReportRows(url):
@@ -161,7 +160,6 @@ def getReportURLS(download=False, buildmasterreport=False):
     has_more = True
     params = {'start_date': f'{START_YR}-{START_MO:02}-01', 'page_size': 3}
     data = []
-    report_rows = []
     while has_more:
         res = getURL('reports/payment_log', params)
         reports = res['reports']
@@ -194,14 +192,15 @@ if __name__ == '__main__':
             # request payment log report
             rpt = postURL('reports/payment_log',
                           {'start_date': f'{yr}-{mo:02}-01', 'end_date': f'{yr}-{mo}-{calendar.monthlen(yr, mo)}'})
-            # if the request was successful, a dictionary will be returned with a URL entry set to None (the report is being generated)
+            # if the request was successful, a dictionary will be returned with a URL
+            # entry set to None (the report is being generated)
             if 'url' in rpt:
                 # wait until the URL is populated
                 while rpt['url'] is None:
-                    rpt = getURL(API_KEY, f'reports/rpt["id"]')
+                    rpt = getURL(API_KEY, f'reports/{rpt["id"]}')
                     sleep(0.1)
 
-        except Exception as e:
+        except Exception:
             pass
 
         # move to our next month

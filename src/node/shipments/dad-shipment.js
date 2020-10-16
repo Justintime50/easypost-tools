@@ -4,11 +4,11 @@ const dad = require('dad-tool');
 
 // Setup EasyPost API key
 dotenv.config({ path: '/Users/jhammond/git/easypost/easypost-tools/.env' });
-const api = new Easypost(process.env.EASYPOST_PROD_API_KEY);
+const api = new Easypost(process.env.EASYPOST_TEST_API_KEY);
 
 // Setup addresses from dad
-const dadTo = dad.random('US_UT');
-const dadFrom = dad.random('US_UT');
+const dadFrom = dad.random('US_CA');
+const dadTo = dad.random('US_CA');
 
 // Setup static variables
 const name = 'Jack Sparrow';
@@ -23,7 +23,7 @@ const customsInfo = new api.CustomsInfo({
     customs_certify: true,
     customs_signer: 'Steve Brule',
     contents_type: 'merchandise',
-    contents_explanation: '',
+    contents_explanation: 'test explanation',
     restriction_type: 'none',
     restriction_comments: '',
     non_delivery_option: 'abandon',
@@ -36,42 +36,11 @@ const customsInfo = new api.CustomsInfo({
         new api.CustomsItem({
             'description': 'Sweet shirts',
             'quantity': 2,
-            'weight': 11,
+            'weight': number,
             'value': 23,
             'hs_tariff_number': '654321',
-            'origin_country': 'US'
-        }),
-        new api.CustomsItem({
-            'description': 'Sweet shirts 2',
-            'quantity': 2,
-            'weight': 11,
-            'value': 23,
-            'hs_tariff_number': '654321',
-            'origin_country': 'US'
-        }),
-        new api.CustomsItem({
-            'description': 'Sweet shirts 3',
-            'quantity': 2,
-            'weight': 11,
-            'value': 23,
-            'hs_tariff_number': '654321',
-            'origin_country': 'US'
-        }),
-        new api.CustomsItem({
-            'description': 'Sweet shirts 4',
-            'quantity': 2,
-            'weight': 11,
-            'value': 23,
-            'hs_tariff_number': '654321',
-            'origin_country': 'US'
-        }),
-        new api.CustomsItem({
-            'description': 'Sweet shirts 5',
-            'quantity': 2,
-            'weight': 11,
-            'value': 23,
-            'hs_tariff_number': '654321',
-            'origin_country': 'US'
+            'origin_country': 'US',
+            'code': '123'
         }),
     ]
 });
@@ -104,6 +73,18 @@ const shipment = new api.Shipment({
         phone,
         email
     },
+    return_address: {
+        company,
+        name: 'LALA NAME',
+        street1: dadFrom.street1,
+        street2: dadFrom.street2,
+        city: dadFrom.city,
+        state: dadFrom.state,
+        zip: dadFrom.zip,
+        country: dadFrom.country,
+        phone,
+        email
+    },
     parcel: {
         length: number,
         width: number,
@@ -112,17 +93,17 @@ const shipment = new api.Shipment({
         // predefined_package: "MediumFlatRateBox"
     },
     // customs_info: customsInfo,
-    carrier_accounts: [process.env.DHL_ECOMMERCE], // If CANADA_POST, use TEST!
+    carrier_accounts: [process.env.AXLEHIREV3], // If CANADA_POST, use TEST!
     options: {
-        //     // delivery_confirmation: "NO_SIGNATURE",
-        // label_date: "2020-05-01",
-        //     label_size: "7x3",
+        // delivery_confirmation: "NO_SIGNATURE",
+        label_date: "2020-10-16T20:04:42Z",
+        // label_size: "7x3",
         // print_custom_1: "123",
         // print_custom_1_code: "IK",
-        // label_format: "PNG",
+        // label_format: "ZPL",
         // delivery_confirmation: "SIGNATURE",
-        //     postage_label_inline: true
-        handling_instructions: 'test instructions',
+        // postage_label_inline: true
+        // handling_instructions: 'test instructions',
         // settlement_method: 'CREDIT_CARD'
     },
     // service: "GROUND_HOME_DELIVERY",

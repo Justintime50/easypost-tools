@@ -1,12 +1,9 @@
-"""
-Extract the data of a binary ZPL label into a PNG equivalent
-This is useful as converted ZPL labels contain binary data which Labelary cannot parse
-"""
 from PIL import Image, ImageOps  # https://pypi.org/project/Pillow/
 from pathlib import Path
-import re
 import os
 
+# Extract the data of a binary ZPL label into a PNG equivalent
+# This is useful as converted ZPL labels contain binary data which Labelary cannot parse
 # USAGE: DIR=/path/to/folder FILE=label.zpl python3 extract_zpl_data.py
 
 # Define some variables, update as needed
@@ -26,7 +23,8 @@ for fn in Path(os.getenv('DIR')).glob(os.getenv('FILE')):
                     img_data += b'\x00'
                 # need to invert because the data appears to be stored as a negative
                 # took a rough guess on the size 200dpi 4x6
-                # n.b. the invert operation requires a greyscale (type 'L') image, so we convert before inverting.
+                # n.b. the invert operation requires a greyscale (type 'L') image,
+                # so we convert before inverting.
                 im = ImageOps.invert(Image.frombytes(
                     '1', (800, 1200), img_data).convert('L'))
                 im.save(Path(os.getenv('DIR')) /

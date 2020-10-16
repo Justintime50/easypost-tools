@@ -1,35 +1,38 @@
-"""Create an XML file for FedEx requests"""
 import easypost
 import math
-​
+
+# Create an XML file for FedEx requests
+
 easypost.api_key = 'PROD OR TEST API KEY'
-​
 shipment_id = input("Please enter a shipment id: ")
 shipment = easypost.Shipment.retrieve(shipment_id)
-​
-def round_up(n, decimals=1): 
-    multiplier = 10 ** decimals 
+
+
+def round_up(n, decimals=1):
+    multiplier = 10 ** decimals
     return math.ceil(n * multiplier) / multiplier
-​
+
+
 def oz2lb():
     ounces = shipment.parcel.weight
-    pounds =  ounces / 16;
+    pounds = ounces / 16
     return round_up(pounds)
-​
+
+
 shipment_weight_in_lb = oz2lb()
 shipment_length = int(shipment.parcel.length)
 shipment_width = int(shipment.parcel.width)
 shipment_height = int(shipment.parcel.height)
-​
-if(shipment.to_address.residential == True):
-	recipient_address_residential = 1
+
+if(shipment.to_address.residential is True):
+    recipient_address_residential = 1
 else:
-	recipient_address_residential = 0
-​
+    recipient_address_residential = 0
+
 file_name = str(shipment_id) + '.xml'
 file = open(file_name, 'w')
-​
-file.write('<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://fedex.com/ws/ship/v19">' + '\n')
+
+file.write('<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://fedex.com/ws/ship/v19">' + '\n')  # noqa
 file.write('\t' + "<SOAP-ENV:Body>" + '\n')
 file.write('\t' + '\t' + "<ProcessShipmentRequest>" + '\n')
 file.write('\t' + '\t' + '\t' + "<WebAuthenticationDetail>" + '\n')
@@ -60,38 +63,54 @@ file.write('\t' + '\t' + '\t' + '\t' + "<PackagingType>YOUR_PACKAGING</Packaging
 file.write('\t' + '\t' + '\t' + '\t' + "<Shipper>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + "<AccountNumber>*****</AccountNumber>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + "<Contact>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<PersonName>" + str(shipment.from_address.name) + "</PersonName>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<CompanyName>" + str(shipment.from_address.company) + "</CompanyName>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<PhoneNumber>" + str(shipment.from_address.phone) + "</PhoneNumber>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<PersonName>" +
+           str(shipment.from_address.name) + "</PersonName>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<CompanyName>" +
+           str(shipment.from_address.company) + "</CompanyName>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<PhoneNumber>" +
+           str(shipment.from_address.phone) + "</PhoneNumber>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + "</Contact>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + "<Address>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<StreetLines>" + str(shipment.from_address.street1) + "</StreetLines>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<StreetLines>" +
+           str(shipment.from_address.street1) + "</StreetLines>" + '\n')
 if(shipment.from_address.street2 != ""):
-	file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<StreetLines>" + str(shipment.from_address.street2) + "</StreetLines>" + '\n')
+    file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<StreetLines>" +
+               str(shipment.from_address.street2) + "</StreetLines>" + '\n')
 else:
-	file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<StreetLines/>" + '\n')
+    file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<StreetLines/>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<City>" + str(shipment.from_address.city) + "</City>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<StateOrProvinceCode>" + str(shipment.from_address.state) + "</StateOrProvinceCode>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<PostalCode>" + str(shipment.from_address.zip) + "</PostalCode>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<CountryCode>" + str(shipment.from_address.country) + "</CountryCode>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<StateOrProvinceCode>" +
+           str(shipment.from_address.state) + "</StateOrProvinceCode>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<PostalCode>" +
+           str(shipment.from_address.zip) + "</PostalCode>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<CountryCode>" +
+           str(shipment.from_address.country) + "</CountryCode>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + "</Address>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + "</Shipper>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + "<Recipient>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + "<Contact>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<PersonName>" + str(shipment.to_address.name) + "</PersonName>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<PhoneNumber>" + str(shipment.to_address.phone) + "</PhoneNumber>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<PersonName>" +
+           str(shipment.to_address.name) + "</PersonName>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<PhoneNumber>" +
+           str(shipment.to_address.phone) + "</PhoneNumber>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + "</Contact>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + "<Address>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<StreetLines>" + str(shipment.to_address.street1) + "</StreetLines>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<StreetLines>" +
+           str(shipment.to_address.street1) + "</StreetLines>" + '\n')
 if(shipment.from_address.street2 != ""):
-	file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<StreetLines>" + str(shipment.to_address.street2) + "</StreetLines>" + '\n')
+    file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<StreetLines>" +
+               str(shipment.to_address.street2) + "</StreetLines>" + '\n')
 else:
-	file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<StreetLines/>" + '\n')
+    file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<StreetLines/>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<City>" + str(shipment.to_address.city) + "</City>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<StateOrProvinceCode>" + str(shipment.to_address.state) + "</StateOrProvinceCode>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<PostalCode>" + str(shipment.to_address.zip) + "</PostalCode>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<CountryCode>" + str(shipment.to_address.country) + "</CountryCode>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<Residential>" + str(recipient_address_residential) + "</Residential>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<StateOrProvinceCode>" +
+           str(shipment.to_address.state) + "</StateOrProvinceCode>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<PostalCode>" +
+           str(shipment.to_address.zip) + "</PostalCode>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<CountryCode>" +
+           str(shipment.to_address.country) + "</CountryCode>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<Residential>" +
+           str(recipient_address_residential) + "</Residential>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + "</Address>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + "</Recipient>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + "<ShippingChargesPayment>" + '\n')
@@ -100,9 +119,12 @@ file.write('\t' + '\t' + '\t' + '\t' + '\t' + "<Payor>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<ResponsibleParty>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<AccountNumber>*****</AccountNumber>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<Contact>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<PersonName>" + str(shipment.from_address.name) + "</PersonName>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<CompanyName>" + str(shipment.from_address.company) + "</CompanyName>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<PhoneNumber>" + str(shipment.from_address.phone) + "</PhoneNumber>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<PersonName>" +
+           str(shipment.from_address.name) + "</PersonName>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<CompanyName>" +
+           str(shipment.from_address.company) + "</CompanyName>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<PhoneNumber>" +
+           str(shipment.from_address.phone) + "</PhoneNumber>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "</Contact>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "</ResponsibleParty>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + "</Payor>" + '\n')
@@ -112,23 +134,33 @@ file.write('\t' + '\t' + '\t' + '\t' + "<LabelSpecification>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + "<LabelFormatType>COMMON2D</LabelFormatType>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + "<ImageType>PNG</ImageType>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + "<LabelStockType>PAPER_4X6</LabelStockType>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + "<LabelPrintingOrientation>TOP_EDGE_OF_TEXT_FIRST</LabelPrintingOrientation>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' +
+           "<LabelPrintingOrientation>TOP_EDGE_OF_TEXT_FIRST</LabelPrintingOrientation>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + "<PrintedLabelOrigin>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<Contact>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<PersonName>" + str(shipment.from_address.name) + "</PersonName>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<CompanyName>" + str(shipment.from_address.company) + "</CompanyName>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<PhoneNumber>" + str(shipment.from_address.phone) + "</PhoneNumber>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<PersonName>" +
+           str(shipment.from_address.name) + "</PersonName>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<CompanyName>" +
+           str(shipment.from_address.company) + "</CompanyName>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<PhoneNumber>" +
+           str(shipment.from_address.phone) + "</PhoneNumber>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "</Contact>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<Address>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<StreetLines>" + str(shipment.from_address.street1) + "</StreetLines>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<StreetLines>" +
+           str(shipment.from_address.street1) + "</StreetLines>" + '\n')
 if(shipment.from_address.street2 != ""):
-	file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<StreetLines>" + str(shipment.from_address.street2) + "</StreetLines>" + '\n')
+    file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<StreetLines>" +
+               str(shipment.from_address.street2) + "</StreetLines>" + '\n')
 else:
-	file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<StreetLines/>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<City>" + str(shipment.from_address.city) + "</City>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<StateOrProvinceCode>" + str(shipment.from_address.state) + "</StateOrProvinceCode>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<PostalCode>" + str(shipment.from_address.zip) + "</PostalCode>" + '\n')
-file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<CountryCode>" + str(shipment.from_address.country) + "</CountryCode>" + '\n')
+    file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<StreetLines/>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<City>" +
+           str(shipment.from_address.city) + "</City>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<StateOrProvinceCode>" +
+           str(shipment.from_address.state) + "</StateOrProvinceCode>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<PostalCode>" +
+           str(shipment.from_address.zip) + "</PostalCode>" + '\n')
+file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "<CountryCode>" +
+           str(shipment.from_address.country) + "</CountryCode>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + '\t' + "</Address>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + "</PrintedLabelOrigin>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + "</LabelSpecification>" + '\n')
@@ -152,7 +184,7 @@ file.write('\t' + '\t' + '\t' + '\t' + '\t' + "<ItemDescription/>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + '\t' + "<ItemDescriptionForClearance/>" + '\n')
 file.write('\t' + '\t' + '\t' + '\t' + "</RequestedPackageLineItems>" + '\n')
 file.write('\t' + '\t' + '\t' + "</RequestedShipment>" + '\n')
-file.write('\t' + '\t' + "</ProcessShipmentRequest>" + '\n')    
+file.write('\t' + '\t' + "</ProcessShipmentRequest>" + '\n')
 file.write('\t' + "</SOAP-ENV:Body>" + '\n')
 file.write("</SOAP-ENV:Envelope>")
 file.close()

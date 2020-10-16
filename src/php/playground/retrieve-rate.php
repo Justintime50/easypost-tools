@@ -10,9 +10,8 @@ $dotenv->load();
 EasyPost::setApiKey(getenv('EASYPOST_PROD_API_KEY'));
 
 try {
-    $rates = Rate::retrieve('rate_675afb1d32054566b6bc2760f9a76902');
-
-    echo $rates;
+    $rate = Rate::retrieve('rate_675afb1d32054566b6bc2760f9a76902');
+    echo $rate;
 } catch (Error $exception) {
     echo $exception;
 }

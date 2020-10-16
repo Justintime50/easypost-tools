@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'easypost'
 require 'dotenv'
 require 'amazing_print'
@@ -5,7 +7,7 @@ require 'amazing_print'
 Dotenv.load('/Users/jhammond/git/easypost/easypost-tools/.env')
 EasyPost.api_key = ENV['EASYPOST_TEST_API_KEY']
 
-carrier_accounts = ENV["FEDEX"]
+carrier_accounts = ENV['FEDEX']
 
 shipment = EasyPost::Shipment.create(
   to_address: {
@@ -36,17 +38,6 @@ shipment = EasyPost::Shipment.create(
     weight: 65.9
   },
   carrier_accounts: carrier_accounts
-  # customs_info: customs_info
-=begin
-  options: {
-    payment: {
-      type: "THIRD_PARTY",
-      account: "ca_3bd616120603457fbed9deb1e425bbdc",
-      country: "US",
-      postal_code: "84057"
-    }
-  }
-=end
 )
 
 ap shipment
