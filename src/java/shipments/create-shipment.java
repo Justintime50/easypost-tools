@@ -14,7 +14,6 @@ import com.easypost.model.Shipment;
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class createShipment {
-
     public static void main(String[] args) {
 
         Dotenv dotenv = Dotenv.configure().directory("/Users/jhammond/git/easypost/easypost-tools/.env").load();
@@ -45,14 +44,12 @@ public class createShipment {
         parcelMap.put("length", 19.8);
 
         /*
-        Map<String, Object> customsInfoMap = new HashMap<String, Object>();
-        customsItem1Map.put("description", "EasyPost T-shirts");
-        customsItem1Map.put("quantity", 2);
-        customsItem1Map.put("value", 23.56);
-        customsItem1Map.put("weight", 18.8);
-        customsItem1Map.put("origin_country", "us");
-        customsItem1Map.put("hs_tariff_number", "123456");
-        */
+         * Map<String, Object> customsInfoMap = new HashMap<String, Object>();
+         * customsItem1Map.put("description", "EasyPost T-shirts");
+         * customsItem1Map.put("quantity", 2); customsItem1Map.put("value", 23.56);
+         * customsItem1Map.put("weight", 18.8); customsItem1Map.put("origin_country",
+         * "us"); customsItem1Map.put("hs_tariff_number", "123456");
+         */
 
         try {
             Map<String, Object> shipmentMap = new HashMap<String, Object>();
@@ -60,12 +57,12 @@ public class createShipment {
             shipmentMap.put("from_address", fromAddressMap);
             shipmentMap.put("parcel", parcelMap);
             // shipmentMap.put("customs_info", customsInfoMap);
-            
+
             // Setup carrier accounts
             List<String> carrierAccountsList = new ArrayList<>();
             carrierAccountsList.add(dotenv.get("FEDEX"));
             shipmentMap.put("carrier_accounts", carrierAccountsList);
-            
+
             Shipment shipment = Shipment.create(shipmentMap);
 
             System.out.println(shipment.prettyPrint());

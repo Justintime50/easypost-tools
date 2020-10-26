@@ -14,8 +14,7 @@ import io.github.cdimascio.dotenv.Dotenv;
 
 // Each of the shipments must have a parcel, a from_address, a to_address, a carrier, a service, and a carrier_accounts array
 
-public class createShipment {
-
+public class buyBatch {
     public static void main(String[] args) {
 
         Dotenv dotenv = Dotenv.configure().directory("/Users/jhammond/git/easypost/easypost-tools/.env").load();
