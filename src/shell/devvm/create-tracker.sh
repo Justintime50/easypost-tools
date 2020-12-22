@@ -2,6 +2,8 @@
 
 . /Users/jhammond/git/easypost/easypost-tools/.env
 
-curl -X POST localhost:5051/v1/tracking \
-  -u "$DEVVM_TEST_API_KEY": \
-  -d 'tracking_code=LT023147905NL'
+curl -X POST http://oregon1.jhammond.devvm.easypo.net:5000/v2/trackers \
+  -u "$DEVVM_PROD_API_KEY": \
+  -d 'tracker[tracking_code]=nzwgnfef5tyuvy6v' \
+  -d 'tracker[carrier]=AxlehireV3' \
+  | json_pp

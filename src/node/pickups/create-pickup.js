@@ -2,23 +2,22 @@ const Easypost = require('@easypost/api');
 const dotenv = require('dotenv');
 
 dotenv.config({ path: '/Users/jhammond/git/easypost/easypost-tools/.env' });
-const api = new Easypost(process.env.EASYPOST_TEST_API_KEY); // DO NO CREATE IN PROD!
+const api = new Easypost(process.env.DEVVM_TEST_API_KEY, {
+    baseUrl: "http://oregon1.jhammond.devvm.easypo.net:5000/v2/",
+}); // DO NO CREATE IN PROD!
 
-/* Either objects or ids can be passed in for addresses and
- * shipments. If the object does not have an id, it will be
- * created. */
-const address = 'adr_b173caa129e44bb28f9454b7d9f63467';
-const shipment = 'shp_2b44f9e8e32642f4abe07697ff33b795';
+const address = 'adr_a84d92f289e044d9abe91b5b2de42844';
+const shipment = 'shp_15ffe591242b4a238f020b3263d9becf';
 
 const pickup = new api.Pickup({
     address,
     shipment,
     reference: 'my-first-pickup',
-    min_datetime: '2020-05-21 10:30:00',
-    max_datetime: '2020-05-22 10:30:00',
+    min_datetime: '2020-11-20 10:30:00',
+    max_datetime: '2020-11-21 10:30:00',
     is_account_address: false,
     instructions: 'Special pickup instructions',
-    carrier_accounts: [process.env.UPS]
+    carrier_accounts: [process.env.DEVVM_DHL_EXPRESS]
 });
 
 pickup.save().then(console.log).catch(console.log);

@@ -3,7 +3,7 @@
 . /Users/jhammond/git/easypost/easypost-tools/.env
 
 curl -X POST http://oregon1.jhammond.devvm.easypo.net:5000/v2/shipments \
-  -u "$DEVVM_TEST_API_KEY": \
+  -u "$DEVVM_PROD_API_KEY": \
   -d 'shipment[from_address][company]=EasyPost' \
   -d 'shipment[from_address][street1]=417 MONTGOMERY ST' \
   -d 'shipment[from_address][city]=SAN FRANCISCO' \
@@ -14,7 +14,7 @@ curl -X POST http://oregon1.jhammond.devvm.easypo.net:5000/v2/shipments \
   -d 'shipment[from_address][email]=dr_steve_brule@gmail.com' \
   -d 'shipment[to_address][name]=EasyPost' \
   -d 'shipment[to_address][street1]=417 MONTGOMERY ST' \
-  -d 'shipment[to_address][city]=SAN FRANCISCO' \
+  -d 'shipment[to_address][city]=SAN FRANCISCO"' \
   -d 'shipment[to_address][state]=CA' \
   -d 'shipment[to_address][zip]=94104' \
   -d 'shipment[to_address][country]=US' \
@@ -23,14 +23,26 @@ curl -X POST http://oregon1.jhammond.devvm.easypo.net:5000/v2/shipments \
   -d 'shipment[parcel][length]=12' \
   -d 'shipment[parcel][width]=6' \
   -d 'shipment[parcel][height]=8' \
-  -d 'shipment[parcel][weight]=12' \
-  -d 'shipment[options][label_date]=2020-10-16T20:04:42Z' \
-  -d "shipment[carrier_accounts][]=$DEVVM_AXLEHIREV3" \
+  -d 'shipment[parcel][weight]=2' \
+  -d "shipment[carrier_accounts][]=$DEVVM_FEDEX_SMARTPOST" \
   | json_pp
 
 
 # FOR CANADAPOST, USE TEST
 
+
+# -d 'shipment[customs_info][customs_certify]=true' \
+# -d 'shipment[customs_info][customs_signer]=Steve Brule' \
+# -d 'shipment[customs_info][contents_type]=merchandise' \
+# -d 'shipment[customs_info][contents_explanation]=' \
+# -d 'shipment[customs_info][restriction_type]=none' \
+# -d 'shipment[customs_info][eel_pfc]=NOEEI 30.37(a)' \
+# -d 'shipment[customs_info][customs_items][0][description]=Sweet shirts' \
+# -d 'shipment[customs_info][customs_items][0][quantity]=2' \
+# -d 'shipment[customs_info][customs_items][0][value]=23' \
+# -d 'shipment[customs_info][customs_items][0][weight]=11' \
+# -d 'shipment[customs_info][customs_items][0][hs_tariff_number]=654321' \
+# -d 'shipment[customs_info][customs_items][0][origin_country]=CN' \
 
 # company "FakePost"
 # 1      name    "Chris P Kream"

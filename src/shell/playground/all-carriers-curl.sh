@@ -328,27 +328,27 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 -d 'carrier_account[credentials][api_key]=API_KEY'
 
 # FEDEXACCOUNT (CSP)
-curl -X POST https://api.easypost.com/v2/fedex_registrations \
+curl -X POST https://api.easypost.com/v2/carrier_accounts/register \
 -u <YOUR_PRODUCTION_API_KEY>: \
--d 'fedex_registration[type]=FedexAccount' \
--d 'fedex_registration[description]=FedEx Account' \
--d 'fedex_registration[account_number]=ACCOUNT_NUMBER' \
--d 'fedex_registration[corporate_first_name]=CORPORATE_FIRST_NAME' \
--d 'fedex_registration[corporate_last_name]=CORPORATE_LAST_NAME' \
--d 'fedex_registration[corporate_company_name]=CORPORATE_COMPANY_NAME' \
--d 'fedex_registration[corporate_phone_number]=CORPORATE_PHONE_NUMBER' \
--d 'fedex_registration[corporate_email_address]=CORPORATE_EMAIL_ADDRESS' \
--d 'fedex_registration[corporate_streets]=CORPORATE_STREETS' \
--d 'fedex_registration[corporate_city]=CORPORATE_CITY' \
--d 'fedex_registration[corporate_state]=CORPORATE_STATE' \
--d 'fedex_registration[corporate_postal_code]=CORPORATE_POSTAL_CODE' \
--d 'fedex_registration[corporate_country_code]=CORPORATE_COUNTRY_CODE' \
--d 'fedex_registration[corporate_job_title]=CORPORATE_JOB_TITLE' \
--d 'fedex_registration[shipping_streets]=SHIPPING_STREETS' \
--d 'fedex_registration[shipping_city]=SHIPPING_CITY' \
--d 'fedex_registration[shipping_state]=SHIPPING_STATE' \
--d 'fedex_registration[shipping_postal_code]=SHIPPING_POSTAL_CODE' \
--d 'fedex_registration[shipping_country_code]=SHIPPING_COUNTRY_CODE'
+-d 'carrier_account[type]=FedexAccount' \
+-d 'carrier_account[description]=FedEx Account' \
+-d 'carrier_account[registration_data][account_number]=ACCOUNT_NUMBER' \
+-d 'carrier_account[registration_data][corporate_first_name]=CORPORATE_FIRST_NAME' \
+-d 'carrier_account[registration_data][corporate_last_name]=CORPORATE_LAST_NAME' \
+-d 'carrier_account[registration_data][corporate_company_name]=CORPORATE_COMPANY_NAME' \
+-d 'carrier_account[registration_data][corporate_phone_number]=CORPORATE_PHONE_NUMBER' \
+-d 'carrier_account[registration_data][corporate_email_address]=CORPORATE_EMAIL_ADDRESS' \
+-d 'carrier_account[registration_data][corporate_streets]=CORPORATE_STREETS' \
+-d 'carrier_account[registration_data][corporate_city]=CORPORATE_CITY' \
+-d 'carrier_account[registration_data][corporate_state]=CORPORATE_STATE' \
+-d 'carrier_account[registration_data][corporate_postal_code]=CORPORATE_POSTAL_CODE' \
+-d 'carrier_account[registration_data][corporate_country_code]=CORPORATE_COUNTRY_CODE' \
+-d 'carrier_account[registration_data][corporate_job_title]=CORPORATE_JOB_TITLE' \
+-d 'carrier_account[registration_data][shipping_streets]=SHIPPING_STREETS' \
+-d 'carrier_account[registration_data][shipping_city]=SHIPPING_CITY' \
+-d 'carrier_account[registration_data][shipping_state]=SHIPPING_STATE' \
+-d 'carrier_account[registration_data][shipping_postal_code]=SHIPPING_POSTAL_CODE' \
+-d 'carrier_account[registration_data][shipping_country_code]=SHIPPING_COUNTRY_CODE'
 
 # FEDEXACCOUNT (non-US/CA)
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
@@ -385,7 +385,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 -d 'carrier_account[credentials][api_key]=API_KEY' \
 -d 'carrier_account[credentials][tracking_api_key]=TRACKING_API_KEY'
 
-#FEDEXSMARTPOSTACCOUNT
+# FEDEXSMARTPOSTACCOUNT
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
 -u <YOUR_PRODUCTION_API_KEY>: \
 -d 'carrier_account[type]=FedexSmartpostAccount' \
@@ -393,6 +393,16 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 -d 'carrier_account[credentials][account_number]=ACCOUNT_NUMBER' \
 -d 'carrier_account[credentials][hub_id]=HUB_ID' \
 -d 'carrier_account[credentials][meter_number]=METER_NUMBER'
+
+# FEDEXCROSSBORDERACCOUNT
+curl -X POST https://api.easypost.com/v2/carrier_accounts \
+-u <YOUR_PRODUCTION_API_KEY>: \
+-d 'carrier_account[type]=FedexCrossBorderAccount' \
+-d 'carrier_account[description]=FedEx Cross Border Account' \
+-d 'carrier_account[credentials][api_key]=VALUE' \
+-d 'carrier_account[credentials][origin_hub]=VALUE'
+-d 'carrier_account[test_credentials][api_key]=VALUE' \
+-d 'carrier_account[test_credentials][origin_hub]=VALUE'
 
 # FROMPARCELACCOUNT
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
@@ -747,27 +757,27 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 -d 'carrier_account[credentials][ftp_domain]=FTP_DOMAIN'
 
 # UPSACCOUNT
-curl -X POST https://api.easypost.com/v2/ups_registrations \
+curl -X POST https://api.easypost.com/v2/carrier_accounts/register \
 -u <YOUR_PRODUCTION_API_KEY>: \
--d 'ups_registration[type]=UpsAccount' \
--d 'ups_registration[description]=UPS Custom Workflow Account' \
--d 'ups_registration[account_number]=ACCOUNT_NUMBER' \
--d 'ups_registration[name]=NAME' \
--d 'ups_registration[street1]=STREET1' \
--d 'ups_registration[city]=CITY' \
--d 'ups_registration[state]=STATE' \
--d 'ups_registration[postal_code]=POSTAL_CODE' \
--d 'ups_registration[country]=COUNTRY' \
--d 'ups_registration[email]=EMAIL' \
--d 'ups_registration[phone]=PHONE' \
--d 'ups_registration[company]=COMPANY' \
--d 'ups_registration[website]=WEBSITE' \
--d 'ups_registration[title]=TITLE' \
--d 'ups_registration[invoice_number]=INVOICE_NUMBER' \
--d 'ups_registration[invoice_date]=INVOICE_DATE' \
--d 'ups_registration[invoice_amount]=INVOICE_AMOUNT' \
--d 'ups_registration[invoice_currency]=INVOICE_CURRENCY' \
--d 'ups_registration[invoice_control_id]=INVOICE_CONTROL_ID'
+-d 'carrier_account[type]=UpsAccount' \
+-d 'carrier_account[description]=UPS Custom Workflow Account' \
+-d 'carrier_account[registration_data][account_number]=ACCOUNT_NUMBER' \
+-d 'carrier_account[registration_data][name]=NAME' \
+-d 'carrier_account[registration_data][street1]=STREET1' \
+-d 'carrier_account[registration_data][city]=CITY' \
+-d 'carrier_account[registration_data][state]=STATE' \
+-d 'carrier_account[registration_data][postal_code]=POSTAL_CODE' \
+-d 'carrier_account[registration_data][country]=COUNTRY' \
+-d 'carrier_account[registration_data][email]=EMAIL' \
+-d 'carrier_account[registration_data][phone]=PHONE' \
+-d 'carrier_account[registration_data][company]=COMPANY' \
+-d 'carrier_account[registration_data][website]=WEBSITE' \
+-d 'carrier_account[registration_data][title]=TITLE' \
+-d 'carrier_account[registration_data][invoice_number]=INVOICE_NUMBER' \
+-d 'carrier_account[registration_data][invoice_date]=INVOICE_DATE' \
+-d 'carrier_account[registration_data][invoice_amount]=INVOICE_AMOUNT' \
+-d 'carrier_account[registration_data][invoice_currency]=INVOICE_CURRENCY' \
+-d 'carrier_account[registration_data][invoice_control_id]=INVOICE_CONTROL_ID'
 
 # UPSIPARCELACCOUNT
 curl -X POST https://api.easypost.com/v2/carrier_accounts \

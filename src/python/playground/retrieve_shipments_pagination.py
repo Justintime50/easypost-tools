@@ -1,3 +1,5 @@
+import os
+from dotenv import load_dotenv
 import easypost
 
 """Retrieve a list of shipments via pagination
@@ -18,7 +20,8 @@ page and returns the whole set of data. For my purpose though I just created a w
 loop to do it as a quick example to customers which I've included here in Python
 """
 
-easypost.api_key = 'EZAKf6f0be77c66748fa9fe8baec53481711icaFc1sbEa2U0vXjPd8puQ'
+load_dotenv()
+easypost.api_key = os.getenv('EASYPOST_TEST_API_KEY')
 
 start_date = '2020-05-01T00:00:00Z'
 end_date = '2020-06-02T08:50:00Z'

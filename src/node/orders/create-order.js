@@ -3,11 +3,13 @@ const dotenv = require('dotenv')
 const dad = require('dad-tool');
 
 dotenv.config({ path: '/Users/jhammond/git/easypost/easypost-tools/.env' })
-const api = new Easypost(process.env.EASYPOST_TEST_API_KEY)
+const api = new Easypost(process.env.DEVVM_TEST_API_KEY, {
+    baseUrl: "http://oregon1.jhammond.devvm.easypo.net:5000/v2/",
+});
 
 // Setup addresses from dad
-const dadTo = dad.random('EU_UK');
 const dadFrom = dad.random('US_UT');
+const dadTo = dad.random('AU_VT');
 
 // Setup static variables
 const name = 'Jake Peralta';
@@ -43,23 +45,22 @@ const customsInfo = new api.CustomsInfo({
         })],
 });
 
-const options = {
-    incoterm: "DDP",
-    // importer_address_id: 'adr_ff266521b9274244aff6ef6f07606f14',
-    print_custom_1: 'Contact agent below \n to process customer clearance.',
-    commercial_invoice_format: 'PNG',
-    // payment: {
-    //     type: 'THIRD_PARTY',
-    //     account: '',
-    //     country: '',
-    //     postal_code: '',
-    // },
-    // duty_payment_account: '',
-};
+// const options = {
+//     incoterm: "DDP",
+//     // importer_address_id: 'adr_ff266521b9274244aff6ef6f07606f14',
+//     // print_custom_1: 'Contact agent below \n to process customer clearance.',
+//     // commercial_invoice_format: 'PNG',
+//     // payment: {
+//     //     type: 'THIRD_PARTY',
+//     //     account: '',
+//     //     country: '',
+//     //     postal_code: '',
+//     // },
+//     // duty_payment_account: '',
+// };
 
 const order = new api.Order({
     to_address: {
-        verify: ['delivery'],
         company,
         name,
         street1: dadTo.street1,
@@ -93,7 +94,7 @@ const order = new api.Order({
             },
             reference: "order-test",
             customs_info: customsInfo,
-            options,
+            // options,
         }),
         new api.Shipment({
             parcel: {
@@ -104,13 +105,35 @@ const order = new api.Order({
             },
             reference: "order-test",
             customs_info: customsInfo,
-            options,
+            // options,
+        }),
+        new api.Shipment({
+            parcel: {
+                length: number,
+                width: number,
+                height: number,
+                weight: 11
+            },
+            reference: "order-test",
+            customs_info: customsInfo,
+            // options,
+        }),
+        new api.Shipment({
+            parcel: {
+                length: number,
+                width: number,
+                height: number,
+                weight: 11
+            },
+            reference: "order-test",
+            customs_info: customsInfo,
+            // options,
         })
     ],
-    carrier_accounts: [{ id: process.env.FEDEX }],
-    // service: "2ndDayAir",
+    carrier_accounts: [{ id: process.env.DEVVM_DHL_EXPRESS }],
+    // service: "DomesticExpress",
     customs_info: customsInfo,
-    options,
+    // options,
 });
 
 order.save().then(console.log).catch(console.log);

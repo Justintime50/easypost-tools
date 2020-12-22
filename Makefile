@@ -13,7 +13,7 @@ venv:
 ## install - Install the project locally for all supported languages with their dependencies
 install: | venv
 	npm install
-	composer install
+	composer update
 	bundle install
 	cd src/go && go mod vendor && cd ../../ || exit
 	brew install shellcheck

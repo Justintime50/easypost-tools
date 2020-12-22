@@ -1,6 +1,15 @@
 {
+    "name": "justintime50/easypost-tools",
+    "type": "project",
+    "description": "A collection of EasyPost tools.",
+    "keywords": [
+        "easypost",
+        "tools"
+    ],
+    "license": "MIT",
     "require": {
-        "vlucas/phpdotenv": "^4.1",
+        "php": "^7.2|^8.0",
+        "vlucas/phpdotenv": "^5.2",
         "easypost/easypost-php": "^3.4"
     }
 }

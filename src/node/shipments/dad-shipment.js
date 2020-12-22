@@ -4,22 +4,25 @@ const dad = require('dad-tool');
 
 // Setup EasyPost API key
 dotenv.config({ path: '/Users/jhammond/git/easypost/easypost-tools/.env' });
-const api = new Easypost(process.env.EASYPOST_TEST_API_KEY);
+const api = new Easypost(process.env.EASYPOST_PROD_API_KEY)
+//     , {
+//     baseUrl: "http://oregon1.jhammond.devvm.easypo.net:5000/v2/",
+// });
 
 // Setup addresses from dad
-const dadFrom = dad.random('US_CA');
-const dadTo = dad.random('US_CA');
+const dadFrom = dad.random('US_NY');
+const dadTo = dad.random('US_NY');
 
 // Setup static variables
 const name = 'Jack Sparrow';
-const company = '-';
+const company = 'Fake Company';
 const phone = '8015551234';
 const email = 'email@example.com';
 const number = Number((Math.random() * (10.00 - 1.00) + 1.00).toFixed(2));
 
 
 const customsInfo = new api.CustomsInfo({
-    eel_pfc: 'NOEEI 30.37(a)',
+    // eel_pfc: 'NOEEI 30.37(a)',
     customs_certify: true,
     customs_signer: 'Steve Brule',
     contents_type: 'merchandise',
@@ -49,7 +52,6 @@ const customsInfo = new api.CustomsInfo({
 // Create Shipment
 const shipment = new api.Shipment({
     to_address: {
-        verify: ['delivery'],
         company,
         name,
         street1: dadTo.street1,
@@ -73,18 +75,6 @@ const shipment = new api.Shipment({
         phone,
         email
     },
-    return_address: {
-        company,
-        name: 'LALA NAME',
-        street1: dadFrom.street1,
-        street2: dadFrom.street2,
-        city: dadFrom.city,
-        state: dadFrom.state,
-        zip: dadFrom.zip,
-        country: dadFrom.country,
-        phone,
-        email
-    },
     parcel: {
         length: number,
         width: number,
@@ -93,21 +83,22 @@ const shipment = new api.Shipment({
         // predefined_package: "MediumFlatRateBox"
     },
     // customs_info: customsInfo,
-    carrier_accounts: [process.env.AXLEHIREV3], // If CANADA_POST, use TEST!
-    options: {
-        // delivery_confirmation: "NO_SIGNATURE",
-        label_date: "2020-10-16T20:04:42Z",
-        // label_size: "7x3",
-        // print_custom_1: "123",
-        // print_custom_1_code: "IK",
-        // label_format: "ZPL",
-        // delivery_confirmation: "SIGNATURE",
-        // postage_label_inline: true
-        // handling_instructions: 'test instructions',
-        // settlement_method: 'CREDIT_CARD'
-    },
+    carrier_accounts: [process.env.DHL_ECS], // If CANADA_POST, use TEST!
+    // options: {
+    // delivery_confirmation: "NO_SIGNATURE",
+    // label_date: "2020-10-16T20:04:42Z",
+    // label_size: "7x3",
+    // print_custom_1: "123",
+    // print_custom_1_code: "IK",
+    // label_format: "ZPL",
+    // delivery_confirmation: "SIGNATURE",
+    // postage_label_inline: true
+    // handling_instructions: 'test instructions',
+    // settlement_method: 'CREDIT_CARD'
+    // },
     // service: "GROUND_HOME_DELIVERY",
     // carrier: "FedEx",
+    // reference: 'test',
 });
 
 shipment.save().then(console.log).catch(console.log);

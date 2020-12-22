@@ -10,18 +10,15 @@ from bs4 import BeautifulSoup
 
 def main(self):
     try:
-        # Setup required variables
-        data = requests.get('https://www.easypost.com/docs/api')
-        soup = BeautifulSoup(data.text, 'html.parser')
+        website = requests.get('https://www.easypost.com/docs/api')
+        soup = BeautifulSoup(website.text, 'html.parser')
         carriers = soup.find('article', {'class': os.getenv('SECTION')})
 
         # Iterate over each carrier and their items
         for carrier in carriers.find_all('div', {'class': 'tab-pane'}):
-            items = [li.text.strip()
-                     for li in carrier.find_all('li')]
+            items = [li.text.strip() for li in carrier.find_all('li')]
             name = carrier.find('img')['alt']
-            output = '* ' + name + '\n\t' + \
-                '\n\t'.join(items) + '\n'
+            output = '* ' + name + '\n\t\n\t'.join(items) + '\n'
             print(output)
             with open('easypost_service_levels.txt', 'a') as log:
                 log.write(output)
