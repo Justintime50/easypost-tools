@@ -1,3 +1,4 @@
 easypost
 python-dotenv
 flake8
+beautifulsoup4
