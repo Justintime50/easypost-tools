@@ -1,3 +1,7 @@
+import argparse
+import decimal
+import os
+
 # Convert CSV to Rate Matrix
 # Add your data to the `DATA` constant and let the tool convert it for you
 # This is great to use for UPS MI Rate Cards
@@ -25,78 +29,112 @@ $20.29 	$20.42 	$28.69 	$33.78 	$39.32 	$41.99 	$52.33 	$60.79
 $20.94 	$21.08 	$29.70 	$34.84 	$40.54 	$43.35 	$54.27 	$63.33"""
 
 
-def main():
-    """Convert CSV rate matrix data to rate_cents
-    array data and print to console.
-    """
-    data = convert_data()
-    print_data(data)
-    validate_data(data)
+class Cli():
+    def __init__(self):
+        parser = argparse.ArgumentParser(
+            description='Converts CSV data to a Rate Matrix.'
+        )
+        parser.add_argument(
+            '--dup_zone_1',
+            required=False,
+            default=False,
+            action='store_true',
+            help='Duplicate zone 1 into zone 2.'
+        )
+        parser.add_argument(
+            '--dup_zone_8',
+            required=False,
+            default=False,
+            action='store_true',
+            help='Duplicate zone 8 into zone 9.'
+        )
+        parser.add_argument(
+            '--delimiter',
+            required=False,
+            default=' ',
+            help='The delimiter of the string data (eg: a comma) - Default: space.'
+        )
+        parser.parse_args(namespace=self)
+
+    def run(self):
+        RateMatrixConverter.main(
+            dup_zone_1=self.dup_zone_1,
+            dup_zone_8=self.dup_zone_8,
+            delimiter=self.delimiter
+        )
 
 
-def convert_data():
-    """Convert data from a string CSV format to
-    a rate_cents array by removing dollar signs
-    and decimals to get the rate cents, then
-    split up and format the integers pretty
-    into a rate matrix (9 zones x number of weights).
-    """
-    final_array = []
-    rate_cents_data = convert_to_rate_cents()
-    split_row = rate_cents_data.split('\n')
+class RateMatrixConverter():
+    @staticmethod
+    def main(dup_zone_1, dup_zone_8, delimiter):
+        """Convert CSV rate matrix data to rate_cents
+        array data and print to console.
+        """
+        data = RateMatrixConverter.convert_data(delimiter, dup_zone_1, dup_zone_8)
+        RateMatrixConverter.print_data(data)
+        RateMatrixConverter.validate_data(data)
 
-    for line in split_row:
-        line_array = []
-        if '\t' in rate_cents_data:
-            split_columns = line.split('\t')
-        else:
-            split_columns = line.split(' ')
+    @staticmethod
+    def convert_data(delimiter=' ', dup_zone_1=False, dup_zone_8=False):
+        """Convert data from a string CSV format to
+        a rate_cents array by removing dollar signs,
+        decimals, and spaces to get the rate cents,
+        then split up and format the integers pretty
+        into a rate matrix (9 zones x number of weights).
+        """
+        final_array = []
+        split_rows = DATA.split('\n')
 
-        for rate in split_columns:
-            line_array.append(int(rate))
-        final_array.append(line_array)
+        for line in split_rows:
+            line_array = []
+            if delimiter == ' ':
+                converted_line = line.strip()
+            else:
+                converted_line = line.strip().replace(' ', '')
+            split_columns = converted_line.split(delimiter)
 
-    return final_array
+            for rate in split_columns:
+                rate_cents = RateMatrixConverter.convert_to_rate_cents(rate)
+                line_array.append(rate_cents)
+                # Duplicate zone 1 into zone 2
+                if dup_zone_1 and rate == split_columns[0]:
+                    line_array.insert(1, rate_cents)
+                # Duplicate zone 8 into zone 9
+                if dup_zone_8 and rate == split_columns[-1]:
+                    line_array.append(rate_cents)
+            final_array.append(line_array)
 
+        return final_array
 
-def validate_data(data):
-    """Validate that the matrix is correct
-    by checking the length of the matrix
-    and matching each lines length to the
-    expected matrix length.
+    @staticmethod
+    def validate_data(data):
+        """Validate that the matrix is correct
+        by checking the length of the matrix
+        and matching each line length to the
+        expected matrix length.
+        """
+        matrix_length = len(data[0])
+        if matrix_length != 9:
+            print('\nERROR: This matrix does not contain 9 zones, please correct on the rate table!')
+        for i, line in enumerate(data):
+            if len(line) != matrix_length:
+                print(f'ERROR: Line {i} does not match the matrix length, please correct on the rate table!')
 
-    We don't raise an error here because we
-    often will need to duplicate zone 8 into
-    zone 9 or zone 1 and 2 are the same. These
-    are per rate card and will require a small
-    amount of manual work after copying the
-    output of this tool.
-    """
-    matrix_length = len(data[0])
-    if matrix_length != 9:
-        print('\nERROR: This matrix does not contain 9 zones, please correct on the rate table!')
-    for i, line in enumerate(data):
-        if len(line) != matrix_length:
-            print(f'ERROR: Line {i} does not match the matrix length, please correct on the rate table!')
+    @staticmethod
+    def convert_to_rate_cents(rate):
+        """Cut out dollar signs and convert decimals to rate_cents.
+        """
+        replace_rate = rate.replace('$', '').replace('\n', '')
+        rate_cents = int(round(decimal.Decimal(replace_rate) * 100))
+        return rate_cents
 
-
-def convert_to_rate_cents():
-    """Cut out dollar signs and decimals from string.
-    """
-    if '$' in DATA:
-        no_dollars = DATA.replace('$', '')
-        no_decimals = no_dollars.replace('.', '')
-    else:
-        no_decimals = DATA.replace('.', '')
-    return no_decimals
-
-
-def print_data(data):
-    """Print the new converted array to console.
-    """
-    for item in data:
-        print(str(item) + ',')
+    @staticmethod
+    def print_data(data):
+        """Print the new converted array to console.
+        """
+        for item in data:
+            print(str(item) + ',')
 
 
 if __name__ == '__main__':
-    main()
+    Cli().run()

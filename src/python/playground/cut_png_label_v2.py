@@ -1,7 +1,9 @@
-from PIL import Image
-from pathlib import Path
 import re
+from pathlib import Path
 
+from PIL import Image
+
+# Attribution: [roehnan](https://github.com/roehnan)
 # Cut a multi-page PNG label file into separate single page files
 
 sizes = [(800, 1200), (1200, 1800),  # 4x6 - 200 dpi, 300 dpi

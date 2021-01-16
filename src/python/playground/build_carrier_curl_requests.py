@@ -1,6 +1,6 @@
 import os
-import requests
 
+import requests
 
 # USAGE: API_KEY=123... URL=http://localhost... venv/bin/python build_carrier_curl_requests.py > carrier_curl_requests.sh  # noqa
 

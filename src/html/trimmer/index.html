@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        body {
+            margin: 50px;
+        }
+
+        textarea {
+            margin: 20px 0;
+        }
+
+        #trimmer-output {
+            margin: 20px 0;
+            padding: 10px 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Trimmer</h1>
+        <p>A tool to trim your strings - great for tracking numbers.</p>
+        <textarea class="form-control" id="trimmer-input" placeholder="Paste your string here..." rows="6"></textarea>
+        <button class="btn btn-primary" onclick="processInput()">Trim</button>
+        <button class="btn btn-secondary" onclick="clearInput()">Clear</button>
+        <hr>
+        <h3>Output</h3>
+        <div class="card" id="trimmer-output"></div>
+        <p>View the <a href="https://github.com/Justintime50/trimmer">GitHub page</a> for Trimmer.</p>
+    </div>
+</body>
+<script src="index.js"></script>
+
+</html>

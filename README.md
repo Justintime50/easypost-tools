@@ -2,7 +2,7 @@
 
 # EasyPost Tools
 
-A MASSIVE collection of tools for [EasyPost](https://www.easypost.com/docs/api/) spanning over C#, Golang, Node, PHP, Python, Ruby, and Shell.
+A MASSIVE collection of tools for [EasyPost](https://www.easypost.com/docs/api/) spanning over C#, Golang, Node, PHP, Python, Ruby, HTML, and Shell.
 
 [![Build Status](https://travis-ci.com/Justintime50/easypost-tools.svg?branch=master)](https://travis-ci.com/Justintime50/easypost-tools)
 [![Licence](https://img.shields.io/github/license/justintime50/easypost-tools)](LICENSE)
@@ -35,3 +35,12 @@ make lint
 # Clean the project and all dependencies across languages
 make clean
 ```
+
+## Other Resources
+
+* [International Shipping Guide](https://easypost.zendesk.com/hc/en-us/articles/360042847751-Customs-Shipping-Internationally#h_de80a46f-53c2-447d-9617-6544aa915304)
+* [Joshua's Toolkit](https://easypost-support-api-tool.herokuapp.com/)
+
+## Attribution
+
+* Some of the Python scripts were provided by [roehnan](https://github.com/roehnan), a coworker of mine at EasyPost and are attributed as such in the script

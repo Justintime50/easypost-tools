@@ -1,7 +1,9 @@
-from PIL import Image, ImageOps  # https://pypi.org/project/Pillow/
-from pathlib import Path
 import os
+from pathlib import Path
 
+from PIL import Image, ImageOps  # https://pypi.org/project/Pillow/
+
+# Attribution: [roehnan](https://github.com/roehnan)
 # Extract the data of a binary ZPL label into a PNG equivalent
 # This is useful as converted ZPL labels contain binary data which Labelary cannot parse
 # USAGE: DIR=/path/to/folder FILE=label.zpl python3 extract_zpl_data.py

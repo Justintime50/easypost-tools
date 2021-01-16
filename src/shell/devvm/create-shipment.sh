@@ -3,20 +3,19 @@
 . /Users/jhammond/git/easypost/easypost-tools/.env
 
 curl -X POST http://oregon1.jhammond.devvm.easypo.net:5000/v2/shipments \
-  -u "$DEVVM_PROD_API_KEY": \
+  -u "$DEVVM_TEST_API_KEY": \
   -d 'shipment[from_address][company]=EasyPost' \
-  -d 'shipment[from_address][street1]=417 MONTGOMERY ST' \
-  -d 'shipment[from_address][city]=SAN FRANCISCO' \
-  -d 'shipment[from_address][state]=CA' \
-  -d 'shipment[from_address][zip]=94104' \
-  -d 'shipment[from_address][country]=US' \
+  -d 'shipment[from_address][street1]=University Street St' \
+  -d 'shipment[from_address][city]=Amman"' \
+  -d 'shipment[from_address][zip]=3705' \
+  -d 'shipment[from_address][country]=JO' \
   -d 'shipment[from_address][phone]=8573875756' \
   -d 'shipment[from_address][email]=dr_steve_brule@gmail.com' \
   -d 'shipment[to_address][name]=EasyPost' \
-  -d 'shipment[to_address][street1]=417 MONTGOMERY ST' \
-  -d 'shipment[to_address][city]=SAN FRANCISCO"' \
+  -d 'shipment[to_address][street1]=190 King St' \
+  -d 'shipment[to_address][city]=San Francisco"' \
   -d 'shipment[to_address][state]=CA' \
-  -d 'shipment[to_address][zip]=94104' \
+  -d 'shipment[to_address][zip]=94101' \
   -d 'shipment[to_address][country]=US' \
   -d 'shipment[to_address][phone]=4153334445' \
   -d 'shipment[to_address][email]=support@easypost.com' \
@@ -24,7 +23,19 @@ curl -X POST http://oregon1.jhammond.devvm.easypo.net:5000/v2/shipments \
   -d 'shipment[parcel][width]=6' \
   -d 'shipment[parcel][height]=8' \
   -d 'shipment[parcel][weight]=2' \
-  -d "shipment[carrier_accounts][]=$DEVVM_FEDEX_SMARTPOST" \
+  -d 'shipment[customs_info][customs_certify]=true' \
+  -d 'shipment[customs_info][customs_signer]=Steve Brule' \
+  -d 'shipment[customs_info][contents_type]=merchandise' \
+  -d 'shipment[customs_info][contents_explanation]=' \
+  -d 'shipment[customs_info][restriction_type]=none' \
+  -d 'shipment[customs_info][eel_pfc]=NOEEI 30.37(a)' \
+  -d 'shipment[customs_info][customs_items][0][description]=Sweet shirts' \
+  -d 'shipment[customs_info][customs_items][0][quantity]=2' \
+  -d 'shipment[customs_info][customs_items][0][value]=23' \
+  -d 'shipment[customs_info][customs_items][0][weight]=11' \
+  -d 'shipment[customs_info][customs_items][0][hs_tariff_number]=654321' \
+  -d 'shipment[customs_info][customs_items][0][origin_country]=CN' \
+  -d "shipment[carrier_accounts][]=$DEVVM_ARAMEX" \
   | json_pp
 
 

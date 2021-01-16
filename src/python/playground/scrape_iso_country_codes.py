@@ -1,6 +1,7 @@
-import sys
-import requests
 import json
+import sys
+
+import requests
 from bs4 import BeautifulSoup
 
 # Scrape the ISO Country Codes @ https://en.wikipedia.org/wiki/ISO_3166-1

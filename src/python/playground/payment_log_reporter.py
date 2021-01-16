@@ -26,21 +26,22 @@
 # PERFORMANCE OF THIS SOFTWARE.
 #############################################################################
 
-from base64 import b64encode
 import calendar
 import csv
+import json
+import zipfile
+from base64 import b64encode
 from datetime import datetime
 from functools import partial
 from http.client import HTTPSConnection
 from io import BytesIO as BIO
 from io import StringIO as SIO
-import json
 from pathlib import Path
 from time import sleep
 from urllib.parse import urlparse
 from urllib.request import urlopen
-import zipfile
 
+# Attribution: [roehnan](https://github.com/roehnan)
 # user-settable params
 API_KEY = ""  # "EZTK949...."
 # user account was created "2019-08-22T14:18:02Z"

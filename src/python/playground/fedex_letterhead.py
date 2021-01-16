@@ -1,11 +1,9 @@
-import base64
 import argparse
+import base64
 
 
 class FedexLetterhead():
     def __init__(self):
-        """Initialize the CLI args
-        """
         desc = """FedEx Letterhead/Signature Images:
 
         Use this script to generate the command to run in prod for uploading FedEx
@@ -29,6 +27,7 @@ class FedexLetterhead():
         parser.add_argument(
             '-s',
             '--slot',
+            choices=['IMAGE_1', 'IMAGE_2'],
             required=True,
             help='Slot where you want to upload the image to. (eg: IMAGE_1, IMAGE_2)',
         )
@@ -49,5 +48,5 @@ class FedexLetterhead():
         print(command)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     FedexLetterhead().generate_command()

@@ -1,5 +1,7 @@
-"""Iterate a file to find non-ascii characters"""
 import unicodedata as ud
+
+# Attribution: [roehnan](https://github.com/roehnan)
+# Iterate a file to find non-ascii characters
 
 file = "/Users/jhammond/Downloads/33d990b0f19848fa8874e1f3c91e788d.csv"
 

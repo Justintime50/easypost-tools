@@ -1,5 +1,6 @@
 import re
 
+# Attribution: [roehnan](https://github.com/roehnan)
 # Pull a list of all EasyPost API options based on the options.rb file
 
 data = open('/Users/jhammond/git/easypost/easypost-tools/files/options.rb', 'r').read()

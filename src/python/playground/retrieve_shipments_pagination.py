@@ -1,6 +1,7 @@
 import os
-from dotenv import load_dotenv
+
 import easypost
+from dotenv import load_dotenv
 
 """Retrieve a list of shipments via pagination
 

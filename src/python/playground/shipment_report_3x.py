@@ -27,13 +27,13 @@
 # PERFORMANCE OF THIS SOFTWARE.
 #############################################################################
 
-from base64 import b64encode
 import csv
-from datetime import datetime
-from http.client import HTTPSConnection
 import json
 import os
 import sys
+from base64 import b64encode
+from datetime import datetime
+from http.client import HTTPSConnection
 from urllib.parse import urlencode
 
 # environmental var that stores our production API key;

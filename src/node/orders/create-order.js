@@ -3,12 +3,14 @@ const dotenv = require('dotenv')
 const dad = require('dad-tool');
 
 dotenv.config({ path: '/Users/jhammond/git/easypost/easypost-tools/.env' })
+const prod = 'https://api.easypost.com/v2/'
+const devvm = 'http://oregon1.jhammond.devvm.easypo.net:5000/v2/'
 const api = new Easypost(process.env.DEVVM_TEST_API_KEY, {
-    baseUrl: "http://oregon1.jhammond.devvm.easypo.net:5000/v2/",
+    baseUrl: devvm,
 });
 
 // Setup addresses from dad
-const dadFrom = dad.random('US_UT');
+const dadFrom = dad.random('AU_VT');
 const dadTo = dad.random('AU_VT');
 
 // Setup static variables
@@ -23,7 +25,7 @@ const number = Number((Math.random() * (10.00 - 1.00) + 1.00).toFixed(2));
  * created. */
 
 const customsInfo = new api.CustomsInfo({
-    eel_pfc: 'NOEEI 30.37(a)',
+    // eel_pfc: 'NOEEI 30.37(a)',
     customs_certify: true,
     customs_signer: 'Steve Brule',
     contents_type: 'merchandise',
@@ -45,19 +47,20 @@ const customsInfo = new api.CustomsInfo({
         })],
 });
 
-// const options = {
-//     incoterm: "DDP",
-//     // importer_address_id: 'adr_ff266521b9274244aff6ef6f07606f14',
-//     // print_custom_1: 'Contact agent below \n to process customer clearance.',
-//     // commercial_invoice_format: 'PNG',
-//     // payment: {
-//     //     type: 'THIRD_PARTY',
-//     //     account: '',
-//     //     country: '',
-//     //     postal_code: '',
-//     // },
-//     // duty_payment_account: '',
-// };
+const options = {
+    // incoterm: "DDP",
+    // importer_address_id: 'adr_ff266521b9274244aff6ef6f07606f14',
+    // print_custom_1: 'Contact agent below \n to process customer clearance.',
+    // commercial_invoice_format: 'PNG',
+    // payment: {
+    //     type: 'THIRD_PARTY',
+    //     account: '',
+    //     country: '',
+    //     postal_code: '',
+    // },
+    // duty_payment_account: '',
+    label_size: '4x6',
+};
 
 const order = new api.Order({
     to_address: {
@@ -130,7 +133,7 @@ const order = new api.Order({
             // options,
         })
     ],
-    carrier_accounts: [{ id: process.env.DEVVM_DHL_EXPRESS }],
+    carrier_accounts: [{ id: process.env.DEVVM_AUSTRALIA_POST }],
     // service: "DomesticExpress",
     customs_info: customsInfo,
     // options,
