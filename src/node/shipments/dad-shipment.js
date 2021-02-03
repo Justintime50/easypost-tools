@@ -6,13 +6,13 @@ const dad = require('dad-tool');
 dotenv.config({ path: '/Users/jhammond/git/easypost/easypost-tools/.env' });
 const prod = 'https://api.easypost.com/v2/'
 const devvm = 'http://oregon1.jhammond.devvm.easypo.net:5000/v2/'
-const api = new Easypost(process.env.EASYPOST_PROD_API_KEY, {
-    baseUrl: prod,
+const api = new Easypost(process.env.DEVVM_TEST_API_KEY, {
+    baseUrl: devvm,
 });
 
 // Setup addresses from dad
-const dadFrom = dad.random('US_UT');
-const dadTo = dad.random('AU_VT');
+const dadFrom = dad.random('AU_VT');
+const dadTo = dad.random('US_UT');
 
 // Setup static variables
 const name = 'Jack Sparrow';
@@ -39,9 +39,9 @@ const customsInfo = new api.CustomsInfo({
     customs_items: [
         new api.CustomsItem({
             'description': 'Sweet shirts',
-            'quantity': 2,
-            'weight': number,
-            'value': 23,
+            'quantity': 20,
+            'weight': 35.27,
+            'value': 727.18,
             'hs_tariff_number': '654321',
             'origin_country': 'GB',
             'code': '123'
@@ -77,19 +77,19 @@ const shipment = new api.Shipment({
         email
     },
     parcel: {
-        length: 5,
-        width: 5,
-        height: 5,
-        weight: 30,
+        length: number,
+        width: number,
+        height: number,
+        weight: 35.27,
         // predefined_package: "MediumFlatRateBox"
     },
     customs_info: customsInfo,
-    carrier_accounts: [process.env.DHL_ECS], // If CANADA_POST, use TEST!
+    carrier_accounts: [process.env.DEVVM_AUSTRALIA_POST], // If CANADA_POST, use TEST!
     options: {
         //     incoterm: 'DDP',
         // delivery_confirmation: "NO_SIGNATURE",
         // label_date: "2020-10-16T20:04:42Z",
-        // label_size: "4x6",
+        // label_size: "8.5x11",
         // print_custom_1: "123",
         // print_custom_1_code: "IK",
         // label_format: "PDF",

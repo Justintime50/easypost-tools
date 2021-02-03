@@ -4,7 +4,7 @@
 
 A MASSIVE collection of tools for [EasyPost](https://www.easypost.com/docs/api/) spanning over C#, Golang, Node, PHP, Python, Ruby, HTML, and Shell.
 
-[![Build Status](https://travis-ci.com/Justintime50/easypost-tools.svg?branch=master)](https://travis-ci.com/Justintime50/easypost-tools)
+[![Build Status](https://github.com/Justintime50/easypost-tools/workflows/build/badge.svg)](https://github.com/Justintime50/easypost-tools/actions)
 [![Licence](https://img.shields.io/github/license/justintime50/easypost-tools)](LICENSE)
 
 </div>

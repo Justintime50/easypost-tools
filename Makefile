@@ -13,9 +13,9 @@ venv:
 ## install - Install the project locally for all supported languages with their dependencies
 install: | venv
 	npm install
-	composer update
+	composer install
 	bundle install
-	cd src/go && go mod vendor && cd ../../ || exit
+	cd src/go && go mod vendor && cd ../../ || exit 1
 	brew install shellcheck
 
 ## clean - Remove the virtual environment and clear out .pyc files along with node_modules and vendor folders
@@ -31,6 +31,7 @@ clean:
 
 ## lint - Lint the entire project across all languages
 lint:
+	golangci-lint run
 	find src/shell -type f \( -name '*.sh' \) | xargs shellcheck
 	rubocop
 	venv/bin/flake8 src/python

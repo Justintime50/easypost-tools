@@ -1,13 +1,20 @@
 import argparse
-import decimal
+
+import logging
 import os
+import re
+from decimal import Decimal
 
 # Convert CSV to Rate Matrix
 # Add your data to the `DATA` constant and let the tool convert it for you
 # This is great to use for UPS MI Rate Cards
+# Generates data like the following:
+# [289, 289, 291, 294, 300, 310, 318, 318, 318],
+# [289, 289, 291, 294, 300, 310, 318, 318, 318],
+# [289, 289, 291, 294, 300, 310, 318, 318, 318],
 # flake8: noqa
 
-DATA = """$4.69 	$4.69 	$5.22 	$5.40 	$5.73 	$5.86 	$5.96 	$6.10 
+DATA = """$4.69 	$4.69 	$5.22 	$5.40 	$5.73 	$5.86 	$5.96 	$6.10
 $4.99 	$4.99 	$5.67 	$5.93 	$6.33 	$6.54 	$6.77 	$7.00 
 $5.32 	$5.32 	$6.16 	$6.50 	$6.97 	$7.24 	$7.60 	$7.93 
 $5.65 	$5.65 	$6.66 	$7.07 	$7.61 	$7.96 	$8.44 	$8.87 
@@ -22,11 +29,16 @@ $15.89 	$15.98 	$21.65 	$25.81 	$29.83 	$31.66 	$39.02 	$45.45
 $16.52 	$16.62 	$22.52 	$27.04 	$31.28 	$33.18 	$40.73 	$47.17 
 $17.15 	$17.26 	$23.72 	$28.28 	$32.71 	$34.74 	$42.77 	$49.56 
 $17.79 	$17.90 	$24.61 	$29.55 	$34.13 	$36.27 	$44.61 	$51.53 
-$18.41 	$18.53 	$25.82 	$30.60 	$35.43 	$37.71 	$46.62 	$54.01 
-$19.06 	$19.19 	$26.68 	$31.69 	$36.75 	$39.19 	$48.68 	$56.50 
-$19.67 	$19.80 	$27.69 	$32.74 	$38.06 	$40.65 	$50.75 	$59.04 
-$20.29 	$20.42 	$28.69 	$33.78 	$39.32 	$41.99 	$52.33 	$60.79 
-$20.94 	$21.08 	$29.70 	$34.84 	$40.54 	$43.35 	$54.27 	$63.33"""
+$18.41 	$18.53 	$25.82 	$30.60 	$35.43 	$37.71 	$46.62 	$54.01 """
+
+
+ZONE_1_INDEX = 0
+ZONE_8_INDEX = 7
+
+CONVERT_TO_ONE_CENT_RATE = [
+    '0',
+    '1',
+]
 
 
 class Cli():
@@ -35,14 +47,14 @@ class Cli():
             description='Converts CSV data to a Rate Matrix.'
         )
         parser.add_argument(
-            '--dup_zone_1',
+            '--duplicate_zone_1',
             required=False,
             default=False,
             action='store_true',
             help='Duplicate zone 1 into zone 2.'
         )
         parser.add_argument(
-            '--dup_zone_8',
+            '--duplicate_zone_8',
             required=False,
             default=False,
             action='store_true',
@@ -54,78 +66,126 @@ class Cli():
             default=' ',
             help='The delimiter of the string data (eg: a comma) - Default: space.'
         )
+        parser.add_argument(
+            '--rate_card_type',
+            required=True,
+            choices=['domestic', 'international'],
+            help='Is the rate table "domestic" or "international"'
+        )
         parser.parse_args(namespace=self)
 
     def run(self):
         RateMatrixConverter.main(
-            dup_zone_1=self.dup_zone_1,
-            dup_zone_8=self.dup_zone_8,
-            delimiter=self.delimiter
+            duplicate_zone_1=self.duplicate_zone_1,
+            duplicate_zone_8=self.duplicate_zone_8,
+            delimiter=self.delimiter,
+            rate_card_type=self.rate_card_type
         )
 
 
 class RateMatrixConverter():
     @staticmethod
-    def main(dup_zone_1, dup_zone_8, delimiter):
+    def main(rate_card_type, duplicate_zone_1=False, duplicate_zone_8=False, delimiter=' '):
         """Convert CSV rate matrix data to rate_cents
         array data and print to console.
         """
-        data = RateMatrixConverter.convert_data(delimiter, dup_zone_1, dup_zone_8)
+        data = RateMatrixConverter.convert_data(rate_card_type, delimiter, duplicate_zone_1, duplicate_zone_8)
         RateMatrixConverter.print_data(data)
-        RateMatrixConverter.validate_data(data)
+        RateMatrixConverter.validate_data(data, rate_card_type)
 
     @staticmethod
-    def convert_data(delimiter=' ', dup_zone_1=False, dup_zone_8=False):
+    def convert_data(rate_card_type, delimiter=' ', duplicate_zone_1=False, duplicate_zone_8=False):
         """Convert data from a string CSV format to
         a rate_cents array by removing dollar signs,
         decimals, and spaces to get the rate cents,
         then split up and format the integers pretty
-        into a rate matrix (9 zones x number of weights).
+        into a rate matrix (zones x number of weights).
         """
         final_array = []
-        split_rows = DATA.split('\n')
+        rows = DATA.split('\n')
 
-        for line in split_rows:
-            line_array = []
-            if delimiter == ' ':
-                converted_line = line.strip()
-            else:
-                converted_line = line.strip().replace(' ', '')
-            split_columns = converted_line.split(delimiter)
+        for row in rows:
+            row_array = []
+            # We don't use full regex here because we have too many custom rules for a catchall
+            converted_row = re.sub(r' +', ' ', row.replace('\t', ' ').replace('$', '').replace('n/a', '').strip())
+            columns = converted_row.split(delimiter)
 
-            for rate in split_columns:
+            for index, rate in enumerate(columns):
                 rate_cents = RateMatrixConverter.convert_to_rate_cents(rate)
-                line_array.append(rate_cents)
-                # Duplicate zone 1 into zone 2
-                if dup_zone_1 and rate == split_columns[0]:
-                    line_array.insert(1, rate_cents)
-                # Duplicate zone 8 into zone 9
-                if dup_zone_8 and rate == split_columns[-1]:
-                    line_array.append(rate_cents)
-            final_array.append(line_array)
+                row_array.append(rate_cents)
+
+                if rate_card_type == 'domestic':
+                    # Duplicate zone 1 (index 0) into zone 2 (index 1) if elected
+                    if duplicate_zone_1 and index == ZONE_1_INDEX:
+                        row_array.append(rate_cents)
+                    # Duplicate zone 8 (index 7) into zone 9 (index 8) if elected
+                    if duplicate_zone_8 and index == ZONE_8_INDEX:
+                        row_array.append(rate_cents)
+
+            final_array.append(row_array)
 
         return final_array
 
     @staticmethod
-    def validate_data(data):
+    def validate_data(data, rate_card_type):
         """Validate that the matrix is correct
-        by checking the length of the matrix
-        and matching each line length to the
-        expected matrix length.
+        by checking the length and depth of
+        the matrix and matching each row length
+        to the expected matrix length and depth.
         """
         matrix_length = len(data[0])
-        if matrix_length != 9:
-            print('\nERROR: This matrix does not contain 9 zones, please correct on the rate table!')
-        for i, line in enumerate(data):
-            if len(line) != matrix_length:
-                print(f'ERROR: Line {i} does not match the matrix length, please correct on the rate table!')
+        matrix_depth = len(data)
+
+        # Domestic rate matrices should be a max of 9x16
+        # International rate matrixes should be a max of 21x71
+        dimension_validators = {
+            'international': {'length': 21, 'depth': 71},
+            'domestic': {'length': 9, 'depth': 16}
+        }
+
+        expected_dimensions = dimension_validators[rate_card_type]
+        expected_length = expected_dimensions['length']
+        expected_depth = expected_dimensions['depth']
+
+        if matrix_length != expected_length:
+            RateMatrixConverter._print_matrix_validator_message(
+                expected_length,
+                matrix_length,
+                'length'
+            )
+        if matrix_depth != expected_depth:
+            RateMatrixConverter._print_matrix_validator_message(
+                expected_depth,
+                matrix_depth,
+                'depth'
+            )
+
+        # Validate each row in the matrix matches the length
+        for index, row in enumerate(data):
+            if len(row) != matrix_length:
+                RateMatrixConverter._print_matrix_validator_message(
+                    expected_value=index,
+                    error_type='row'
+                )
+
+    @staticmethod
+    def _print_matrix_validator_message(expected_value='', received_value='', error_type=''):
+        error_messages = {
+            'length': f'Expected a matrix length of {expected_value} zones (columns), received {received_value}.',
+            'depth': f'Expected a matrix depth of {expected_value} weights (rows), received {received_value}.',
+            'row': f'Row {expected_value} does not match the matrix length, please correct on the rate table!'
+        }
+        logging.error(error_messages[error_type]) if error_type == 'row' else logging.warning(
+            error_messages[error_type])
 
     @staticmethod
     def convert_to_rate_cents(rate):
-        """Cut out dollar signs and convert decimals to rate_cents.
+        """Converts a string "rate" to rate_cents.
         """
-        replace_rate = rate.replace('$', '').replace('\n', '')
-        rate_cents = int(round(decimal.Decimal(replace_rate) * 100))
+        if rate in CONVERT_TO_ONE_CENT_RATE:
+            rate_cents = 1
+        else:
+            rate_cents = int(round(Decimal(rate) * 100))
         return rate_cents
 
     @staticmethod
@@ -134,6 +194,7 @@ class RateMatrixConverter():
         """
         for item in data:
             print(str(item) + ',')
+        print('')
 
 
 if __name__ == '__main__':

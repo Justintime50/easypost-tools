@@ -1,8 +1,0 @@
-install:
-    - make install
-
-scripts:
-    # https://github.com/koalaman/shellcheck/wiki/Recursiveness
-    - find src/shell -type f \( -name '*.sh' \) | xargs shellcheck
-    - rubocop
-    - venv/bin/flake8 src/python

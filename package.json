@@ -7,7 +7,7 @@
     "@easypost/api": "^3.10.1",
     "csv-parser": "^2.3.2",
     "csvtojson": "^2.0.10",
-    "dad-tool": "^2.6.0",
+    "dad-tool": "^3.0.0",
     "dotenv": "^8.2.0",
     "eslint": "^6.8.0"
   },
