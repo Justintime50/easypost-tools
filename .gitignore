@@ -8,3 +8,5 @@ vendor
 *.csv
 target
 venv
+bin
+.phplint-cache

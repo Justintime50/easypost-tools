@@ -11,5 +11,11 @@
         "php": "^7.2|^8.0",
         "vlucas/phpdotenv": "^5.2",
         "easypost/easypost-php": "^3.4"
+    },
+    "require-dev": {
+        "overtrue/phplint": "^1.2"
+    },
+    "config": {
+        "bin-dir": "bin"
     }
 }

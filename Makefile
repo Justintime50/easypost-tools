@@ -13,7 +13,7 @@ venv:
 ## install - Install the project locally for all supported languages with their dependencies
 install: | venv
 	npm install
-	composer install
+	composer update
 	bundle install
 	cd src/go && go mod vendor && cd ../../ || exit 1
 	brew install shellcheck
@@ -28,6 +28,7 @@ clean:
 	rm -rf vendor
 	rm -rf node_modules
 	rm -rf src/go/vendor
+	rm -rf bin
 
 ## lint - Lint the entire project across all languages
 lint:

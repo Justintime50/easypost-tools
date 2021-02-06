@@ -33,7 +33,21 @@ jobs:
         run: npm install
       - name: Run Eslint
         run: npx eslint --ignore-pattern 'node_modules' --ignore-pattern 'coverage' .
-  # TODO: PHP
+  lint-php:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.0
+      - name: Install Composer
+        run: composer self-update
+      - name: Install Dependencies
+        run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      - name: Lint
+        run: ./bin/phplint ./src/php
   lint-python:
     runs-on: ubuntu-latest
     steps:
