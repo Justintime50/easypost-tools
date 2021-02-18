@@ -81,7 +81,5 @@ jobs:
         uses: actions/checkout@v2
       - name: Run ShellCheck
         uses: ludeeus/action-shellcheck@1.0.0
-        env:
-          SHELLCKECK_OPTS: -e SC1091 -e SC2148
         with:
           ignore: src/csharp
