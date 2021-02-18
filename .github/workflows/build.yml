@@ -8,6 +8,10 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+      - name: Set up Ruby (for bundler)
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.0"
       - name: Install project
         run: make install
   # TODO: C#
