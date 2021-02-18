@@ -1,9 +1,10 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
-	"encoding/json"
+
 	"github.com/EasyPost/easypost-go"
 )
 
@@ -17,7 +18,7 @@ func main() {
 	client := easypost.New(apiKey)
 
 	// Retrieve an address
-	address, err := client.GetAddresses("adr_aaafdb10793340b78d00f57b98bbac81")
+	address, err := client.GetAddress("adr_aaafdb10793340b78d00f57b98bbac81")
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "error retrieving address:", err)
 		os.Exit(1)
@@ -25,8 +26,8 @@ func main() {
 	}
 
 	prettyJSON, err := json.MarshalIndent(address, "", "    ")
-    if err != nil {
+	if err != nil {
 		fmt.Fprintln(os.Stderr, "error creating JSON:", err)
-    }
+	}
 	fmt.Printf("%s\n", string(prettyJSON))
 }

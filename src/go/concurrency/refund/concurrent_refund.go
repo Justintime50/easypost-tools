@@ -3,11 +3,12 @@ package main
 import (
 	"encoding/csv"
 	"fmt"
-	"github.com/EasyPost/easypost-go"
 	"log"
 	"os"
 	"sync/atomic"
 	"time"
+
+	"github.com/EasyPost/easypost-go"
 )
 
 /*

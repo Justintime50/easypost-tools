@@ -1,9 +1,10 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
-	"encoding/json"
+
 	"github.com/EasyPost/easypost-go"
 )
 
@@ -25,8 +26,8 @@ func main() {
 	}
 
 	prettyJSON, err := json.MarshalIndent(scanform, "", "    ")
-    if err != nil {
+	if err != nil {
 		fmt.Fprintln(os.Stderr, "error creating JSON:", err)
-    }
+	}
 	fmt.Printf("%s\n", string(prettyJSON))
 }

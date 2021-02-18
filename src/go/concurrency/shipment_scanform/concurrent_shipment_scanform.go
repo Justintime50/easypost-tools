@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/EasyPost/easypost-go"
 	"os"
 	"sync/atomic"
 	"time"
+
+	"github.com/EasyPost/easypost-go"
 )
 
 /*

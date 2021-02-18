@@ -1,9 +1,10 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
-	"encoding/json"
+
 	"github.com/EasyPost/easypost-go"
 )
 
@@ -104,11 +105,11 @@ func main() {
 	// Create the shipment
 	shipment, err := client.CreateShipment(
 		&easypost.Shipment{
-			ToAddress:   toAddress,
-			FromAddress: fromAddress,
-			Parcel:      parcel,
-			CarrierAccountIDs: []string{"ca_3bd616120603457fbed9deb1e425bbdc",},
-			CustomsInfo: customsInfo,
+			ToAddress:         toAddress,
+			FromAddress:       fromAddress,
+			Parcel:            parcel,
+			CarrierAccountIDs: []string{"ca_3bd616120603457fbed9deb1e425bbdc"},
+			CustomsInfo:       customsInfo,
 		},
 	)
 	if err != nil {
@@ -126,8 +127,8 @@ func main() {
 	// }
 
 	prettyJSON, err := json.MarshalIndent(shipment, "", "    ")
-    if err != nil {
+	if err != nil {
 		fmt.Fprintln(os.Stderr, "error creating JSON:", err)
-    }
+	}
 	fmt.Printf("%s\n", string(prettyJSON))
 }
