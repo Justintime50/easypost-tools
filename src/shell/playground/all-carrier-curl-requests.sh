@@ -1,4 +1,3 @@
-
 # AmazonMwsAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
 -u 'API_KEY': \
@@ -17,32 +16,6 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 -d 'carrier_account[credentials][shipper_id]=VALUE' \
 -d 'carrier_account[credentials][password]=VALUE' \
 -d 'carrier_account[credentials][facility]=VALUE' \
-| json_pp
-
-# AramexAccount
-curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u 'API_KEY': \
--d 'carrier_account[type]=AramexAccount' \
--d 'carrier_account[description]=AramexAccount' \
--d 'carrier_account[credentials][username]=VALUE' \
--d 'carrier_account[credentials][password]=VALUE' \
--d 'carrier_account[credentials][account_number]=VALUE' \
--d 'carrier_account[credentials][account_entity]=VALUE' \
--d 'carrier_account[credentials][account_pin]=VALUE' \
--d 'carrier_account[credentials][account_country]=VALUE' \
-| json_pp
-
-# ArrowxlAccount
-curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u 'API_KEY': \
--d 'carrier_account[type]=ArrowxlAccount' \
--d 'carrier_account[description]=ArrowxlAccount' \
--d 'carrier_account[credentials][account_number]=VALUE' \
--d 'carrier_account[credentials][ftp_username]=VALUE' \
--d 'carrier_account[credentials][ftp_password]=VALUE' \
--d 'carrier_account[credentials][tac]=VALUE' \
--d 'carrier_account[credentials][seed_number]=VALUE' \
--d 'carrier_account[credentials][barcode_range_size]=VALUE' \
 | json_pp
 
 # AsendiaAccount
@@ -93,8 +66,8 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 -d 'carrier_account[credentials][contract_id]=VALUE' \
 -d 'carrier_account[credentials][customer_number]=VALUE' \
 -d 'carrier_account[credentials][has_credit_card]=VALUE' \
-## CUSTOM WORKFLOW ##
 | json_pp
+## REQUIRES CUSTOM WORKFLOW ##
 
 # CanparAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
@@ -155,17 +128,6 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 -d 'carrier_account[credentials][account_code]=VALUE' \
 | json_pp
 
-# DelivAccount
-curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u 'API_KEY': \
--d 'carrier_account[type]=DelivAccount' \
--d 'carrier_account[description]=DelivAccount' \
--d 'carrier_account[credentials][api_key]=VALUE' \
--d 'carrier_account[credentials][facility]=VALUE' \
--d 'carrier_account[test_credentials][api_key]=VALUE' \
--d 'carrier_account[test_credentials][facility]=VALUE' \
-| json_pp
-
 # DeutschePostAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
 -u 'API_KEY': \
@@ -202,6 +164,21 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 -d 'carrier_account[test_credentials][client_id]=VALUE' \
 -d 'carrier_account[test_credentials][password]=VALUE' \
 -d 'carrier_account[test_credentials][barcode_prefix]=VALUE' \
+| json_pp
+
+# DhlEcsAccount
+curl -X POST https://api.easypost.com/v2/carrier_accounts \
+-u 'API_KEY': \
+-d 'carrier_account[type]=DhlEcsAccount' \
+-d 'carrier_account[description]=DhlEcsAccount' \
+-d 'carrier_account[credentials][client_id]=VALUE' \
+-d 'carrier_account[credentials][client_secret]=VALUE' \
+-d 'carrier_account[credentials][pickup_id]=VALUE' \
+-d 'carrier_account[credentials][distribution_center]=VALUE' \
+-d 'carrier_account[test_credentials][client_id]=VALUE' \
+-d 'carrier_account[test_credentials][client_secret]=VALUE' \
+-d 'carrier_account[test_credentials][pickup_id]=VALUE' \
+-d 'carrier_account[test_credentials][distribution_center]=VALUE' \
 | json_pp
 
 # DhlExpressAccount
@@ -291,15 +268,6 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 -d 'carrier_account[test_credentials][secret_key]=VALUE' \
 -d 'carrier_account[test_credentials][customer_number]=VALUE' \
 -d 'carrier_account[test_credentials][hub_id]=VALUE' \
-| json_pp
-
-# EstesAccount
-curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u 'API_KEY': \
--d 'carrier_account[type]=EstesAccount' \
--d 'carrier_account[description]=EstesAccount' \
--d 'carrier_account[credentials][username]=VALUE' \
--d 'carrier_account[credentials][password]=VALUE' \
 | json_pp
 
 # FastwayAccount
@@ -560,19 +528,6 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 -d 'carrier_account[test_credentials][password]=VALUE' \
 | json_pp
 
-# OntracDirectPostAccount
-curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u 'API_KEY': \
--d 'carrier_account[type]=OntracDirectPostAccount' \
--d 'carrier_account[description]=OntracDirectPostAccount' \
--d 'carrier_account[credentials][account_number]=VALUE' \
--d 'carrier_account[credentials][password]=VALUE' \
--d 'carrier_account[credentials][mailer_id]=VALUE' \
--d 'carrier_account[test_credentials][account_number]=VALUE' \
--d 'carrier_account[test_credentials][password]=VALUE' \
--d 'carrier_account[test_credentials][mailer_id]=VALUE' \
-| json_pp
-
 # OsmWorldwideAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
 -u 'API_KEY': \
@@ -706,21 +661,6 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 -d 'carrier_account[credentials][ftp_password]=VALUE' \
 | json_pp
 
-# SprintShipAccount
-curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u 'API_KEY': \
--d 'carrier_account[type]=SprintShipAccount' \
--d 'carrier_account[description]=SprintShipAccount' \
--d 'carrier_account[credentials][username]=VALUE' \
--d 'carrier_account[credentials][password]=VALUE' \
--d 'carrier_account[credentials][account_id]=VALUE' \
--d 'carrier_account[credentials][payment_method_id]=VALUE' \
--d 'carrier_account[test_credentials][username]=VALUE' \
--d 'carrier_account[test_credentials][password]=VALUE' \
--d 'carrier_account[test_credentials][account_id]=VALUE' \
--d 'carrier_account[test_credentials][payment_method_id]=VALUE' \
-| json_pp
-
 # StarTrackAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
 -u 'API_KEY': \
@@ -757,12 +697,6 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 -u 'API_KEY': \
 -d 'carrier_account[type]=UpsAccount' \
 -d 'carrier_account[description]=UpsAccount' \
--d 'carrier_account[credentials][access_license_number]=VALUE' \
--d 'carrier_account[credentials][account_number]=VALUE' \
--d 'carrier_account[credentials][user_id]=VALUE' \
--d 'carrier_account[credentials][password]=VALUE' \
-## CUSTOM WORKFLOW ##
-| json_pp
 
 # UpsIparcelAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
@@ -804,14 +738,4 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 -d 'carrier_account[description]=VehoAccount' \
 -d 'carrier_account[credentials][api_key]=VALUE' \
 -d 'carrier_account[test_credentials][api_key]=VALUE' \
-| json_pp
-
-# YodelAccount
-curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u 'API_KEY': \
--d 'carrier_account[type]=YodelAccount' \
--d 'carrier_account[description]=YodelAccount' \
--d 'carrier_account[credentials][username]=VALUE' \
--d 'carrier_account[credentials][password]=VALUE' \
--d 'carrier_account[credentials][account_number]=VALUE' \
 | json_pp
