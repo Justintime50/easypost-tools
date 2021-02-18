@@ -32,7 +32,7 @@ clean:
 
 ## lint - Lint the entire project across all languages
 lint:
-	golangci-lint run
+	cd src/go && golangci-lint run && cd ../../ || exit 1
 	find src/shell -type f \( -name '*.sh' \) | xargs shellcheck
 	rubocop
 	venv/bin/flake8 src/python
