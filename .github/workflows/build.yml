@@ -18,6 +18,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Run Golangci Linter
         uses: golangci/golangci-lint-action@v2
+        with:
+          working-directory: src/go
   # TODO: HTML
   # TODO: Java
   lint-node:
