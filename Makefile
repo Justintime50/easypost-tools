@@ -36,5 +36,7 @@ lint:
 	find src/shell -type f \( -name '*.sh' \) | xargs shellcheck
 	rubocop
 	venv/bin/flake8 src/python
+	./bin/phplint ./src/php
+	npx eslint --ignore-pattern 'node_modules' --ignore-pattern 'coverage' src/node
 
 .PHONY: help install clean lint

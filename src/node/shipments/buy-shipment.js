@@ -9,7 +9,7 @@ const api = new Easypost(process.env.DEVVM_TEST_API_KEY, {
 });
 
 console.log("//===============================================================//");
-api.Shipment.retrieve("shp_355e9bc017534508bf2e349925c7160b").then(s => {
-    // s.buy(s.lowestRate()).then(console.log).catch(console.log);
-    s.buy("rate_ac578e05a20644a8bcaa249b46fa28c5").then(console.log).catch(console.log);
+api.Shipment.retrieve("shp_f99f06ff2ad948da8d5d2751c44eae49").then(shipment => {
+    shipment.buy(shipment.lowestRate()).then(console.log).catch(console.log);
+    // s.buy("rate_ac578e05a20644a8bcaa249b46fa28c5").then(console.log).catch(console.log);
 }).catch(console.log);

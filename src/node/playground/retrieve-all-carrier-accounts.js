@@ -10,11 +10,11 @@ const api = new Easypost(process.env.EASYPOST_PROD_API_KEY);
 // Retrieve all configured carrier accounts and print to console and save their name & ID to a text file
 async function retrieveCarriers() {
     const carrier = await api.CarrierAccount.all()
-    for (i = 0; i < carrier.length; i++) {
+    for (let i = 0; i < carrier.length; i++) {
         let carrierName = carrier[i].readable.toUpperCase();
-        carrierName = carrierName.replace(/ /g,"_");
-        console.log(carrierName+"="+carrier[i].id);
-        fs.appendFileSync("carriers_accounts.txt", carrier[i].readable+"="+carrier[i].id+"\n");
+        carrierName = carrierName.replace(/ /g, "_");
+        console.log(carrierName + "=" + carrier[i].id);
+        fs.appendFileSync("carriers_accounts.txt", carrier[i].readable + "=" + carrier[i].id + "\n");
     }
 }
 retrieveCarriers();

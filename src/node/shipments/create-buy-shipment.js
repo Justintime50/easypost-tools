@@ -63,8 +63,8 @@ async function createAndBuy() {
 
     await shipment.save().catch(console.log)
 
-    api.Shipment.retrieve(shipment.id).then(s => {
-        s.buy(s.lowestRate()).then(console.log).catch(console.log);
+    api.Shipment.retrieve(shipment.id).then(shipment => {
+        shipment.buy(shipment.lowestRate()).then(console.log).catch(console.log);
     }).catch(console.log);
 }
 

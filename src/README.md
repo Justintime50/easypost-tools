@@ -27,6 +27,9 @@ Java is a terrible language, don't use it. If you must use it, tell it where the
 # Optional: https://stackoverflow.com/questions/1675765/adding-to-the-classpath-on-osx/11304846#11304846
 
 java -cp ../jars/easypost-api-client-4.0.1.jar:../jars/gson-2.8.5.jar:../jars/dotenv-java-1.0.2.jar create-shipment.java
+
+# Generate a new Java project
+mvn archetype:generate -DgroupId=com.justintime50.easyposttools -DartifactId=easypost-tools -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 ```
 
 ### Node

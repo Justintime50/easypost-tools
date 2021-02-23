@@ -8,4 +8,8 @@ globals:
     SharedArrayBuffer: readonly
 parserOptions:
     ecmaVersion: 2018
-rules: {}
+rules:
+    {
+        no-unused-vars:
+            ["error", { "varsIgnorePattern": "prod|devvm|options|document" }],
+    }

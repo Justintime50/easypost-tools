@@ -5,8 +5,8 @@ dotenv.config({ path: '/Users/jhammond/git/easypost/easypost-tools/.env' });
 const api = new Easypost(process.env.EASYPOST_PROD_API_KEY);
 
 // Setup timeframe for each report (Must be less than 31 days between start/end)
-startDate = "2019-08-01";
-endDate = "2019-08-24";
+const startDate = "2019-08-01";
+const endDate = "2019-08-24";
 
 // Create Payment Log Report
 const paymentLogReport = new api.Report({

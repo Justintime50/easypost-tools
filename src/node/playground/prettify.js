@@ -1,4 +1,4 @@
-data = JSON.stringify(
+const data = JSON.stringify(
 
     // INSERT UNFOMRATTED JSON BELOW
     ////////////////////////////////

@@ -6,7 +6,7 @@ const fs = require('fs');
 const api = new Easypost("");
 
 // Dump data from the output of `parse-csv.js` here
-let data = [ 
+let data = [
     // Place data here
 ];
 
@@ -70,7 +70,7 @@ function asyncShipmentCalls() {
         row++;
         console.log(response);
         asyncShipmentCalls();
-     })
+    })
 }
 
 // Initial call of funtion

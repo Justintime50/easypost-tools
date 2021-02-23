@@ -11,8 +11,8 @@ const api = new Easypost(process.env.DEVVM_TEST_API_KEY, {
 });
 
 // Setup addresses from dad
-const dadFrom = dad.random('AU_VT');
-const dadTo = dad.random('US_UT');
+const dadFrom = dad.random('US_NY');
+const dadTo = dad.random('US_NY');
 
 // Setup static variables
 const name = 'Jack Sparrow';
@@ -55,11 +55,11 @@ const shipment = new api.Shipment({
     to_address: {
         company,
         name,
-        street1: dadTo.street1,
-        street2: dadTo.street2,
-        city: dadTo.city,
-        state: dadTo.state,
-        zip: dadTo.zip,
+        street1: '228 Park Ave S',
+        // street2: dadTo.street2,
+        city: 'NY',
+        state: 'NY',
+        zip: '10003',
         country: dadTo.country,
         phone,
         email
@@ -67,11 +67,11 @@ const shipment = new api.Shipment({
     from_address: {
         company,
         name,
-        street1: dadFrom.street1,
-        street2: dadFrom.street2,
-        city: dadFrom.city,
-        state: dadFrom.state,
-        zip: dadFrom.zip,
+        street1: '228 Park Ave S',
+        // street2: dadTo.street2,
+        city: 'NY',
+        state: 'NY',
+        zip: '10003',
         country: dadFrom.country,
         phone,
         email
@@ -80,11 +80,11 @@ const shipment = new api.Shipment({
         length: number,
         width: number,
         height: number,
-        weight: 35.27,
+        weight: number,
         // predefined_package: "MediumFlatRateBox"
     },
     customs_info: customsInfo,
-    carrier_accounts: [process.env.DEVVM_AUSTRALIA_POST], // If CANADA_POST, use TEST!
+    carrier_accounts: [process.env.DEVVM_BOND], // If CANADA_POST, use TEST!
     options: {
         //     incoterm: 'DDP',
         // delivery_confirmation: "NO_SIGNATURE",

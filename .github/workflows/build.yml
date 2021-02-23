@@ -3,89 +3,89 @@ name: build
 on: [push, pull_request]
 
 jobs:
-  install-project:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Set up Ruby (for bundler)
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: "3.0"
-      - name: Install project
-        run: make install
-  # TODO: C#
-  lint-golang:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Run Golangci Linter
-        uses: golangci/golangci-lint-action@v2
-        with:
-          working-directory: src/go
-  # TODO: HTML
-  # TODO: Java
-  lint-node:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Setup Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: "14"
-      - name: Install dependencies
-        run: npm install
-      - name: Run Eslint
-        run: npx eslint --ignore-pattern 'node_modules' --ignore-pattern 'coverage' .
-  lint-php:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Set up PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: 8.0
-      - name: Install Composer
-        run: composer self-update
-      - name: Install Dependencies
-        run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-      - name: Lint
-        run: ./bin/phplint ./src/php
-  lint-python:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.9
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-      - name: Lint Python
-        run: flake8 src/python
-  lint-ruby:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: "3.0"
-      - name: Install dependencies
-        run: bundle install
-      - name: Lint Ruby
-        run: rubocop
-  shellcheck:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Run ShellCheck
-        uses: ludeeus/action-shellcheck@1.0.0
-        with:
-          ignore: src/csharp
+    install-project:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v2
+            - name: Set up Ruby (for bundler)
+              uses: ruby/setup-ruby@v1
+              with:
+                  ruby-version: "3.0"
+            - name: Install project
+              run: make install
+    # TODO: C#
+    lint-golang:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v2
+            - name: Run Golangci Linter
+              uses: golangci/golangci-lint-action@v2
+              with:
+                  working-directory: src/go
+    # TODO: HTML
+    # TODO: Java
+    lint-node:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v2
+            - name: Setup Node
+              uses: actions/setup-node@v2
+              with:
+                  node-version: "14"
+            - name: Install dependencies
+              run: npm install
+            - name: Run Eslint
+              run: npx eslint --ignore-pattern 'node_modules' --ignore-pattern 'coverage' src/node
+    lint-php:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v2
+            - name: Set up PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: 8.0
+            - name: Install Composer
+              run: composer self-update
+            - name: Install Dependencies
+              run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+            - name: Lint
+              run: ./bin/phplint ./src/php
+    lint-python:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v2
+            - name: Set up Python
+              uses: actions/setup-python@v2
+              with:
+                  python-version: 3.9
+            - name: Install dependencies
+              run: pip install -r requirements.txt
+            - name: Lint Python
+              run: flake8 src/python
+    lint-ruby:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v2
+            - name: Set up Ruby
+              uses: ruby/setup-ruby@v1
+              with:
+                  ruby-version: "3.0"
+            - name: Install dependencies
+              run: bundle install
+            - name: Lint Ruby
+              run: rubocop
+    shellcheck:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v2
+            - name: Run ShellCheck
+              uses: ludeeus/action-shellcheck@1.0.0
+              with:
+                  ignore: src/csharp

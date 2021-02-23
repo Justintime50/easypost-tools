@@ -10110,7 +10110,7 @@ delete data.from_address.created_at
 delete data.from_address.updated_at
 
 // Delete all shipment id's, usps_zone's, tracker's, and parcel's
-for (i = 0; i < data.shipments.length; i++) {
+for (let i = 0; i < data.shipments.length; i++) {
     delete data.shipments[i].id
     delete data.shipments[i].usps_zone
     delete data.shipments[i].tracker
@@ -10128,7 +10128,7 @@ for (i = 0; i < data.shipments.length; i++) {
         delete data.shipments[i].customs_info.mode
         delete data.shipments[i].customs_info.created_at
         delete data.shipments[i].customs_info.updated_at
-        for (ii = 0; ii < data.shipments[i].customs_info.customs_items.length; ii++) {
+        for (let ii = 0; ii < data.shipments[i].customs_info.customs_items.length; ii++) {
             delete data.shipments[i].customs_info.customs_items[ii].id
             delete data.shipments[i].customs_info.customs_items[ii].mode
             delete data.shipments[i].customs_info.customs_items[ii].created_at
