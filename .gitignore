@@ -10,3 +10,8 @@ target
 venv
 bin
 .phplint-cache
+*.pdf
+*.png
+*.zpl
+__pycache__
+*.zip
