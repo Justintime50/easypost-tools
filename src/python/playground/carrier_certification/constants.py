@@ -6,9 +6,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 CARRIER_NAME = 'Bond'
-CREDENTIALS = {
-    'api_key': os.getenv('BOND_API_KEY')
+PROD_CREDENTIALS = {
+    'api_key': os.getenv('BOND_PROD_API_KEY')
 }
+TEST_CREDENTIALS = {
+    'api_key': os.getenv('BOND_TEST_API_KEY')
+}
+
 LABEL_FORMATS = ['PNG', 'PDF', 'ZPL']
 
 # Could create a list of addresses to test against here
