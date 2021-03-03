@@ -1,5 +1,6 @@
-import easypost
 import os
+
+import easypost
 from dotenv import load_dotenv
 
 load_dotenv()
