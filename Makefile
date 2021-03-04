@@ -18,6 +18,9 @@ install: | venv
 	cd src/go && go mod vendor && cd ../../ || exit 1
 	brew install shellcheck
 
+# TODO: Add missing csharp build here (split all languages into separate targets):
+# cd src/csharp && dotnet build -p:StartupObject=csharp.createShipment -t:Rebuild && cd ../../ || exit 1
+
 ## clean - Remove the virtual environment and clear out .pyc files along with node_modules and vendor folders
 clean:
 	rm -rf ~/.venv/easypost-tools/ venv
