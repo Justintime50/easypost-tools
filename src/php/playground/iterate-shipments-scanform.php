@@ -11,16 +11,14 @@ use Dotenv\Dotenv;
  * Great when you have a troubled batch and don't know where the bad shipments are.
  * 
  * This script is SLOW - you could spend hours waiting for it to complete when batches
- * exceed a few hundred. 
- * 
- * TODO: Rewrite this logic in Python or another language and take advantage of concurrency
+ * exceed a few hundred.
  */
 
 $dotenv = Dotenv::createImmutable('/Users/jhammond/git/easypost/easypost-tools');
 $dotenv->load();
 EasyPost::setApiKey(getenv('EASYPOST_PROD_API_KEY'));
 
-$batch = Batch::retrieve('batch_aa159dd9313c4add8bedffde2456865a');
+$batch = Batch::retrieve(getenv('BATCH_ID'));
 
 foreach ($batch['shipments'] as $shipment) {
     try {

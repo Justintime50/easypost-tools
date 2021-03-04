@@ -43,5 +43,5 @@ def scanform_shipment(shipment):
         print(f'Could not scanform {shipment["id"]}')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

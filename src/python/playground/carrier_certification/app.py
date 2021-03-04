@@ -24,14 +24,6 @@ class Cli():
             description='Run certification tests for a carrier microservice.'
         )
         parser.add_argument(
-            '-c',
-            '--carrier_account',
-            required=False,
-            default=False,
-            action='store_true',
-            help='Certify adding a carrier_account.'
-        )
-        parser.add_argument(
             '-r',
             '--rate',
             required=False,
@@ -83,7 +75,6 @@ class Cli():
 
     def main(self):
         App.main(
-            carrier_account=self.carrier_account,
             rate=self.rate,
             label=self.label,
             void=self.void,
@@ -94,7 +85,7 @@ class Cli():
 
 
 class App():
-    def main(carrier_account=False, rate=False, label=False, void=False, tracking=False, manifest=False, pickup=False):  # noqa
+    def main(rate=False, label=False, void=False, tracking=False, manifest=False, pickup=False):  # noqa
         load_dotenv()
         easypost.api_base = os.getenv('EASYPOST_BASE_URL', 'https://api.easypost.com/v2')
 
@@ -103,16 +94,17 @@ class App():
 
         LOGGER.info(f'Running certification tests for {CARRIER_NAME}...')
 
-        # TODO: Handle the cascading requirement that you must rate before buying, must create an account before rating, etc  # noqa
-
+        # Keep this order so that the cascading requirement that you must rate
+        # before buying, must create an account before rating, etc works correctly
         easypost.api_key = os.getenv('EASYPOST_PROD_API_KEY')
-        if carrier_account:
-            carrier_account_id = CarrierAccount.certify()
+        carrier_account_id = CarrierAccount.certify()
         # easypost.api_key = os.getenv('EASYPOST_TEST_API_KEY')
         if rate:
             shipments = Rate.certify(carrier_account_id)
-        if label:
-            shipments = Label.certify(shipments)
+            if label:
+                shipments = Label.certify(shipments)
+        if not rate and label:
+            LOGGER.warning('Cannot purchase labels without also rating!')
         if tracking:
             Tracker.certify(shipments)
         if manifest:
@@ -173,18 +165,21 @@ class CarrierAccount():
 
         App.save_response_to_file('carrier_account.log', 'w', carrier_account)
 
+        # CarrierAccount "type" field
         try:
             assert carrier_name in carrier_account.type, f'"{carrier_name}" is not contained in "{carrier_name.type}"'
             LOGGER.info('CarrierAccount "type": PASS')
         except AssertionError as error:
             LOGGER.warning(f'CarrierAccount "type": FAIL\n{error}')
 
+        # CarrierAccount "readable" field
         try:
             assert carrier_name in carrier_account.readable, f'"{carrier_name}" is not contained in "{carrier_name.readable}"'  # noqa
             LOGGER.info('CarrierAccount "readable": PASS')
         except AssertionError as error:
             LOGGER.warning(f'CarrierAccount "readable": FAIL\n{error}')
 
+        # CarrierAccount "credentials" field
         try:
             credential_keys = carrier_account.fields.credentials.to_dict().keys()
             for key in PROD_CREDENTIALS.keys():
@@ -193,6 +188,7 @@ class CarrierAccount():
         except AssertionError as error:
             LOGGER.warning(f'CarrierAccount "credentials": FAIL\n{error}')
 
+        # CarrierAccount "test_credentials" field
         try:
             test_credential_keys = carrier_account.fields.test_credentials.to_dict().keys()
             for key in TEST_CREDENTIALS.keys():
@@ -243,6 +239,7 @@ class Rate():
 
             App.save_response_to_file(f'shipment_rate_{label_format}.log', 'w', shipment)
 
+            # Rate "rates" field
             try:
                 assert shipment.rates != [], f'Shipment "rates" ({label_format}) are empty'
                 LOGGER.info(f'Shipment "rates" ({label_format}): PASS')
@@ -297,6 +294,7 @@ class Label():
             label_format = shipment.options.label_format
             bought_shipment = Label.buy_shipment(shipment.id)
 
+            # Shipment "postage_label" field
             try:
                 assert bought_shipment.postage_label, f'Shipment "postage_label" ({label_format}) is empty'
                 LOGGER.info(f'Shipment "postage_label" ({label_format}): PASS')
@@ -346,6 +344,7 @@ class Void():
             refund_status = shipment.refund_status
             expected_refund_status = 'refunded'
 
+            # Shipment "refund_status" field
             try:
                 assert refund_status == expected_refund_status, f'Void "refund_status" ({label_format}) was "{refund_status}", expected "{expected_refund_status}"'  # noqa
                 LOGGER.info(f'Void "refund_status" ({label_format}): PASS')
@@ -364,24 +363,19 @@ class Tracker():
         """Certify that you can track a package:
 
         1. tracking_code
+        2. don't assert on tracking_details since these can take time to populate
         """
         LOGGER.info('Running Tracker tests...')
 
         for shipment in shipments:
             label_format = shipment.options.label_format
 
+            # Shipment "tracking_code" field
             try:
                 assert shipment.tracking_code, f'Tracker "tracking_code" ({label_format}) is empty'
                 LOGGER.info(f'Tracker "tracking_code" ({label_format}): PASS')
             except AssertionError as error:
                 LOGGER.warning(f'Tracker "tracking_code" ({label_format}): FAIL\n{error}')
-
-            # TODO: Can't easily assert tracking_details are populated as it may take time to update
-
-    def track_shipment():
-        # TODO: Do we need to retrieve a shipment here? Probably not since we have it from the previous step and
-        # not enough time will have passed prior to us retrieving to assert any of the details
-        pass
 
 
 class Manifest():

@@ -6,13 +6,13 @@ const dad = require('dad-tool');
 dotenv.config({ path: '/Users/jhammond/git/easypost/easypost-tools/.env' });
 const prod = 'https://api.easypost.com/v2/'
 const devvm = 'http://oregon1.jhammond.devvm.easypo.net:5000/v2/'
-const api = new Easypost(process.env.DEVVM_TEST_API_KEY, {
-    baseUrl: devvm,
+const api = new Easypost(process.env.EASYPOST_PROD_API_KEY, {
+    baseUrl: prod,
 });
 
 // Setup addresses from dad
-const dadFrom = dad.random('US_NY');
-const dadTo = dad.random('US_NY');
+const dadFrom = dad.random('US_CA');
+const dadTo = dad.random('US_CA');
 
 // Setup static variables
 const name = 'Jack Sparrow';
@@ -84,7 +84,7 @@ const shipment = new api.Shipment({
         // predefined_package: "MediumFlatRateBox"
     },
     customs_info: customsInfo,
-    carrier_accounts: [process.env.DEVVM_BOND], // If CANADA_POST, use TEST!
+    carrier_accounts: ['ca_2c5768cc85c5420cba30b3b1dd545fbb'], // If CANADA_POST, use TEST!
     options: {
         //     incoterm: 'DDP',
         // delivery_confirmation: "NO_SIGNATURE",

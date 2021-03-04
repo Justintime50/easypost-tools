@@ -14,7 +14,20 @@ jobs:
           ruby-version: "3.0"
       - name: Install project
         run: make install
-  # TODO: C#
+  build-dotnet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Setup Dotnet
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: "3.1.x"
+      - name: Build project
+      - run: |
+          cd src/csharp
+          dotnet restore
+          dotnet build -p:StartupObject=csharp.createShipment
   lint-golang:
     runs-on: ubuntu-latest
     steps:

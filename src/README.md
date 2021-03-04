@@ -7,6 +7,10 @@ C# requires a lot of setup, see installation before running.
 [EasyPost internal docs](https://twiki.easypo.net/do/view/APISupport/CSharpNETCoreOnMac).
 
 ```bash
+# Change which `Main` block will be used (swap the `createShipment` for the operation you want to run)
+dotnet build -p:StartupObject=csharp.createShipment -t:Rebuild
+
+# Run the project again
 EASYPOST_API_KEY=<key_here> dotnet run
 ```
 

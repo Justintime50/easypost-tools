@@ -3,7 +3,11 @@ const dotenv = require('dotenv');
 const fs = require('fs');
 
 dotenv.config({ path: '/Users/jhammond/git/easypost/easypost-tools/.env' });
-const api = new Easypost(process.env.EASYPOST_PROD_API_KEY);
+const prod = 'https://api.easypost.com/v2/'
+const devvm = 'http://oregon1.jhammond.devvm.easypo.net:5000/v2/'
+const api = new Easypost(process.env.DEVVM_PROD_API_KEY, {
+    baseUrl: devvm,
+});
 
 // A perfect use case for this script would be rebuilding an env file with all your carrier account IDs
 
