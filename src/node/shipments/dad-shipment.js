@@ -23,7 +23,7 @@ const number = Number((Math.random() * (10.00 - 5.00) + 1.00).toFixed(2));
 
 
 const customsInfo = new api.CustomsInfo({
-    // eel_pfc: 'NOEEI 30.37(a)',
+    eel_pfc: 'NOEEI 30.37(a)',
     customs_certify: true,
     customs_signer: 'Steve Brule',
     contents_type: 'merchandise',
@@ -84,7 +84,7 @@ const shipment = new api.Shipment({
         // predefined_package: "MediumFlatRateBox"
     },
     customs_info: customsInfo,
-    carrier_accounts: ['ca_2c5768cc85c5420cba30b3b1dd545fbb'], // If CANADA_POST, use TEST!
+    carrier_accounts: [process.env.BOND], // If CANADA_POST, use TEST!
     options: {
         //     incoterm: 'DDP',
         // delivery_confirmation: "NO_SIGNATURE",
@@ -92,11 +92,15 @@ const shipment = new api.Shipment({
         // label_size: "8.5x11",
         // print_custom_1: "123",
         // print_custom_1_code: "IK",
-        // label_format: "PDF",
+        label_format: "PDF",
         // delivery_confirmation: "SIGNATURE",
         // postage_label_inline: true
         // handling_instructions: 'test instructions',
         // settlement_method: 'CREDIT_CARD'
+        // delivery_max_datetime: "2021-03-10T00:00:00Z",
+        // delivery_min_datetime: "2021-03-09T00:00:00Z",
+        // pickup_max_datetime: "2021-03-10T00:00:00Z",
+        // pickup_min_datetime: "2021-03-09T00:00:00Z",
     },
     // service: "GROUND_HOME_DELIVERY",
     // carrier: "FedEx",
