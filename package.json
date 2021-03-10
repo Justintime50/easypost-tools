@@ -27,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/Justintime50/easypost-tools/issues"
   },
-  "homepage": "https://github.com/Justintime50/easypost-tools#readme"
+  "homepage": "https://github.com/Justintime50/easypost-tools#readme",
+  "devDependencies": {
+    "htmlhint": "^0.14.2"
+  }
 }

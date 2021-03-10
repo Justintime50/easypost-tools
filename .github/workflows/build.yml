@@ -27,7 +27,15 @@ jobs:
           working-directory: src/go
       - name: Build project
         run: make install-go
-  # TODO: HTML
+  html:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Lint project
+        uses: |
+          npx htmlhint src/html/trimmer
+          npx htmlhint src/html/wincurl
   # TODO: Java
   node:
     runs-on: ubuntu-latest

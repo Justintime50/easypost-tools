@@ -96,8 +96,13 @@ lint-ruby:
 lint-shell:
 	find src/shell -type f \( -name '*.sh' \) | xargs shellcheck
 
-## lint-csharp - Lints C# files
+## lint-csharp - Lints the C# files
 lint-csharp:
 	dotnet-format src/csharp
+
+## lint-html - Lints the HTML files
+lint-html:
+	npx htmlhint src/html/trimmer
+	npx htmlhint src/html/wincurl
 
 .PHONY: help install clean lint
