@@ -11,7 +11,10 @@ venv:
 	venv/bin/pip install -r requirements.txt
 
 ## install - Install the project locally for all supported languages with their dependencies
-install: | venv install-go install-node install-php install-ruby install-shell install-csharp
+install: | install-python install-go install-node install-php install-ruby install-shell install-csharp
+
+## install-python - Install the Python dependencies and virtual env
+install-python: | venv
 
 ## install-go - Install the Golang dependencies
 install-go:
