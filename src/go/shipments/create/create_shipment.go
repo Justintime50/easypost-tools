@@ -13,7 +13,6 @@ func main() {
 	if apiKey == "" {
 		fmt.Fprintln(os.Stderr, "missing API key")
 		os.Exit(1)
-		return
 	}
 	client := easypost.New(apiKey)
 
@@ -32,7 +31,6 @@ func main() {
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "error creating to address:", err)
 		os.Exit(1)
-		return
 	}
 
 	fromAddress, err := client.CreateAddress(
@@ -50,7 +48,6 @@ func main() {
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "error creating from address:", err)
 		os.Exit(1)
-		return
 	}
 
 	// Create a parcel
@@ -65,7 +62,6 @@ func main() {
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "error creating parcel:", err)
 		os.Exit(1)
-		return
 	}
 
 	// Create a customs_info form for international shipments
@@ -82,7 +78,6 @@ func main() {
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "error creating customs item:", err)
 		os.Exit(1)
-		return
 	}
 
 	customsInfo, err := client.CreateCustomsInfo(
@@ -99,7 +94,6 @@ func main() {
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "error creating customs info:", err)
 		os.Exit(1)
-		return
 	}
 
 	// Create the shipment
@@ -108,14 +102,13 @@ func main() {
 			ToAddress:         toAddress,
 			FromAddress:       fromAddress,
 			Parcel:            parcel,
-			CarrierAccountIDs: []string{"ca_3bd616120603457fbed9deb1e425bbdc"},
+			CarrierAccountIDs: []string{"ca_123..."},
 			CustomsInfo:       customsInfo,
 		},
 	)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "error creating shipment:", err)
 		os.Exit(1)
-		return
 	}
 
 	// Buy a postage label with one of the rate objects and optional insurance
@@ -123,7 +116,6 @@ func main() {
 	// if err != nil {
 	// 	fmt.Fprintln(os.Stderr, "error buying shipment:", err)
 	// 	os.Exit(1)
-	// 	return
 	// }
 
 	prettyJSON, err := json.MarshalIndent(shipment, "", "    ")

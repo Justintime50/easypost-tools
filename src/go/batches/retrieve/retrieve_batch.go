@@ -13,16 +13,14 @@ func main() {
 	if apiKey == "" {
 		fmt.Fprintln(os.Stderr, "missing API key")
 		os.Exit(1)
-		return
 	}
 	client := easypost.New(apiKey)
 
 	// Retrieve a batch
-	batch, err := client.GetBatch("batch_123")
+	batch, err := client.GetBatch("batch_123...")
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "error retrieving batch:", err)
 		os.Exit(1)
-		return
 	}
 
 	prettyJSON, err := json.MarshalIndent(batch, "", "    ")

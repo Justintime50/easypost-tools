@@ -13,17 +13,15 @@ func main() {
 	if apiKey == "" {
 		fmt.Fprintln(os.Stderr, "missing API key")
 		os.Exit(1)
-		return
 	}
 	client := easypost.New(apiKey)
 
 	// Buy a postage label with one of the rate objects and optional insurance
 	// client.BuyShipment(shipment, rate, insurance)
-	shipment, err := client.BuyShipment("shp_a52895d6f5a141ec87bac56e73825330", &easypost.Rate{ID: "rate_588b263a7a9449c986efdcf01b7821c7"}, "")
+	shipment, err := client.BuyShipment("shp_123...", &easypost.Rate{ID: "rate_123..."}, "")
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "error buying shipment:", err)
 		os.Exit(1)
-		return
 	}
 
 	prettyJSON, err := json.MarshalIndent(shipment, "", "    ")

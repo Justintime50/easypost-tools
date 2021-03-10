@@ -16,14 +16,14 @@ func main() {
 	}
 	client := easypost.New(apiKey)
 
-	// Retrieve an scanform
-	scanform, err := client.GetScanForm("sf_123...")
+	// Retrieve an order
+	order, err := client.GetOrder("order_123...")
 	if err != nil {
-		fmt.Fprintln(os.Stderr, "error retrieving scanform:", err)
+		fmt.Fprintln(os.Stderr, "error retrieving order:", err)
 		os.Exit(1)
 	}
 
-	prettyJSON, err := json.MarshalIndent(scanform, "", "    ")
+	prettyJSON, err := json.MarshalIndent(order, "", "    ")
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "error creating JSON:", err)
 	}

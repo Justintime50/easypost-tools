@@ -13,11 +13,10 @@ func main() {
 	if apiKey == "" {
 		fmt.Fprintln(os.Stderr, "missing API key")
 		os.Exit(1)
-		return
 	}
 	client := easypost.New(apiKey)
 
-	// Retrieve a batch
+	// Retrieve a list of batches
 	batch, err := client.ListBatches(
 		&easypost.ListOptions{
 			// options here

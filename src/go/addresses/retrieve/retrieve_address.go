@@ -13,16 +13,14 @@ func main() {
 	if apiKey == "" {
 		fmt.Fprintln(os.Stderr, "missing API key")
 		os.Exit(1)
-		return
 	}
 	client := easypost.New(apiKey)
 
 	// Retrieve an address
-	address, err := client.GetAddress("adr_aaafdb10793340b78d00f57b98bbac81")
+	address, err := client.GetAddress("adr_123...")
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "error retrieving address:", err)
 		os.Exit(1)
-		return
 	}
 
 	prettyJSON, err := json.MarshalIndent(address, "", "    ")

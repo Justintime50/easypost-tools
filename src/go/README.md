@@ -14,7 +14,7 @@ go mod vendor
 Pass your API key as an environment variable on each call.
 
 ```bash
-EASYPOST_API_KEY=<KEY HERE> go run create_address.go
+EASYPOST_API_KEY=123... go run create_address.go
 ```
 
 ## Learn Golang

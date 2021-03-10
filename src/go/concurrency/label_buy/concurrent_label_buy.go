@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/csv"
 	"fmt"
-	"log"
 	"os"
 	"strconv"
 	"sync/atomic"
@@ -24,7 +23,7 @@ import (
 
 func main() {
 	// Setup concurrency
-	totalRequests := 1600 // total number of rows in the CSV file
+	totalRequests := 1000 // total number of rows in the CSV file
 	concurrency := 100    // Not to exceed "100" on EasyPost `shipment` API calls
 	sem := make(chan bool, concurrency)
 
@@ -37,7 +36,6 @@ func main() {
 	if apiKey == "" {
 		fmt.Fprintln(os.Stderr, "missing API key")
 		os.Exit(1)
-		return
 	}
 	client := easypost.New(apiKey)
 
@@ -48,7 +46,8 @@ func main() {
 
 	lines, error := reader.ReadAll()
 	if error != nil {
-		log.Fatal(error)
+		fmt.Fprintln(os.Stderr, error)
+		os.Exit(1)
 	}
 
 	// Loop over API calls

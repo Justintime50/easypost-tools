@@ -13,16 +13,14 @@ func main() {
 	if apiKey == "" {
 		fmt.Fprintln(os.Stderr, "missing API key")
 		os.Exit(1)
-		return
 	}
 	client := easypost.New(apiKey)
 
 	// Retrieve a shipment
-	shipment, err := client.GetShipment("shp_a52895d6f5a141ec87bac56e73825330")
+	shipment, err := client.GetShipment("shp_123...")
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "error retrieving shipment:", err)
 		os.Exit(1)
-		return
 	}
 
 	prettyJSON, err := json.MarshalIndent(shipment, "", "    ")

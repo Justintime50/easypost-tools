@@ -31,7 +31,6 @@ func main() {
 	if apiKey == "" {
 		fmt.Fprintln(os.Stderr, "missing API key")
 		os.Exit(1)
-		return
 	}
 	client := easypost.New(apiKey)
 
@@ -40,7 +39,6 @@ func main() {
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "error retrieving batch:", err)
 		os.Exit(1)
-		return
 	}
 
 	// Loop over API calls
