@@ -33,9 +33,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
       - name: Lint project
-        uses: |
-          npx htmlhint src/html/trimmer
-          npx htmlhint src/html/wincurl
+        uses: make lint-html
   # TODO: Java
   node:
     runs-on: ubuntu-latest
