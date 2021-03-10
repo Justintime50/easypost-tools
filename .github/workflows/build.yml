@@ -34,7 +34,15 @@ jobs:
         uses: actions/checkout@v2
       - name: Lint project
         run: make lint-html
-  # TODO: Java
+  java:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Lint project
+        uses: nikitasavinov/checkstyle-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
   node:
     runs-on: ubuntu-latest
     steps:

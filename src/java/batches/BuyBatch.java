@@ -1,20 +1,19 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
+package batches;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.easypost.EasyPost;
 import com.easypost.exception.EasyPostException;
-import com.easypost.model.Address;
-import com.easypost.model.Parcel;
-import com.easypost.model.Shipment;
 import com.easypost.model.Batch;
 
 import io.github.cdimascio.dotenv.Dotenv;
 
 // Each of the shipments must have a parcel, a from_address, a to_address, a carrier, a service, and a carrier_accounts array
 
-public class buyBatch {
+public class BuyBatch {
     public static void main(String[] args) {
 
         Dotenv dotenv = Dotenv.configure().directory("/Users/jhammond/git/easypost/easypost-tools/.env").load();

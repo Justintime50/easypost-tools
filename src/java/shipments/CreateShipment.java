@@ -1,41 +1,43 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
+package shipments;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.easypost.EasyPost;
 import com.easypost.exception.EasyPostException;
-import com.easypost.model.Address;
-import com.easypost.model.Parcel;
-import com.easypost.model.CustomsItem;
-import com.easypost.model.CustomsInfo;
 import com.easypost.model.Shipment;
 
 import io.github.cdimascio.dotenv.Dotenv;
 
-public class createShipment {
+public class CreateShipment {
     public static void main(String[] args) {
 
         Dotenv dotenv = Dotenv.configure().directory("/Users/jhammond/git/easypost/easypost-tools/.env").load();
-        EasyPost.apiKey = dotenv.get("EASYPOST_PROD_API_KEY");
+        EasyPost.apiKey = dotenv.get("EASYPOST_TEST_API_KEY");
 
         Map<String, Object> toAddressMap = new HashMap<String, Object>();
-        toAddressMap.put("name", "Maggie Simpson");
-        toAddressMap.put("street1", "742 Evergreen Terrace");
-        toAddressMap.put("street2", "");
-        toAddressMap.put("city", "Springfield");
-        toAddressMap.put("state", "KY");
+        toAddressMap.put("name", "Jack Sparrow");
+        toAddressMap.put("company", "EasyPost");
+        toAddressMap.put("street1", "417 MONTGOMERY ST");
+        toAddressMap.put("street2", "FLOOR 5");
+        toAddressMap.put("city", "SAN FRANCISCO");
+        toAddressMap.put("state", "CA");
         toAddressMap.put("country", "US");
-        toAddressMap.put("zip", "40069");
+        toAddressMap.put("zip", "94104");
+        toAddressMap.put("phone", "415-123-4567");
 
         Map<String, Object> fromAddressMap = new HashMap<String, Object>();
-        fromAddressMap.put("name", "Simpler Postage Inc");
-        fromAddressMap.put("street1", "388 Townsend St");
-        fromAddressMap.put("street2", "Apt 20");
-        fromAddressMap.put("city", "San Francisco");
+        fromAddressMap.put("name", "Jack Sparrow");
+        fromAddressMap.put("company", "EasyPost");
+        fromAddressMap.put("street1", "417 MONTGOMERY ST");
+        fromAddressMap.put("street2", "FLOOR 5");
+        fromAddressMap.put("city", "SAN FRANCISCO");
         fromAddressMap.put("state", "CA");
-        fromAddressMap.put("zip", "94107");
-        fromAddressMap.put("phone", "415-456-7890");
+        fromAddressMap.put("country", "US");
+        fromAddressMap.put("zip", "94104");
+        fromAddressMap.put("phone", "415-123-4567");
 
         Map<String, Object> parcelMap = new HashMap<String, Object>();
         parcelMap.put("weight", 22.9);
