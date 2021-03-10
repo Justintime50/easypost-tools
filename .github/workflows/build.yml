@@ -33,7 +33,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
       - name: Lint project
-        uses: make lint-html
+        run: make lint-html
   # TODO: Java
   node:
     runs-on: ubuntu-latest
