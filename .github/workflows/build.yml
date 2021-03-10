@@ -3,18 +3,7 @@ name: build
 on: [push, pull_request]
 
 jobs:
-  install-project:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Set up Ruby (for bundler)
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: "3.0"
-      - name: Install project
-        run: make install
-  build-dotnet:
+  csharp:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -24,21 +13,23 @@ jobs:
         with:
           dotnet-version: "5.0.x"
       - name: Build project
-        run: |
-          cd src/csharp
-          dotnet build -p:StartupObject=csharp.createShipment
-  lint-golang:
+        run: make install-csharp
+      - name: Lint project
+        run: make lint-csharp
+  golang:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-      - name: Run Golangci Linter
+      - name: Lint project
         uses: golangci/golangci-lint-action@v2
         with:
           working-directory: src/go
+      - name: Build project
+        run: make install-go
   # TODO: HTML
   # TODO: Java
-  lint-node:
+  node:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -47,11 +38,11 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "14"
-      - name: Install dependencies
-        run: npm install
-      - name: Run Eslint
-        run: npx eslint --ignore-pattern 'node_modules' --ignore-pattern 'coverage' src/node
-  lint-php:
+      - name: Install project
+        run: make install-node
+      - name: Lint project
+        run: make lint-node
+  php:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -62,11 +53,11 @@ jobs:
           php-version: 8.0
       - name: Install Composer
         run: composer self-update
-      - name: Install Dependencies
-        run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-      - name: Lint
-        run: ./bin/phplint ./src/php
-  lint-python:
+      - name: Install project
+        run: make install-php
+      - name: Lint project
+        run: make lint-php
+  python:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -75,11 +66,11 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-      - name: Lint Python
-        run: flake8 src/python
-  lint-ruby:
+      - name: Install project
+        run: make install-python
+      - name: Lint project
+        run: make lint-python
+  ruby:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -88,16 +79,16 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.0"
-      - name: Install dependencies
-        run: bundle install
-      - name: Lint Ruby
-        run: rubocop
-  shellcheck:
+      - name: Install project
+        run: make install-ruby
+      - name: Lint project
+        run: make lint-ruby
+  shell:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-      - name: Run ShellCheck
+      - name: Lint project
         uses: ludeeus/action-shellcheck@1.0.0
         with:
           ignore: src/csharp
