@@ -34,8 +34,15 @@ jobs:
         uses: actions/checkout@v2
       - name: Lint project
         run: make lint-html
-  # TODO: Add Java linter: https://github.com/checkstyle/checkstyle
-  # This jar is 12mb and too big to store locally
+  java:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Run Java Checkstyle
+        uses: Justintime50/java-checkstyle-action@v1
+        with:
+          directory: src/java
   node:
     runs-on: ubuntu-latest
     steps:
