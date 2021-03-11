@@ -8,6 +8,9 @@ const api = new Easypost(process.env.DEVVM_TEST_API_KEY, {
     baseUrl: devvm,
 });
 
-api.Order.retrieve('order_809eef25f68c4287a3d65df5746f8de9').then(order => {
-    order.buy('AustraliaPost', 'ExpressPostSignature').then(console.log).catch(console.error)
+api.Order.retrieve('order_123...').then(order => {
+    order.buy(
+        'AustraliaPost', // carrier
+        'ExpressPostSignature' // service
+    ).then(console.log).catch(console.error)
 }).catch(console.log);

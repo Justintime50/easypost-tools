@@ -36,13 +36,13 @@ const shipment = {
     },
     service: "Xpresspost",
     carrier: "CanadaPost",
-    carrier_accounts: [process.env.CANADA_POST], // If CANADA_POST, use TEST!
+    carrier_accounts: [process.env.CANADA_POST],
 }
 
 const batch = new api.Batch({
     shipments: [shipment]
 });
 
-batch.save().then(b => {
-    b.buy().then(console.log).catch(console.log);
-});
+batch.save().then(batch => {
+    batch.buy().then(console.log).catch(console.log);
+}).catch(console.log);
