@@ -1,75 +1,81 @@
 package shipments;
 
+import com.easypost.EasyPost;
+import com.easypost.exception.EasyPostException;
+import com.easypost.model.Shipment;
+import io.github.cdimascio.dotenv.Dotenv;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.easypost.EasyPost;
-import com.easypost.exception.EasyPostException;
-import com.easypost.model.Shipment;
-
-import io.github.cdimascio.dotenv.Dotenv;
-
+/**
+ * Creates a shipment.
+ */
 public class CreateShipment {
-    public static void main(String[] args) {
+  /**
+   * Main script.
+   *
+   * @param args Accepts any args.
+   */
+  public static void main(String[] args) {
+    String envDir = "/Users/jhammond/git/easypost/easypost-tools/.env";
+    Dotenv dotenv = Dotenv.configure().directory(envDir).load();
+    EasyPost.apiKey = dotenv.get("EASYPOST_TEST_API_KEY");
 
-        Dotenv dotenv = Dotenv.configure().directory("/Users/jhammond/git/easypost/easypost-tools/.env").load();
-        EasyPost.apiKey = dotenv.get("EASYPOST_TEST_API_KEY");
+    Map<String, Object> toAddressMap = new HashMap<String, Object>();
+    toAddressMap.put("name", "Jack Sparrow");
+    toAddressMap.put("company", "EasyPost");
+    toAddressMap.put("street1", "417 MONTGOMERY ST");
+    toAddressMap.put("street2", "FLOOR 5");
+    toAddressMap.put("city", "SAN FRANCISCO");
+    toAddressMap.put("state", "CA");
+    toAddressMap.put("country", "US");
+    toAddressMap.put("zip", "94104");
+    toAddressMap.put("phone", "415-123-4567");
 
-        Map<String, Object> toAddressMap = new HashMap<String, Object>();
-        toAddressMap.put("name", "Jack Sparrow");
-        toAddressMap.put("company", "EasyPost");
-        toAddressMap.put("street1", "417 MONTGOMERY ST");
-        toAddressMap.put("street2", "FLOOR 5");
-        toAddressMap.put("city", "SAN FRANCISCO");
-        toAddressMap.put("state", "CA");
-        toAddressMap.put("country", "US");
-        toAddressMap.put("zip", "94104");
-        toAddressMap.put("phone", "415-123-4567");
+    Map<String, Object> fromAddressMap = new HashMap<String, Object>();
+    fromAddressMap.put("name", "Jack Sparrow");
+    fromAddressMap.put("company", "EasyPost");
+    fromAddressMap.put("street1", "417 MONTGOMERY ST");
+    fromAddressMap.put("street2", "FLOOR 5");
+    fromAddressMap.put("city", "SAN FRANCISCO");
+    fromAddressMap.put("state", "CA");
+    fromAddressMap.put("country", "US");
+    fromAddressMap.put("zip", "94104");
+    fromAddressMap.put("phone", "415-123-4567");
 
-        Map<String, Object> fromAddressMap = new HashMap<String, Object>();
-        fromAddressMap.put("name", "Jack Sparrow");
-        fromAddressMap.put("company", "EasyPost");
-        fromAddressMap.put("street1", "417 MONTGOMERY ST");
-        fromAddressMap.put("street2", "FLOOR 5");
-        fromAddressMap.put("city", "SAN FRANCISCO");
-        fromAddressMap.put("state", "CA");
-        fromAddressMap.put("country", "US");
-        fromAddressMap.put("zip", "94104");
-        fromAddressMap.put("phone", "415-123-4567");
+    Map<String, Object> parcelMap = new HashMap<String, Object>();
+    parcelMap.put("weight", 22.9);
+    parcelMap.put("height", 12.1);
+    parcelMap.put("width", 8);
+    parcelMap.put("length", 19.8);
 
-        Map<String, Object> parcelMap = new HashMap<String, Object>();
-        parcelMap.put("weight", 22.9);
-        parcelMap.put("height", 12.1);
-        parcelMap.put("width", 8);
-        parcelMap.put("length", 19.8);
+    /*
+     * Map<String, Object> customsInfoMap = new HashMap<String, Object>();
+     * customsItem1Map.put("description", "EasyPost T-shirts");
+     * customsItem1Map.put("quantity", 2); customsItem1Map.put("value", 23.56);
+     * customsItem1Map.put("weight", 18.8); customsItem1Map.put("origin_country",
+     * "us"); customsItem1Map.put("hs_tariff_number", "123456");
+     */
 
-        /*
-         * Map<String, Object> customsInfoMap = new HashMap<String, Object>();
-         * customsItem1Map.put("description", "EasyPost T-shirts");
-         * customsItem1Map.put("quantity", 2); customsItem1Map.put("value", 23.56);
-         * customsItem1Map.put("weight", 18.8); customsItem1Map.put("origin_country",
-         * "us"); customsItem1Map.put("hs_tariff_number", "123456");
-         */
+    try {
+      Map<String, Object> shipmentMap = new HashMap<String, Object>();
+      shipmentMap.put("to_address", toAddressMap);
+      shipmentMap.put("from_address", fromAddressMap);
+      shipmentMap.put("parcel", parcelMap);
+      // shipmentMap.put("customs_info", customsInfoMap);
 
-        try {
-            Map<String, Object> shipmentMap = new HashMap<String, Object>();
-            shipmentMap.put("to_address", toAddressMap);
-            shipmentMap.put("from_address", fromAddressMap);
-            shipmentMap.put("parcel", parcelMap);
-            // shipmentMap.put("customs_info", customsInfoMap);
+      // Setup carrier accounts
+      List<String> carrierAccountsList = new ArrayList<>();
+      carrierAccountsList.add(dotenv.get("FEDEX"));
+      shipmentMap.put("carrier_accounts", carrierAccountsList);
 
-            // Setup carrier accounts
-            List<String> carrierAccountsList = new ArrayList<>();
-            carrierAccountsList.add(dotenv.get("FEDEX"));
-            shipmentMap.put("carrier_accounts", carrierAccountsList);
+      Shipment shipment = Shipment.create(shipmentMap);
 
-            Shipment shipment = Shipment.create(shipmentMap);
-
-            System.out.println(shipment.prettyPrint());
-        } catch (EasyPostException e) {
-            e.printStackTrace();
-        }
+      System.out.println(shipment.prettyPrint());
+    } catch (EasyPostException e) {
+      e.printStackTrace();
     }
+  }
 }

@@ -11,7 +11,7 @@ venv:
 	venv/bin/pip install -r requirements.txt
 
 ## install - Install the project locally for all supported languages with their dependencies
-install: | install-python install-go install-node install-php install-ruby install-shell install-csharp
+install: | install-python install-go install-node install-php install-ruby install-shell install-csharp install-java
 
 ## install-python - Install the Python dependencies and virtual env
 install-python: | venv
@@ -41,8 +41,18 @@ install-csharp:
 	dotnet tool install -g dotnet-format
 	cd src/csharp && dotnet build -p:StartupObject=csharp.createShipment -t:Rebuild && cd ../../ || exit 1
 
+## install-java - Install the Java dependencies
+install-java:
+	mkdir src/java/jars
+	curl -LJs https://search.maven.org/remotecontent?filepath=com/easypost/easypost-api-client/4.0.4/easypost-api-client-4.0.4.jar > src/java/jars/easypost.jar
+	curl -LJs https://search.maven.org/remotecontent?filepath=com/google/code/gson/gson/2.8.6/gson-2.8.6.jar > src/java/jars/gson.jar
+	curl -LJs https://search.maven.org/remotecontent?filepath=io/github/cdimascio/dotenv-java/2.2.0/dotenv-java-2.2.0.jar > src/java/jars/dotenv.jar
+	curl -LJs https://github.com/checkstyle/checkstyle/releases/download/checkstyle-8.41/checkstyle-8.41-all.jar > src/java/jars/checkstyle.jar
+	curl -LJs https://raw.githubusercontent.com/checkstyle/checkstyle/master/src/main/resources/google_checks.xml > src/java/jars/google_checks.xml
+	# curl -LJs https://raw.githubusercontent.com/checkstyle/checkstyle/master/src/main/resources/sun_checks.xml > src/java/jars/sun_checks.xml
+
 ## clean - Remove the virtual environment and clear out .pyc files along with node_modules and vendor folders
-clean: | clean-python clean-go clean-node clean-php clean-csharp
+clean: | clean-python clean-go clean-node clean-php clean-csharp clean-java
 
 ## clean-python - Cleans the Python environment
 clean-python:
@@ -69,8 +79,12 @@ clean-php:
 clean-csharp:
 	rm -rf src/csharp/bin
 
+## clean-java - Cleans the Java environment
+clean-java:
+	rm -rf src/java/jars
+
 ## lint - Lint the entire project across all languages
-lint: | lint-python lint-go lint-node lint-php lint-ruby lint-shell
+lint: | lint-python lint-go lint-node lint-php lint-ruby lint-shell lint-csharp lint-html lint-java
 
 ## lint-python - Lints the Python files
 lint-python:
@@ -104,5 +118,9 @@ lint-csharp:
 lint-html:
 	npx htmlhint src/html/trimmer
 	npx htmlhint src/html/wincurl
+
+## lint-java - Lints the Java files
+lint-java:
+	java -jar src/java/jars/checkstyle.jar src/java -c src/java/jars/google_checks.xml
 
 .PHONY: help install clean lint

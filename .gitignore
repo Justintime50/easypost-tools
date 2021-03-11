@@ -15,3 +15,4 @@ bin
 *.zpl
 __pycache__
 *.zip
+src/java/jars

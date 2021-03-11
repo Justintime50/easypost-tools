@@ -39,6 +39,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+      - name: Install project
+        run: make install-java
       - name: Run Java Checkstyle
         uses: Justintime50/java-checkstyle-action@v1
         with:
