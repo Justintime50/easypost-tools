@@ -32,6 +32,14 @@ const shipmentReport = new api.Report({
 });
 shipmentReport.save().then(console.log).catch(console.log);
 
+// Create Shipment Invoice Report
+const shipmentInvoiceReport = new api.Report({
+    type: 'shipment_invoice',
+    start_date: startDate,
+    end_date: endDate
+});
+shipmentInvoiceReport.save().then(console.log).catch(console.log);
+
 // Create Tracker Report
 const trackerReport = new api.Report({
     type: 'tracker',

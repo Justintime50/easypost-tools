@@ -4,8 +4,11 @@ const dotenv = require('dotenv');
 dotenv.config({ path: '/Users/jhammond/git/easypost/easypost-tools/.env' });
 const api = new Easypost(process.env.EASYPOST_PROD_API_KEY);
 
+// Note: A Batch is created in the background for Shipments as an intermediate process 
+// to creating ScanForms. You can create a ScanForm for 1 or a group of Shipments.
+
 const scanForm = new api.ScanForm({
-    shipments: ['shp_6efd1cc6d38b4e909c2337ba563700fa']
+    shipments: ['shp_123...']
 });
 
 scanForm.save().then(console.log).catch(console.log);

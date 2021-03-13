@@ -11,4 +11,4 @@ const parcel = new api.Parcel({
     weight: 65.9
 });
 
-parcel.save().then(console.log);
+parcel.save().then(console.log).catch(console.log);

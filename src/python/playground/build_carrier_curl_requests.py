@@ -18,6 +18,7 @@ def main():
 def get_carrier_types():
     """Get the carrier_types from the EasyPost API.
     """
+    # TODO: Retrieving carriers this way vs the CL may have missing data like ID
     carrier_types = requests.get(
         URL,
         auth=requests.auth.HTTPBasicAuth(API_KEY, '')
