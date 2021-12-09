@@ -1,0 +1,166 @@
+Enumerated options:
+dropoff_type
+endorsement
+hazmat
+import_control
+incoterm
+dropoff_type
+DROP_BOX, DROPOFF, PICKUP, REGULAR_PICKUP, RETAIL_LOCATION, SCHEDULED_PICKUP, STATION
+
+endorsement
+ADDRESS_SERVICE_REQUESTED, CHANGE_SERVICE_REQUESTED, FORWARDING_SERVICE_REQUESTED, LEAVE_IF_NO_RESPONSE, LEAVE_WITH_NEIGHBOR, RETURN_SERVICE_REQUESTED
+
+hazmat
+LIMITED_QUANTITY, LITHIUM, NIMH, ORMD, PRIMARY, PRIMARY_CONTAINED, PRIMARY_PACKED, SECONDARY, SECONDARY_CONTAINED, SECONDARY_PACKED
+
+import_control
+ELECTRONIC, ONE_ATTEMPT, PRINT, PRINT_AND_MAIL, THREE_ATTEMPT
+
+incoterm
+CIP, CPT, DAP, DAT, DDP, EXW, FCA, CIF, CFR, FAS, FOB, DAF, DDU, DES, DEQ
+
+Valid options:
+{additional_handling, address_validation_level, administratively_unpurchasable, alcohol, bill_receiver_account, bill_receiver_postal_code, bill_third_party_account, bill_third_party_country, bill_third_party_postal_code, billing_ref, by_drone, carbon_neutral, carrier_branded, carrier_instructions, carrier_insurance_amount, carrier_notification_email, carrier_notification_sms, certificate_number, certified_mail, cod_address_id, cod_amount, cod_method, commercial_invoice_format, commercial_invoice_letterhead, commercial_invoice_signature, commercial_invoice_size, content_description, cost_center, currency, customs_broker_address_id, customs_include_shipping, customs_unit_of_measurement, dangerous_goods, date_advance, declared_value, delivered_duty_paid, delivery_confirmation, delivery_date, delivery_max_datetime, delivery_min_datetime, delivery_time_preference, dhlgm_return_location, discrete_postage_labels, dropoff_type, dry_ice, dry_ice_medical, dry_ice_weight, duty_payment, duty_payment_account, endorsement, entry, facility_code, fims_awb_number, freight_charge, fulfiller_order_id, fulfiller_order_items, group, handling_instructions, hazmat, hold_for_pickup, image_format, import_control, import_control_description, import_federal_tax_id, import_state_tax_id, importer_address_id, importer_id, importer_reference, incoterm, invoice_number, label_date, label_extension, label_format, label_size, license_number, live_animal, machinable, movement_type, neutral_delivery, non_contract, notifications, one_page, origin_terminal, overlabel_construct_code, overlabel_original_tracking_number, partial_delivery, parties_to_transaction_are_related, passport_issue_date, passport_issued_by, passport_number, payment, peel_and_return, perishable, pharmacy, pickup_max_datetime, pickup_min_datetime, po_facility, po_postal_code, po_sort, po_zip, postage_label_inline, print_custom, print_custom_1, print_custom_1_barcode, print_custom_1_code, print_custom_2, print_custom_2_barcode, print_custom_2_code, print_custom_3, print_custom_3_barcode, print_custom_3_code, print_rate, priority_alert, priority_alert_content, priority_alert_plus, receiver_liquor_license, registered_mail, registered_mail_amount, residential_to_address, return, return_receipt, return_service, saturday_delivery, service_codes, settlement_method, smartpost_hub, smartpost_manifest, special_rates_eligibility, sub_shipper_id, suppress_etd, tax_id_expiration_date, third_party_consignee, ups_return_service}
+
+Options by type:
+ARRAY_OPTIONS:
+* fulfiller_order_items
+* notifications
+* print_custom
+* service_codes
+
+BINARY_OPTIONS:
+* additional_handling
+* administratively_unpurchasable
+* alcohol
+* by_drone
+* carbon_neutral
+* carrier_branded
+* certified_mail
+* customs_include_shipping
+* delivered_duty_paid
+* discrete_postage_labels
+* dry_ice
+* hold_for_pickup
+* machinable
+* neutral_delivery
+* non_contract
+* one_page
+* parties_to_transaction_are_related
+* peel_and_return
+* perishable
+* pharmacy
+* postage_label_inline
+* print_custom_1_barcode
+* print_custom_2_barcode
+* print_custom_3_barcode
+* print_rate
+* priority_alert
+* priority_alert_plus
+* receiver_liquor_license
+* registered_mail
+* residential_to_address
+* return
+* return_receipt
+* saturday_delivery
+* suppress_etd
+* third_party_consignee
+
+DATETIME_OPTIONS:
+* delivery_max_datetime
+* delivery_min_datetime
+* pickup_max_datetime
+* pickup_min_datetime
+
+FREEFORM_OPTIONS:
+* certificate_number
+* cod_address_id
+* commercial_invoice_letterhead
+* commercial_invoice_signature
+* cost_center
+* customs_broker_address_id
+* delivery_confirmation
+* entry
+* fims_awb_number
+* group
+* import_control_description
+* import_federal_tax_id
+* import_state_tax_id
+* importer_address_id
+* importer_reference
+* invoice_number
+* license_number
+* origin_terminal
+* po_facility
+* po_sort
+* print_custom_1
+* print_custom_2
+* print_custom_3
+* priority_alert_content
+* return_service
+* smartpost_manifest
+* sub_shipper_id
+
+HASH_OPTIONS:
+* carrier_instructions
+* dangerous_goods
+* duty_payment
+* importer_id
+* label_extension
+* payment
+
+NUMERIC_OPTIONS:
+* carrier_insurance_amount
+* date_advance
+* declared_value
+* freight_charge
+* registered_mail_amount
+
+Options that are valid but uncategorized:
+* address_validation_level
+* bill_receiver_account
+* bill_receiver_postal_code
+* bill_third_party_account
+* bill_third_party_country
+* bill_third_party_postal_code
+* billing_ref
+* carrier_notification_email
+* carrier_notification_sms
+* cod_amount
+* cod_method
+* commercial_invoice_format
+* commercial_invoice_size
+* content_description
+* currency
+* customs_unit_of_measurement
+* delivery_date
+* delivery_time_preference
+* dhlgm_return_location
+* dry_ice_medical
+* dry_ice_weight
+* duty_payment_account
+* facility_code
+* fulfiller_order_id
+* handling_instructions
+* image_format
+* label_date
+* label_format
+* label_size
+* live_animal
+* movement_type
+* overlabel_construct_code
+* overlabel_original_tracking_number
+* partial_delivery
+* passport_issue_date
+* passport_issued_by
+* passport_number
+* po_postal_code
+* po_zip
+* print_custom_1_code
+* print_custom_2_code
+* print_custom_3_code
+* settlement_method
+* smartpost_hub
+* special_rates_eligibility
+* tax_id_expiration_date
+* ups_return_service

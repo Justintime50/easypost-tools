@@ -1,0 +1,25 @@
+{
+  "name": "justintime50/easypost-tools",
+  "type": "project",
+  "description": "A MASSIVE collection of tools and examples for EasyPost spanning over C#, Golang, Node, PHP, Python, Ruby, HTML, and Shell.",
+  "keywords": [
+    "easypost",
+    "tools"
+  ],
+  "license": "MIT",
+  "require": {
+    "php": "^7.3|^8.0",
+    "vlucas/phpdotenv": "^5.3",
+    "easypost/easypost-php": "^4.0.2"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.0"
+  },
+  "config": {
+    "bin-dir": "bin"
+  },
+  "scripts": {
+    "fix": "./bin/phpcbf",
+    "lint": "./bin/phpcs"
+  }
+}

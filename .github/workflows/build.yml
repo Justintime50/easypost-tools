@@ -1,0 +1,110 @@
+name: build
+
+on: [push, pull_request]
+
+jobs:
+  csharp:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Setup Dotnet
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: "5.0.x"
+      - name: Build project
+        run: make install-csharp
+      - name: Lint project
+        run: make lint-csharp
+  golang:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Lint project
+        uses: golangci/golangci-lint-action@v2
+        with:
+          working-directory: src/examples/golang
+      - name: Build project
+        run: make install-golang
+  html:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Lint project
+        run: make lint-html
+  java:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Install project
+        run: make install-java
+      - name: Run Java Checkstyle
+        uses: Justintime50/java-checkstyle-action@v1
+        with:
+          directory: src/examples/java
+  node:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+      - name: Install project
+        run: make install-node
+      - name: Lint project
+        run: make lint-node
+  php:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.0
+      - name: Install Composer
+        run: composer self-update
+      - name: Install project
+        run: make install-php
+      - name: Lint project
+        run: make lint-php
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.10"
+      - name: Install project
+        run: make install-python
+      - name: Lint project
+        run: make lint-python
+  ruby:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.0"
+      - name: Install project
+        run: make install-ruby
+      - name: Lint project
+        run: make lint-ruby
+  sh-checker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Run sh-checker
+        uses: luizm/action-sh-checker@master
+        env:
+          SHFMT_OPTS: -i 4 -d

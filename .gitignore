@@ -1,0 +1,33 @@
+# General
+.DS_Store
+.idea
+.env
+*.log
+*.csv
+*.pdf
+*.png
+*.zpl
+*.zip
+target
+bin
+
+# C#
+src/examples/csharp/obj
+
+# Tools
+libraries
+
+# Node
+node_modules
+
+# PHP
+vendor
+
+# Python
+venv
+.phplint-cache
+*.egg-info
+__pycache__
+
+# Ruby
+src/examples/java/jars
