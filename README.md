@@ -5,9 +5,9 @@
 A MASSIVE collection of tools and examples for [EasyPost](https://www.easypost.com/docs/api/) spanning over C#, Golang, Node, PHP, Python, Ruby, HTML, and Shell.
 
 [![Build Status](https://github.com/Justintime50/easypost-tools/workflows/build/badge.svg)](https://github.com/Justintime50/easypost-tools/actions)
-[![Licence](https://img.shields.io/github/license/justintime50/easypost-tools)](LICENSE)
+[![Licence](https://img.shields.io/github/license/Justintime50/easypost-tools)](LICENSE)
 
-<img src="https://raw.githubusercontent.com/justintime50/assets/main/src/easypost-tools/showcase.png" alt="Showcase">
+<img src="https://raw.githubusercontent.com/Justintime50/assets/main/src/easypost-tools/showcase.png" alt="Showcase">
 
 </div>
 
