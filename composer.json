@@ -1,7 +1,7 @@
 {
   "name": "justintime50/easypost-tools",
   "type": "project",
-  "description": "A MASSIVE collection of tools and examples for EasyPost spanning over C#, Golang, Node, PHP, Python, Ruby, HTML, and Shell.",
+  "description": "A MASSIVE collection of 300+ tools and examples for the EasyPost API spanning across C#, Golang, Node, PHP, Python, Ruby, and Shell.",
   "keywords": [
     "easypost",
     "tools"
