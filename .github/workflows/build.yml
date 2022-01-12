@@ -11,7 +11,7 @@ jobs:
       - name: Setup Dotnet
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: "5.0.x"
+          dotnet-version: "6.0.x"
       - name: Build project
         run: make install-csharp
       - name: Lint project
@@ -42,9 +42,9 @@ jobs:
       - name: Install project
         run: make install-java
       - name: Run Java Checkstyle
-        uses: Justintime50/java-checkstyle-action@v1
+        uses: nikitasavinov/checkstyle-action@master
         with:
-          directory: src/examples/java
+          checkstyle_config: google_checks.xml
   node:
     runs-on: ubuntu-latest
     steps:
