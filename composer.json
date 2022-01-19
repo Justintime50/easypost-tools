@@ -8,7 +8,7 @@
   ],
   "license": "MIT",
   "require": {
-    "php": "^7.3|^8.0",
+    "php": ">=7.3",
     "vlucas/phpdotenv": "^5.3",
     "easypost/easypost-php": "^4.0.2"
   },

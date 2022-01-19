@@ -24,7 +24,7 @@ Reference the JAR files needed to run the client library and run the script:
 # https://stackoverflow.com/questions/1675765/adding-to-the-classpath-on-osx/11304846#11304846
 # Optional: https://stackoverflow.com/questions/1675765/adding-to-the-classpath-on-osx/11304846#11304846
 
-java -cp ../jars/easypost.jar:../jars/gson.jar:../jars/dotenv.jar create-shipment.java
+java -cp ../jars/easypost.jar:../jars/gson.jar:../jars/dotenv.jar CreateShipment.java
 
 # Generate a new Java project
 mvn archetype:generate -DgroupId=com.justintime50.easyposttools -DartifactId=easypost-tools -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false

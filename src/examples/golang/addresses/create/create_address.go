@@ -28,7 +28,7 @@ func main() {
 		&easypost.CreateAddressOptions{Verify: []string{"delivery"}},
 	)
 	if err != nil {
-		fmt.Fprintln(os.Stderr, "error creating to address:", err)
+		fmt.Fprintln(os.Stderr, "error creating address:", err)
 		os.Exit(1)
 	}
 

@@ -23,7 +23,7 @@ func main() {
 		},
 	)
 	if err != nil {
-		fmt.Fprintln(os.Stderr, "error retrieving address:", err)
+		fmt.Fprintln(os.Stderr, "error retrieving addresses:", err)
 		os.Exit(1)
 	}
 
