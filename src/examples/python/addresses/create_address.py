@@ -7,15 +7,18 @@ load_dotenv()
 easypost.api_key = os.getenv('EASYPOST_TEST_API_KEY')
 
 
-address = easypost.Address.create(
-    street1="417 Montgomery Street",
-    street2="FLOOR 5",
-    city="San Francisco",
-    state="CA",
-    zip="94104",
-    country="US",
-    company="EasyPost",
-    phone="415-456-7890",
-)
+try:
+    address = easypost.Address.create(
+        street1="417 Montgomery Street",
+        street2="FLOOR 5",
+        city="San Francisco",
+        state="CA",
+        zip="94104",
+        country="US",
+        company="EasyPost",
+        phone="415-456-7890",
+    )
 
-print(address)
+    print(address)
+except Exception as error:
+    print(error)
