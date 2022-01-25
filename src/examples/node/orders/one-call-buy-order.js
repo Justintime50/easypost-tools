@@ -40,7 +40,7 @@ const order = new api.Order({
     },
   ],
   service: 'FEDEX_GROUND',
-  carrier_accounts: [{ id: process.env.FEDEX }]
+  carrier_accounts: [process.env.FEDEX]
 });
 
 order.save().then(console.log).catch(console.log);
