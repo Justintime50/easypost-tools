@@ -6,7 +6,7 @@ namespace csharp
 {
     class buyShipment
     {
-        static void Main(string[] args)
+        static void Main()
         {
             EasyPost.ClientManager.SetCurrent(Environment.GetEnvironmentVariable("EASYPOST_TEST_API_KEY"));
 

@@ -7,7 +7,7 @@ namespace csharp
 {
     class createCarrierAccount
     {
-        static void Main(string[] args)
+        static void Main()
         {
             EasyPost.ClientManager.SetCurrent(Environment.GetEnvironmentVariable("EASYPOST_PROD_API_KEY"));
 
