@@ -35,7 +35,8 @@ shipment = EasyPost::Shipment.create(
     height: 5,
     weight: 65.9
   },
-  carrier_accounts: ['ca_123...']
+  carrier_accounts: ['ca_123...'],
+  reference: 'test'
 )
 
 ap shipment
