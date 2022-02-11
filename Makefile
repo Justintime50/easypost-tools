@@ -1,20 +1,18 @@
-VIRTUALENV := python3 -m venv
+PYTHON_BINARY := python3
+VIRTUAL_ENV := venv
+VIRTUAL_BIN := $(VIRTUAL_ENV)/bin
 
 ## help - Display help about make targets for this Makefile
 help:
 	@cat Makefile | grep '^## ' --color=never | cut -c4- | sed -e "`printf 's/ - /\t- /;'`" | column -s "`printf '\t'`" -t
 
-## venv - Install the Python virtual environment
-venv:
-	$(VIRTUALENV) ~/.venv/easypost-tools/
-	ln -snf ~/.venv/easypost-tools/ venv
-	venv/bin/pip install -e ."[dev]"
-
 ## install - Install the project locally for all supported languages with their dependencies
 install: | install-python install-golang install-node install-php install-ruby install-shell install-csharp install-java
 
 ## install-python - Install the Python dependencies and virtual env
-install-python: | venv
+install-python:
+	$(PYTHON_BINARY) -m venv $(VIRTUAL_ENV)
+	$(VIRTUAL_BIN)/pip install -e ."[dev]"
 
 ## install-golang - Install the Golang dependencies
 install-golang:
@@ -56,7 +54,7 @@ clean: | clean-python clean-golang clean-node clean-php clean-csharp clean-java
 
 ## clean-python - Cleans the Python environment
 clean-python:
-	rm -rf ~/.venv/easypost-tools/ venv
+	rm -rf $(VIRTUAL_ENV)
 	find . -name '*.pyc' -delete
 	rm -rf dist
 	rm -rf build
