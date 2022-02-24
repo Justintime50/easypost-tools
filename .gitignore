@@ -13,6 +13,7 @@ bin
 
 # C#
 src/examples/csharp/obj
+.vs
 
 # Tools
 libraries
