@@ -38,7 +38,7 @@ install-shell:
 ## install-csharp - Install the C# dependencies
 install-csharp:
 	dotnet tool install -g dotnet-format || exit 0
-	dotnet restore
+	cd src/examples/csharp && dotnet restore && cd ../../../ || exit 1
 	cd src/examples/csharp && dotnet build -p:StartupObject=csharp.createShipment -t:Rebuild && cd ../../../ || exit 1
 
 ## install-java - Install the Java dependencies
