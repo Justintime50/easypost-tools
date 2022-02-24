@@ -116,7 +116,7 @@ lint-shell:
 
 ## lint-csharp - Lints the C# files
 lint-csharp:
-	dotnet-format src/examples/csharp
+	dotnet-format src/examples/csharp/csharp.csproj
 
 ## lint-html - Lints the HTML files
 lint-html:
