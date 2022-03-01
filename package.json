@@ -5,11 +5,14 @@
   "main": "index.js",
   "dependencies": {
     "@easypost/api": "^4.0.0",
-    "csv-parser": "^2.3.2",
-    "csvtojson": "^2.0.10",
-    "dad-tool": "^3.0.0",
-    "dotenv": "^8.2.0",
-    "eslint": "^6.8.0"
+    "csv-parser": "^3.0",
+    "csvtojson": "^2.0",
+    "dad-tool": "^4.2",
+    "dotenv": "^16.0",
+    "eslint": "^8.10"
+  },
+  "devDependencies": {
+    "htmlhint": "^1.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -27,8 +30,5 @@
   "bugs": {
     "url": "https://github.com/Justintime50/easypost-tools/issues"
   },
-  "homepage": "https://github.com/Justintime50/easypost-tools#readme",
-  "devDependencies": {
-    "htmlhint": "^0.14.2"
-  }
+  "homepage": "https://github.com/Justintime50/easypost-tools#readme"
 }

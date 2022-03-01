@@ -9,11 +9,11 @@
   "license": "MIT",
   "require": {
     "php": ">=7.3",
-    "vlucas/phpdotenv": "^5.3",
-    "easypost/easypost-php": "^4.0.2"
+    "vlucas/phpdotenv": "^5.4",
+    "easypost/easypost-php": "^5.0.0"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "^3.0"
+    "squizlabs/php_codesniffer": "^3.6"
   },
   "config": {
     "bin-dir": "bin"
