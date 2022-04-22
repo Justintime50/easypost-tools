@@ -55,16 +55,12 @@ clean: | clean-python clean-golang clean-node clean-php clean-csharp clean-java
 
 ## clean-python - Cleans the Python environment
 clean-python:
-	rm -rf $(VIRTUAL_ENV)
+	rm -rf $(VIRTUAL_ENV) dist build *.egg-info .coverage
 	find . -name '*.pyc' -delete
-	rm -rf dist
-	rm -rf build
-	rm -rf *.egg-info
 
 ## clean-golang - Cleans the Go environment
 clean-golang:
-	rm -rf src/examples/golang/vendor
-	rm -rf src/tools/golang/vendor
+	rm -rf src/examples/golang/vendor src/tools/golang/vendor
 
 ## clean-node - Cleans the Node environment
 clean-node:
@@ -72,8 +68,7 @@ clean-node:
 
 ## clean-php - Cleans the PHP environment
 clean-php:
-	rm -rf vendor
-	rm -rf bin
+	rm -rf vendor bin
 
 ## clean-csharp - Cleans the C# environment
 clean-csharp:
