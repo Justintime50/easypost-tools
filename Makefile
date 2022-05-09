@@ -44,7 +44,7 @@ install-csharp:
 ## install-java - Install the Java dependencies
 install-java:
 	mkdir -p src/examples/java/jars
-	curl -LJs "https://search.maven.org/remotecontent?filepath=com/easypost/easypost-api-client/5.0.0/easypost-api-client-5.0.0.jar" -o src/examples/java/jars/easypost.jar
+	curl -LJs "https://search.maven.org/remotecontent?filepath=com/easypost/easypost-api-client/5.2.0/easypost-api-client-5.2.0.jar" -o src/examples/java/jars/easypost.jar
 	curl -LJs "https://search.maven.org/remotecontent?filepath=com/google/code/gson/gson/2.8.6/gson-2.8.6.jar" -o src/examples/java/jars/gson.jar
 	curl -LJs "https://search.maven.org/remotecontent?filepath=io/github/cdimascio/dotenv-java/2.2.0/dotenv-java-2.2.0.jar" -o src/examples/java/jars/dotenv.jar
 	curl -LJs "https://github.com/checkstyle/checkstyle/releases/download/checkstyle-8.42/checkstyle-8.42-all.jar" -o src/examples/java/jars/checkstyle.jar
