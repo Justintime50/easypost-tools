@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using EasyPost;
 using Newtonsoft.Json;
 
@@ -7,7 +8,7 @@ namespace csharp
 {
     class createInsurance
     {
-        static void Main()
+        static async Task Main()
         {
             EasyPost.ClientManager.SetCurrent(Environment.GetEnvironmentVariable("EASYPOST_TEST_API_KEY"));
 
@@ -35,14 +36,14 @@ namespace csharp
                 { "weight", 8.0 }
             };
 
-            Shipment shipment = Shipment.Create(new Dictionary<string, object>() {
+            Shipment shipment = await Shipment.Create(new Dictionary<string, object>() {
                 { "from_address", fromAddress },
                 { "to_address", toAddress },
                 { "parcel", parcel },
                 { "service", "First" },
             });
 
-            Insurance insurance = Insurance.Create(new Dictionary<string, object>() {
+            Insurance insurance = await Insurance.Create(new Dictionary<string, object>() {
                 { "to_address", toAddress },
                 { "from_address", fromAddress },
                 { "tracking_code", shipment.tracking_code },

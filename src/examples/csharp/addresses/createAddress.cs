@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using EasyPost;
 using Newtonsoft.Json;
 
@@ -7,11 +8,11 @@ namespace csharp
 {
     class createAddress
     {
-        static void Main()
+        static async Task Main()
         {
             EasyPost.ClientManager.SetCurrent(Environment.GetEnvironmentVariable("EASYPOST_TEST_API_KEY"));
 
-            Address address = Address.Create(
+            Address address = await Address.Create(
                 new Dictionary<string, object>() {
                     { "street1", "417 MONTGOMERY ST" },
                     { "street2", "FLOOR 5" },

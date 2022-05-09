@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using EasyPost;
 using Newtonsoft.Json;
 
@@ -7,7 +8,7 @@ namespace csharp
 {
     class createCarrierAccount
     {
-        static void Main()
+        static async Task Main()
         {
             EasyPost.ClientManager.SetCurrent(Environment.GetEnvironmentVariable("EASYPOST_PROD_API_KEY"));
 
@@ -18,7 +19,7 @@ namespace csharp
                 { "access_license_number", "ALN" }
             };
 
-            CarrierAccount account = CarrierAccount.Create(new Dictionary<string, object>() {
+            CarrierAccount account = await CarrierAccount.Create(new Dictionary<string, object>() {
                 { "type", "UpsAccount" },
                 { "description", "description" },
                 { "credentials", credentials }

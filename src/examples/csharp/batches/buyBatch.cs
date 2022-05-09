@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
 using EasyPost;
 using Newtonsoft.Json;
 
@@ -8,7 +9,7 @@ namespace csharp
 {
     class buyBatch
     {
-        static void Main()
+        static async Task Main()
         {
             EasyPost.ClientManager.SetCurrent(Environment.GetEnvironmentVariable("EASYPOST_TEST_API_KEY"));
 
@@ -52,14 +53,14 @@ namespace csharp
                 { "service", "FEDEX_GROUND" }
             };
 
-            Batch batch = Batch.Create(new Dictionary<string, object>() {
+            Batch batch = await Batch.Create(new Dictionary<string, object>() {
                 { "shipments", new List<Dictionary<string, object>>() {
                     shipment
                 } }
             });
 
             Thread.Sleep(2000); // Pause for creation call // TODO: This is only used for testing, find a better production approach (wait for response)
-            batch.Buy();
+            await batch.Buy();
 
             Console.WriteLine(JsonConvert.SerializeObject(batch, Formatting.Indented));
         }

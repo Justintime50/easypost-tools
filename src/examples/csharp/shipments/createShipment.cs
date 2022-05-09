@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using EasyPost;
 using Newtonsoft.Json;
 
@@ -7,7 +8,7 @@ namespace csharp
 {
     class createShipment
     {
-        static void Main()
+        static async Task Main()
         {
             EasyPost.ClientManager.SetCurrent(Environment.GetEnvironmentVariable("EASYPOST_TEST_API_KEY"));
 
@@ -37,7 +38,7 @@ namespace csharp
                 { "id", Environment.GetEnvironmentVariable("FEDEX") },
             };
 
-            Shipment shipment = Shipment.Create(new Dictionary<string, object>() {
+            Shipment shipment = await Shipment.Create(new Dictionary<string, object>() {
                 { "parcel", new Dictionary<string, object>() {
                     { "length", 8 }, { "width", 6 }, { "height", 5 }, { "weight", 10 }
                 } },

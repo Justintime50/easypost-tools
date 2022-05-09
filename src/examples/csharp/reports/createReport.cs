@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using EasyPost;
 using Newtonsoft.Json;
 
@@ -7,7 +8,7 @@ namespace csharp
 {
     class createReport
     {
-        static void Main()
+        static async Task Main()
         {
             EasyPost.ClientManager.SetCurrent(Environment.GetEnvironmentVariable("EASYPOST_TEST_API_KEY"));
 
@@ -15,7 +16,7 @@ namespace csharp
                 { "start_date", "2021/01/01" },
                 { "end_date", "2021/02/01" }
             };
-            Report report = Report.Create("shipment", parameters);
+            Report report = await Report.Create("shipment", parameters);
 
             Console.WriteLine(JsonConvert.SerializeObject(report, Formatting.Indented));
         }

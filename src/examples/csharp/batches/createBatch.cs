@@ -7,7 +7,7 @@ namespace csharp
 {
     class createBatch
     {
-        static void Main()
+        static async void Main()
         {
             EasyPost.ClientManager.SetCurrent(Environment.GetEnvironmentVariable("EASYPOST_TEST_API_KEY"));
 
@@ -41,7 +41,7 @@ namespace csharp
                 { "from_address", fromAddress },
             };
 
-            Batch batch = Batch.Create(new Dictionary<string, object>() {
+            Batch batch = await Batch.Create(new Dictionary<string, object>() {
                 { "shipments", new List<Dictionary<string, object>>() {
                     shipment
                 } }
