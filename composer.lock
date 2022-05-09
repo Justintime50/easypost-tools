@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "easypost/easypost-php",
-            "version": "5.1.0",
+            "version": "5.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EasyPost/easypost-php.git",
-                "reference": "6360ed31321ff1bb240daa13498bf897b228beca"
+                "reference": "d9383363a89b3ab1d21fe6f1fb815adba171b3ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EasyPost/easypost-php/zipball/6360ed31321ff1bb240daa13498bf897b228beca",
-                "reference": "6360ed31321ff1bb240daa13498bf897b228beca",
+                "url": "https://api.github.com/repos/EasyPost/easypost-php/zipball/d9383363a89b3ab1d21fe6f1fb815adba171b3ab",
+                "reference": "d9383363a89b3ab1d21fe6f1fb815adba171b3ab",
                 "shasum": ""
             },
             "require": {
@@ -57,9 +57,9 @@
             ],
             "support": {
                 "issues": "https://github.com/EasyPost/easypost-php/issues",
-                "source": "https://github.com/EasyPost/easypost-php/tree/v5.1.0"
+                "source": "https://github.com/EasyPost/easypost-php/tree/v5.1.1"
             },
-            "time": "2022-05-09T17:02:34+00:00"
+            "time": "2022-05-09T20:32:08+00:00"
         },
         {
             "name": "graham-campbell/result-type",
