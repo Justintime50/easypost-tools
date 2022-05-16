@@ -1,19 +1,19 @@
 # General
 .DS_Store
-.idea
 .env
-*.log
+.idea
 *.csv
+*.log
 *.pdf
 *.png
-*.zpl
 *.zip
-target
+*.zpl
 bin
+target
 
 # C#
-src/examples/csharp/obj
 .vs
+src/examples/csharp/obj
 
 # Tools
 libraries
@@ -25,10 +25,10 @@ node_modules
 vendor
 
 # Python
-venv
+__pycache__
 .phplint-cache
 *.egg-info
-__pycache__
+venv
 
 # Ruby
 src/examples/java/jars

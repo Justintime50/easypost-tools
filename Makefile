@@ -55,7 +55,7 @@ clean: | clean-python clean-golang clean-node clean-php clean-csharp clean-java
 
 ## clean-python - Cleans the Python environment
 clean-python:
-	rm -rf $(VIRTUAL_ENV) dist build *.egg-info .coverage
+	rm -rf $(VIRTUAL_ENV) dist *.egg-info .coverage
 	find . -name '*.pyc' -delete
 
 ## clean-golang - Cleans the Go environment
