@@ -10,6 +10,7 @@ FILE = os.getenv('FILE')
 
 
 def main():
+    failed = False
     with open(FILE, mode='r', encoding='utf-8', newline='\n') as F:
         data = F.readlines()
         for n, line in enumerate(data, start=1):
@@ -22,6 +23,10 @@ def main():
             if res:
                 vals = ' | '.join((f'col: {i[1]}, bad: {i[2]}, Unicode name: {i[3]}' for i in res))
                 print(f'Invalid line: {res[0][0]}, {vals}')
+                failed = True
+
+    if not failed:
+        print('All characters are encoded correctly!')
 
 
 if __name__ == '__main__':
