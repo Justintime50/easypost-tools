@@ -31,10 +31,7 @@ func main() {
 
 	// Setup the EasyPost API Client
 	apiKey := os.Getenv("EASYPOST_TEST_API_KEY")
-	if apiKey == "" {
-		fmt.Fprintln(os.Stderr, "missing API key")
-		os.Exit(1)
-	}
+
 	client := easypost.New(apiKey)
 
 	// Open CSV file
