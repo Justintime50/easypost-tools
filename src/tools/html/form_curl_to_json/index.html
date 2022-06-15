@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form cURL to JSON</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        body {
+            margin: 50px;
+        }
+
+        textarea {
+            margin: 20px 0;
+        }
+
+        #output {
+            margin: 20px 0;
+            padding: 10px 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Form cURL to JSON</h1>
+        <p>A tool to convert form-encoded cURL data to JSON.</p>
+        <p><b>NOTE: This tool is brittle (does not work with any double nested objects in requests) and makes large assumptions about the shape of the data (only paste in the data flags and not the cURL command itself). An example would look like:</b></p>
+        <pre>
+-d "address[street1]=417 MONTGOMERY ST" \
+-d "address[street2]=FLOOR 5" \
+-d "address[city]=SAN FRANCISCO" \
+-d "address[state]=CA" \
+-d "address[zip]=94104" \
+-d "address[country]=US" \
+-d "address[company]=EasyPost" \
+-d "address[phone]=415-123-4567"
+        </pre>
+        <input class="form-control" id="rootKey" placeholder="top-level object (eg: address)"></input>
+        <textarea class="form-control" id="input" placeholder="Paste your cURL command here..." rows="6"></textarea>
+        <button class="btn btn-primary" onclick="processInput()">Jsonify</button>
+        <button class="btn btn-secondary" onclick="clearInput()">Clear</button>
+        <hr>
+        <h3>Output</h3>
+        <div class="card" id="output"></div>
+        <button class="btn btn-primary" onclick="copyToClipboard()">Copy</button>
+    </div>
+</body>
+<script src="form_curl_to_json.js"></script>
+
+</html>
