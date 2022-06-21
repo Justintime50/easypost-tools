@@ -5,6 +5,8 @@ import easypost
 # Builds a file containing every cURL request to add a Carrier Account via EasyPost
 # USAGE: API_KEY=123... venv/bin/python build_carrier_curl_requests.py > carrier_curl_requests.sh
 
+# TODO: Rework tool to create JSON cURL requests instead of form-encoded ones
+
 URL = os.getenv('URL', 'https://api.easypost.com/v2')
 API_KEY = os.getenv('API_KEY')
 
@@ -30,7 +32,7 @@ def build_carrier_curl_request(carrier):
     """Builds a cURL request for a carrier via EasyPost."""
     fedex_custom_workflow_carriers = ['FedexAccount', 'FedexSmartpostAccount']
     ups_custom_workflow_carriers = ['UpsAccount', 'UpsDapAccount']
-    canadapost_custom_workflow_carriers = ['CanadaPostAccount']  # noqa
+    canadapost_custom_workflow_carriers = ['CanadaPostAccount']
 
     # Add carrier account title comment
     carrier_output = f'# {carrier.get("type")}\n'
