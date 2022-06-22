@@ -8,8 +8,8 @@ REQUIREMENTS = [
     'easypost == 7.*',
     'flask == 2.*',
     'Pillow == 9.*',
-    'PyPDF2 == 1.26.*',
-    'python-dotenv == 0.19.*',
+    'PyPDF2 == 1.27.*',
+    'python-dotenv == 0.20.*',
     'pyzbar == 0.1.*',
     'slackclient == 2.*',
 ]
