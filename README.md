@@ -11,7 +11,7 @@ A MASSIVE collection of 400+ tools and examples for the EasyPost API spanning ac
 
 </div>
 
-EasyPost Tools boasts an incredible **300+ scripts, examples, and tools** across **8+ programming languages** making it (most likely) the largest publicly available set of resources for the EasyPost API.
+EasyPost Tools boasts an incredible **400+ scripts, examples, and tools** across **8+ programming languages** making it (most likely) the largest publicly available set of resources for the EasyPost API.
 
 This project aims to supplement the resources available at <https://easypost.com> by providing additional examples, tooling, and references outside the EasyPost open source client libraries and API docs, to help you get up and running on the EasyPost platform faster or solve problems that the EasyPost API doesn't natively cover.
 
