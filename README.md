@@ -13,7 +13,7 @@ A MASSIVE collection of 300+ tools and examples for the EasyPost API spanning ac
 
 EasyPost Tools boasts an incredible **300+ scripts, examples, and tools** across **8+ programming languages** making it (most likely) the largest publicly available set of resources for the EasyPost API.
 
-This project aims to suppliment the resources available at https://easypost.com by providing additional examples, tooling, and resources outside the EasyPost open source client libraries and API docs, to help you get up and running on the EasyPost platform faster or solve problems that the EasyPost API doesn't natively cover.
+This project aims to supplement the resources available at <https://easypost.com> by providing additional examples, tooling, and references outside the EasyPost open source client libraries and API docs, to help you get up and running on the EasyPost platform faster or solve problems that the EasyPost API doesn't natively cover.
 
 ## Install
 
@@ -48,12 +48,11 @@ make help
 ### External Tools
 
 * [DAD (Dummy Address Data)](https://github.com/Justintime50/dad)
-    * [DAD Python](https://github.com/Justintime50/dad-python)
-    * [DAD Node](https://github.com/Justintime50/dad-node)
+  * [DAD Python](https://github.com/Justintime50/dad-python)
+  * [DAD Node](https://github.com/Justintime50/dad-node)
 * [Labelary](https://github.com/Justintime50/labelary)
 * [EasyPost CLI](https://github.com/Justintime50/easypost-cli)
 * [EasyPost Tools UI](https://github.com/Justintime50/easypost-tools-ui)
-* [Joshua's Toolkit](https://easypost-support-api-tool.herokuapp.com/)
 
 ## Attribution
 
