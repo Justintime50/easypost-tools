@@ -108,3 +108,5 @@ jobs:
         uses: luizm/action-sh-checker@master
         env:
           SHFMT_OPTS: -i 4 -d
+        with:
+          sh_checker_exclude: "src/examples/curl" # ignoring as these are straight curl commands and do not follow POSIX best practices
