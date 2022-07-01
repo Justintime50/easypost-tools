@@ -26,7 +26,7 @@ function processInput() {
     const [topLevelKey, nestedKey] = lineEntries[0].split('[');
     jsonObject[topLevelKey][nestedKey] = lineEntries[1];
   }
-  document.getElementById('output').innerHTML = JSON.stringify(jsonObject);
+  document.getElementById('output').innerHTML = JSON.stringify(jsonObject, null, 2);
 }
 
 // eslint-disable-next-line no-unused-vars
