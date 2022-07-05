@@ -6,7 +6,7 @@ dotenv.config({ path: '/Users/jhammond/git/easypost/easypost-dev/.env' });
 const api = new Easypost(process.env.EASYPOST_TEST_API_KEY);
 
 // Assign JSON data from file to
-const data = JSON.parse(fs.readFileSync('/Users/jhammond/git/easypost/easypost-dev/src/devvm/node/order.json'));
+const data = JSON.parse(fs.readFileSync('/Users/jhammond/git/easypost/easypost-tools/test.json'));
 
 // Delete order address data
 delete data.to_address.id;
@@ -57,6 +57,14 @@ for (let i = 0; i < data.shipments.length; i++) {
       delete data.shipments[i].customs_info.customs_items[ii].created_at;
       delete data.shipments[i].customs_info.customs_items[ii].updated_at;
       delete data.shipments[i].customs_info.customs_items[ii].currency;
+
+      // Convert shipment customs_items values from strings to numbers to get around prop type differences
+      // This is required for the EasyPost Node lib v5+, lib versions prior to this don't need this fix
+      if (data.shipments[i].customs_info.customs_items[ii].value) {
+        data.shipments[i].customs_info.customs_items[ii].value = Number(
+          data.shipments[i].customs_info.customs_items[ii].value
+        );
+      }
     }
   }
 }
