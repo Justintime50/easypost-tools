@@ -55,7 +55,7 @@ def build_carrier_curl_request(carrier):
         carrier_output += f'curl -X POST https://api.easypost.com/v2/carrier_accounts{LINE_BREAK_CHARS}'
 
     # Add authentication, carrier account type and description
-    carrier_output += f"-u $EASYPOST_API_KEY:{LINE_BREAK_CHARS}"
+    carrier_output += f'-u "$EASYPOST_API_KEY":{LINE_BREAK_CHARS}'
     carrier_output += f"-d 'carrier_account[type]={carrier.get('type')}'{LINE_BREAK_CHARS}"
     carrier_output += f"-d 'carrier_account[description]={carrier.get('type')}'{LINE_BREAK_CHARS}"
 

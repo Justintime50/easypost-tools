@@ -1,6 +1,6 @@
 # AmazonMwsAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=AmazonMwsAccount' \
 -d 'carrier_account[description]=AmazonMwsAccount' \
 -d 'carrier_account[credentials][access_key_id]=VALUE' \
@@ -10,7 +10,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # ApcAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=ApcAccount' \
 -d 'carrier_account[description]=ApcAccount' \
 -d 'carrier_account[credentials][facility]=VALUE' \
@@ -20,7 +20,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # AsendiaAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=AsendiaAccount' \
 -d 'carrier_account[description]=AsendiaAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -39,7 +39,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # AsendiaUsaAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=AsendiaUsaAccount' \
 -d 'carrier_account[description]=AsendiaUsaAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -58,7 +58,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # AustraliaPostAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=AustraliaPostAccount' \
 -d 'carrier_account[description]=AustraliaPostAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -69,7 +69,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # AxlehireV3Account
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=AxlehireV3Account' \
 -d 'carrier_account[description]=AxlehireV3Account' \
 -d 'carrier_account[credentials][api_key]=VALUE' \
@@ -78,7 +78,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # BetterTrucksAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=BetterTrucksAccount' \
 -d 'carrier_account[description]=BetterTrucksAccount' \
 -d 'carrier_account[credentials][api_key]=VALUE' \
@@ -87,7 +87,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # BondAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=BondAccount' \
 -d 'carrier_account[description]=BondAccount' \
 -d 'carrier_account[credentials][api_key]=VALUE' \
@@ -96,7 +96,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # CanadaPostAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=CanadaPostAccount' \
 -d 'carrier_account[description]=CanadaPostAccount' \
 -d 'carrier_account[credentials][api_key]=VALUE' \
@@ -114,7 +114,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # CanparAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=CanparAccount' \
 -d 'carrier_account[description]=CanparAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -127,7 +127,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # ColumbusLastMileAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=ColumbusLastMileAccount' \
 -d 'carrier_account[description]=ColumbusLastMileAccount' \
 -d 'carrier_account[credentials][password]=VALUE' \
@@ -140,7 +140,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # CourierExpressAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=CourierExpressAccount' \
 -d 'carrier_account[description]=CourierExpressAccount' \
 -d 'carrier_account[credentials][api_key]=VALUE' \
@@ -151,7 +151,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # CouriersPleaseAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=CouriersPleaseAccount' \
 -d 'carrier_account[description]=CouriersPleaseAccount' \
 -d 'carrier_account[credentials][password]=VALUE' \
@@ -162,7 +162,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # DaiPostAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=DaiPostAccount' \
 -d 'carrier_account[description]=DaiPostAccount' \
 -d 'carrier_account[credentials][account_code]=VALUE' \
@@ -173,7 +173,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # DeutschePostUKAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=DeutschePostUKAccount' \
 -d 'carrier_account[description]=DeutschePostUKAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -186,7 +186,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # DhlEcommerceAsiaAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=DhlEcommerceAsiaAccount' \
 -d 'carrier_account[description]=DhlEcommerceAsiaAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -201,7 +201,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # DhlEcsAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=DhlEcsAccount' \
 -d 'carrier_account[description]=DhlEcsAccount' \
 -d 'carrier_account[credentials][client_id]=VALUE' \
@@ -216,7 +216,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # DhlExpressAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=DhlExpressAccount' \
 -d 'carrier_account[description]=DhlExpressAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -228,7 +228,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # DhlParcelAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=DhlParcelAccount' \
 -d 'carrier_account[description]=DhlParcelAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -241,7 +241,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # DpdAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=DpdAccount' \
 -d 'carrier_account[description]=DpdAccount' \
 -d 'carrier_account[credentials][customer_number]=VALUE' \
@@ -254,7 +254,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # DpdUkAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=DpdUkAccount' \
 -d 'carrier_account[description]=DpdUkAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -264,7 +264,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # EstafetaAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=EstafetaAccount' \
 -d 'carrier_account[description]=EstafetaAccount' \
 -d 'carrier_account[credentials][client_id]=VALUE' \
@@ -287,7 +287,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # FastwayAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=FastwayAccount' \
 -d 'carrier_account[description]=FastwayAccount' \
 -d 'carrier_account[credentials][api_key]=VALUE'
@@ -295,7 +295,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # FedexAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts/register \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=FedexAccount' \
 -d 'carrier_account[description]=FedexAccount' \
 -d 'carrier_account[registration_data][shipping_city]=VALUE' \
@@ -319,7 +319,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts/register \
 
 # FedexCrossBorderAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=FedexCrossBorderAccount' \
 -d 'carrier_account[description]=FedexCrossBorderAccount' \
 -d 'carrier_account[credentials][api_key]=VALUE' \
@@ -330,7 +330,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # FedexMailviewAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=FedexMailviewAccount' \
 -d 'carrier_account[description]=FedexMailviewAccount' \
 -d 'carrier_account[credentials][customer_id]=VALUE' \
@@ -343,7 +343,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # FedexSamedayCityAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=FedexSamedayCityAccount' \
 -d 'carrier_account[description]=FedexSamedayCityAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -353,7 +353,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # FedexSmartpostAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts/register \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=FedexSmartpostAccount' \
 -d 'carrier_account[description]=FedexSmartpostAccount' \
 -d 'carrier_account[registration_data][shipping_city]=VALUE' \
@@ -378,7 +378,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts/register \
 
 # GhlConciseAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=GhlConciseAccount' \
 -d 'carrier_account[description]=GhlConciseAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -391,7 +391,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # GlobegisticsAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=GlobegisticsAccount' \
 -d 'carrier_account[description]=GlobegisticsAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -400,7 +400,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # GsoAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=GsoAccount' \
 -d 'carrier_account[description]=GsoAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -410,7 +410,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # HermesAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=HermesAccount' \
 -d 'carrier_account[description]=HermesAccount' \
 -d 'carrier_account[credentials][client_id]=VALUE' \
@@ -423,7 +423,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # InterlinkExpressAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=InterlinkExpressAccount' \
 -d 'carrier_account[description]=InterlinkExpressAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -434,7 +434,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # LasershipV2Account
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=LasershipV2Account' \
 -d 'carrier_account[description]=LasershipV2Account' \
 -d 'carrier_account[credentials][api_id]=VALUE' \
@@ -460,7 +460,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # LoomisExpressAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=LoomisExpressAccount' \
 -d 'carrier_account[description]=LoomisExpressAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -473,7 +473,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # LsoAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=LsoAccount' \
 -d 'carrier_account[description]=LsoAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -486,7 +486,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # NewgisticsAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=NewgisticsAccount' \
 -d 'carrier_account[description]=NewgisticsAccount' \
 -d 'carrier_account[credentials][client_facility_id]=VALUE' \
@@ -505,7 +505,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # OmniParcelAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=OmniParcelAccount' \
 -d 'carrier_account[description]=OmniParcelAccount' \
 -d 'carrier_account[credentials][api_access_key]=VALUE' \
@@ -516,7 +516,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # OntracAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=OntracAccount' \
 -d 'carrier_account[description]=OntracAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -527,7 +527,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # OsmWorldwideAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=OsmWorldwideAccount' \
 -d 'carrier_account[description]=OsmWorldwideAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -539,7 +539,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # ParcelForceAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=ParcelForceAccount' \
 -d 'carrier_account[description]=ParcelForceAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -554,7 +554,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # ParcllAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=ParcllAccount' \
 -d 'carrier_account[description]=ParcllAccount' \
 -d 'carrier_account[credentials][api_key]=VALUE' \
@@ -567,7 +567,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # PassportGlobalAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=PassportGlobalAccount' \
 -d 'carrier_account[description]=PassportGlobalAccount' \
 -d 'carrier_account[credentials][api_key]=VALUE' \
@@ -584,7 +584,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # PurolatorAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=PurolatorAccount' \
 -d 'carrier_account[description]=PurolatorAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -594,7 +594,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # RRDonnelleyAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=RRDonnelleyAccount' \
 -d 'carrier_account[description]=RRDonnelleyAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE'
@@ -602,7 +602,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # RoyalMailAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=RoyalMailAccount' \
 -d 'carrier_account[description]=RoyalMailAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -612,7 +612,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # SendleAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=SendleAccount' \
 -d 'carrier_account[description]=SendleAccount' \
 -d 'carrier_account[credentials][api_key]=VALUE' \
@@ -623,7 +623,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # SfExpressAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=SfExpressAccount' \
 -d 'carrier_account[description]=SfExpressAccount' \
 -d 'carrier_account[credentials][checkword]=VALUE' \
@@ -636,7 +636,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # SpeedeeAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=SpeedeeAccount' \
 -d 'carrier_account[description]=SpeedeeAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -646,7 +646,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # StarTrackAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=StarTrackAccount' \
 -d 'carrier_account[description]=StarTrackAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -657,7 +657,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # TforceConciseAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=TforceConciseAccount' \
 -d 'carrier_account[description]=TforceConciseAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -670,7 +670,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # UdsAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=UdsAccount' \
 -d 'carrier_account[description]=UdsAccount' \
 -d 'carrier_account[credentials][ftp_password]=VALUE' \
@@ -679,13 +679,13 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # UpsAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=UpsAccount' \
 -d 'carrier_account[description]=UpsAccount' \
 
 # UpsIparcelAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=UpsIparcelAccount' \
 -d 'carrier_account[description]=UpsIparcelAccount' \
 -d 'carrier_account[credentials][api_key]=VALUE'
@@ -693,7 +693,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # UpsMailInnovationsAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=UpsMailInnovationsAccount' \
 -d 'carrier_account[description]=UpsMailInnovationsAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -705,7 +705,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # UpsSurepostAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=UpsSurepostAccount' \
 -d 'carrier_account[description]=UpsSurepostAccount' \
 -d 'carrier_account[credentials][account_number]=VALUE' \
@@ -715,7 +715,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # UspsAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=UspsAccount' \
 -d 'carrier_account[description]=UspsAccount' \
 -d 'carrier_account[credentials][address_city]=VALUE' \
@@ -730,7 +730,7 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # VehoAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u $EASYPOST_API_KEY: \
+-u "$EASYPOST_API_KEY": \
 -d 'carrier_account[type]=VehoAccount' \
 -d 'carrier_account[description]=VehoAccount' \
 -d 'carrier_account[credentials][api_key]=VALUE' \
