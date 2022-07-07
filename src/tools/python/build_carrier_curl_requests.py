@@ -10,7 +10,7 @@ import easypost
 URL = os.getenv('URL', 'https://api.easypost.com/v2')
 API_KEY = os.getenv('API_KEY')
 LINE_BREAK_CHARS = ' \\\n'
-END_CHARS = '| json_pp\n'
+END_CHARS = ' |\njson_pp\n'
 CUSTOM_WORKFLOW_CHARS = '## REQUIRES CUSTOM WORKFLOW ##\n'
 
 FEDEX_CUSTOM_WORKFLOW_CARRIERS = [
@@ -67,7 +67,7 @@ def build_carrier_curl_request(carrier):
             for item in carrier_fields['creation_fields'][category]:
                 carrier_output += f"-d 'carrier_account[registration_data][{item}]=VALUE'{LINE_BREAK_CHARS}"
         carrier_output += END_CHARS
-        carrier_output = carrier_output.replace(f'{LINE_BREAK_CHARS}{END_CHARS}', f'\n{END_CHARS}')
+        carrier_output = carrier_output.replace(f'{LINE_BREAK_CHARS}{END_CHARS}', f'{END_CHARS}')
     # UPS/CanadaPost
     elif carrier.get('type') in (UPS_CUSTOM_WORKFLOW_CARRIERS or CANADAPOST_CUSTOM_WORKFLOW_CARRIERS):
         # TODO: Fix UPS carrier account
@@ -88,7 +88,7 @@ def build_carrier_curl_request(carrier):
                     carrier_output += f"-d 'carrier_account[{top_level}][{item}]=VALUE'{LINE_BREAK_CHARS}"
 
         carrier_output += end
-        carrier_output = carrier_output.replace(f'{LINE_BREAK_CHARS}{END_CHARS}', f'\n{END_CHARS}')
+        carrier_output = carrier_output.replace(f'{LINE_BREAK_CHARS}{END_CHARS}', f'{END_CHARS}')
     return carrier_output
 
 
