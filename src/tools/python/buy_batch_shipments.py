@@ -5,6 +5,7 @@ from threading import Thread
 import easypost
 from dotenv import load_dotenv
 
+
 # Concurrently iterate over each shipment in a batch and buy the lowest rate
 # Usage: venv/bin/python buy_batch_shipments.py
 

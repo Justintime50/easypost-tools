@@ -1,7 +1,7 @@
 {
   "name": "easypost-tools",
   "version": "0.1.0",
-  "description": "A MASSIVE collection of 300+ tools and examples for the EasyPost API spanning across C#, Golang, Node, PHP, Python, Ruby, and Shell.",
+  "description": "A large collection of supplemental tools for the EasyPost API spanning various programming languages.",
   "main": "index.js",
   "dependencies": {
     "@easypost/api": "^5.0.0",

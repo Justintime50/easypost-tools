@@ -36,6 +36,7 @@ from datetime import datetime
 from http.client import HTTPSConnection
 from urllib.parse import urlencode
 
+
 # environmental var that stores our production API key;
 # set to "" if not used
 ENV_VAR_API_KEY = ""

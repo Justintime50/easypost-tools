@@ -1,6 +1,7 @@
 import json
 import os
 
+
 # Sort JSON by keys:
 # This script will take JSON that is out of order and sort it by its keys
 # which even works for nested keys making your JSON beautiful.

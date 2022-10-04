@@ -5,6 +5,7 @@ import sys
 import requests
 from bs4 import BeautifulSoup
 
+
 # Scrape the EasyPost docs @ https://www.easypost.com/docs/api for predefined packages or service levels
 # USAGE: SECTION=predefined-packages venv/bin/python scrape_ep_docs.py
 # Section options: 'predefined-packages' OR 'service-levels'

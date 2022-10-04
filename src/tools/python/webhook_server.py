@@ -5,7 +5,11 @@ import os
 from datetime import datetime
 from threading import Thread
 
-from flask import Flask, request
+from flask import (
+    Flask,
+    request,
+)
+
 
 API = Flask(__name__)
 ADDRESS = None

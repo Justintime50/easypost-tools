@@ -1,6 +1,7 @@
 import json
 import os
 
+
 UGLY_JSON = os.getenv('UGLY_JSON')
 
 

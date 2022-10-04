@@ -2,7 +2,7 @@
 
 # EasyPost Tools
 
-A MASSIVE collection of 400+ tools and examples for the EasyPost API spanning across C#, Golang, Node, PHP, Python, Ruby, and Shell.
+A large collection of supplemental tools for the EasyPost API spanning various programming languages.
 
 [![Build Status](https://github.com/Justintime50/easypost-tools/workflows/build/badge.svg)](https://github.com/Justintime50/easypost-tools/actions)
 [![Licence](https://img.shields.io/github/license/Justintime50/easypost-tools)](LICENSE)
@@ -10,8 +10,6 @@ A MASSIVE collection of 400+ tools and examples for the EasyPost API spanning ac
 <img src="https://raw.githubusercontent.com/Justintime50/assets/main/src/easypost-tools/showcase.png" alt="Showcase">
 
 </div>
-
-EasyPost Tools boasts an incredible **400+ scripts, examples, and tools** across **8+ programming languages** making it (most likely) the largest publicly available set of resources for the EasyPost API.
 
 This project aims to supplement the resources available at <https://easypost.com> by providing additional examples, tooling, and references outside the EasyPost open source client libraries and API docs, to help you get up and running on the EasyPost platform faster or solve problems that the EasyPost API doesn't natively cover.
 
@@ -43,6 +41,7 @@ make help
 
 ## Other Resources
 
+* [EasyPost Examples](https://github.com/easypost/examples) - a collection of over 700+ code examples for the EasyPost API
 * [International Shipping Guide](https://easypost.zendesk.com/hc/en-us/articles/360042847751-Customs-Shipping-Internationally#h_de80a46f-53c2-447d-9617-6544aa915304)
 
 ### External Tools

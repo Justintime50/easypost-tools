@@ -3,6 +3,7 @@ import os
 from PIL import Image
 from pyzbar.pyzbar import decode
 
+
 # Read the (2D) barcodes of a PNG label
 # Doesn't seem to be perfect but works decently well. TODO: Will need some additional documentation.
 # Prereq: `brew install zbar`

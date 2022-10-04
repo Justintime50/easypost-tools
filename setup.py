@@ -1,5 +1,6 @@
 import setuptools
 
+
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
@@ -23,10 +24,7 @@ DEV_REQUIREMENTS = [
 setuptools.setup(
     name='easypost-tools',
     version='0.1.0',
-    description=(
-        'A MASSIVE collection of tools and examples for EasyPost spanning over C#, Golang, Node, PHP, Python, Ruby,'
-        ' HTML, and Shell.'
-    ),
+    description='A large collection of supplemental tools for the EasyPost API spanning various programming languages.',
     long_description=long_description,
     long_description_content_type="text/markdown",
     url='http://github.com/justintime50/easypost-tools',

@@ -6,6 +6,7 @@ from threading import Thread
 import easypost
 from dotenv import load_dotenv
 
+
 # Iterate through shipments on a batch and return which scanforms they have associated if any.
 #
 # Usage: EASYPOST_TEST_API_KEY=123... BATCH=batch_123... venv/bin/python batch_scanform_inspector.py

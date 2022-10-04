@@ -41,6 +41,7 @@ from time import sleep
 from urllib.parse import urlparse
 from urllib.request import urlopen
 
+
 # Attribution: [roehnan](https://github.com/roehnan)
 # user-settable params
 API_KEY = ""  # "EZTK949...."

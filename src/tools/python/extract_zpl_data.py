@@ -1,6 +1,10 @@
 import os
 
-from PIL import Image, ImageOps
+from PIL import (
+    Image,
+    ImageOps,
+)
+
 
 # Extract the data of a binary ZPL label into a PNG equivalent
 # This is useful as converted ZPL labels contain binary data which Labelary cannot parse

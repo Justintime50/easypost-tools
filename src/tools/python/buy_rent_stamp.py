@@ -5,6 +5,7 @@ import easypost
 import slack
 from dotenv import load_dotenv
 
+
 # Buy Rent Stamp
 # Automate paying your rent with EasyPost by purchasing a stamp and sending the label to Slack.
 
