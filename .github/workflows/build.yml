@@ -3,19 +3,6 @@ name: build
 on: [push, pull_request]
 
 jobs:
-  csharp:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Setup Dotnet
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: "6.0.x"
-      - name: Build project
-        run: make install-csharp
-      - name: Lint project
-        run: make lint-csharp
   golang:
     runs-on: ubuntu-latest
     steps:
@@ -34,17 +21,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Lint project
         run: make lint-html
-  java:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Install project
-        run: make install-java
-      - name: Run Java Checkstyle
-        uses: nikitasavinov/checkstyle-action@master
-        with:
-          checkstyle_config: google_checks.xml
   node:
     runs-on: ubuntu-latest
     steps:
@@ -86,19 +62,6 @@ jobs:
         run: make install-python
       - name: Lint project
         run: make lint-python
-  ruby:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: "3.0"
-      - name: Install project
-        run: make install-ruby
-      - name: Lint project
-        run: make lint-ruby
   sh-checker:
     runs-on: ubuntu-latest
     steps:

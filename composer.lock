@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "easypost/easypost-php",
-            "version": "5.6.0",
+            "version": "5.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EasyPost/easypost-php.git",
-                "reference": "bfa38914ab6923731e708ebf67729aab0e9427d9"
+                "reference": "a5ef6c8a4508227a8eda47ce3e125932ff2d04ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EasyPost/easypost-php/zipball/bfa38914ab6923731e708ebf67729aab0e9427d9",
-                "reference": "bfa38914ab6923731e708ebf67729aab0e9427d9",
+                "url": "https://api.github.com/repos/EasyPost/easypost-php/zipball/a5ef6c8a4508227a8eda47ce3e125932ff2d04ab",
+                "reference": "a5ef6c8a4508227a8eda47ce3e125932ff2d04ab",
                 "shasum": ""
             },
             "require": {
@@ -30,6 +30,7 @@
                 "php-vcr/php-vcr": "1.5.2",
                 "phpunit/phpunit": "^9",
                 "roave/security-advisories": "dev-latest",
+                "rregeer/phpunit-coverage-check": "^0.3.1",
                 "squizlabs/php_codesniffer": "^3.6"
             },
             "type": "library",
@@ -58,9 +59,9 @@
             ],
             "support": {
                 "issues": "https://github.com/EasyPost/easypost-php/issues",
-                "source": "https://github.com/EasyPost/easypost-php/tree/v5.6.0"
+                "source": "https://github.com/EasyPost/easypost-php/tree/v5.7.0"
             },
-            "time": "2022-08-25T17:31:35+00:00"
+            "time": "2022-09-21T22:01:12+00:00"
         },
         {
             "name": "graham-campbell/result-type",
