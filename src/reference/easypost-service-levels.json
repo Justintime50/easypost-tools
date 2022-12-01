@@ -89,7 +89,6 @@
         "ePAQPlusePacketCanadaDDP",
         "ePAQReturnsDomestic",
         "ePAQReturnsInternational",
-        "ePAQReturnsInternational",
         "ePAQSelect",
         "ePAQSelectCustom",
         "ePAQSelectCustomsPrepaidByShopper",
@@ -127,7 +126,9 @@
     "AxlehireV3": [
         "AxleHireDelivery"
     ],
-    "Better Trucks": [],
+    "Better Trucks": [
+        "NEXT_DAY"
+    ],
     "Bond": [
         "Standard"
     ],
@@ -209,7 +210,6 @@
         "ExpressInternationalPriority",
         "InternationalSaver",
         "InternationalExpressImport",
-        "ExpressInternationalPriority",
         "InternationalExpress"
     ],
     "DHL Express": [
@@ -245,6 +245,12 @@
         "SameDay",
         "SecureLine",
         "SprintLine"
+    ],
+    "DHL Paket": [
+        "Paket",
+        "PaketConnect",
+        "ReturnOnline",
+        "ReturnIntl"
     ],
     "DHL eCommerce Asia": [
         "Packet",
@@ -289,11 +295,9 @@
         "ParcelDpdNextDay",
         "ParcelDpd12",
         "ParcelDpd10",
-        "ParcelDpd10",
         "ParcelReturnToShop",
         "ParcelSaturday",
         "ParcelSaturday12",
-        "ParcelSaturday10",
         "ParcelSaturday10",
         "ParcelSunday12",
         "FreightParcelDpdClassic",
@@ -301,10 +305,8 @@
         "ExpresspakDpdNextDay",
         "ExpresspakDpd12",
         "ExpresspakDpd10",
-        "ExpresspakDpd10",
         "ExpresspakSaturday",
         "ExpresspakSaturday12",
-        "ExpresspakSaturday10",
         "ExpresspakSaturday10",
         "ExpresspakSunday12",
         "PalletSunday12",
@@ -329,6 +331,13 @@
         "InternationalStandard",
         "InternationalExpress"
     ],
+    "DeliverIt": [
+        "Afternoon",
+        "Early-It",
+        "Economy",
+        "Noon-It",
+        "Saturday"
+    ],
     "Deutsche Post": [
         "PacketPlus"
     ],
@@ -348,6 +357,12 @@
         "TwoDay",
         "LTL"
     ],
+    "Evri": [
+        "DomesticDelivery",
+        "DomesticDeliverySigned",
+        "InternationalDelivery",
+        "InternationalDeliverySigned"
+    ],
     "Fastway": [
         "Parcel",
         "Satchel"
@@ -363,6 +378,7 @@
         "INTERNATIONAL_ECONOMY",
         "INTERNATIONAL_FIRST",
         "INTERNATIONAL_PRIORITY",
+        "FEDEX_INTERNATIONAL_CONNECT_PLUS",
         "GROUND_HOME_DELIVERY",
         "SMART_POST"
     ],
@@ -381,7 +397,13 @@
     "FedEx SmartPost": [
         "SMART_POST"
     ],
-    "FirstMile": [],
+    "FirstMile": [
+        "XParcelGround",
+        "XParcelExpedited",
+        "XParcelExpeditedPlus",
+        "XParcelPriority",
+        "XParcelReturns"
+    ],
     "GSO": [
         "EarlyPriorityOvernight",
         "PriorityOvernight",
@@ -408,12 +430,6 @@
         "eComStandard",
         "eComTrackedDDP",
         "eComTrackedDDU"
-    ],
-    "Hermes": [
-        "DomesticDelivery",
-        "DomesticDeliverySigned",
-        "InternationalDelivery",
-        "InternationalDeliverySigned"
     ],
     "Interlink Express": [
         "InterlinkAirClassicInternationalAir",
@@ -500,6 +516,9 @@
         "SameDay",
         "PalletizedFreight"
     ],
+    "Optima": [
+        "NxtDay"
+    ],
     "Osm Worldwide": [
         "First",
         "Expedited",
@@ -511,8 +530,60 @@
         "MarketingParcel",
         "MarketingParcelTracked"
     ],
-    "PCF Final Mile": [],
-    "Parcelforce": [],
+    "PARCLL": [
+        "ECOWE (Economy West)",
+        "ECOCE (Economy Central)",
+        "ECONE (Economy Northeast)",
+        "ECOEA (Economy East)",
+        "ECOSO (Economy South)",
+        "EXPWE (Expedited West)",
+        "EXPBNE (Expedited Northeast)",
+        "REGWE (Regional West)",
+        "REGCE (Regional Central)",
+        "REGNE (Regional Northeast)",
+        "REGEA (Regional East)",
+        "REGSO (Regional South)",
+        "CAECOWE (US to CA Economy)",
+        "CAECOCE (US to CA Economy)",
+        "CAECONE (US to CA Economy)",
+        "EUECOWE (US to Europe Economy)"
+    ],
+    "Parcelforce": [
+        "Express9",
+        "Express9Secure",
+        "Express9CourierPack",
+        "Express10",
+        "Express10Secure",
+        "Express10Exchange",
+        "Express10SecureExchange",
+        "Express10CourierPack",
+        "ExpressAM",
+        "ExpressAMSecure",
+        "ExpressAMExchange",
+        "ExpressAMSecureExchange",
+        "ExpressAMCourierPack",
+        "ExpressPM",
+        "ExpressPMSecure",
+        "Express24",
+        "Express24Large",
+        "Express24Secure",
+        "Express24Exchange",
+        "Express24SecureExchange",
+        "Express24CourierPack",
+        "Express48",
+        "Express48Large",
+        "ParcelRiderPlus",
+        "GlobalBulkDirect",
+        "GlobalExpress",
+        "GlobalExpressEnvelopeDelivery",
+        "GlobalExpressPackDelivery",
+        "GlobalValue",
+        "GlobalPriority",
+        "GlobalPriorityReturns",
+        "EuroPriorityHome",
+        "EuroPriorityBusiness",
+        "IrelandExpress"
+    ],
     "Passport": [],
     "PostNL": [],
     "Purolator": [
@@ -605,8 +676,8 @@
         "Tracked48Signature"
     ],
     "SEKO OmniParcel": [
-        "eCommerce Standard Tracked",
-        "eCommerce Express Tracked",
+        "Ecommerce Standard Tracked",
+        "Ecommerce Express Tracked",
         "Domestic Express",
         "Domestic Standard"
     ],
@@ -616,6 +687,17 @@
         "International Economy Express - Pilot",
         "International Economy Express - Doc"
     ],
+    "Sendle": [
+        "Standard",
+        "Express"
+    ],
+    "SmartKargo": [
+        "EPR"
+    ],
+    "Sonic": [
+        "NEXTDAY",
+        "SAMEDAY"
+    ],
     "Spee-Dee": [
         "SpeeDeeDelivery"
     ],
@@ -624,11 +706,17 @@
         "StartrackPremium",
         "StartrackFixedPricePremium"
     ],
-    "TForce": [
-        "SameDay",
-        "SameDayWhiteGlove",
+    "Swyft": [
+        "NEXTDAY",
+        "SAMEDAY"
+    ],
+    "TForce Logistics": [
         "NextDay",
-        "NextDayWhiteGlove"
+        "Return"
+    ],
+    "Toll": [
+        "Toll Parcel",
+        "Toll Plus"
     ],
     "UDS": [
         "DeliveryService"
@@ -670,6 +758,9 @@
     "Veho": [
         "nextDay",
         "sameDay"
+    ],
+    "XDelivery": [
+        "Standard"
     ],
     "Yanwen": [],
     "ePost Global": [

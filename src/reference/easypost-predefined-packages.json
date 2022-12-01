@@ -30,6 +30,7 @@
         "Parcel",
         "YourPackaging"
     ],
+    "DHL Paket": [],
     "DHL eCommerce Asia": [],
     "DHL eCommerce Solutions": [],
     "DPD": [],
@@ -41,12 +42,14 @@
         "Freight"
     ],
     "Dai Post": [],
+    "DeliverIt": [],
     "Deutsche Post": [],
     "Deutsche Post UK": [],
     "Estafeta": [
         "ENVELOPE",
         "PARCEL"
     ],
+    "Evri": [],
     "Fastway": [
         "Parcel",
         "A2 (Satchel)",
@@ -76,7 +79,6 @@
     "FirstMile": [],
     "GSO": [],
     "Globegistics": [],
-    "Hermes": [],
     "Interlink Express": [
         "Parcel",
         "Pallet",
@@ -97,8 +99,9 @@
     "OnTrac": [
         "Letter"
     ],
+    "Optima": [],
     "Osm Worldwide": [],
-    "PCF Final Mile": [],
+    "PARCLL": [],
     "Parcelforce": [],
     "Passport": [],
     "PostNL": [],
@@ -128,6 +131,9 @@
         "Tub"
     ],
     "SF Express": [],
+    "Sendle": [],
+    "SmartKargo": [],
+    "Sonic": [],
     "Spee-Dee": [],
     "StarTrack": [
         "Carton",
@@ -139,10 +145,9 @@
         "Jiffybag",
         "Skid"
     ],
-    "TForce": [
-        "Parcel",
-        "Letter"
-    ],
+    "Swyft": [],
+    "TForce Logistics": [],
+    "Toll": [],
     "UDS": [],
     "UPS": [
         "UPSLetter",
@@ -170,7 +175,6 @@
         "SmallFlatRateEnvelope",
         "Parcel",
         "LargeParcel",
-        "IrregularParcel",
         "SoftPack",
         "SmallFlatRateBox",
         "MediumFlatRateBox",
@@ -186,6 +190,7 @@
         "PMODSack"
     ],
     "Veho": [],
+    "XDelivery": [],
     "Yanwen": [],
     "ePost Global": []
 }
