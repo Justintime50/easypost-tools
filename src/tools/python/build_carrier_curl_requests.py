@@ -78,8 +78,8 @@ def add_curl_line(carrier_output: str, carrier: dict[str, str]) -> str:
 
 def add_headers(carrier_output: str, carrier: dict[str, str]) -> str:
     """Add necessry headers and authentication."""
-    carrier_output += f'-u "$EASYPOST_API_KEY":{LINE_BREAK_CHARS}'
-    carrier_output += f'-H \'Content-Type: application/json\'{LINE_BREAK_CHARS}'
+    carrier_output += f'  -u "$EASYPOST_API_KEY":{LINE_BREAK_CHARS}'
+    carrier_output += f'  -H \'Content-Type: application/json\'{LINE_BREAK_CHARS}'
 
     return carrier_output
 
@@ -99,7 +99,7 @@ def add_credential_structure(carrier_output: str, carrier: dict[str, str]) -> st
             for item in carrier_fields['creation_fields'][category]:
                 carrier_account_json['registration_data'][item] = 'VALUE'
 
-        carrier_output += f'-d \'{json.dumps(carrier_account_json, indent=2)}\''
+        carrier_output += f'  -d \'{json.dumps(carrier_account_json, indent=2)}\''
         carrier_output += END_CHARS
         carrier_output = carrier_output.replace(f'{LINE_BREAK_CHARS}{END_CHARS}', f'{END_CHARS}')
     # UPS/CanadaPost
@@ -125,7 +125,7 @@ def add_credential_structure(carrier_output: str, carrier: dict[str, str]) -> st
                         carrier_account_json['carrier_account'][top_level] = {}
                     carrier_account_json['carrier_account'][top_level][item] = 'VALUE'
 
-        carrier_output += f'-d \'{json.dumps(carrier_account_json, indent=2)}\''
+        carrier_output += f'  -d \'{json.dumps(carrier_account_json, indent=2)}\''
         carrier_output += end
         carrier_output = carrier_output.replace(f'{LINE_BREAK_CHARS}{END_CHARS}', f'{END_CHARS}')
 
