@@ -10,6 +10,7 @@
 *.zpl
 bin
 target
+src/reference/carrier_accounts/create_curl
 
 # C#
 .vs
