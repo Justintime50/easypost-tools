@@ -1,8 +1,8 @@
 # AmazonMwsAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "AmazonMwsAccount",
   "description": "AmazonMwsAccount",
   "carrier_account": {
@@ -16,9 +16,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # ApcAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "ApcAccount",
   "description": "ApcAccount",
   "carrier_account": {
@@ -32,9 +32,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # AsendiaAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "AsendiaAccount",
   "description": "AsendiaAccount",
   "carrier_account": {
@@ -57,9 +57,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # AsendiaUsaAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "AsendiaUsaAccount",
   "description": "AsendiaUsaAccount",
   "carrier_account": {
@@ -84,9 +84,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # AustraliaPostAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "AustraliaPostAccount",
   "description": "AustraliaPostAccount",
   "carrier_account": {
@@ -101,9 +101,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # AxlehireV3Account
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "AxlehireV3Account",
   "description": "AxlehireV3Account",
   "carrier_account": {
@@ -118,9 +118,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # BetterTrucksAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "BetterTrucksAccount",
   "description": "BetterTrucksAccount",
   "carrier_account": {
@@ -135,9 +135,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # BondAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "BondAccount",
   "description": "BondAccount",
   "carrier_account": {
@@ -152,9 +152,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # CanadaPostAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "CanadaPostAccount",
   "description": "CanadaPostAccount",
   "carrier_account": {
@@ -178,9 +178,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # CanparAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "CanparAccount",
   "description": "CanparAccount",
   "carrier_account": {
@@ -199,9 +199,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # ColumbusLastMileAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "ColumbusLastMileAccount",
   "description": "ColumbusLastMileAccount",
   "carrier_account": {
@@ -220,9 +220,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # CourierExpressAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "CourierExpressAccount",
   "description": "CourierExpressAccount",
   "carrier_account": {
@@ -239,9 +239,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # CouriersPleaseAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "CouriersPleaseAccount",
   "description": "CouriersPleaseAccount",
   "carrier_account": {
@@ -258,9 +258,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # DaiPostAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "DaiPostAccount",
   "description": "DaiPostAccount",
   "carrier_account": {
@@ -275,9 +275,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # DeliverItAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "DeliverItAccount",
   "description": "DeliverItAccount",
   "carrier_account": {
@@ -296,9 +296,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # DeutschePostUKAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "DeutschePostUKAccount",
   "description": "DeutschePostUKAccount",
   "carrier_account": {
@@ -317,9 +317,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # DhlEcommerceAsiaAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "DhlEcommerceAsiaAccount",
   "description": "DhlEcommerceAsiaAccount",
   "carrier_account": {
@@ -340,9 +340,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # DhlEcsAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "DhlEcsAccount",
   "description": "DhlEcsAccount",
   "carrier_account": {
@@ -363,9 +363,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # DhlExpressAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "DhlExpressAccount",
   "description": "DhlExpressAccount",
   "carrier_account": {
@@ -381,9 +381,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # DhlPaketAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "DhlPaketAccount",
   "description": "DhlPaketAccount",
   "carrier_account": {
@@ -412,9 +412,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # DhlParcelAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "DhlParcelAccount",
   "description": "DhlParcelAccount",
   "carrier_account": {
@@ -433,9 +433,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # DpdAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "DpdAccount",
   "description": "DpdAccount",
   "carrier_account": {
@@ -454,9 +454,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # DpdUkAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "DpdUkAccount",
   "description": "DpdUkAccount",
   "carrier_account": {
@@ -470,9 +470,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # EstafetaAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "EstafetaAccount",
   "description": "EstafetaAccount",
   "carrier_account": {
@@ -501,9 +501,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # FastwayAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "FastwayAccount",
   "description": "FastwayAccount",
   "carrier_account": {
@@ -515,9 +515,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # FedexAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts/register \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "FedexAccount",
   "description": "FedexAccount",
   "registration_data": {
@@ -543,9 +543,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts/register \
 
 # FedexCrossBorderAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "FedexCrossBorderAccount",
   "description": "FedexCrossBorderAccount",
   "carrier_account": {
@@ -562,9 +562,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # FedexMailviewAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "FedexMailviewAccount",
   "description": "FedexMailviewAccount",
   "carrier_account": {
@@ -581,9 +581,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # FedexSamedayCityAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "FedexSamedayCityAccount",
   "description": "FedexSamedayCityAccount",
   "carrier_account": {
@@ -597,9 +597,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # FedexSmartpostAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts/register \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "FedexSmartpostAccount",
   "description": "FedexSmartpostAccount",
   "registration_data": {
@@ -626,9 +626,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts/register \
 
 # FirstMileConciseAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "FirstMileConciseAccount",
   "description": "FirstMileConciseAccount",
   "carrier_account": {
@@ -647,9 +647,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # GlobegisticsAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "GlobegisticsAccount",
   "description": "GlobegisticsAccount",
   "carrier_account": {
@@ -662,9 +662,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # GsoAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "GsoAccount",
   "description": "GsoAccount",
   "carrier_account": {
@@ -678,9 +678,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # HermesAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "HermesAccount",
   "description": "HermesAccount",
   "carrier_account": {
@@ -697,9 +697,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # InterlinkExpressAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "InterlinkExpressAccount",
   "description": "InterlinkExpressAccount",
   "carrier_account": {
@@ -714,9 +714,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # LasershipV2Account
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "LasershipV2Account",
   "description": "LasershipV2Account",
   "carrier_account": {
@@ -746,9 +746,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # LoomisExpressAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "LoomisExpressAccount",
   "description": "LoomisExpressAccount",
   "carrier_account": {
@@ -767,9 +767,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # LsoAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "LsoAccount",
   "description": "LsoAccount",
   "carrier_account": {
@@ -788,9 +788,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # NewgisticsAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "NewgisticsAccount",
   "description": "NewgisticsAccount",
   "carrier_account": {
@@ -815,9 +815,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # OmniParcelAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "OmniParcelAccount",
   "description": "OmniParcelAccount",
   "carrier_account": {
@@ -834,9 +834,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # OntracAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "OntracAccount",
   "description": "OntracAccount",
   "carrier_account": {
@@ -853,9 +853,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # OptimaAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "OptimaAccount",
   "description": "OptimaAccount",
   "carrier_account": {
@@ -874,9 +874,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # OsmWorldwideAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "OsmWorldwideAccount",
   "description": "OsmWorldwideAccount",
   "carrier_account": {
@@ -892,9 +892,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # ParcelForceAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "ParcelForceAccount",
   "description": "ParcelForceAccount",
   "carrier_account": {
@@ -915,9 +915,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # ParcllAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "ParcllAccount",
   "description": "ParcllAccount",
   "carrier_account": {
@@ -936,9 +936,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # PassportGlobalAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "PassportGlobalAccount",
   "description": "PassportGlobalAccount",
   "carrier_account": {
@@ -961,9 +961,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # PurolatorAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "PurolatorAccount",
   "description": "PurolatorAccount",
   "carrier_account": {
@@ -977,9 +977,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # RRDonnelleyAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "RRDonnelleyAccount",
   "description": "RRDonnelleyAccount",
   "carrier_account": {
@@ -991,9 +991,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # RoyalMailAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "RoyalMailAccount",
   "description": "RoyalMailAccount",
   "carrier_account": {
@@ -1007,9 +1007,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # SendleAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "SendleAccount",
   "description": "SendleAccount",
   "carrier_account": {
@@ -1026,9 +1026,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # SfExpressAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "SfExpressAccount",
   "description": "SfExpressAccount",
   "carrier_account": {
@@ -1047,9 +1047,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # SmartKargoAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "SmartKargoAccount",
   "description": "SmartKargoAccount",
   "carrier_account": {
@@ -1064,9 +1064,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # SonicAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "SonicAccount",
   "description": "SonicAccount",
   "carrier_account": {
@@ -1085,9 +1085,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # SpeedeeAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "SpeedeeAccount",
   "description": "SpeedeeAccount",
   "carrier_account": {
@@ -1101,9 +1101,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # StarTrackAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "StarTrackAccount",
   "description": "StarTrackAccount",
   "carrier_account": {
@@ -1118,9 +1118,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # SwyftAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "SwyftAccount",
   "description": "SwyftAccount",
   "carrier_account": {
@@ -1135,9 +1135,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # TforceConciseAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "TforceConciseAccount",
   "description": "TforceConciseAccount",
   "carrier_account": {
@@ -1156,9 +1156,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # UdsAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "UdsAccount",
   "description": "UdsAccount",
   "carrier_account": {
@@ -1171,14 +1171,14 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # UpsAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json'
 
 # UpsIparcelAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "UpsIparcelAccount",
   "description": "UpsIparcelAccount",
   "carrier_account": {
@@ -1190,9 +1190,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # UpsMailInnovationsAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "UpsMailInnovationsAccount",
   "description": "UpsMailInnovationsAccount",
   "carrier_account": {
@@ -1208,9 +1208,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # UpsSurepostAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "UpsSurepostAccount",
   "description": "UpsSurepostAccount",
   "carrier_account": {
@@ -1224,9 +1224,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # UspsAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "UspsAccount",
   "description": "UspsAccount",
   "carrier_account": {
@@ -1245,9 +1245,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # VehoAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "VehoAccount",
   "description": "VehoAccount",
   "carrier_account": {
@@ -1262,9 +1262,9 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
 
 # XDeliveryAccount
 curl -X POST https://api.easypost.com/v2/carrier_accounts \
--u "$EASYPOST_API_KEY": \
--H 'Content-Type: application/json' \
--d '{
+    -u "$EASYPOST_API_KEY": \
+    -H 'Content-Type: application/json' \
+    -d '{
   "type": "XDeliveryAccount",
   "description": "XDeliveryAccount",
   "carrier_account": {
@@ -1278,4 +1278,3 @@ curl -X POST https://api.easypost.com/v2/carrier_accounts \
     }
   }
 }'
-
