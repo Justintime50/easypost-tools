@@ -31,7 +31,7 @@ clean: clean-python clean-golang clean-node clean-php
 
 # Cleans the Python environment
 clean-python:
-    rm -rf {{VIRTUAL_ENV}} dist *.egg-info .coverage
+    rm -rf {{VIRTUAL_ENV}} dist *.egg-info .coverage htmlcov .*cache
     find . -name '*.pyc' -delete
 
 # Cleans the Go environment
