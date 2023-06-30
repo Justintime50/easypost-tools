@@ -6,18 +6,18 @@ with open("README.md", "r") as fh:
 
 REQUIREMENTS = [
     'beautifulsoup4 == 4.*',
-    'easypost == 7.*',
+    'easypost == 8.*',
     'flask == 2.*',
     'Pillow == 9.*',
     'PyPDF2 == 1.27.*',
-    'python-dotenv == 0.20.*',
+    'python-dotenv == 1.*',
     'pyzbar == 0.1.*',
     'slackclient == 2.*',
 ]
 
 DEV_REQUIREMENTS = [
-    'black == 22.*',
-    'flake8 == 4.*',
+    'black == 23.*',
+    'flake8 == 6.*',
     'isort == 5.*',
 ]
 
@@ -45,5 +45,5 @@ setuptools.setup(
     extras_require={
         'dev': DEV_REQUIREMENTS,
     },
-    python_requires='>=3.7, <4',
+    python_requires='>=3.8, <4',
 )
