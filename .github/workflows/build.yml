@@ -6,70 +6,51 @@ jobs:
   golang:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Lint project
-        uses: golangci/golangci-lint-action@v2
+      - uses: actions/checkout@v3
+      - uses: extractions/setup-just@v1
+      - uses: golangci/golangci-lint-action@v2
         with:
           working-directory: src/tools/golang
-      - name: Build project
-        run: make install-golang
+      - run: just install-golang
   html:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Lint project
-        run: make lint-html
+      - uses: actions/checkout@v3
+      - uses: extractions/setup-just@v1
+      - run: just lint-html
   node:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Setup Node
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: extractions/setup-just@v1
+      - uses: actions/setup-node@v3
         with:
-          node-version: "16"
-      - name: Install project
-        run: make install-node
-      - name: Lint project
-        run: make lint-node
+          node-version: '20'
+      - run: just install-node lint-node
   php:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Set up PHP
-        uses: shivammathur/setup-php@v2
+      - uses: actions/checkout@v3
+      - uses: extractions/setup-just@v1
+      - uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.0
-      - name: Install Composer
-        run: composer self-update
-      - name: Install project
-        run: make install-php
-      - name: Lint project
-        run: make lint-php
+          php-version: '8.2'
+      - run: just install-php lint-php
   python:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      - uses: actions/checkout@v3
+      - uses: extractions/setup-just@v1
+      - uses: actions/setup-python@v3
         with:
-          python-version: "3.10"
-      - name: Install project
-        run: make install-python
-      - name: Lint project
-        run: make lint-python
+          python-version: '3.11'
+      - run: just install-python lint-python
   sh-checker:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Run sh-checker
-        uses: luizm/action-sh-checker@master
+      - uses: actions/checkout@v3
+      - uses: luizm/action-sh-checker@master
         env:
           SHFMT_OPTS: -i 4 -d
         with:
-          sh_checker_exclude: "src/examples/curl" # ignoring as these are straight curl commands and do not follow POSIX best practices
+          sh_checker_exclude: 'src/examples/curl' # ignoring as these are straight curl commands and do not follow POSIX best practices

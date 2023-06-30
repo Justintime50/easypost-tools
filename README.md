@@ -17,10 +17,10 @@ This project aims to supplement the resources available at <https://easypost.com
 
 ```bash
 # Install EasyPost Tools and all their dependencies for each language (assumes package managers are already setup)
-make install
+just install
 
 # Alternatively you could install the tools for a single language
-make install-python
+just install-python
 
 # Setup an environment file with API keys and carrier accounts.
 cp .env-example .env
@@ -36,7 +36,7 @@ Each language has its own quirks and usage. See the [Language README](src/README
 
 ```bash
 # Get a comprehensive list of development tools
-make help
+just --list
 ```
 
 ## Other Resources
