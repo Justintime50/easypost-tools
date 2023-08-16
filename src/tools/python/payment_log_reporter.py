@@ -85,7 +85,7 @@ def getURL(url, json_dict_data=None):
             }
         )
         # if data passed in as dict, convert to str
-        if type(json_dict_data) == dict:
+        if isinstance(json_dict_data, dict):
             json_dict_data = json.dumps(json_dict_data)
 
     try:
@@ -113,7 +113,7 @@ def _post_putURL_json(CMD, url, json_dict_data):
     }
 
     # if data passed in as dict, convert to str
-    if type(json_dict_data) == dict:
+    if isinstance(json_dict_data, dict):
         json_dict_data = json.dumps(json_dict_data)
 
     try:
