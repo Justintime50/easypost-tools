@@ -7,7 +7,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/EasyPost/easypost-go/v2"
+	"github.com/EasyPost/easypost-go/v3"
 )
 
 /*
