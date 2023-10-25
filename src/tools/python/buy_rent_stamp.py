@@ -2,7 +2,7 @@ import os
 import sys
 
 import easypost
-import slack
+import slack_sdk
 from dotenv import load_dotenv
 
 
@@ -68,14 +68,14 @@ class RentPostage:
     @staticmethod
     def slack_message(message):
         """Send Slack messages via a bot."""
-        slack_client = slack.WebClient(SLACK_BOT_TOKEN)
+        slack_client = slack_sdk.WebClient(SLACK_BOT_TOKEN)
         try:
             slack_client.chat_postMessage(
                 channel=SLACK_CHANNEL,
                 text=message,
             )
             print('Slack message sent!')
-        except slack.errors.SlackApiError as slack_error:
+        except slack_sdk.errors.SlackApiError as slack_error:
             sys.exit(slack_error)
 
 

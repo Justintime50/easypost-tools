@@ -12,7 +12,7 @@ REQUIREMENTS = [
     'PyPDF2 == 1.27.*',
     'python-dotenv == 1.*',
     'pyzbar == 0.1.*',
-    'slackclient == 2.*',
+    'slack-sdk == 3.*',
 ]
 
 DEV_REQUIREMENTS = [
