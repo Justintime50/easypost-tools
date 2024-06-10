@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: extractions/setup-just@v1
+      - uses: extractions/setup-just@v2
       - uses: golangci/golangci-lint-action@v2
         with:
           working-directory: src/tools/golang
@@ -16,13 +16,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: extractions/setup-just@v1
+      - uses: extractions/setup-just@v2
       - run: just lint-html
   node:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: extractions/setup-just@v1
+      - uses: extractions/setup-just@v2
       - uses: actions/setup-node@v3
         with:
           node-version: '20'
@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: extractions/setup-just@v1
+      - uses: extractions/setup-just@v2
       - uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
@@ -40,8 +40,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+<<<<<<< Updated upstream
       - uses: extractions/setup-just@v1
       - uses: actions/setup-python@v4
+=======
+      - uses: extractions/setup-just@v2
+      - uses: actions/setup-python@v3
+>>>>>>> Stashed changes
         with:
           python-version: '3.12'
       - run: just install-python lint-python
