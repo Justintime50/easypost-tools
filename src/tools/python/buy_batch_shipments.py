@@ -10,19 +10,20 @@ from dotenv import load_dotenv
 # Usage: venv/bin/python buy_batch_shipments.py
 
 load_dotenv()
-easypost.api_key = os.getenv('EASYPOST_TEST_API_KEY')
+API_KEY = os.getenv("EASYPOST_TEST_API_KEY")
+client = easypost.EasyPostClient(API_KEY)
 
 
 def buy_lowest_rate(shipment):
     try:
-        shp = easypost.Shipment.retrieve(shipment.id)
+        shp = client.shipment.retrieve(shipment.id)
         shp.buy(rate=shp.lowest_rate())
         print(f'{shp.id} bought!')
     except Exception as error:
         print(error)
 
 
-batch = easypost.Batch.retrieve('batch_123...')
+batch = client.batch.retrieve('batch_123...')
 
 for shipment in batch.shipments:
     time.sleep(0.1)

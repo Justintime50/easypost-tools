@@ -17,22 +17,22 @@ FILE_NAME = 'shipment_id_list.txt'
 def main():
     """Run the script to iterate shipments and scanform each."""
     print('Creating multiple shipments...')
-    easypost.api_key = API_KEY
-    iterate_creating_shipments()
+    client = easypost.EasyPostClient(API_KEY)
+    iterate_creating_shipments(client)
     print(f'Multiple shipments created, check {FILE_NAME}.')
 
 
-def iterate_creating_shipments():
+def iterate_creating_shipments(client):
     """Iterate x number of times and create shipments."""
     i = 0
     while i < SHIPMENT_NUM:
-        Thread(target=create_shipment).start()
+        Thread(target=create_shipment, args=(client,)).start()
         time.sleep(0.5)
         i += 1
 
 
-def create_shipment():
-    shipment = easypost.Shipment.create(
+def create_shipment(client):
+    shipment = client.shipment.create(
         to_address={
             'name': 'Dr. Steve Brule',
             'street1': '179 N Harbor Dr',

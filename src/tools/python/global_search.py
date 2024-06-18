@@ -6,46 +6,47 @@ from dotenv import load_dotenv
 
 
 # Globally search for any EasyPost record
-# Usage: ID=shp_123... venv/bin/python global_search.py
+# Usage: EASYPOST_TEST_API_KEY=123 ID=shp_123... venv/bin/python global_search.py
 
+API_KEY = os.getenv('EASYPOST_TEST_API_KEY')
 ID = os.getenv('ID')
 
 
 def main():
     load_dotenv()
-    easypost.api_key = os.getenv('EASYPOST_TEST_API_KEY')
+    client = easypost.EasyPostClient(API_KEY)
 
-    record = search()
+    record = search(client)
     print(record)
 
 
-def search():
+def search(client):
     """Retrieve various EasyPost records based on the ID prefix"""
     prefix_search = re.compile(r'^[^_]*')
     prefix = re.search(prefix_search, ID).group(0)
 
     record_lookup = {
-        'adr': easypost.Address.retrieve,
-        'sf': easypost.ScanForm.retrieve,
-        'evt': easypost.Event.retrieve,
-        'cstitem': easypost.CustomsItem.retrieve,
-        'cstinfo': easypost.CustomsInfo.retrieve,
-        'prcl': easypost.Parcel.retrieve,
-        'shp': easypost.Shipment.retrieve,
-        'ins': easypost.Insurance.retrieve,
-        'rate': easypost.Rate.retrieve,
-        'batch': easypost.Batch.retrieve,
-        'trk': easypost.Tracker.retrieve,
-        'order': easypost.Order.retrieve,
-        'pickup': easypost.Pickup.retrieve,
-        'ca': easypost.CarrierAccount.retrieve,
-        'user': easypost.User.retrieve,
-        'shprep': easypost.Report.retrieve,
-        'plrep': easypost.Report.retrieve,
-        'trkrep': easypost.Report.retrieve,
-        'refrep': easypost.Report.retrieve,
-        'shpinvrep': easypost.Report.retrieve,
-        'hook': easypost.Webhook.retrieve,
+        'adr': client.address.retrieve,
+        'batch': client.batch.retrieve,
+        'ca': client.carrier_account.retrieve,
+        'cstinfo': client.customs_info.retrieve,
+        'cstitem': client.customs_item.retrieve,
+        'evt': client.event.retrieve,
+        'hook': client.webhook.retrieve,
+        'ins': client.insurance.retrieve,
+        'order': client.order.retrieve,
+        'pickup': client.pickup.retrieve,
+        'plrep': client.report.retrieve,
+        'prcl': client.parcel.retrieve,
+        'rate': client.rate.retrieve,
+        'refrep': client.report.retrieve,
+        'sf': client.scan_form.retrieve,
+        'shp': client.shipment.retrieve,
+        'shpinvrep': client.report.retrieve,
+        'shprep': client.report.retrieve,
+        'trk': client.tracker.retrieve,
+        'trkrep': client.report.retrieve,
+        'user': client.user.retrieve,
     }
 
     try:

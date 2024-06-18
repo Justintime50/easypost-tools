@@ -6,11 +6,11 @@ from dotenv import load_dotenv
 
 
 # A perfect use case for this script would be rebuilding an env file with all your carrier account IDs
-# USAGE: API_KEY=123... venv/bin/python build_carrier_env_file.py > carriers.env
+# USAGE: EASYPOST_PROD_API_KEY=123... venv/bin/python build_carrier_env_file.py > carriers.env
 
 
 load_dotenv()
-URL = os.getenv('URL', 'https://api.easypost.com/v2')
+API_KEY = os.getenv('EASYPOST_PROD_API_KEY')
 
 
 def main():
@@ -24,10 +24,9 @@ def main():
 
 def get_carrier_accounts():
     """Get the list of carrier accounts from the EasyPost API."""
-    easypost.api_key = os.getenv('EASYPOST_PROD_API_KEY')
-    easypost.api_base = URL
+    client = easypost.EasyPostClient(API_KEY)
+    carrier_accounts = client.carrier_account.all()
 
-    carrier_accounts = easypost.CarrierAccount.all()
     return carrier_accounts
 
 

@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 # You must pass in the mode you want the API key created for. You must use your API key of the same mode to authenticate
 
 load_dotenv()
-API_KEY = os.getenv("EASYPOST_PROD_API_KEY")
+API_KEY = os.getenv("API_KEY")
 
 ascii_encoded_api_key = API_KEY.encode('ascii')
 base64_bytes = base64.b64encode(ascii_encoded_api_key)

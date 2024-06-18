@@ -16,44 +16,52 @@ from dotenv import load_dotenv
 # (flags) such as only showing shipments from a list with certain
 # criteria such as a statuses that aren't `created`
 
+API_KEY = os.getenv("EASYPOST_TEST_API_KEY")
+
 
 def main():
     """Run the script to iterate shipments and return data on
     scanforms if any
     """
     load_dotenv()
-    easypost.api_key = os.getenv('EASYPOST_TEST_API_KEY')
+    client = easypost.EasyPostClient(API_KEY)
 
-    batch = retrieve_batch()
+    batch = retrieve_batch(client)
     print(f'Batch Status: {batch.get("status")}')
     print('Shipment\'s Scanform Data from Batch:')
 
-    iterate_shipments_in_batch(batch)
+    iterate_shipments_in_batch(client, batch)
 
 
-def retrieve_batch():
+def retrieve_batch(client):
     """Retrieve an EasyPost Batch"""
     try:
-        batch = easypost.Batch.retrieve(os.getenv('BATCH'))
+        batch = client.batch.retrieve(os.getenv('BATCH'))
     except Exception as error:
         sys.exit(f'Could not retrieve Batch: {error}')
     return batch
 
 
-def iterate_shipments_in_batch(batch):
+def iterate_shipments_in_batch(client, batch):
     """Iterate over each shipment in a batch and grab its scanform data"""
     for shipment in batch.get('shipments'):
-        Thread(target=retrieve_shipment_scanform_data, args=(shipment.id,)).start()
+        Thread(
+            target=retrieve_shipment_scanform_data,
+            args=(
+                client,
+                shipment.id,
+            ),
+        ).start()
         time.sleep(0.2)
         # TODO: Add data to a list here
 
 
-def retrieve_shipment_scanform_data(shipment_id):
+def retrieve_shipment_scanform_data(client, shipment_id):
     """Returns shipment data about scanforms that are associated
     with the batch
     """
     try:
-        shipment = easypost.Shipment.retrieve(shipment_id)
+        shipment = client.shipment.retrieve(shipment_id)
     except Exception as error:
         sys.exit(f'Could not retrieve Shipment: {error}')
 

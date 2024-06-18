@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 # Buy Rent Stamp
 # Automate paying your rent with EasyPost by purchasing a stamp and sending the label to Slack.
 
-EASYPOST_TEST_API_KEY = os.getenv('EASYPOST_TEST_API_KEY')
+API_KEY = os.getenv('EASYPOST_PROD_API_KEY')
 USPS_CARRIER_ACCOUNT_ID = os.getenv('USPS_CARRIER_ACCOUNT_ID')
 SLACK_BOT_TOKEN = os.getenv('SLACK_BOT_TOKEN')
 SLACK_CHANNEL = os.getenv('SLACK_CHANNEL')
@@ -28,9 +28,9 @@ class RentPostage:
     def buy_label():
         """Buy the label (stamp) from EasyPost."""
         load_dotenv()
-        easypost.api_key = EASYPOST_TEST_API_KEY
+        client = easypost.EasyPostClient(API_KEY)
         try:
-            shipment = easypost.Shipment.create(
+            shipment = client.shipment.create(
                 to_address={
                     'street1': '417 Montgomery Street',
                     'street2': 'FLOOR 5',

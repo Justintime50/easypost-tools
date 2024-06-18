@@ -6,11 +6,10 @@ import easypost
 
 
 # Builds a file containing every cURL request to add a Carrier Account via EasyPost
-# USAGE: API_KEY=123... venv/bin/python build_carrier_curl_requests.py > carrier_curl_requests.sh
+# USAGE: EASYPOST_PROD_API_KEY=123... venv/bin/python build_carrier_curl_requests.py > carrier_curl_requests.sh
 # You can use `INDIVIDUAL_FILES=true` to create individual files
 
-URL = os.getenv('URL', 'https://api.easypost.com/v2')
-API_KEY = os.getenv('API_KEY')
+API_KEY = os.getenv('EASYPOST_PROD_API_KEY')
 INDIVIDUAL_FILES = bool(os.getenv('INDIVIDUAL_FILES', False))
 LINE_BREAK_CHARS = ' \\\n'
 END_CHARS = '\n'
@@ -49,9 +48,8 @@ def main():
 
 def get_carrier_types():
     """Get the carrier_types from the EasyPost API."""
-    easypost.api_key = API_KEY
-    easypost.api_base = URL
-    carrier_accounts = easypost.CarrierAccount.types()
+    client = easypost.EasyPostClient(API_KEY)
+    carrier_accounts = client.carrier_account.types()
 
     return carrier_accounts
 
