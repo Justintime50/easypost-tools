@@ -44,5 +44,5 @@ setuptools.setup(
     extras_require={
         'dev': DEV_REQUIREMENTS,
     },
-    python_requires='>=3.8, <4',
+    python_requires='>=3.9, <4',
 )
