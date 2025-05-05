@@ -51,7 +51,7 @@ class HooksCLI:
         parser.parse_args(namespace=self)
         logging.basicConfig(level=logging.DEBUG)
 
-        global API, ADDRESS, PORT, LOG, DEBUG
+        global ADDRESS, PORT, LOG, DEBUG
         ADDRESS = self.address
         PORT = self.port
         LOG = self.log
