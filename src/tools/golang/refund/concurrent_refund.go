@@ -37,7 +37,7 @@ func main() {
 	// Open CSV file
 	csvFile, _ := os.Open(os.Getenv("CSV"))
 	reader := csv.NewReader(csvFile)
-	defer csvFile.Close()
+	defer func() { _ = csvFile.Close() }()
 
 	lines, error := reader.ReadAll()
 	if error != nil {
