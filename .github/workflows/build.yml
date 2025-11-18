@@ -6,49 +6,50 @@ jobs:
   golang:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: extractions/setup-just@v2
-      - uses: golangci/golangci-lint-action@v2
+      - uses: actions/checkout@v5
+      - uses: extractions/setup-just@v3
+      - uses: golangci/golangci-lint-action@v9
         with:
+          version: v2.6.1
           working-directory: src/tools/golang
       - run: just install-golang
   html:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: extractions/setup-just@v2
+      - uses: actions/checkout@v5
+      - uses: extractions/setup-just@v3
       - run: just lint-html
   node:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: extractions/setup-just@v2
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v5
+      - uses: extractions/setup-just@v3
+      - uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '24'
       - run: just install-node lint-node
   php:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: extractions/setup-just@v2
+      - uses: actions/checkout@v5
+      - uses: extractions/setup-just@v3
       - uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.2'
+          php-version: '8.4'
       - run: just install-php lint-php
   python:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: extractions/setup-just@v2
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: extractions/setup-just@v3
+      - uses: actions/setup-python@v6
         with:
-          python-version: '3.13'
+          python-version: '3.14'
       - run: just install-python lint-python
   sh-checker:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: luizm/action-sh-checker@master
         env:
           SHFMT_OPTS: -i 4 -d

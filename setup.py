@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 REQUIREMENTS = [
     'beautifulsoup4 == 4.*',
-    'easypost == 9.*',
+    'easypost == 10.*',
     'flask == 3.*',
     'Pillow == 10.*',
     'PyPDF2 == 1.27.*',
@@ -15,9 +15,9 @@ REQUIREMENTS = [
 ]
 
 DEV_REQUIREMENTS = [
-    'black == 24.*',
+    'black == 25.*',
     'flake8 == 7.*',
-    'isort == 5.*',
+    'isort == 7.*',
 ]
 
 setuptools.setup(
