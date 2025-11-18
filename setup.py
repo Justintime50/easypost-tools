@@ -8,7 +8,7 @@ REQUIREMENTS = [
     'beautifulsoup4 == 4.*',
     'easypost == 10.*',
     'flask == 3.*',
-    'Pillow == 10.*',
+    'Pillow == 12.*',
     'PyPDF2 == 1.27.*',
     'python-dotenv == 1.*',
     'pyzbar == 0.1.*',
