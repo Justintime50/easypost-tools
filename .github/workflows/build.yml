@@ -41,7 +41,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: justintime50/composite-actions/bootstrap-python@v1
-
         with:
           python-version: '3.14'
       - run: just install-python lint-python
