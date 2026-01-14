@@ -13,12 +13,12 @@ from PyPDF2 import PdfFileReader
 
 class Cli:
     def __init__(self):
-        parser = argparse.ArgumentParser(description='Get details of various label formats')
+        parser = argparse.ArgumentParser(description="Get details of various label formats")
         parser.add_argument(
-            '-p',
-            '--path',
+            "-p",
+            "--path",
             required=True,
-            help='Path to the label file.',
+            help="Path to the label file.",
         )
         parser.parse_args(namespace=self)
 
@@ -31,24 +31,24 @@ class Cli:
 class LabelDetails:
     def main(path):
         label_details = {
-            'png': LabelDetails.get_png_details,
-            'pdf': LabelDetails.get_pdf_details,
+            "png": LabelDetails.get_png_details,
+            "pdf": LabelDetails.get_pdf_details,
         }
-        file_extension = os.path.splitext(path)[1].replace('.', '').lower()
+        file_extension = os.path.splitext(path)[1].replace(".", "").lower()
         size_pixels, size_inches, dpi = label_details[file_extension.lower()](path)
 
         console_output = (
-            f'Label: {os.path.basename(path)}\n'
-            f'Format: {file_extension.upper()}\n'
-            f'Pixels: {size_pixels}\n'
-            f'Inches: {size_inches}\n'
-            f'DPI: {dpi}'
+            f"Label: {os.path.basename(path)}\n"
+            f"Format: {file_extension.upper()}\n"
+            f"Pixels: {size_pixels}\n"
+            f"Inches: {size_inches}\n"
+            f"DPI: {dpi}"
         )
         print(console_output)
 
     def get_png_details(path):
         png = Image.open(path)
-        dpi = png.info.get('dpi')  # Some images may have meta data stripped so we have a fallback here
+        dpi = png.info.get("dpi")  # Some images may have meta data stripped so we have a fallback here
 
         # Size in pixels
         width_pixels, height_pixels = png.size
@@ -58,16 +58,16 @@ class LabelDetails:
         height_inches = (height_pixels / dpi[1]) if dpi else None
 
         # Format for console
-        png_size_pixels = f'{width_pixels}x{height_pixels}'
+        png_size_pixels = f"{width_pixels}x{height_pixels}"
         png_size_inches = (
-            f'{round(width_inches, 1)}x{round(height_inches, 1)}' if width_inches and height_inches else None
+            f"{round(width_inches, 1)}x{round(height_inches, 1)}" if width_inches and height_inches else None
         )
         png_dpi = dpi[0] if dpi else None
 
         return png_size_pixels, png_size_inches, png_dpi
 
     def get_pdf_details(path):
-        pdf = PdfFileReader(open(path, 'rb'))
+        pdf = PdfFileReader(open(path, "rb"))
         pdf_details = pdf.getPage(0).mediaBox
         dpi = 72  # For PDFs, 72 points = 1in
 
@@ -80,12 +80,12 @@ class LabelDetails:
         height_inches = float(height_pixels) / dpi
 
         # Format for console
-        pdf_size_pixels = f'{width_pixels}x{height_pixels}'
-        pdf_size_inches = f'{round(width_inches, 1)}x{round(height_inches, 1)}'
+        pdf_size_pixels = f"{width_pixels}x{height_pixels}"
+        pdf_size_inches = f"{round(width_inches, 1)}x{round(height_inches, 1)}"
         pdf_dpi = dpi
 
         return pdf_size_pixels, pdf_size_inches, pdf_dpi
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     Cli().run()

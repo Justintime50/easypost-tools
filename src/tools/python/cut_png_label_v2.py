@@ -13,8 +13,8 @@ sizes = [
     (1200, 800),
     (1800, 1200),  # 6x4 - 200 dpi, 300 dpi
 ]
-for fn in Path('~/Downloads/label').expanduser().glob('*.png'):
-    if re.search(r'[a-f0-9]{32}\.png', fn.name) is not None:
+for fn in Path("~/Downloads/label").expanduser().glob("*.png"):
+    if re.search(r"[a-f0-9]{32}\.png", fn.name) is not None:
         im = Image.open(str(fn))
         w, h = im.size
         # determine if our image size can be 'cropped' to one of the standard sizes
@@ -32,20 +32,20 @@ for fn in Path('~/Downloads/label').expanduser().glob('*.png'):
                 valid = True
                 break
         if valid:
-            print(f'{fn.name}, ({w}, {h})')
+            print(f"{fn.name}, ({w}, {h})")
             if w > h:  # assume that the image is multi-part, horizontal
                 width_per_page = w // num_pages
                 for i in range(num_pages):
                     # l, u, r, l
                     im_part = im.crop((i * width_per_page, 0, width_per_page * (i + 1), h))
-                    name = fn.parent / f'{fn.stem}_{i+1}.png'
-                    print(f'Saving pg {i+1} of {num_pages} to "{name}"...')
+                    name = fn.parent / f"{fn.stem}_{i + 1}.png"
+                    print(f'Saving pg {i + 1} of {num_pages} to "{name}"...')
                     im_part.save(str(name))
             else:
                 true_h = h // num_pages
                 for i in range(num_pages):
                     # left, u, r, lower
                     im_part = im.crop((0, i * true_h, w, (i + 1) * true_h))
-                    name = fn.parent / f'{fn.stem}_{i+1}.png'
-                    print(f'Saving pg {i+1} of {num_pages} to "{name}"...')
+                    name = fn.parent / f"{fn.stem}_{i + 1}.png"
+                    print(f'Saving pg {i + 1} of {num_pages} to "{name}"...')
                     im_part.save(str(name))

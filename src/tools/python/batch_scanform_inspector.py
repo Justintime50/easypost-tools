@@ -27,8 +27,8 @@ def main():
     client = easypost.EasyPostClient(API_KEY)
 
     batch = retrieve_batch(client)
-    print(f'Batch Status: {batch.get("status")}')
-    print('Shipment\'s Scanform Data from Batch:')
+    print(f"Batch Status: {batch.get('status')}")
+    print("Shipment's Scanform Data from Batch:")
 
     iterate_shipments_in_batch(client, batch)
 
@@ -36,15 +36,15 @@ def main():
 def retrieve_batch(client):
     """Retrieve an EasyPost Batch"""
     try:
-        batch = client.batch.retrieve(os.getenv('BATCH'))
+        batch = client.batch.retrieve(os.getenv("BATCH"))
     except Exception as error:
-        sys.exit(f'Could not retrieve Batch: {error}')
+        sys.exit(f"Could not retrieve Batch: {error}")
     return batch
 
 
 def iterate_shipments_in_batch(client, batch):
     """Iterate over each shipment in a batch and grab its scanform data"""
-    for shipment in batch.get('shipments'):
+    for shipment in batch.get("shipments"):
         Thread(
             target=retrieve_shipment_scanform_data,
             args=(
@@ -63,16 +63,16 @@ def retrieve_shipment_scanform_data(client, shipment_id):
     try:
         shipment = client.shipment.retrieve(shipment_id)
     except Exception as error:
-        sys.exit(f'Could not retrieve Shipment: {error}')
+        sys.exit(f"Could not retrieve Shipment: {error}")
 
     scanform_data = (
         {
-            'scanform_id': shipment['scan_form'].get('id'),
-            'scanform_status': shipment['scan_form'].get('status'),
-            'scanform_message': shipment['scan_form'].get('message'),
-            'scanform_url': shipment['scan_form'].get('form_url'),
+            "scanform_id": shipment["scan_form"].get("id"),
+            "scanform_status": shipment["scan_form"].get("status"),
+            "scanform_message": shipment["scan_form"].get("message"),
+            "scanform_url": shipment["scan_form"].get("form_url"),
         }
-        if shipment.get('scan_form')
+        if shipment.get("scan_form")
         else None
     )
 
@@ -83,5 +83,5 @@ def retrieve_shipment_scanform_data(client, shipment_id):
     # TODO: Return data here
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

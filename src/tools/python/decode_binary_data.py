@@ -6,7 +6,7 @@ import os
 # Perfect for decoding a binary ZPL label string
 # Usage: DATA='123...' venv/bin/python decode_binary_data.py
 
-DATA = os.getenv('DATA')
+DATA = os.getenv("DATA")
 
 
 def main():
@@ -14,5 +14,5 @@ def main():
     print(decoded_data)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 
 
 load_dotenv()
-API_KEY = os.getenv('EASYPOST_PROD_API_KEY')
+API_KEY = os.getenv("EASYPOST_PROD_API_KEY")
 
 
 def main():
@@ -35,9 +35,9 @@ def format_carriers_to_env(carriers):
     carriers_list = []
 
     for carrier in carriers:
-        carrier_name = carrier['readable'].upper()
-        formatted_carrier_name = re.sub('[()]+', '', carrier_name).replace(' ', '_')
-        env_variable_carrier_name = formatted_carrier_name + '=' + carrier['id']
+        carrier_name = carrier["readable"].upper()
+        formatted_carrier_name = re.sub("[()]+", "", carrier_name).replace(" ", "_")
+        env_variable_carrier_name = formatted_carrier_name + "=" + carrier["id"]
         carriers_list.append(env_variable_carrier_name)
 
     carriers_list.sort()
@@ -45,5 +45,5 @@ def format_carriers_to_env(carriers):
     return carriers_list
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

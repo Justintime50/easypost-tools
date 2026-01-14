@@ -8,15 +8,15 @@ import os
 
 # USAGE: FILE=myfile.json venv/bin/python sort_json_by_keys.py
 
-FILE = os.getenv('FILE')
+FILE = os.getenv("FILE")
 
 
 def main():
-    with open(FILE, 'r') as file:
+    with open(FILE, "r") as file:
         data = json.load(file)
 
     print(json.dumps(data, indent=4, sort_keys=True))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

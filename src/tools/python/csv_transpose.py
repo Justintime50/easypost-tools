@@ -14,15 +14,15 @@ class CSVTranspose:
             formatter_class=argparse.RawDescriptionHelpFormatter,
         )
         parser.add_argument(
-            '-f',
-            '--file',
-            help='Path to the CSV file to modify',
+            "-f",
+            "--file",
+            help="Path to the CSV file to modify",
             required=True,
         )
         parser.add_argument(
-            '-o',
-            '--outfile',
-            help='Path to save the modified CSV file',
+            "-o",
+            "--outfile",
+            help="Path to save the modified CSV file",
             required=True,
         )
         parser.parse_args(namespace=self)
@@ -41,12 +41,12 @@ class CSVTranspose:
 
         See: https://stackoverflow.com/a/4869245/865091
         """
-        with open(self.file, 'r') as f:
+        with open(self.file, "r") as f:
             reader = csv.reader(f)
 
             transposed_data = zip(*reader)
 
-            with open(self.outfile, 'w') as out:
+            with open(self.outfile, "w") as out:
                 writer = csv.writer(out)
                 writer.writerows(transposed_data)
 
@@ -55,5 +55,5 @@ def main():
     CSVTranspose().transpose()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

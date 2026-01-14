@@ -20,30 +20,10 @@ dependencies = [
     "python-dotenv ==1.*",
     "pyzbar ==0.1.*",
 ]
-optional-dependencies = { dev = [
-    "black ==25.*",
-    "flake8 ==7.*",
-    "Flake8-pyproject == 1.2.*",
-    "isort ==7.*",
-] }
+optional-dependencies = { dev = ["ruff == 0.14.*"] }
 
 [tool.setuptools.packages.find]
 exclude = ["examples", "test"]
 
-[tool.black]
+[tool.ruff]
 line-length = 120
-
-[tool.isort]
-profile = "black"
-line_length = 120
-indent = 4
-force_grid_wrap = 2
-multi_line_output = 3
-sections = "FUTURE,STDLIB,THIRDPARTY,FIRSTPARTY,LOCALFOLDER"
-lines_after_imports = 2
-include_trailing_comma = true
-use_parentheses = true
-
-[tool.flake8]
-max-line-length = 120
-extend-ignore = "E203"

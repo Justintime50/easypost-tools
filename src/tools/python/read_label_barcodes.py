@@ -11,7 +11,7 @@ from pyzbar.pyzbar import decode
 # Usage: LABEL_PATH=path/to/label.png venv/bin/python read_label_barcodes.py
 
 
-LABEL_PATH = os.getenv('LABEL_PATH')
+LABEL_PATH = os.getenv("LABEL_PATH")
 
 
 def main():
@@ -30,5 +30,5 @@ def decode_image_barcodes(image):
     return barcode_data
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

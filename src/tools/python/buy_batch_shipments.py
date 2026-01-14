@@ -18,12 +18,12 @@ def buy_lowest_rate(shipment):
     try:
         shp = client.shipment.retrieve(shipment.id)
         shp.buy(rate=shp.lowest_rate())
-        print(f'{shp.id} bought!')
+        print(f"{shp.id} bought!")
     except Exception as error:
         print(error)
 
 
-batch = client.batch.retrieve('batch_123...')
+batch = client.batch.retrieve("batch_123...")
 
 for shipment in batch.shipments:
     time.sleep(0.1)

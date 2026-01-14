@@ -2,7 +2,7 @@ import json
 import os
 
 
-UGLY_JSON = os.getenv('UGLY_JSON')
+UGLY_JSON = os.getenv("UGLY_JSON")
 
 
 def main():
@@ -10,5 +10,5 @@ def main():
     print(out)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

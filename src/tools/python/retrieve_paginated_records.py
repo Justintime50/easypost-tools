@@ -17,11 +17,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-API_KEY = os.getenv('EASYPOST_TEST_API_KEY')
-START_DATE = os.getenv('START_DATE', '2020-05-01T00:00:00Z')
-END_DATE = os.getenv('END_DATE', '2020-06-02T00:00:00Z')
-PAGE_SIZE = os.getenv('PAGE_SIZE', 100)  # The EasyPost API maxes out at 100 records per page
-RECORDS_TO_FILTER = os.getenv('FILTER')  # Provide a comma-separated string of record IDs to filter by
+API_KEY = os.getenv("EASYPOST_TEST_API_KEY")
+START_DATE = os.getenv("START_DATE", "2020-05-01T00:00:00Z")
+END_DATE = os.getenv("END_DATE", "2020-06-02T00:00:00Z")
+PAGE_SIZE = os.getenv("PAGE_SIZE", 100)  # The EasyPost API maxes out at 100 records per page
+RECORDS_TO_FILTER = os.getenv("FILTER")  # Provide a comma-separated string of record IDs to filter by
 
 
 def main():
@@ -30,11 +30,11 @@ def main():
     all_records, num_of_pages = get_paginated_records(client)
 
     for record in all_records:
-        formatted_records_to_filter = RECORDS_TO_FILTER.lower().split(',') if RECORDS_TO_FILTER else ''
+        formatted_records_to_filter = RECORDS_TO_FILTER.lower().split(",") if RECORDS_TO_FILTER else ""
         if not RECORDS_TO_FILTER or (RECORDS_TO_FILTER and record.id in formatted_records_to_filter):
-            print(f'{record.id}: {record.created_at}')
+            print(f"{record.id}: {record.created_at}")
 
-    print(f'Number of pages: {str(num_of_pages)}')
+    print(f"Number of pages: {str(num_of_pages)}")
 
     return all_records, num_of_pages
 
@@ -49,7 +49,7 @@ def get_paginated_records(client, all_records=[], last_record_id=None, num_of_pa
     )
 
     # TODO: Make this dynamic, can be items like ['scan_forms', 'shipments']
-    for record in records['scan_forms']:
+    for record in records["scan_forms"]:
         all_records.append(record)
 
     if records.has_more:
@@ -61,5 +61,5 @@ def get_paginated_records(client, all_records=[], last_record_id=None, num_of_pa
     return all_records, num_of_pages
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -1,14 +1,10 @@
-PYTHON_BINARY := "python3"
-VIRTUAL_ENV := "venv"
-VIRTUAL_BIN := VIRTUAL_ENV / "bin"
-
 # Install the project locally for all supported languages with their dependencies
 install: install-python install-golang install-node install-php install-shell
 
 # Install the Python dependencies and virtual env
 install-python:
-    {{PYTHON_BINARY}} -m venv {{VIRTUAL_ENV}}
-    {{VIRTUAL_BIN}}/pip install -e ."[dev]"
+    uv venv
+    uv pip install -e '.[dev]'
 
 # Install the Golang dependencies
 install-golang:
@@ -31,7 +27,7 @@ clean: clean-python clean-golang clean-node clean-php
 
 # Cleans the Python environment
 clean-python:
-    rm -rf {{VIRTUAL_ENV}} dist *.egg-info .coverage htmlcov .*cache
+    rm -rf .venv dist *.egg-info .coverage htmlcov .*cache
     find . -name '*.pyc' -delete
 
 # Cleans the Go environment
@@ -51,7 +47,8 @@ lint: lint-python lint-golang lint-node lint-php lint-shell lint-html
 
 # Lints the Python files
 lint-python:
-    venv/bin/flake8 src/tools/python
+    .venv/bin/ruff check src/tools/python
+    .venv/bin/ruff format --check src/tools/python
 
 # Lints the Golang files
 lint-golang:

@@ -6,7 +6,7 @@ jobs:
   golang:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: extractions/setup-just@v3
       - uses: golangci/golangci-lint-action@v9
         with:
@@ -16,13 +16,13 @@ jobs:
   html:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: extractions/setup-just@v3
       - run: just lint-html
   node:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: extractions/setup-just@v3
       - uses: actions/setup-node@v6
         with:
@@ -31,7 +31,7 @@ jobs:
   php:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: extractions/setup-just@v3
       - uses: shivammathur/setup-php@v2
         with:
@@ -40,16 +40,15 @@ jobs:
   python:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: extractions/setup-just@v3
-      - uses: actions/setup-python@v6
+      - uses: justintime50/composite-actions/bootstrap-python@v1
+
         with:
           python-version: '3.14'
       - run: just install-python lint-python
   sh-checker:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: luizm/action-sh-checker@master
         env:
           SHFMT_OPTS: -i 4 -d
