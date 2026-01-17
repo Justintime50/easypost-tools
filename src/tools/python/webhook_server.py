@@ -10,7 +10,6 @@ from flask import (
     request,
 )
 
-
 API = Flask(__name__)
 ADDRESS = None
 PORT = None

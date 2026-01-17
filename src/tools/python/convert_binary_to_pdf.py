@@ -1,7 +1,6 @@
 import base64
 import os
 
-
 # Convert a binary string to a PDF
 # Usage: BINARY_FILE=binary_label.txt venv/bin/python convert_binary_to_pdf.py
 

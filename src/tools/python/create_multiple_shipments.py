@@ -4,7 +4,6 @@ from threading import Thread
 
 import easypost
 
-
 # Create multiple shipments quickly, save their ID's to a file
 # Usage: EASYPOST_TEST_API_KEY=123... SHIPMENT_NUM=100 venv/bin/python create_multiple_shipments.py
 

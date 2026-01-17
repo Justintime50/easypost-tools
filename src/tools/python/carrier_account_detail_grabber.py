@@ -3,7 +3,6 @@ import os
 import easypost
 from dotenv import load_dotenv
 
-
 # Get the details of a carrier account by the carrier name.
 # Usage: EASYPOST_PROD_API_KEY=123 CARRIER_ACCOUNT_NAME=USPS venv/bin/python carrier_account_detail_grabber.py
 

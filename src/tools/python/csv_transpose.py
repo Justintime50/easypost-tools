@@ -1,7 +1,6 @@
 import argparse
 import csv
 
-
 # Transpose rows into columns and vice versa for a CSV
 # Attribution: [jontsai](https://github.com/jontsai)
 # Usage: venv/bin/python csv_transpose.py -f my_file.csv -o output.csv

@@ -4,7 +4,6 @@ import os
 import requests
 from dotenv import load_dotenv
 
-
 # Creates an API key for the authenticated user. Perfect for child users who do not have access to the dashboard
 # You must pass in the mode you want the API key created for. You must use your API key of the same mode to authenticate
 

@@ -2,7 +2,6 @@ import os
 
 import requests
 
-
 # Get the USPS Zone based off a destination and origin zip code
 # Usage: DESTINATION_ZIP=12345 ORIGIN_ZIP=54321 venv/bin/python usps_zone_lookup.py
 # Attribution: https://www.easypost.com/usps-zone-lookup

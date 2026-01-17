@@ -1,7 +1,6 @@
 import os
 import unicodedata as ud
 
-
 # Attribution: [roehnan](https://github.com/roehnan)
 # Iterate a file to find non-ascii characters
 

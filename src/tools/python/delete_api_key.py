@@ -4,7 +4,6 @@ import os
 import requests
 from dotenv import load_dotenv
 
-
 # Deletes an API key for the authenticated user. Perfect for child users who do not have access to the dashboard
 
 load_dotenv()

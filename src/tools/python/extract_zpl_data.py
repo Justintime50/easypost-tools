@@ -5,7 +5,6 @@ from PIL import (
     ImageOps,
 )
 
-
 # Extract the data of a binary ZPL label into a PNG equivalent
 # This is useful as converted ZPL labels contain binary data which Labelary cannot parse
 # NOTE: This script assumes you are using an EasyPost binary ZPL

@@ -4,7 +4,6 @@ import sys
 import requests
 from bs4 import BeautifulSoup
 
-
 # Scrape the ISO Country Codes @ https://en.wikipedia.org/wiki/ISO_3166-1
 # USAGE: venv/bin/python scrape_iso_country_codes.py
 

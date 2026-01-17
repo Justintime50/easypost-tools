@@ -3,7 +3,6 @@ import os
 import easypost
 from dotenv import load_dotenv
 
-
 # Retrieve a list of paginated records such as scanforms or shipments.
 # Because EasyPost paginates lists of records at a max of 100 items, you may at times need to iterate the pages.
 # This tool will combine all records between two dates and print their IDs and timestamps to console along with

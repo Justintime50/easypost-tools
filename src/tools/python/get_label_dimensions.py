@@ -4,7 +4,6 @@ import os
 from PIL import Image
 from PyPDF2 import PdfFileReader
 
-
 # Get Label Dimensions - get various label format dimensions in inches, pixels, and DPI
 # Calculate DPI (dots per inch) by dividing pixel width by inch width (eg: 1800px / 6in = 300 DPI)
 # Calculate label size in inches by dividing pixels by DPI (eg: 1800px / 300dpi = 6in)

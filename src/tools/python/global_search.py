@@ -4,7 +4,6 @@ import re
 import easypost
 from dotenv import load_dotenv
 
-
 # Globally search for any EasyPost record
 # Usage: EASYPOST_TEST_API_KEY=123 ID=shp_123... venv/bin/python global_search.py
 

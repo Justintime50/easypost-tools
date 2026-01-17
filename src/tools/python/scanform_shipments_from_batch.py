@@ -5,7 +5,6 @@ from threading import Thread
 import easypost
 from dotenv import load_dotenv
 
-
 # Iterate through shipments from a batch one by one and concurrently
 # scanform them. Great when you have a troubled batch and don't know
 # which shipments are bad.

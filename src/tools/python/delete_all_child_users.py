@@ -3,7 +3,6 @@ import os
 import easypost
 from dotenv import load_dotenv
 
-
 # Delete `all` records of a particular object
 # Usage: EASYPOST_PROD_API_KEY=123... venv/bin/python delete_all_child_users.py
 

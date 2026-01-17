@@ -3,7 +3,6 @@ from pathlib import Path
 
 from PIL import Image
 
-
 # Attribution: [roehnan](https://github.com/roehnan)
 # Cut a multi-page PNG label file into separate, single-page files
 

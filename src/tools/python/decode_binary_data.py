@@ -1,7 +1,6 @@
 import base64
 import os
 
-
 # Decode Binary Data
 # Perfect for decoding a binary ZPL label string
 # Usage: DATA='123...' venv/bin/python decode_binary_data.py
